@@ -5,6 +5,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 source $ZSH/oh-my-zsh.sh
 export TERM="xterm-256color"
 export WORKON_HOME=~/.virtualenvs
+export EDITOR="vim"
 source /usr/bin/virtualenvwrapper.sh
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
