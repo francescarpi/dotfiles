@@ -57,15 +57,15 @@ modkey = "Mod4"
 local layouts =
 {
     --awful.layout.suit.floating,
+    awful.layout.suit.max,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    awful.layout.suit.tile.top
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier
 }
@@ -216,6 +216,21 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
+
+    --- {{{ key volume
+    awful.key({}, "XF86AudioMute", function ()
+        awful.util.spawn("amixer set Master toggle")
+    end),
+
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+        awful.util.spawn("amixer set Master 9%+")
+    end),
+
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+        awful.util.spawn("amixer set Master 9%-")
+    end),
+    --- }}}
+
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -449,8 +464,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps = 
 { 
-   "dropbox start",
-   "cbatticon",
+    "killall cbatticon",
+    "cbatticon",
+    "dropbox start",
 }
 if autorun then
    for app = 1, #autorunApps do
