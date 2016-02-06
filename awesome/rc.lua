@@ -10,7 +10,11 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+
+-- custom widgets
 require("volume")
+require("battery")
+require("screen")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -90,15 +94,9 @@ end
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart }
-}
-
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal },
-                                    { "quit", awesome.quit }
+mymainmenu = awful.menu({ items = { { "shutdown", "shutdown -h now" },
+                                    { "reboot", "shutdown -r now" },
+                                    { "quit awesome", awesome.quit }
                                   }
                         })
 
@@ -192,7 +190,9 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(battery_widget)
     right_layout:add(volume_widget)
+    right_layout:add(screen_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -217,17 +217,30 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
 
-    --- {{{ key volume
+    --- {{{ custom key bindings...
     awful.key({}, "XF86AudioMute", function ()
         awful.util.spawn("amixer set Master toggle")
+        update_volume(volume_widget)
     end),
 
     awful.key({ }, "XF86AudioRaiseVolume", function ()
         awful.util.spawn("amixer set Master 9%+")
+        update_volume(volume_widget)
     end),
 
     awful.key({ }, "XF86AudioLowerVolume", function ()
         awful.util.spawn("amixer set Master 9%-")
+        update_volume(volume_widget)
+    end),
+
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("xbacklight -dec 10")
+        update_screen(screen_widget)
+    end),
+
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("xbacklight -inc 10")
+        update_screen(screen_widget)
     end),
     --- }}}
 
@@ -464,8 +477,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps = 
 { 
-    "killall cbatticon",
-    "cbatticon",
     "dropbox start",
 }
 if autorun then

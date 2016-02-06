@@ -13,15 +13,12 @@ function update_volume(widget)
    status = string.match(status, "%[(o[^%]]*)%]")
 
    if string.find(status, "on", 1, true) then
-       volume = " <span color='white' background='green'> " .. volume .. " </span>"
+       volume = " <span color='white' background='green'> V: " .. volume .. "% </span>"
    else
-       volume = " <span color='white' background='red'> M </span>"
+       volume = " <span color='white' background='red'> V: M </span>"
    end
    widget:set_markup(volume)
 end
 
 update_volume(volume_widget)
 
-mytimer = timer({ timeout = 1 })
-mytimer:connect_signal("timeout", function () update_volume(volume_widget) end)
-mytimer:start()
