@@ -1,0 +1,8 @@
+[user]
+	email = francesc.arpi@gmail.com
+	name = Francesc Arpi
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
