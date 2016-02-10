@@ -1,0 +1,301 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/farpi/
+	..
+1454520509
+'b
+	/home/farpi/bin/
+	..
+1454520509
+'d
+	/home/farpi/Downloads
+	..
+1454768112
+'h
+	/home/farpi/
+	..
+1454520509
+'m
+	/mnt
+	Contratos
+1454562504
+'z
+	/home/farpi/.config/vifm
+	..
+1454520509
+
+# Bookmarks:
+
+# TUI:
+ar
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/farpi
+	Dropbox
+3
+d/home/farpi/Dropbox
+	..
+0
+d/home/farpi
+	..
+0
+d/home
+	..
+0
+d/
+	mnt
+8
+d/mnt
+	..
+0
+d
+
+# Right window history (oldest to newest):
+D/home/farpi
+	Documents
+3
+D/home/farpi/Documents
+	Arduino
+1
+D/home/farpi/Documents/Arduino
+	..
+0
+D/home/farpi/Documents
+	..
+0
+D/home/farpi
+	Downloads
+4
+D/home/farpi/Downloads
+	..
+0
+D/home/farpi
+	Documents
+3
+D/home/farpi/Documents
+	Llibres
+4
+D/home/farpi/Documents/Llibres
+	..
+0
+D/home/farpi/Documents
+	..
+0
+D/home/farpi
+	Downloads
+4
+D/home/farpi/Downloads
+	..
+0
+D/home/farpi
+	Downloads
+4
+D/home/farpi/Downloads
+	..
+0
+D/home/farpi
+	Desktop
+3
+D/home/farpi/Desktop
+	..
+0
+D/home/farpi
+	Desktop
+3
+D/home/farpi/Desktop
+	..
+0
+D/home/farpi
+	Ardour
+2
+D/home
+	..
+0
+D/
+	home
+4
+D/home
+	..
+0
+D/
+	home
+4
+D/home
+	farpi
+1
+D/home/farpi
+	Desktop
+3
+D/home/farpi/Desktop
+	ttf-tahoma
+1
+D/home/farpi
+	Dropbox
+6
+D/home/farpi/Dropbox
+	cesc_carnet.png
+17
+D/home/farpi
+	Dropbox
+6
+D/home/farpi/Dropbox
+	cesc_carnet.png
+17
+D/home/farpi
+	Dropbox
+6
+D/home/farpi/Dropbox
+	passdb
+13
+D/home/farpi/Dropbox/passdb
+	ikeepass.kdb
+2
+D/home/farpi/Dropbox
+	passdb
+13
+D/home/farpi
+	Downloads
+5
+D/home
+	farpi
+1
+D/
+	home
+4
+D/home
+	farpi
+1
+D/home/farpi
+	Documents
+4
+D/home/farpi/Documents
+	Llibres
+4
+D/home/farpi/Documents/Llibres
+	Practical Vim.pdf
+3
+D/home/farpi/Documents
+	Contratos
+2
+D/home/farpi/Documents/Contratos
+	contrato.doc
+1
+D/home/farpi/Documents
+	Contratos
+2
+D/home/farpi
+	Desktop
+3
+D/home/farpi/Desktop
+	ttf-tahoma
+1
+D/home/farpi
+	Desktop
+3
+D/home/farpi/Desktop
+	ttf-tahoma
+1
+D/home/farpi/Desktop/ttf-tahoma
+	..
+0
+D/home/farpi/Desktop
+	ttf-tahoma
+1
+D/home/farpi
+	Dropbox
+5
+D/home/farpi/Dropbox
+	Fons de pantalla
+5
+D/home/farpi/Dropbox/Fons de pantalla
+	001_1920_1080.jpg
+1
+D
+
+# Command line history (oldest to newest):
+:h
+:wq
+:help
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/farpi/.local/share/vifm/Trash/000_Desktop
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/farpi/.local/share/vifm/Trash/000_catalyst
+	/home/farpi/Downloads/catalyst
+t/home/farpi/.local/share/vifm/Trash/000_catalyst-utils
+	/home/farpi/Downloads/catalyst-utils
+t/home/farpi/.local/share/vifm/Trash/000_FoxitReader.enu.setup.x64.1.0.1.0925(r189237).run
+	/home/farpi/Downloads/FoxitReader.enu.setup.x64.1.0.1.0925(r189237).run
+t/home/farpi/.local/share/vifm/Trash/000_FoxitReader1.01.0925_Server_x64_enu_Setup.run.tar.gz
+	/home/farpi/Downloads/FoxitReader1.01.0925_Server_x64_enu_Setup.run.tar.gz
+t/home/farpi/.local/share/vifm/Trash/000_cnijfilter2-source-5.20-1
+	/home/farpi/Downloads/cnijfilter2-source-5.20-1
+t/home/farpi/.local/share/vifm/Trash/000_Oracle_VM_VirtualBox_Extension_Pack-5.0.14-105127.vbox-extpack
+	/home/farpi/Downloads/Oracle_VM_VirtualBox_Extension_Pack-5.0.14-105127.vbox-extpack
+t/home/farpi/.local/share/vifm/Trash/000_Orientacions matricula per estudiants 20152.pdf
+	/home/farpi/Downloads/Orientacions matricula per estudiants 20152.pdf
+t/home/farpi/.local/share/vifm/Trash/000_cnijfilter2-5.20-1-deb.tar.gz
+	/home/farpi/Downloads/cnijfilter2-5.20-1-deb.tar.gz
+t/home/farpi/.local/share/vifm/Trash/000_cnijfilter2-source-5.20-1.tar.gz
+	/home/farpi/Downloads/cnijfilter2-source-5.20-1.tar.gz
+t/home/farpi/.local/share/vifm/Trash/000_Breeze-Default
+	/home/farpi/Downloads/Breeze-Default
+t/home/farpi/.local/share/vifm/Trash/000_ZukiShell
+	/home/farpi/Downloads/ZukiShell
+t/home/farpi/.local/share/vifm/Trash/000_Zukitwo
+	/home/farpi/Downloads/Zukitwo
+t/home/farpi/.local/share/vifm/Trash/000_cnijfilter2-5.20-1-deb
+	/home/farpi/Downloads/cnijfilter2-5.20-1-deb
+t/home/farpi/.local/share/vifm/Trash/000_140562-Zukitwo (1).zip
+	/home/farpi/Downloads/140562-Zukitwo (1).zip
+t/home/farpi/.local/share/vifm/Trash/000_140562-Zukitwo.zip
+	/home/farpi/Downloads/140562-Zukitwo.zip
+t/home/farpi/.local/share/vifm/Trash/000_Breeze-Default.tgz
+	/home/farpi/Downloads/Breeze-Default.tgz
+t/home/farpi/.local/share/vifm/Trash/000_COPYING
+	/home/farpi/Downloads/COPYING
+t/home/farpi/.local/share/vifm/Trash/000_INSTALL
+	/home/farpi/Downloads/INSTALL
+t/home/farpi/.local/share/vifm/Trash/000_README
+	/home/farpi/Downloads/README
+t/home/farpi/.local/share/vifm/Trash/000_archlinux-2016.02.01-dual (1).iso
+	/home/farpi/Downloads/archlinux-2016.02.01-dual (1).iso
+t/home/farpi/.local/share/vifm/Trash/000_archlinux-2016.02.01-dual.iso
+	/home/farpi/Downloads/archlinux-2016.02.01-dual.iso
+t/home/farpi/.local/share/vifm/Trash/000_cm-13.0-20160208-NIGHTLY-titan.zip
+	/home/farpi/Downloads/cm-13.0-20160208-NIGHTLY-titan.zip
+t/home/farpi/.local/share/vifm/Trash/000_panelbg.png
+	/home/farpi/Downloads/panelbg.png
+t/home/farpi/.local/share/vifm/Trash/000_twrp-3.0.0-0-titan.img
+	/home/farpi/Downloads/twrp-3.0.0-0-titan.img
+t/home/farpi/.local/share/vifm/Trash/000_Desktop
+	/home/farpi/Desktop
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
