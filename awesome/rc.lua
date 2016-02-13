@@ -15,6 +15,7 @@ local menubar = require("menubar")
 require("volume")
 require("battery")
 require("screen")
+require("trackpad")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -62,10 +63,10 @@ local layouts =
 {
     --awful.layout.suit.floating,
     awful.layout.suit.max,
-    awful.layout.suit.tile,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.tile
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
@@ -193,6 +194,7 @@ for s = 1, screen.count() do
     right_layout:add(battery_widget)
     right_layout:add(volume_widget)
     right_layout:add(screen_widget)
+    right_layout:add(trackpad_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 

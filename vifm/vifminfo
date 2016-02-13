@@ -218,13 +218,22 @@ D/home/farpi/Dropbox
 D/home/farpi/Dropbox/Fons de pantalla
 	001_1920_1080.jpg
 1
+D/home/farpi
+	Dropbox
+6
+D/home/farpi/Dropbox
+	curriculum.pdf
+19
+D/home/farpi/Downloads
+	linux-rt
+1
 D
 
 # Command line history (oldest to newest):
 :h
-:wq
 :help
 :q
+:wq
 
 # Search history (oldest to newest):
 
@@ -233,7 +242,7 @@ D
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/farpi/.local/share/vifm/Trash/000_Desktop
+""/home/farpi/.local/share/vifm/Trash/000_reactnative.txt
 
 # Directory stack (oldest to newest):
 
@@ -288,6 +297,10 @@ t/home/farpi/.local/share/vifm/Trash/000_twrp-3.0.0-0-titan.img
 	/home/farpi/Downloads/twrp-3.0.0-0-titan.img
 t/home/farpi/.local/share/vifm/Trash/000_Desktop
 	/home/farpi/Desktop
+t/home/farpi/.local/share/vifm/Trash/000_chromium-pepper-flash
+	/home/farpi/Downloads/chromium-pepper-flash
+t/home/farpi/.local/share/vifm/Trash/000_reactnative.txt
+	/home/farpi/Downloads/reactnative.txt
 
 # State:
 f

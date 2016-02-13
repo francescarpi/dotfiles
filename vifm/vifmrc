@@ -161,7 +161,7 @@ command! reload :write | restart
 
 " Pdf
 " filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
-filextype *.pdf FoxitReader
+filextype *.pdf zathura
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
@@ -220,8 +220,7 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ mirage,
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm gpicview
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
          \ convert -identify %f -verbose /dev/null
 
