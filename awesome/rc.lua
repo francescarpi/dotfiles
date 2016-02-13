@@ -226,12 +226,12 @@ globalkeys = awful.util.table.join(
     end),
 
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-        awful.util.spawn("amixer set Master 9%+")
+        awful.util.spawn("amixer set Master 10%+")
         update_volume(volume_widget)
     end),
 
     awful.key({ }, "XF86AudioLowerVolume", function ()
-        awful.util.spawn("amixer set Master 9%-")
+        awful.util.spawn("amixer set Master 10%-")
         update_volume(volume_widget)
     end),
 
