@@ -476,6 +476,7 @@ autorun = true
 autorunApps = 
 { 
     "dropbox start",
+    "feh --bg-scale " .. os.getenv("HOME") .. "/Images/Backgrounds/default"
 }
 if autorun then
    for app = 1, #autorunApps do
