@@ -3,7 +3,8 @@ ZSH_THEME="farpi"
 plugins=(virtualenv)
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 source $ZSH/oh-my-zsh.sh
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
+export TERM="screen-256color"
 export WORKON_HOME=~/.virtualenvs
 export EDITOR="vim"
 source /usr/bin/virtualenvwrapper.sh

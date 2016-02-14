@@ -61,7 +61,6 @@ set noiec
 
 " Selected color scheme
 
-" colorscheme Default
 colorscheme desert
 
 " Format for displaying time in file list. For example:
