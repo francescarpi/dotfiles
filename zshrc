@@ -19,5 +19,5 @@ if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
   startx
 fi
 
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux
