@@ -11,9 +11,9 @@ function update_trackpad(widget)
 
    local value = tonumber(string.match(status, "= (%d)"))
    if value == 0 then
-     output = " <span color='green'> TP: OFF </span> "
+     output = " <span> TP: OFF </span> | "
    else
-     output = " <span color='green'> TP: ON </span> "
+     output = " <span> TP: ON </span> | "
    end
    widget:set_markup(output)
 end
