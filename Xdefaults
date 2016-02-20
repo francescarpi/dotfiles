@@ -1,0 +1,14 @@
+xterm*borderWidth:              0
+xterm*reverseVideo:             on
+xterm*faceSize:                 11
+xterm*faceName:                 Meslo LG S DZ for Powerline
+xterm*eightBitInput:            false
+xterm*selectToClipboard:        true
+xterm*fullscreen:               never
+xterm*saveLines:                16384
+
+xterm*pointerColor:             white
+xterm*pointerColorBackground:   black
+xterm*cursorColor:              yellow
+xterm*cursorBlink:              true
+

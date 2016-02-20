@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-export TERM="screen-256color"
+export TERM="xterm-256color"
 export EDITOR="vim"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
