@@ -7,3 +7,5 @@
 	ci = commit
 	st = status
 	last = log -l HEAD
+[push]
+	default = simple
