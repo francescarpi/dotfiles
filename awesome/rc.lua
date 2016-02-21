@@ -44,7 +44,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.dotfiles/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -472,9 +472,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps = 
 { 
-    "dropbox start",
-    "feh --bg-scale " .. os.getenv("HOME") .. "/Images/Backgrounds/default"
-    -- "xcompmgr -cF &"
+    "dropbox start"
 }
 if autorun then
    for app = 1, #autorunApps do
