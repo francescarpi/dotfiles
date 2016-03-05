@@ -1,0 +1,24 @@
+[global_config]
+  borderless = True
+  geometry_hinting = False
+  tab_position = hidden
+  title_transmit_bg_color = "#8d0493"
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#fffb00"
+    font = Meslo LG S DZ for Powerline 11
+    scrollbar_position = hidden
+    use_system_font = False
