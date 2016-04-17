@@ -1,2 +1,1 @@
-_JAVA_AWT_WM_NONREPARENTING=1
-exec awesome
+exec i3

@@ -10,6 +10,7 @@ source /usr/bin/virtualenvwrapper.sh
 
 export TERM="screen-256color"
 export EDITOR="vim"
+export ANDROID_HOME="/home/farpi/Applications/android-sdk-linux"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
 alias vim='nvim'
