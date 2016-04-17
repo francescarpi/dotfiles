@@ -154,3 +154,23 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Dropbox
+exec dropbox start
+
+# Lock screen
+bindsym $mod+b exec i3lock
+
+# Navigation
+workspace_auto_back_and_forth yes
+bindsym $mod+Tab workspace back_and_forth
+
+# Brightness
+bindcode --release 233 exec xbacklight -inc 5
+bindcode --release 232 exec xbacklight -dec 5
+
+# Audio
+bindcode --release 122 exec amixer set Master 1%-
+bindcode --release 123 exec amixer set Master 1%+
+bindcode --release 121 exec amixer set Master toggle
+
