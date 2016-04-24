@@ -1,27 +1,35 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-battery_widget = wibox.widget.textbox()
-battery_widget:set_align("right")
+local icon = wibox.widget.imagebox()
+local text = wibox.widget.textbox()
+local space = wibox.widget.textbox(" ")
 
-function update_battery(widget)
-   local fd = io.popen("acpi")
-   local status = fd:read("*all")
-   fd:close()
+battery_widget = wibox.layout.fixed.horizontal()
+battery_widget:add(space)
+battery_widget:add(icon)
+battery_widget:add(text)
 
-   local percent = tonumber(string.match(status, "(%d?%d?%d)%%"))
 
-    if percent <= 10 then
-       battery = " <span color='white' background='red'> B: " .. percent .. "% </span>"
-    else
-       battery = " <span color='white' background='green'> B: " .. percent .. "% </span>"
+function update_battery()
+    local fd = io.popen("acpi")
+    local status = fd:read("*all")
+    fd:close()
+
+    local percent = tonumber(string.match(status, "(%d?%d?%d)%%"))
+
+    text:set_text(" " .. percent .. "% ")
+
+    if percent >= 0 and percent <= 10 then
+        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-caution.png")
+    elseif percent > 10 and percent <= 25 then
+        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-low.png")
+    elseif percent > 25 and percent <= 75 then
+        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-good.png")
+    elseif percent> 75 then
+        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-full.png")
     end
 
-   widget:set_markup(battery)
 end
 
-update_battery(battery_widget)
-
-mytimer = timer({ timeout = 60 })
-mytimer:connect_signal("timeout", function () update_battery(battery_widget) end)
-mytimer:start()
+update_battery()

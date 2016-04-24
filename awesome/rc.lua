@@ -215,17 +215,6 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
 
-    -- awful.key({ }, "XF86MonBrightnessDown", function ()
-    --     awful.util.spawn("xbacklight -dec 10")
-    --     update_screen(screen_widget)
-    -- end),
-    --
-    -- awful.key({ }, "XF86MonBrightnessUp", function ()
-    --     awful.util.spawn("xbacklight -inc 10")
-    --     update_screen(screen_widget)
-    -- end),
-    -- --- }}}
-
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),

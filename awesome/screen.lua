@@ -1,16 +1,37 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-screen_widget = wibox.widget.textbox()
-screen_widget:set_align("right")
+local icon = wibox.widget.imagebox()
+icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/video-display.png")
 
-function update_screen(widget)
-   local fd = io.popen("xbacklight -get")
-   local percent = tonumber(fd:read("*all"))
-   fd:close()
+local text = wibox.widget.textbox()
+local space = wibox.widget.textbox(" ")
 
-   output = " <span color='white' background='green'> S: " .. string.format("%.0f", percent) .. "% </span>"
-   widget:set_markup(output)
+screen_widget = wibox.layout.fixed.horizontal()
+screen_widget:add(space)
+screen_widget:add(icon)
+screen_widget:add(text)
+
+function update_screen()
+    local fd = io.popen("xbacklight -get")
+    local percent = tonumber(fd:read("*all"))
+    fd:close()
+
+    text:set_text(" " .. string.format("%.0f", percent) .. "% ")
 end
 
-update_screen(screen_widget)
+update_screen()
+
+screen_widget:buttons(awful.util.table.join(
+
+    awful.button({ }, 5, function ()
+        awful.util.spawn("xbacklight -dec 10")
+        update_screen()
+    end),
+
+    awful.button({ }, 4, function ()
+        awful.util.spawn("xbacklight -inc 10")
+        update_screen()
+    end)
+
+))

@@ -1,9 +1,9 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-icon = wibox.widget.imagebox()
-text = wibox.widget.textbox()
-space = wibox.widget.textbox(" ")
+local icon = wibox.widget.imagebox()
+local text = wibox.widget.textbox()
+local space = wibox.widget.textbox(" ")
 
 volume_widget = wibox.layout.fixed.horizontal()
 volume_widget:add(space)
