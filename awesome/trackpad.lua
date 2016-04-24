@@ -1,21 +1,28 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-trackpad_widget = wibox.widget.textbox()
-trackpad_widget:set_align("right")
+local icon = wibox.widget.imagebox()
+local text = wibox.widget.textbox()
+local space = wibox.widget.textbox(" ")
 
-function update_trackpad(widget)
-   local fd = io.popen("synclient -l | grep TapButton1")
-   local status = fd:read("*all")
-   fd:close()
+icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/input-touchpad.png")
 
-   local value = tonumber(string.match(status, "= (%d)"))
-   if value == 0 then
-     output = " <span> TP: OFF </span> | "
-   else
-     output = " <span> TP: ON </span> | "
-   end
-   widget:set_markup(output)
+trackpad_widget = wibox.layout.fixed.horizontal()
+trackpad_widget:add(space)
+trackpad_widget:add(icon)
+trackpad_widget:add(text)
+
+function update_trackpad()
+    local fd = io.popen("synclient -l | grep TapButton1")
+    local status = fd:read("*all")
+    fd:close()
+
+    local value = tonumber(string.match(status, "= (%d)"))
+    if value == 0 then
+        text:set_text(" OFF ")
+    else
+        text:set_text(" ON ")
+    end
 end
 
 function trackpad_toggle()
@@ -37,5 +44,5 @@ trackpad_widget:buttons(awful.util.table.join(
     end)
 ))
 
-update_trackpad(trackpad_widget)
+update_trackpad()
 
