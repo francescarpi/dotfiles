@@ -1,13 +1,9 @@
--- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
--- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 
@@ -219,32 +215,16 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
 
-    --- {{{ custom key bindings...
-    awful.key({}, "XF86AudioMute", function ()
-        awful.util.spawn("amixer set Master toggle")
-        update_volume(volume_widget)
-    end),
-
-    awful.key({ }, "XF86AudioRaiseVolume", function ()
-        awful.util.spawn("amixer set Master 10%+")
-        update_volume(volume_widget)
-    end),
-
-    awful.key({ }, "XF86AudioLowerVolume", function ()
-        awful.util.spawn("amixer set Master 10%-")
-        update_volume(volume_widget)
-    end),
-
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("xbacklight -dec 10")
-        update_screen(screen_widget)
-    end),
-
-    awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("xbacklight -inc 10")
-        update_screen(screen_widget)
-    end),
-    --- }}}
+    -- awful.key({ }, "XF86MonBrightnessDown", function ()
+    --     awful.util.spawn("xbacklight -dec 10")
+    --     update_screen(screen_widget)
+    -- end),
+    --
+    -- awful.key({ }, "XF86MonBrightnessUp", function ()
+    --     awful.util.spawn("xbacklight -inc 10")
+    --     update_screen(screen_widget)
+    -- end),
+    -- --- }}}
 
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
