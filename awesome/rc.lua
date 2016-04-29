@@ -213,7 +213,7 @@ root.buttons(awful.util.table.join(
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = awful.util.table.join(
+globalkeys = awful.util.table.join(globalkeys,
 
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
