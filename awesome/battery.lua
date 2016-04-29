@@ -17,8 +17,9 @@ function update_battery()
     fd:close()
 
     local percent = tonumber(string.match(status, "(%d?%d?%d)%%"))
+    local remaining = string.match(status, ", (%d%d:%d%d)")
 
-    text:set_text(" " .. percent .. "% ")
+    text:set_text(" " .. percent .. "% " .. remaining .. "h ")
 
     if percent >= 0 and percent <= 5 then
         icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-caution.png")

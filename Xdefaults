@@ -11,3 +11,4 @@ xterm*pointerColor:             white
 xterm*pointerColorBackground:   black
 xterm*cursorColor:              yellow
 
+Xcursor.theme: bridge
