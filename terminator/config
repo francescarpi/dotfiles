@@ -19,7 +19,7 @@
     background_image = None
     background_type = transparent
     copy_on_selection = True
-    cursor_color = "#2bff00"
-    font = Meslo LG S DZ for Powerline 11
+    cursor_color = "#ffffff"
+    font = MesloLGSDZ Nerd Font 11
     scrollbar_position = hidden
     use_system_font = False
