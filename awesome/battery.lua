@@ -17,7 +17,7 @@ function update_battery()
     fd:close()
 
     local percent = tonumber(string.match(status, "(%d?%d?%d)%%"))
-    local remaining = string.match(status, ", (%d%d:%d%d)")
+    local remaining = string.match(status, ", (%d?%d?%d:%d%d)")
 
     text:set_text(" " .. percent .. "% " .. remaining .. "h ")
 
