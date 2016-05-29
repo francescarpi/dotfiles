@@ -1,2 +1,1 @@
 exec awesome
-/* exec herbstluftwm */

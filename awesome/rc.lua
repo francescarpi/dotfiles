@@ -272,7 +272,9 @@ globalkeys = awful.util.table.join(globalkeys,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("slimlock") end)
 )
 
 clientkeys = awful.util.table.join(
