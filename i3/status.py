@@ -24,7 +24,7 @@ status.register(
     "battery",
     format=("{status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
     path="/sys/class/power_supply/BAT0/uevent",
-    alert=True,
+    alert=False,
     alert_percentage=10,
     status={"DIS": "↓", "CHR": "↑", "FULL": "="}
 )
