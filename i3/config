@@ -133,6 +133,10 @@ exec_always sh ~/.fehbg
 for_window [class="Nautilus"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Shutter"] floating enable
+for_window [class="Galculator"] floating enable
+
+# for fix fullscreen mode
+popup_during_fullscreen leave_fullscreen
 
 client.focused #d70a53 #d70a53 #ffffff #8c0333
 client.focused_inactive #333333 #333333 #888888 #333333

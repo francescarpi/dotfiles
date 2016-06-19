@@ -14,8 +14,6 @@ export ANDROID_HOME="/home/farpi/Applications/android-sdk-linux"
 export TERMINAL="terminator"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
-alias vim='nvim'
-alias vf='vifm'
 
 if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
   startx
