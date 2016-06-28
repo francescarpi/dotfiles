@@ -19,21 +19,6 @@ status.register("load")
 # audio
 status.register("pulseaudio", format="AUDIO: {volume}% {muted}",)
 
-# battery
-status.register(
-    "battery",
-    format=("{status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
-    path="/sys/class/power_supply/BAT0/uevent",
-    alert=False,
-    alert_percentage=10,
-    status={"DIS": "↓", "CHR": "↑", "FULL": "="}
-)
-
-# network
-status.register("network", interface="wlp4s0",
-                format_up="{essid} {quality:.0f}%",)
-
-
 # backlight
 @get_module
 def change_brightness(self):
@@ -59,5 +44,19 @@ status.register(
     backlight="intel_backlight",
     on_leftclick=[change_brightness]
 )
+
+# battery
+status.register(
+    "battery",
+    format=("{status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
+    path="/sys/class/power_supply/BAT0/uevent",
+    alert=False,
+    alert_percentage=10,
+    status={"DIS": "↓", "CHR": "↑", "FULL": "="}
+)
+
+# network
+status.register("network", interface="wlp4s0",
+                format_up="{essid} {quality:.0f}%",)
 
 status.run()

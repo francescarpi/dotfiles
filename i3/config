@@ -56,9 +56,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+1 workspace 1:term
+bindsym $mod+2 workspace 2:web
+bindsym $mod+3 workspace 3:audio
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -68,9 +68,9 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+1 move container to workspace 1:term
+bindsym $mod+Shift+2 move container to workspace 2:web
+bindsym $mod+Shift+3 move container to workspace 3:audio
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -105,13 +105,13 @@ bindsym $mod+r mode "resize"
 bar {
   status_command ~/.dotfiles/i3/status.py
   colors {
-    separator #444444
-    background #222222
-    statusline #666666
-    focused_workspace #d70a53 #d70a53 #ffffff
-    active_workspace #333333 #333333 #888888
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #eb709b #eb709b #ffffff
+    separator #333333
+    background #2c001e
+    statusline #aea79f
+    focused_workspace #dd4814 #dd4814 #ffffff
+    active_workspace #902a07 #902a07 #aea79f
+    inactive_workspace #902a07 #902a07 #aea79f
+    urgent_workspace #77216f #77216f #ffffff
   }
 }
 
@@ -139,7 +139,7 @@ for_window [class="Galculator"] floating enable
 # for fix fullscreen mode
 popup_during_fullscreen leave_fullscreen
 
-client.focused #d70a53 #d70a53 #ffffff #8c0333
-client.focused_inactive #333333 #333333 #888888 #333333
-client.unfocused #333333 #333333 #888888 #333333
-client.urgent #eb709b #eb709b #ffffff #eb709b
+client.focused #dd4814 #dd4814 #ffffff #902a07
+client.focused_inactive #5e2750 #5e2750 #aea79f #5e2750
+client.unfocused #5e2750 #5e2750 #aea79f #5e2750
+client.urgent #77216f #77216f #ffffff #efb73e
