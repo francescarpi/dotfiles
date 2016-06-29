@@ -105,13 +105,10 @@ bindsym $mod+r mode "resize"
 bar {
   status_command ~/.dotfiles/i3/status.py
   colors {
-    separator #333333
-    background #2c001e
-    statusline #aea79f
-    focused_workspace #dd4814 #dd4814 #ffffff
-    active_workspace #902a07 #902a07 #aea79f
-    inactive_workspace #902a07 #902a07 #aea79f
-    urgent_workspace #77216f #77216f #ffffff
+    statusline #AAAAAA
+    background #333333
+    focused_workspace #282828 #282828 #FFFFFF
+    inactive_workspace #333333 #333333 #AAAAAA
   }
 }
 
@@ -139,7 +136,6 @@ for_window [class="Galculator"] floating enable
 # for fix fullscreen mode
 popup_during_fullscreen leave_fullscreen
 
-client.focused #dd4814 #dd4814 #ffffff #902a07
-client.focused_inactive #5e2750 #5e2750 #aea79f #5e2750
-client.unfocused #5e2750 #5e2750 #aea79f #5e2750
-client.urgent #77216f #77216f #ffffff #efb73e
+client.unfocused #333333 #333333 #FFFFFF #333333
+client.focused_inactive #333333 #333333 #FFFFFF #000000
+client.focused #000000 #000000 #FFFFFF #000000
