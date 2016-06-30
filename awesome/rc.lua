@@ -363,7 +363,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons } },
     { rule = { class = "Galculator" }, properties = { floating = true } },
-    { rule = { class = "XTerm" }, properties = { size_hints_honor = false } },
+    { rule = { class = "Pavucontrol" }, properties = { floating = true } },
 }
 -- }}}
 
@@ -440,13 +440,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 --
-autorun = true
-autorunApps = 
-{ 
-    "dropbox start"
-}
-if autorun then
-   for app = 1, #autorunApps do
-       awful.util.spawn(autorunApps[app])
-   end
-end
+awful.util.spawn("dropbox start")
+awful.util.spawn("sh " .. os.getenv("HOME") .. "/.fehbg")

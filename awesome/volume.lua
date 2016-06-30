@@ -45,6 +45,7 @@ volume_widget:buttons(awful.util.table.join(
 
     awful.button({}, 1, function ()
         update_volume()
+        awful.util.spawn("pavucontrol")
     end),
 
     -- mouse wheel. inc/dec volum

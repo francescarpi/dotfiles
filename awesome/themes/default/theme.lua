@@ -62,7 +62,7 @@ theme.titlebar_maximized_button_focus_inactive  = os.getenv("HOME") .. "/.dotfil
 theme.titlebar_maximized_button_normal_active = os.getenv("HOME") .. "/.dotfiles/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = os.getenv("HOME") .. "/.dotfiles/awesome/themes/default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = os.getenv("HOME") .. "/.dotfiles/awesome/themes/default/background"
+-- theme.wallpaper = os.getenv("HOME") .. "/.dotfiles/awesome/themes/default/background"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = os.getenv("HOME") .. "/.dotfiles/awesome/themes/default/layouts/fairh.png"
