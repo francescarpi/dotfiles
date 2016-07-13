@@ -56,9 +56,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1:web
-bindsym $mod+2 workspace 2:term
-bindsym $mod+3 workspace 3:audio
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -68,9 +68,9 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:web
-bindsym $mod+Shift+2 move container to workspace 2:term
-bindsym $mod+Shift+3 move container to workspace 3:audio
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -129,6 +129,7 @@ bindsym $mod+Tab workspace back_and_forth
 exec dropbox
 exec_always sh ~/.fehbg
 exec dunst
+exec compton
 
 # rules
 for_window [class="Nautilus"] floating enable
@@ -137,7 +138,7 @@ for_window [class="Shutter"] floating enable
 for_window [class="Galculator"] floating enable
 
 # for fix fullscreen mode
-popup_during_fullscreen leave_fullscreen
+# popup_during_fullscreen leave_fullscreen
 
 client.focused #c83838 #c83838 #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e

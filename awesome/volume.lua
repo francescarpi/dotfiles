@@ -50,12 +50,12 @@ volume_widget:buttons(awful.util.table.join(
 
     -- mouse wheel. inc/dec volum
     awful.button({ }, 4, function()
-        awful.util.spawn('amixer set Master 1%+')
+        awful.util.spawn('amixer set Master 5%+')
         update_volume()
     end),
 
     awful.button({ }, 5, function()
-        awful.util.spawn('amixer set Master 1%-')
+        awful.util.spawn('amixer set Master 5%-')
         update_volume()
     end)
 
