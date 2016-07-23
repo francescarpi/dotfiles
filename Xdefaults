@@ -6,9 +6,11 @@ xterm*eightBitInput:            false
 xterm*selectToClipboard:        true
 xterm*fullscreen:               never
 xterm*saveLines:                16384
+xterm*termName:                 xterm-256color
+xterm*locale:                   true
 
 xterm*pointerColor:             white
 xterm*pointerColorBackground:   black
 xterm*cursorColor:              yellow
 
-Xcursor.theme: bridge
+/* Xcursor.theme: bridge */
