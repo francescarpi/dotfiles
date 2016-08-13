@@ -221,7 +221,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm feh -FZd %d --start-at %d/%c 2>/dev/null
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ convert -identify %f -verbose /dev/null
+         \ img2txt -f utf8 -W %pw %f
 
 " OpenRaster
 filextype *.ora
