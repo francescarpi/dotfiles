@@ -23,3 +23,6 @@ fi
 if [ -z "$TMUX" ]; then
    mux term          
  fi     
+
+ alias cpumonitor="watch grep \"cpu MHz\" /proc/cpuinfo"
+ alias cputohigh="sudo cpupower frequency-set -g performance"
