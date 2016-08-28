@@ -11,6 +11,7 @@ source /usr/bin/virtualenvwrapper.sh
 export TERM="xterm-256color"
 export EDITOR="vim"
 export TERMINAL="terminator"
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
 alias tmux="tmux -2"
