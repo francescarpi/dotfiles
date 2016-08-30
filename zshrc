@@ -8,17 +8,21 @@ source $ZSH/oh-my-zsh.sh
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-export TERM="xterm-256color"
+alias tmux="tmux -2"
+if [ "$TMUX" = "" ]; then
+    export TERM="xterm-256color"
+else
+    export TERM="screen-256color"
+    source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+fi
+
 export EDITOR="vim"
 export TERMINAL="terminator"
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
-alias tmux="tmux -2"
 
 if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
   startx
-  # XKB_DEFAULT_LAYOUT=es sway
 fi
 
 alias cpumonitor="watch grep \"cpu MHz\" /proc/cpuinfo"
