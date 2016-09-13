@@ -137,6 +137,8 @@ for_window [class="Nautilus"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Shutter"] floating enable
 for_window [class="Galculator"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="qjackctl"] floating enable
 
 # for fix fullscreen mode
 # popup_during_fullscreen leave_fullscreen
