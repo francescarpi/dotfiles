@@ -27,3 +27,4 @@ fi
 
 alias cpumonitor="watch grep \"cpu MHz\" /proc/cpuinfo"
 alias cputohigh="sudo cpupower frequency-set -g performance"
+alias twoscreens='xrandr --output eDP1 --mode 1600x1080 --primary --pos -1920x0 --output HDMI1 --pos 0x0 --mode 1920x1200'
