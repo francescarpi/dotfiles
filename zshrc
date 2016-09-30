@@ -21,9 +21,9 @@ export TERMINAL="terminator"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
 
-if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
-  startx
-fi
+# if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
+#   startx
+# fi
 
 alias cpumonitor="watch grep \"cpu MHz\" /proc/cpuinfo"
 alias cputohigh="sudo cpupower frequency-set -g performance"
