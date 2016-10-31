@@ -21,10 +21,8 @@ export TERMINAL="terminator"
 
 alias vtags='ctags --exclude=js --exclude=migrations --exclude=css --exclude=templates --exclude=node_modules --exclude=.js --exclude=static --python-kinds=-iv -R .'
 
-# if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
-#   startx
-# fi
-
 alias cpumonitor="watch grep \"cpu MHz\" /proc/cpuinfo"
 alias cputohigh="sudo cpupower frequency-set -g performance"
 alias twoscreens='xrandr --output eDP1 --mode 1600x1080 --primary --pos -1920x0 --output HDMI1 --pos 0x0 --mode 1920x1200'
+
+source ~/.gem/ruby/2.3.0/gems/tmuxinator-0.8.1/completion/tmuxinator.zsh
