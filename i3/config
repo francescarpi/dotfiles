@@ -129,8 +129,7 @@ bindsym $mod+Tab workspace back_and_forth
 exec dropbox
 exec_always sh ~/.fehbg
 exec dunst
-# exec compton -b --shadow-exclude = "class_g = 'vivaldi-snapshot'"
-exec compton -b
+exec nm-applet
 
 # rules
 for_window [class="Nautilus"] floating enable

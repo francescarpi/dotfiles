@@ -1,4 +1,4 @@
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.gem/ruby/2.3.0/bin:/usr/local/heroku/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.gem/ruby/2.4.0/bin:/usr/local/heroku/bin"
 
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="farpi"
@@ -25,4 +25,9 @@ alias cpumonitor="watch grep \"cpu MHz\" /proc/cpuinfo"
 alias cputohigh="sudo cpupower frequency-set -g performance"
 alias twoscreens='xrandr --output eDP1 --mode 1600x1080 --primary --pos -1920x0 --output HDMI1 --pos 0x0 --mode 1920x1200'
 
-source ~/.gem/ruby/2.3.0/gems/tmuxinator-0.8.1/completion/tmuxinator.zsh
+source ~/.gem/ruby/2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh
+
+if [ -z "$DISPLAY" ] && [ $(tty) = /dev/tty1 ]; then
+	startx
+fi
+
