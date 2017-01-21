@@ -40,7 +40,7 @@ def change_brightness(self):
 
 status.register(
     "backlight",
-    format="BRILLO: {percentage:.0f}%",
+    format="BRIGHTNESS: {percentage:.0f}%",
     backlight="intel_backlight",
     on_leftclick=[change_brightness]
 )
@@ -48,7 +48,7 @@ status.register(
 # battery
 status.register(
     "battery",
-    format=("{status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
+    format=("BATTERY: {status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
     path="/sys/class/power_supply/BAT0/uevent",
     alert=False,
     alert_percentage=10,
@@ -56,7 +56,8 @@ status.register(
 )
 
 # network
-status.register("network", interface="wlp4s0",
-                format_up="{essid} {quality:.0f}%",)
+# status.register("network", interface="wlp4s0",
+#                 format_up="{essid} {quality:.0f}%",)
+# Use nm-applet
 
 status.run()
