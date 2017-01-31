@@ -1,0 +1,3 @@
+#!/bin/bash
+pactl set-sink-mute 0 toggle
+notify-send -t 1 "Volume Toggle" "Mute: $(pactl list sinks | grep Mute | awk '{print $2}')"
