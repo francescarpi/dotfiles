@@ -1,0 +1,3 @@
+#!/bin/bash
+xbacklight -inc 20
+notify-send -t 1 "Backlight Up" "Light: $(xbacklight|awk '{printf "%.0f%",$1}')"

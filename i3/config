@@ -151,8 +151,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id /home/$user/.dotfiles/i3/volum
 bindsym XF86AudioMute exec --no-startup-id /home/$user/.dotfiles/i3/volume_toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id /home/$user/.dotfiles/i3/backlight_up
+bindsym XF86MonBrightnessDown exec --no-startup-id /home/$user/.dotfiles/i3/backlight_down
 
 # Window borders
 for_window [class="Sakura"] border pixel 1
