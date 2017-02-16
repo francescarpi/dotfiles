@@ -157,6 +157,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id /home/$user/.dotfiles/i3/back
 # Window borders
 for_window [class="Sakura"] border pixel 1
 for_window [class="Google-chrome"] border pixel 1
+for_window [class="Ardour"] border pixel 1
 
 # Rofi
 # sudo pacman -S rofi
