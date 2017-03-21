@@ -79,6 +79,9 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -115,6 +118,7 @@ exec --no-startup-id dropbox
 exec_always sh ~/.fehbg
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id unclutter
 exec --no-startup-id compton
 
@@ -125,6 +129,7 @@ for_window [class="Shutter"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="qjackctl"] floating enable
+for_window [class="Blueman-manager"] floating enable
 
 # for fix fullscreen mode
 # popup_during_fullscreen leave_fullscreen
@@ -150,8 +155,8 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show window
 
 # Colors
-set $main_color #bae300
-set $main_contrast_color #000000
+set $main_color #2c3d4f
+set $main_contrast_color #ffffff
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
