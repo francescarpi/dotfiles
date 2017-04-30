@@ -33,6 +33,8 @@ def change_brightness(self):
         setback = 30
     elif current == 30.0:
         setback = 50
+    elif current == 50:
+        setback = 75
     else:
         setback = 100
 
