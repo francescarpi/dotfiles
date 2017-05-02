@@ -62,9 +62,9 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.max,
     awful.layout.suit.tile,
+    awful.layout.suit.tile.bottom,
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile.left,
-    -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
@@ -121,7 +121,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock(" [%d/%m/%Y] ")
+mytextclock = wibox.widget.textclock(" [%d/%m/%Y %H:%M] ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -220,10 +220,10 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
+            mytextclock,
             screen_widget,
             battery_widget,
             volume_widget,
-            mytextclock,
             wibox.widget.systray(),
             s.mylayoutbox,
         },
