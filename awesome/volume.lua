@@ -1,5 +1,6 @@
 local wibox = require("wibox")
 local awful = require("awful")
+local gears = require("gears")
 
 local icon = wibox.widget.imagebox()
 local text = wibox.widget.textbox()
@@ -66,5 +67,9 @@ volume_widget:buttons(awful.util.table.join(
     end)
 
 ))
+
+globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") update_volume() end))
+globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 1%+") update_volume() end))
+globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 1%-") update_volume() end))
 
 update_volume()
