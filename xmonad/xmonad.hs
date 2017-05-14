@@ -29,7 +29,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 2
+myBorderWidth   = 3
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -66,7 +66,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_d     ), spawn "rofi -show run")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm .|. shiftMask, xK_q     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -89,7 +89,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Move focus to the master window
     , ((modm,               xK_m     ), windows W.focusMaster)
 
-    -- Swap the focused window and the master window
+    -- Swap the focuksed window and the master window
     , ((modm,               xK_Return), windows W.swapMaster)
 
     -- Swap the focused window with the next window
@@ -120,7 +120,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask, xK_c     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
@@ -211,7 +211,8 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , className =? "Galculator"     --> doFloat ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -240,7 +241,11 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+    spawn "source ~/.fehbg"
+    spawn "compton"
+    spawn "twmnd"
+    spawn "dropbox"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
