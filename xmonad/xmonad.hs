@@ -10,6 +10,7 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+import XMonad.Util.Run(spawnPipe)
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -243,7 +244,6 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
     spawn "source ~/.fehbg"
-    spawn "compton"
     spawn "twmnd"
     spawn "dropbox"
 
@@ -252,7 +252,9 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
