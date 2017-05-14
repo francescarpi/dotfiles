@@ -1,7 +1,7 @@
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.gem/ruby/2.4.0/bin:$HOME/.bin/"
 
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="farpi"
+# ZSH_THEME="farpi"
 plugins=(virtualenv)
 source $ZSH/oh-my-zsh.sh
 
