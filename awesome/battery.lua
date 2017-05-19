@@ -1,15 +1,30 @@
-local wibox = require("wibox")
-local awful = require("awful")
+local wibox     = require("wibox")
+local awful     = require("awful")
+local gfs       = require("gears.filesystem")
+local cfg_path  = gfs.get_configuration_dir()
 
-local icon = wibox.widget.imagebox()
 local text = wibox.widget.textbox()
-local space = wibox.widget.textbox(" ")
+local icon = wibox.widget.imagebox()
 
-battery_widget = wibox.layout.fixed.horizontal()
-battery_widget:add(space)
-battery_widget:add(icon)
-battery_widget:add(text)
-
+battery_widget = wibox.layout {
+    layout = wibox.layout.fixed.horizontal,
+    {
+        widget = wibox.container.margin,
+        top = 2,
+        left = 10,
+        {
+            widget = icon,
+            forced_width = 17
+        }
+    },
+    {
+        widget = wibox.container.margin,
+        right = 10,
+        {
+            widget = text,
+        }
+    }
+}
 
 local function update_battery()
     local fd = io.popen("acpi")
@@ -21,13 +36,13 @@ local function update_battery()
     text:set_text(" " .. percent .. "% ")
 
     if percent >= 0 and percent <= 5 then
-        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-caution.png")
+        icon:set_image(cfg_path.."icons/battery-caution.png")
     elseif percent > 5 and percent <= 10 then
-        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-low.png")
+        icon:set_image(cfg_path.."icons/battery-low.png")
     elseif percent > 10 and percent <= 75 then
-        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-good.png")
+        icon:set_image(cfg_path.."icons/battery-good.png")
     elseif percent > 75 then
-        icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/battery-full.png")
+        icon:set_image(cfg_path.."icons/battery-full.png")
     end
 
 end

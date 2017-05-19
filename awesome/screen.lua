@@ -1,17 +1,32 @@
-local wibox = require("wibox")
-local awful = require("awful")
-local gears = require("gears")
-
-local icon = wibox.widget.imagebox()
-icon:set_image(os.getenv("HOME") .. "/.dotfiles/awesome/icons/video-display.png")
+local wibox     = require("wibox")
+local awful     = require("awful")
+local gfs       = require("gears.filesystem")
+local cfg_path  = gfs.get_configuration_dir()
+local beautiful = require("beautiful")
 
 local text = wibox.widget.textbox()
-local space = wibox.widget.textbox(" ")
 
-screen_widget = wibox.layout.fixed.horizontal()
-screen_widget:add(space)
-screen_widget:add(icon)
-screen_widget:add(text)
+screen_widget = wibox.layout {
+    layout = wibox.layout.fixed.horizontal,
+    {
+        widget = wibox.container.margin,
+        top = 4,
+        left = 10,
+        {
+            widget = wibox.widget.imagebox,
+            image = cfg_path .. "icons/video-display.png",
+            forced_width = 14
+        }
+    },
+    {
+        widget = wibox.container.margin,
+        left = 2,
+        {
+            widget = text,
+            font = beautiful.font
+        }
+    }
+}
 
 local function get_bright()
     os.execute("sleep .2")
@@ -63,5 +78,5 @@ screen_widget:buttons(awful.util.table.join(
 
 ))
 
-globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") update_screen() end))
-globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") update_screen() end))
+globalkeys = awful.util.table.join(globalkeys, awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") update_screen() end))
+globalkeys = awful.util.table.join(globalkeys, awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") update_screen() end))
