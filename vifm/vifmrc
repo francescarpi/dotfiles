@@ -260,14 +260,8 @@ filetype *.torrent ktorrent %f &
 fileviewer *.torrent dumptorrent -v %c
 
 " FuseZipMount
-filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
-       \ {Mount with fuse-zip}
-       \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
-       \ {View contents}
-       \ zip -sf %c | less,
-       \ {Extract here}
-       \ tar -xf %c,
-fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
+filetype *.zip unzip %f
+fileviewer *.zip,*.jar,*.war,*.ear zip -sf %c
 
 " ArchiveMount
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
