@@ -207,7 +207,14 @@ awful.screen.connect_for_each_screen(function(s)
             screen_widget,
             battery_widget,
             volume_widget,
-            wibox.widget.systray(),
+            {
+                widget = wibox.container.margin,
+                top = 1,
+                bottom = 1,
+                {
+                    widget = wibox.widget.systray()
+                }
+            },
             s.mylayoutbox,
         },
     }
