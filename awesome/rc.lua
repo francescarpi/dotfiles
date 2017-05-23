@@ -176,28 +176,33 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 --------------------------------------------------------------------------------
+-- Number of tags
+--------------------------------------------------------------------------------
+local ntags = 5
+local tags = {}
+for i=1, ntags do tags[i] = i end
+
+--------------------------------------------------------------------------------
 -- Events for each screen
 --------------------------------------------------------------------------------
 awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
-    awful.tag({"1", "2", "3", "4", "5", "6", "7", "8", "9"}, s, awful.layout.layouts[1])
-    s.mypromptbox = awful.widget.prompt()
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(gears.table.join(
-        awful.button({ }, 1, function () awful.layout.inc( 1) end),
-        awful.button({ }, 3, function () awful.layout.inc(-1) end),
-        awful.button({ }, 4, function () awful.layout.inc( 1) end),
-        awful.button({ }, 5, function () awful.layout.inc(-1) end))
-    )
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
-    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    awful.tag(tags, s, awful.layout.layouts[1])
+    s.mypromptbox   = awful.widget.prompt()
+    s.mylayoutbox   = awful.widget.layoutbox(s)
+    s.mytaglist     = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
+    s.mytasklist    = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+    s.mywibox       = awful.wibar({ position = "top", screen = s })
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         {
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
             s.mytaglist,
+            {
+                widget = wibox.container.margin,
+                right = 10,
+                s.mylayoutbox,
+            },
             s.mypromptbox,
         },
         s.mytasklist,
@@ -211,11 +216,8 @@ awful.screen.connect_for_each_screen(function(s)
                 widget = wibox.container.margin,
                 top = 1,
                 bottom = 1,
-                {
-                    widget = wibox.widget.systray()
-                }
+                wibox.widget.systray()
             },
-            s.mylayoutbox,
         },
     }
 end)
@@ -407,7 +409,11 @@ for i = 1, 9 do
                         local screen = awful.screen.focused()
                         local tag = screen.tags[i]
                         if tag then
-                           tag:view_only()
+                            if tag.selected then
+                                awful.tag.history.restore()
+                            else
+                                tag:view_only()
+                            end
                         end
                   end,
                   {description = "view tag #"..i, group = "tag"}),
@@ -481,6 +487,13 @@ awful.rules.rules = {
             },
             class = {
                 "Arandr",
+                "Gpick",
+                "Kruler",
+                "MessageWin",  -- kalarm.
+                "Sxiv",
+                "Wpa_gui",
+                "pinentry",
+                "veromix",
                 "Pavucontrol",
                 "Galculator",
                 "xtightvncviewer",
@@ -493,10 +506,7 @@ awful.rules.rules = {
                 "AlarmWindow",  -- Thunderbird's calendar.
                 "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
             }
-        },
-        properties = {
-            floating = true
-        }
+        }, properties = {floating = true}
     },
     { 
         rule_any = {type = { "normal", "dialog" }},
@@ -505,7 +515,7 @@ awful.rules.rules = {
 }
 
 --------------------------------------------------------------------------------
--- Signal function to execute when a new client appears.
+-- Signals
 --------------------------------------------------------------------------------
 client.connect_signal("manage", function (c)
     if awesome.startup and
@@ -519,6 +529,7 @@ end)
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 --------------------------------------------------------------------------------
 client.connect_signal("request::titlebars", function(c)
+    -- buttons for the titlebar
     local buttons = gears.table.join(
         awful.button({ }, 1, function()
             client.focus = c
@@ -559,7 +570,7 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 --------------------------------------------------------------------------------
--- Mouse focus
+-- Mouse focus => Client focus
 --------------------------------------------------------------------------------
 client.connect_signal("mouse::enter", function(c)
     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
@@ -567,10 +578,6 @@ client.connect_signal("mouse::enter", function(c)
         client.focus = c
     end
 end)
-
---------------------------------------------------------------------------------
--- Client focus
---------------------------------------------------------------------------------
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 

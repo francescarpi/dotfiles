@@ -3,7 +3,6 @@ local awful     = require("awful")
 local gfs       = require("gears.filesystem")
 local cfg_path  = gfs.get_configuration_dir()
 local beautiful = require("beautiful")
-local gears     = require("gears")
 
 local icon = wibox.widget.imagebox()
 local text = wibox.widget.textbox()
@@ -74,19 +73,15 @@ volume_widget:buttons(awful.util.table.join(
 
     -- mouse wheel. inc/dec volum
     awful.button({ }, 4, function()
-        awful.util.spawn('amixer set Master 5%+')
+        awful.util.spawn('amixer set Master 1%+')
         update_volume()
     end),
 
     awful.button({ }, 5, function()
-        awful.util.spawn('amixer set Master 5%-')
+        awful.util.spawn('amixer set Master 1%-')
         update_volume()
     end)
 
 ))
 
 update_volume()
-
-globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") update_volume() end))
-globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 5%+") update_volume() end))
-globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5%-") update_volume() end))

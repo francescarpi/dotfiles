@@ -19,9 +19,7 @@ clock_widget = wibox.layout {
         widget = wibox.container.margin,
         left = 5,
         right = 10,
-        {
-            widget = wibox.widget.textclock("%d/%m/%Y")
-        }
+        wibox.widget.textclock("%d/%m/%Y")
     },
     {
         widget = wibox.container.margin,

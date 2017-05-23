@@ -10,7 +10,7 @@ battery_widget = wibox.layout {
     layout = wibox.layout.fixed.horizontal,
     {
         widget = wibox.container.margin,
-        top = 2,
+        top = 3,
         left = 10,
         {
             widget = icon,
@@ -20,9 +20,7 @@ battery_widget = wibox.layout {
     {
         widget = wibox.container.margin,
         right = 10,
-        {
-            widget = text,
-        }
+        text
     }
 }
 
