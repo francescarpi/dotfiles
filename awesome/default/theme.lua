@@ -13,7 +13,7 @@ theme.font                  = "Verdana Bold 8"
 
 theme.bg_normal             = "#000000"
 theme.bg_focus              = "#546e7a"
-theme.bg_urgent             = "#ff0000"
+theme.bg_urgent             = "#d50000"
 theme.bg_minimize           = theme.bg_normal
 theme.bg_systray            = theme.bg_normal
 
@@ -23,9 +23,9 @@ theme.fg_urgent             = "#ffffff"
 theme.fg_minimize           = "#505050"
 
 theme.useless_gap           = 5
-theme.border_width          = dpi(2)
+theme.border_width          = dpi(3)
 theme.border_normal         = theme.bg_normal
-theme.border_focus          = theme.bg_focus
+theme.border_focus          = theme.bg_urgent
 theme.border_marked         = "#91231c"
 
 theme.menu_submenu_icon     = themes_path.."default/submenu.png"
