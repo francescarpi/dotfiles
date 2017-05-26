@@ -46,10 +46,12 @@ beautiful.init(awful.util.get_configuration_dir() .. "default/theme.lua")
 --------------------------------------------------------------------------------
 -- Loading widgets here for get beautiful cfg
 --------------------------------------------------------------------------------
-require("volume")
-require("battery")
-require("screen")
-require("clock")
+require("volume.volume")
+require("battery.battery")
+require("screen.screen")
+require("clock.clock")
+require("loadavg.loadavg")
+require("spotify.spotify")
 
 --------------------------------------------------------------------------------
 -- Terminal, Editor, ModKey...
@@ -208,10 +210,12 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist,
         {
             layout = wibox.layout.fixed.horizontal,
+            loadavg_widget,
             clock_widget,
             screen_widget,
             battery_widget,
             volume_widget,
+            spotify_widget,
             {
                 widget = wibox.container.margin,
                 top = 1,
@@ -338,7 +342,10 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 
-    awful.key({modkey}, "d", function() awful.spawn("rofi -show run") end)
+    awful.key({modkey}, "d", function() awful.spawn("rofi -show run") end),
+
+    -- Screenshot. Rectangle to Download
+    awful.key({}, "Print", function() awful.spawn("deepin-screenshot") end)
 )
 
 --------------------------------------------------------------------------------

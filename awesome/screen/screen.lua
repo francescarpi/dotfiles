@@ -14,7 +14,7 @@ screen_widget = wibox.layout {
         left = 10,
         {
             widget = wibox.widget.imagebox,
-            image = cfg_path .. "icons/video-display.png",
+            image = cfg_path .. "screen/video-display.png",
             forced_width = 14
         }
     },

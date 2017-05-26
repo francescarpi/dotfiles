@@ -11,7 +11,7 @@ clock_widget = wibox.layout {
         left = 10,
         {
             widget = wibox.widget.imagebox,
-            image = cfg_path .. "icons/calendar.png",
+            image = cfg_path .. "clock/calendar.png",
             forced_width = 13
         }
     },
@@ -26,7 +26,7 @@ clock_widget = wibox.layout {
         top = 4,
         {
             widget = wibox.widget.imagebox,
-            image = cfg_path .."icons/clock.png",
+            image = cfg_path .."clock/clock.png",
             forced_width = 13
         }
     },
