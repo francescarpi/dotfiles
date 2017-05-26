@@ -70,3 +70,7 @@ volume_widget:buttons(awful.util.table.join(
         awful.util.spawn('amixer set Master 5%-')
     end)
 ))
+
+globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle")  end))
+globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 5%+")  end))
+globalkeys = gears.table.join(globalkeys, awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5%-")  end))
