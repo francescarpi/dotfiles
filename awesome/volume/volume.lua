@@ -45,7 +45,7 @@ awful.widget.watch(
             end
         else
             icon:set_image(cfg_path.."volume/audio-volume-muted.png")
-            text:set_text(" M ")
+            text:set_markup_silently(" <span color=\"" .. beautiful.bg_urgent .. "\">M</span> ")
         end
     end,
     volume_widget

@@ -345,7 +345,7 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "d", function() awful.spawn("rofi -show run") end),
 
     -- Screenshot. Rectangle to Download
-    awful.key({}, "Print", function() awful.spawn("deepin-screenshot") end)
+    awful.key({modkey}, "Print", function() awful.spawn("deepin-screenshot") end)
 )
 
 --------------------------------------------------------------------------------
@@ -519,6 +519,17 @@ awful.rules.rules = {
         rule_any = {type = { "normal", "dialog" }},
         properties = { titlebars_enabled = false }
     },
+    {
+        rule_any = {
+            class = {
+                "wotblitz.exe",
+                "WorldOfTanks.exe"
+            }
+        },
+        properties = {
+            border_width = 0
+        }
+    }
 }
 
 --------------------------------------------------------------------------------
