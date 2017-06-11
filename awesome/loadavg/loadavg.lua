@@ -11,7 +11,7 @@ loadavg_widget = wibox.layout {
     {
         widget = wibox.container.margin,
         top = 4,
-        left = 10,
+        left = 5,
         {
             widget = wibox.widget.imagebox,
             image = cfg_path .. "loadavg/loadavg.png",

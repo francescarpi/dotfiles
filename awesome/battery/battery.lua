@@ -11,7 +11,7 @@ battery_widget = wibox.layout {
     {
         widget = wibox.container.margin,
         top = 2,
-        left = 10,
+        left = 5,
         {
             widget = icon,
             forced_width = 17
@@ -19,7 +19,7 @@ battery_widget = wibox.layout {
     },
     {
         widget = wibox.container.margin,
-        right = 10,
+        right = 5,
         text
     }
 }
