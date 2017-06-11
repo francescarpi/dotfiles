@@ -52,6 +52,7 @@ require("screen.screen")
 require("clock.clock")
 require("loadavg.loadavg")
 require("spotify.spotify")
+require("touchpad.touchpad")
 
 --------------------------------------------------------------------------------
 -- Terminal, Editor, ModKey...
@@ -210,6 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist,
         {
             layout = wibox.layout.fixed.horizontal,
+            touchpad_widget,
             loadavg_widget,
             clock_widget,
             screen_widget,
