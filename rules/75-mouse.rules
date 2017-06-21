@@ -1,0 +1,2 @@
+ACTION=="add", KERNEL=="mouse[0-9]*", RUN+="/home/farpi/.dotfiles/rules/touchpad.sh 1"
+ACTION=="remove", KERNEL=="mouse[0-9]*", RUN+="/home/farpi/.dotfiles/rules/touchpad.sh 0"
