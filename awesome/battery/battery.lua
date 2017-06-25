@@ -2,6 +2,7 @@ local wibox = require("wibox")
 local awful = require("awful")
 local gfs = require("gears.filesystem")
 local cfg_path = gfs.get_configuration_dir()
+local beautiful = require("beautiful")
 
 local text = wibox.widget.textbox()
 local icon = wibox.widget.imagebox()
@@ -29,7 +30,11 @@ awful.widget.watch(
     function(widget, stdout, stderr, reason, exit_code)
         local percent = tonumber(string.match(stdout, "(%d?%d?%d)%%"))
 
-        text:set_text(" " .. percent .. "% ")
+        if percent < 10 then
+            text:set_markup_silently("<span color=\"" .. beautiful.bg_urgent .. "\"> " .. percent .. "% </span>")
+        else
+            text:set_text(" " .. percent .. "% ")
+        end
 
         if percent >= 0 and percent <= 5 then
             icon:set_image(cfg_path.."battery/battery-caution.png")
