@@ -347,7 +347,7 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "d", function() awful.spawn("rofi -show run") end),
 
     -- Screenshot. Rectangle to Download
-    awful.key({modkey}, "Print", function() awful.spawn("deepin-screenshot") end)
+    awful.key({modkey}, "Print", function() awful.spawn("deepin-screenshot -n") end)
 )
 
 --------------------------------------------------------------------------------
