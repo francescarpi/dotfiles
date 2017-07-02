@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --bg-scale '/home/farpi/.dotfiles/backgrounds/green_cat_eyes_in_the_dark-wallpaper-1920x1080.jpg' 
