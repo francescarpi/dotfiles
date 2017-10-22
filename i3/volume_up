@@ -1,3 +1,0 @@
-#!/bin/bash
-pactl set-sink-volume 0 +5%
-notify-send -t 1 "Volume Up" "Volume: $(pactl list sinks |grep "Volume: front" | awk '{print $5}')"
