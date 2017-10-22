@@ -1,0 +1,17 @@
+[user]
+name = "Francesc Arpí Roca"
+email = francesc.arpi@gmail.com
+
+[alias]
+co = checkout
+br = branch
+ci = commit
+st = status
+last = log -l HEAD
+
+[push]
+default = simple
+
+[core]
+editor = vim
+
