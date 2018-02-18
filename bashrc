@@ -8,7 +8,9 @@
 # Path
 export PATH="$PATH:$HOME/apps/pycharm/bin"
 export PATH="$PATH:$HOME/apps/WebStorm/bin"
+export PATH="$PATH:$HOME/apps/RubyMine/bin"
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.rbenv/bin"
 
 # PS1
 # sudo pacman -S bash-completion
@@ -20,3 +22,7 @@ source /usr/bin/virtualenvwrapper.sh
 
 # Aliases
 alias ll='ls -la --color'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source /home/farpi/.rvm/scripts/rvm

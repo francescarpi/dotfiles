@@ -17,7 +17,7 @@ status.register("clock", format="%d/%m/%Y %H:%M",)
 status.register("load")
 
 # audio
-status.register("pulseaudio", format="AUDIO: {volume}% {muted}",)
+status.register("pulseaudio", format="V {volume}% {muted}",)
 
 # backlight
 @get_module
@@ -42,7 +42,7 @@ def change_brightness(self):
 
 status.register(
     "backlight",
-    format="BRIGHTNESS: {percentage:.0f}%",
+    format="B {percentage:.0f}%",
     backlight="intel_backlight",
     on_leftclick=[change_brightness]
 )
@@ -50,16 +50,14 @@ status.register(
 # battery
 status.register(
     "battery",
-    format=("BATTERY: {status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
+    format=("{status} [{percentage_design:.2f}%] {remaining:%E%hh:%Mm}"),
     path="/sys/class/power_supply/BAT0/uevent",
     alert=False,
     alert_percentage=10,
     status={"DIS": "↓", "CHR": "↑", "FULL": "="}
 )
 
-# network
-# status.register("network", interface="wlp4s0",
-#                 format_up="{essid} {quality:.0f}%",)
-# Use nm-applet
+status.register("spotify")
+status.register("mem", divisor=1024 ** 3, format="M {avail_mem} Gb")
 
 status.run()

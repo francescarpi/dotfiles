@@ -119,15 +119,13 @@ bindsym $mod+Tab workspace back_and_forth
 # autostart
 exec --no-startup-id dropbox
 exec_always sh ~/.fehbg
-# exec --no-startup-id dunst
-exec --no-startup-id twmnd
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id unclutter
-exec --no-startup-id compton
+exec --no-startup-id flameshot
 
 # rules
-for_window [class="Nautilus"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Shutter"] floating enable
 for_window [class="Galculator"] floating enable
@@ -148,36 +146,17 @@ bindsym XF86AudioMute exec --no-startup-id /home/$user/.dotfiles/i3/volume_toggl
 bindsym XF86MonBrightnessUp exec --no-startup-id /home/$user/.dotfiles/i3/backlight_up
 bindsym XF86MonBrightnessDown exec --no-startup-id /home/$user/.dotfiles/i3/backlight_down
 
-# Window borders
-for_window [class="Sakura"] border pixel 1
-for_window [class="Google-chrome"] border pixel 1
-for_window [class="Ardour"] border pixel 1
-
 # Rofi
 # sudo pacman -S rofi
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show window
 
-# Colors
-set $main_color #2c3d4f
-set $main_contrast_color #ffffff
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   status_command ~/.config/i3/status.py
-  colors {
-    separator #666666
-    background #222222
-    statusline #dddddd
-    focused_workspace $main_color $main_color $main_contrast_color
-    active_workspace #333333 #333333 #ffffff
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #2f343a #900000 #ffffff
-  }
 }
-# Theme
-client.focused $main_color $main_color $main_contrast_color #dddddd
-client.focused_inactive #333333 #333333 #888888 #292d2e
-client.unfocused #333333 #333333 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+
+# Screenshot
+bindsym $mod+Print exec "flameshot gui"
+
