@@ -1,2 +1,2 @@
 rofi.modi: run,drun,window
-rofi.theme: arthur
+rofi.theme: paper-float

@@ -7,8 +7,9 @@
 
 # Path
 export PATH="$PATH:$HOME/apps/pycharm/bin"
-export PATH="$PATH:$HOME/apps/WebStorm/bin"
-export PATH="$PATH:$HOME/apps/RubyMine/bin"
+export PATH="$PATH:$HOME/apps/webstorm/bin"
+export PATH="$PATH:$HOME/apps/rubymine/bin"
+export PATH="$PATH:$HOME/apps/clion/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"
 
