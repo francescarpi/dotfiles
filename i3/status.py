@@ -103,6 +103,6 @@ status.register(
 
 status.register("cpu_usage",
     on_leftclick="termite --title=htop -e 'htop'",
-    format=" {usage}%",)
+    format=" {usage}%",)
 
 status.run()
