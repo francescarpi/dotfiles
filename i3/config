@@ -155,6 +155,9 @@ bindsym $mod+p exec --no-startup-id rofi -show window
 # finds out, if available)
 bar {
   status_command ~/.config/i3/status.py
+  workspace_buttons yes
+  font pango:Hack, FontAwesome5Free 10
+
 }
 
 # Screenshot
