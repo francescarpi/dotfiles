@@ -157,7 +157,9 @@ bar {
   status_command ~/.config/i3/status.py
   workspace_buttons yes
   font pango:Hack, FontAwesome5Free 10
-
+  mode hide
+  hidden_state hide
+  modifier $mod
 }
 
 # Screenshot
