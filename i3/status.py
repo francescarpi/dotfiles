@@ -110,7 +110,7 @@ status.register("cpu_usage",
 
 
 status.register("touchpad",
-    format=" {status}",
+                format="TB: {status}",
     yesno=",")
 
 status.run()
