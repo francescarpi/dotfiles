@@ -48,7 +48,7 @@ status.register("network",
 
 
 status.register("backlight",
-    interval=5,
+    interval=1,
     format=" {percentage:.0f}%",
     backlight="intel_backlight",)
 

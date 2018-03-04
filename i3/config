@@ -138,13 +138,13 @@ for_window [class="Blueman-manager"] floating enable
 
 # Pulse Audio controls
 set_from_resource $user echo "$USER"
-bindsym XF86AudioRaiseVolume exec --no-startup-id /home/$user/.dotfiles/i3/volume_up
-bindsym XF86AudioLowerVolume exec --no-startup-id /home/$user/.dotfiles/i3/volume_down
-bindsym XF86AudioMute exec --no-startup-id /home/$user/.dotfiles/i3/volume_toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle"
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id /home/$user/.dotfiles/i3/backlight_up
-bindsym XF86MonBrightnessDown exec --no-startup-id /home/$user/.dotfiles/i3/backlight_down
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5"
 
 # Rofi
 # sudo pacman -S rofi
