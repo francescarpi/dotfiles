@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# vim:ft=python.django:
 # --------------------------------------------------------------------------
 
 from i3pystatus import Status, get_module
@@ -10,6 +9,7 @@ from i3pystatus.updates import pacman, cower
 from subprocess import Popen, PIPE
 
 status = Status()
+
 
 status.register("updates",
     format = "Updates: {count}",
@@ -69,6 +69,7 @@ status.register("battery",
         "FULL": "   ",
 },)
 
+
 status.register("temp",
     color='#78EAF2',
                 )
@@ -79,6 +80,7 @@ status.register("mem",
     alert_color="#FF1919",
     format=" {avail_mem}/{total_mem} GB",
     divisor=1073741824,)
+
 
 status.register("disk",
     color='#56B6C2',
@@ -101,8 +103,15 @@ status.register(
     format_not_running=" Not running"
 )
 
+
 status.register("cpu_usage",
     on_leftclick="termite --title=htop -e 'htop'",
     format=" {usage}%",)
 
+
+status.register("touchpad",
+    format=" {status}",
+    yesno=",")
+
 status.run()
+

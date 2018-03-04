@@ -157,11 +157,12 @@ bar {
   status_command ~/.config/i3/status.py
   workspace_buttons yes
   font pango:Hack, FontAwesome5Free 10
-  mode hide
-  hidden_state hide
-  modifier $mod
+  # mode hide
+  # hidden_state hide
+  # modifier $mod
 }
 
 # Screenshot
 bindsym $mod+Print exec "flameshot gui"
 
+focus_follows_mouse no
