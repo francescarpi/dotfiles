@@ -18,7 +18,7 @@ status.register("updates",
 
 
 status.register("clock",
-    format=" %H:%M:%S",
+    format=" %H:%M:%S  %d",
     color='#C678DD',
     interval=1,
     on_leftclick="/usr/bin/gsimplecal",)
