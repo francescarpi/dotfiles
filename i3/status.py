@@ -11,12 +11,6 @@ from subprocess import Popen, PIPE
 status = Status()
 
 
-status.register("updates",
-    format = "Updates: {count}",
-    format_no_updates = "",
-    backends = [pacman.Pacman(), cower.Cower()])
-
-
 status.register("clock",
     format=" %H:%M:%S  %d",
     color='#C678DD',

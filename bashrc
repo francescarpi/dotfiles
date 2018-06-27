@@ -12,6 +12,9 @@ export PATH="$PATH:$HOME/apps/rubymine/bin"
 export PATH="$PATH:$HOME/apps/clion/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
+
+source /home/farpi/.rvm/scripts/rvm
 
 # PS1
 # sudo pacman -S bash-completion
@@ -22,8 +25,6 @@ PS1='\[$(tput setaf 2)\][\[$(tput setaf 6)\]\w\[$(tput setaf 2)\]]\[$(tput setaf
 source /usr/bin/virtualenvwrapper.sh
 
 # Aliases
-alias ll='ls -la --color'
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source /home/farpi/.rvm/scripts/rvm
+alias ls='ls --color=auto'
+alias ll='ls --color=auto -lsah'
+alias git_remove_local_merged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
