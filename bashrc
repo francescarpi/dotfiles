@@ -28,3 +28,5 @@ source /usr/bin/virtualenvwrapper.sh
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lsah'
 alias git_remove_local_merged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+
+export WINEARCH=win32
