@@ -1,6 +1,9 @@
 #!/usr/bin/env python
-# encoding: utf-8
+# Install:
+#  sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus
+#  sudo pip install git+https://github.com/enkore/i3pystatus.git
 # --------------------------------------------------------------------------
+
 
 from i3pystatus import Status, get_module
 from i3pystatus.core.command import run_through_shell
@@ -8,7 +11,7 @@ from i3pystatus.updates import pacman, cower
 
 from subprocess import Popen, PIPE
 
-status = Status()
+status = Status(logfile='$HOME/.i3pystatus.log')
 
 
 status.register("clock",
@@ -18,18 +21,11 @@ status.register("clock",
     on_leftclick="/usr/bin/gsimplecal",)
 
 
-status.register("pulseaudio",
-    color_unmuted='#98C379',
-    color_muted='#E06C75',
-    format_muted=' [muted]',
-    format=" {volume}%")
-
-
 status.register("network",
-    interface="enp0s25",
+    interface="enp3s0",
     color_up="#8AE234",
     color_down="#EF2929",
-    format_up=": {v4cidr}",
+    format_up="  {interface} {network_graph_recv}{bytes_recv}KB/s",
     format_down="",)
 
 
@@ -37,12 +33,12 @@ status.register("network",
     interface="wlp4s0",
     color_up="#8AE234",
     color_down="#EF2929",
-    format_up="  {essid}  {kbs} kbs",
+    format_up="  {interface} {network_graph_recv}{bytes_recv}KB/s",
     format_down="",)
 
 
 status.register("backlight",
-    interval=1,
+    interval=5,
     format=" {percentage:.0f}%",
     backlight="intel_backlight",)
 
@@ -58,11 +54,10 @@ status.register("battery",
     charging_color="#E5E500",
     full_color="#D19A66",
     status={
-        "DIS": " ",
+        "DIS": "",
         "CHR": "  ",
-        "FULL": "   ",
+        "FULL": "  ",
 },)
-
 
 status.register("temp",
     color='#78EAF2',
@@ -74,7 +69,6 @@ status.register("mem",
     alert_color="#FF1919",
     format=" {avail_mem}/{total_mem} GB",
     divisor=1073741824,)
-
 
 status.register("disk",
     color='#56B6C2',
@@ -92,20 +86,25 @@ status.register("keyboard_locks",
 
 
 status.register(
-    "spotify",
-    format=" {status} {length} {artist} - {title}",
-    format_not_running=" Not running"
+   "spotify",
+   format=" {title} {status}",
+   format_no_player=" Not running"
 )
-
 
 status.register("cpu_usage",
     on_leftclick="termite --title=htop -e 'htop'",
     format=" {usage}%",)
 
 
-status.register("touchpad",
-                format="TB: {status}",
-    yesno=",")
+#status.register("touchpad",
+#                format="TB: {status}",
+#    yesno=",")
+
+
+status.register("pulseaudio",
+    color_unmuted='#98C379',
+    color_muted='#E06C75',
+    format_muted=' [muted]',
+    format=" {volume}%")
 
 status.run()
-

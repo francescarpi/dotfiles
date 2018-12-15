@@ -6,15 +6,6 @@
 [[ $- != *i* ]] && return
 
 # Path
-export PATH="$PATH:$HOME/apps/pycharm/bin"
-export PATH="$PATH:$HOME/apps/webstorm/bin"
-export PATH="$PATH:$HOME/apps/rubymine/bin"
-export PATH="$PATH:$HOME/apps/clion/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.rbenv/bin"
-export PATH="$PATH:$HOME/.rvm/bin"
-
-source /home/farpi/.rvm/scripts/rvm
 
 # PS1
 # sudo pacman -S bash-completion
@@ -30,3 +21,8 @@ alias ll='ls --color=auto -lsah'
 alias git_remove_local_merged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 export WINEARCH=win32
+
+# Tilix vte hack
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
