@@ -4,6 +4,9 @@
 #  sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome
 # --------------------------------------------------------------------------
 
+import logging
+import math
+
 import fontawesome as fa
 
 from i3pystatus import Status, get_module
@@ -14,10 +17,9 @@ from subprocess import Popen, PIPE
 
 from touchpad import Touchpad
 
+logger = logging.getLogger('i3pystatus')
+
 status = Status(logfile='$HOME/.i3pystatus.log')
-
-# bindsym $mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
 
 status.register(
     'text',
@@ -53,11 +55,34 @@ status.register(
 )
 
 
+@get_module
+def backlight(self):
+    levels = [15, 25, 50, 75, 100]
+
+    process = Popen(['xbacklight', '-get'], stdout=PIPE)
+    out, err = process.communicate()
+
+    if not err:
+        out = math.ceil(float(out))
+        try:
+            level_index = levels.index(out)
+        except ValueError:
+            level_index = len(levels) - 2
+
+        try:
+            backlight = levels[level_index + 1]
+        except IndexError:
+            backlight = levels[0]
+
+        process = Popen(['xbacklight', '-set', str(backlight)], stdout=PIPE)
+        process.communicate()
+
 status.register(
     'backlight',
     interval=5,
     format=fa.icons['sun'] + ' {percentage:.0f}%',
     backlight='intel_backlight',
+    on_leftclick=backlight,
 )
 
 
@@ -73,8 +98,8 @@ status.register(
     charging_color='#E5E500',
     full_color='#D19A66',
     status={
-        'DIS': fa.icons['battery-quarter'],
-        'CHR': fa.icons['battery-half'],
+        'DIS': fa.icons['battery-full'],
+        'CHR': fa.icons['battery-full'],
         'FULL': fa.icons['battery-full'],
     },
 )

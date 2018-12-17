@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing system" packages...
-sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus otf-font-awesome gsimplecal termite xf86-input-synaptics rofi sakura zsh
+sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus otf-font-awesome gsimplecal termite xf86-input-synaptics rofi sakura zsh i3lock nitrogen kalu flameshot i3-gaps
 
 echo "Installing python libraries..."
 sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome
@@ -27,6 +27,7 @@ rm -Rf $HOME/.config/compton.conf
 ln -s $HOME/.dotfiles/compton.conf $HOME/.config/compton.conf
 
 echo "Installing oh-my-zsh"
+rm -Rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 rm $HOME/.zshrc
 ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
