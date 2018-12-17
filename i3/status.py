@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Install:
-#  sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus otf-font-awesome gsimplecal termite
+#  sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus otf-font-awesome gsimplecal termite xf86-input-synaptics
 #  sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome
 # --------------------------------------------------------------------------
 
@@ -12,9 +12,18 @@ from i3pystatus.updates import pacman, cower
 
 from subprocess import Popen, PIPE
 
+from touchpad import Touchpad
+
 status = Status(logfile='$HOME/.i3pystatus.log')
 
+# bindsym $mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
+status.register(
+    'text',
+    text=fa.icons['power-off'],
+    on_leftclick='i3-nagbar -t warning -m "What do you want to do?" -b "Reboot" "reboot" -b "Shutdown" "shutdown -h now"',
+)
 status.register(
     'clock',
     format=fa.icons['clock'] + ' %H:%M:%S ' + fa.icons['calendar'] + ' %d',
@@ -116,9 +125,11 @@ status.register(
 )
 
 
-#status.register("touchpad",
-#                format="TB: {status}",
-#    yesno=",")
+status.register(
+    Touchpad,
+    format=fa.icons['mouse-pointer'] + ' {status}',
+    yesno=fa.icons['times'] + ',' + fa.icons['check'],
+)
 
 
 status.register(
