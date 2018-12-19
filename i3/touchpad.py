@@ -25,6 +25,7 @@ class Touchpad(IntervalModule):
         return '= 1' in off_state
 
     def run(self):
+        self.set_off()
         status = self.get_tap_button_status()
         cdict = {
             "status": self.yesno.split(",")[status]
@@ -36,4 +37,7 @@ class Touchpad(IntervalModule):
     def toggle_tap_button(self):
         value = "0" if self.get_tap_button_status() else "1"
         subprocess.check_call(['synclient', 'tapbutton1={}'.format(value)])
+
+    def set_off(self):
+        subprocess.check_call(['synclient', 'tapbutton1=0'])
 

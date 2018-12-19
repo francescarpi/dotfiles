@@ -4,7 +4,7 @@ echo "Installing system" packages...
 sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus otf-font-awesome gsimplecal termite xf86-input-synaptics rofi sakura zsh i3lock nitrogen kalu flameshot i3-gaps
 
 echo "Installing python libraries..."
-sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome
+sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome i3ipc
 
 echo "Configuring i3 window manager"
 rm -Rf $HOME/.config/i3

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Install:
 #  sudo pacman -S python-pip playerctl python-colour python-netifaces python-dbus otf-font-awesome gsimplecal termite xf86-input-synaptics
-#  sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome
+#  sudo pip install git+https://github.com/enkore/i3pystatus.git fontawesome i3ipc
 # --------------------------------------------------------------------------
 
 import logging
@@ -80,7 +80,7 @@ def backlight(self):
 status.register(
     'backlight',
     interval=5,
-    format=fa.icons['sun'] + ' {percentage:.0f}%',
+    format=fa.icons['desktop'] + ' {percentage:.0f}%',
     backlight='intel_backlight',
     on_leftclick=backlight,
 )
@@ -152,8 +152,14 @@ status.register(
 
 status.register(
     Touchpad,
-    format=fa.icons['mouse-pointer'] + ' {status}',
+    format=fa.icons['fingerprint'] + ' {status}',
     yesno=fa.icons['times'] + ',' + fa.icons['check'],
+)
+
+
+status.register(
+    'pomodoro',
+    sound=False,
 )
 
 
@@ -164,5 +170,6 @@ status.register(
     format_muted=fa.icons['volume-up'] + ' [muted]',
     format=fa.icons['volume-up'] + ' {volume}%',
 )
+
 
 status.run()
