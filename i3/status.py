@@ -171,5 +171,10 @@ status.register(
     format=fa.icons['volume-up'] + ' {volume}%',
 )
 
+status.register(
+    'window_title',
+    format=fa.icons['window-maximize'] + ' {title}'
+)
+
 
 status.run()

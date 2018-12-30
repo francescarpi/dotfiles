@@ -155,7 +155,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 set $text-color          #ffffff
-set $bg-color            #af1414
+set $bg-color            #26b607
 set $inactive-bg-color   #2f343f
 set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
@@ -235,4 +235,5 @@ gaps inner 10
 focus_follows_mouse no
 
 # title bar desing
-for_window [class=".*"] title_format " ·[ %title ]·"
+new_window 1pixel
+for_window [class="^.*"] border pixel 2
