@@ -236,4 +236,4 @@ focus_follows_mouse no
 
 # title bar desing
 new_window 1pixel
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 4
