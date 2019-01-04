@@ -38,9 +38,9 @@ awful.widget.watch(
 
         if percent >= 0 and percent <= 5 then
             icon:set_image(cfg_path.."battery/battery-caution.png")
-        elseif percent > 5 and percent <= 10 then
+        elseif percent > 5 and percent <= 50 then
             icon:set_image(cfg_path.."battery/battery-low.png")
-        elseif percent > 10 and percent <= 75 then
+        elseif percent > 50 and percent <= 75 then
             icon:set_image(cfg_path.."battery/battery-good.png")
         elseif percent > 75 then
             icon:set_image(cfg_path.."battery/battery-full.png")
