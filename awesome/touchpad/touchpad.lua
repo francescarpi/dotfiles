@@ -55,4 +55,5 @@ touchpad_widget:buttons(awful.util.table.join(
     end)
 ))
 
+awful.util.spawn('synclient TapButton1=0')
 update_value()
