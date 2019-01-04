@@ -154,8 +154,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $text-color          #ffffff
-set $bg-color            #26b607
+set $text-color          #000000
+set $bg-color            #fff000
 set $inactive-bg-color   #2f343f
 set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
@@ -176,6 +176,11 @@ bar {
   workspace_buttons yes
   tray_output primary
   font pango:FontAwesome 10
+
+  colors {
+    #                   border      back.       foreg.
+    focused_workspace   $bg-color $bg-color $text-color
+  }
 }
 
 # floating windows
