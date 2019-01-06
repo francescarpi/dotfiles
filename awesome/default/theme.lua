@@ -70,4 +70,20 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     theme.fg_normal
 )
 
+-- Naughty
+theme.naughty_icon_size = 22
+-- TODO : Fix this external call
+local naughty = require("naughty")
+naughty.config.presets.normal.bg = theme.bg_normal
+naughty.config.presets.normal.fg = theme.fg_normal
+naughty.config.presets.normal.border_color = theme.fg_normal
+
+naughty.config.presets.low.bg = theme.bg_normal
+naughty.config.presets.low.fg = theme.fg_normal
+naughty.config.presets.low.border_color = theme.bg_normal
+
+naughty.config.presets.critical.bg = theme.bg_urgent
+naughty.config.presets.critical.fg = theme.fg_urgent
+naughty.config.presets.critical.border_color = theme.fg_urgent
+
 return theme
