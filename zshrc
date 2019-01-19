@@ -100,6 +100,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Others
 source /usr/bin/virtualenvwrapper.sh
+export EDITOR='vim'
+export WORKON_HOME=$HOME/.virtualenvs
+export PIPENV_VENV_IN_PROJECT=$HOME/.virtualenvs
 
 # Aliases
 alias git_master_to_pre='git checkout master; git pull -p; git checkout pre; git reset --hard origin/master; git push --force; git checkout master'

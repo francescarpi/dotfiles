@@ -507,7 +507,10 @@ awful.rules.rules = {
                 "Pavucontrol",
                 "Galculator",
                 "xtightvncviewer",
-                "Shutter"
+                "Shutter",
+                "Kalu",
+                "TelegramDesktop",
+                "Nautilus"
             },
             name = {
                 "Event Tester",  -- xev.
