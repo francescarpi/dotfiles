@@ -26,15 +26,18 @@ battery_widget = wibox.layout {
 }
 
 awful.widget.watch(
-    'acpi', 60,
+    'acpi',
+    60,
     function(widget, stdout, stderr, reason, exit_code)
         local percent = tonumber(string.match(stdout, "(%d?%d?%d)%%"))
-
+        local color = beautiful.fg_normal
         if percent < 10 then
-            text:set_markup_silently("<span color=\"" .. beautiful.bg_urgent .. "\"> " .. percent .. "% </span>")
-        else
-            text:set_text(" " .. percent .. "% ")
+            color = beautiful.bg_urgent
         end
+
+        local pbar = {"-","-","-","-","-","-","-","-","-","-"}
+        for i=1,math.floor((percent/10)) do pbar[i] ="█" end
+        text:set_markup_silently(" <span color=\"" .. color .. "\">" .. table.concat(pbar,"") .. " (" .. percent .. "%)</span> ")
 
         if percent >= 0 and percent <= 5 then
             icon:set_image(cfg_path.."battery/battery-caution.png")
