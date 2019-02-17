@@ -1,2 +1,2 @@
 rofi.modi: run,drun,window
-rofi.theme: sidetab
+rofi.theme: flat-orange

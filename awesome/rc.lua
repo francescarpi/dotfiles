@@ -616,6 +616,6 @@ awful.util.spawn("blueman-applet")
 -- awful.util.spawn("compton")
 awful.util.spawn("flameshot")
 awful.util.spawn("nitrogen --restore")
-awful.util.spawn("kalu")
+-- awful.util.spawn("kalu")
 awful.util.spawn("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
