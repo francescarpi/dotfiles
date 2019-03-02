@@ -103,3 +103,6 @@ source $OSH/oh-my-bash.sh
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
 alias ls='ls $LS_OPTIONS'
+
+export WORKON_HOME=$HOME/.local/share/virtualenvs
+source $HOME/.local/bin/virtualenvwrapper.sh
