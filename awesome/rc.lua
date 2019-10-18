@@ -512,7 +512,8 @@ awful.rules.rules = {
                 "Shutter",
                 "Kalu",
                 "TelegramDesktop",
-                "Nautilus"
+                "Nautilus",
+                "qjackctl"
             },
             name = {
                 "Event Tester",  -- xev.
