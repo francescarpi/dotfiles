@@ -9,7 +9,7 @@ local themes_path           = gfs.get_configuration_dir()
 
 local theme                 = {}
 
-theme.font                  = "Verdana Bold 8"
+theme.font                  = "Verdana Bold 10"
 
 theme.bg_normal             = "#000000"
 theme.bg_focus              = "#546e7a"

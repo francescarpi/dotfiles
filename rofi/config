@@ -1,2 +1,2 @@
-rofi.modi: run,drun,window
-rofi.theme: flat-orange
+rofi.modi: drun,run,window
+rofi.theme: Paper

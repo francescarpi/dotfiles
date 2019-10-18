@@ -31,13 +31,23 @@ awful.widget.watch(
     function(widget, stdout, stderr, reason, exit_code)
         local percent = tonumber(string.match(stdout, "(%d?%d?%d)%%"))
         local color = beautiful.fg_normal
+        local is_charging = string.find(stdout, "Charging") ~= nil
+        local append_text = ""
+
+        if is_charging then
+            append_text = '+'
+        end
+
         if percent < 10 then
             color = beautiful.bg_urgent
         end
 
         local pbar = {"-","-","-","-","-","-","-","-","-","-"}
         for i=1,math.floor((percent/10)) do pbar[i] ="█" end
-        text:set_markup_silently(" <span color=\"" .. color .. "\">" .. table.concat(pbar,"") .. " (" .. percent .. "%)</span> ")
+        text:set_markup_silently(" <span color=\"" .. color .. "\">" .. table.concat(pbar,"") .. " (" .. percent .. "%)" .. append_text .. "</span> ")
+
+        if is_charging then
+        end
 
         if percent >= 0 and percent <= 5 then
             icon:set_image(cfg_path.."battery/battery-caution.png")
