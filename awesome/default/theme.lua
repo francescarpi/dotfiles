@@ -58,7 +58,7 @@ theme.awesome_icon          = theme_assets.awesome_icon(
 )
 
 -- theme.tasklist_disable_icon = true
-theme.tasklist_font         = "Verdana 8"
+theme.tasklist_font         = theme.font
 
 local taglist_square_size   = dpi(4)
 theme.taglist_squares_sel   = theme_assets.taglist_squares_sel(

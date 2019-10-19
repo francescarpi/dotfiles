@@ -169,16 +169,16 @@ local tasklist_buttons = gears.table.join(
 --------------------------------------------------------------------------------
 -- Wallpaper
 --------------------------------------------------------------------------------
-local function set_wallpaper(s)
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
-screen.connect_signal("property::geometry", set_wallpaper)
+-- local function set_wallpaper(s)
+--     if beautiful.wallpaper then
+--         local wallpaper = beautiful.wallpaper
+--         if type(wallpaper) == "function" then
+--             wallpaper = wallpaper(s)
+--         end
+--         gears.wallpaper.maximized(wallpaper, s, true)
+--     end
+-- end
+-- screen.connect_signal("property::geometry", set_wallpaper)
 
 --------------------------------------------------------------------------------
 -- Number of tags
@@ -191,7 +191,7 @@ for i=1, ntags do tags[i] = i end
 -- Events for each screen
 --------------------------------------------------------------------------------
 awful.screen.connect_for_each_screen(function(s)
-    set_wallpaper(s)
+    -- set_wallpaper(s)
     awful.tag(tags, s, awful.layout.layouts[1])
     s.mypromptbox   = awful.widget.prompt()
     s.mylayoutbox   = awful.widget.layoutbox(s)
@@ -349,7 +349,6 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "d", function() awful.spawn("rofi -show") end),
 
     -- Screenshot. Rectangle to Download
-    --awful.key({modkey}, "Print", function() awful.spawn("deepin-screenshot -n") end)
     awful.key({modkey}, "Print", function() awful.spawn("flameshot gui") end)
 )
 

@@ -39,12 +39,6 @@ clock_widget = wibox.layout {
             font = beautiful.font
         }
     },
-    {
-        widget = wibox.container.margin,
-        left = 5,
-        right = 10,
-        wibox.widget.textclock("%d/%m/%Y")
-    }
 }
 
 clock_widget:buttons(awful.util.table.join(
