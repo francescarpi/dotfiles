@@ -43,6 +43,6 @@ clock_widget = wibox.layout {
 
 clock_widget:buttons(awful.util.table.join(
     awful.button({}, 1, function()
-        -- awful.widget.calendar_popup:call_calendar()
+        awful.util.spawn('zenity --calendar')
     end)
 ))
