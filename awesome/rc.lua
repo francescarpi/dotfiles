@@ -259,7 +259,7 @@ globalkeys = gears.table.join(
     awful.key({modkey,}, "j", function () awful.client.focus.byidx(-1) end,
               {description = "focus next by index", group = "client"}),
 
-    awful.key({modkey,}, "Tab", function () awful.client.focus.byidx(1) end,
+    awful.key({modkey,}, "º", function () awful.client.focus.byidx(1) end,
               {description = "focus next by index", group = "client"}),
 
     awful.key({modkey,}, "k", function () awful.client.focus.byidx(1) end,
@@ -283,7 +283,7 @@ globalkeys = gears.table.join(
     awful.key({modkey,}, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
 
-    awful.key({modkey,}, "º",
+    awful.key({modkey,}, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -613,12 +613,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --------------------------------------------------------------------------------
 -- Run on start
 --------------------------------------------------------------------------------
-awful.util.spawn("dropbox")
 awful.util.spawn("nm-applet")
 awful.util.spawn("blueman-applet")
--- awful.util.spawn("compton")
 awful.util.spawn("flameshot")
 awful.util.spawn("nitrogen --restore")
--- awful.util.spawn("kalu")
 awful.util.spawn("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
