@@ -352,7 +352,7 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "d", function() awful.spawn("rofi -show") end),
 
     -- Screenshot. Rectangle to Download
-    awful.key({modkey}, "Print", function() awful.spawn("flameshot gui") end)
+    awful.key({}, "Print", function() awful.spawn("flameshot gui") end)
 )
 
 --------------------------------------------------------------------------------
