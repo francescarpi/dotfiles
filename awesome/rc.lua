@@ -542,7 +542,18 @@ awful.rules.rules = {
         properties = {
             border_width = 0
         }
-    }
+    },
+    {
+            rule = {
+                class = "jetbrains-.*",
+            }, properties = { focus = true, buttons = clientbuttons_jetbrains }
+    },
+    {
+            rule = {
+                class = "jetbrains-.*",
+                name = "win.*"
+            }, properties = { titlebars_enabled = false, focusable = false, focus = true, floating = true, placement = awful.placement.restore }
+   }
 }
 
 --------------------------------------------------------------------------------
