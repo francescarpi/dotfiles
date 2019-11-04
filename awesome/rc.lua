@@ -70,8 +70,8 @@ modkey      = "Mod4"
 -- Layouts
 --------------------------------------------------------------------------------
 awful.layout.layouts = {
-    awful.layout.suit.tile,
     awful.layout.suit.max,
+    awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.max.fullscreen,
 }
