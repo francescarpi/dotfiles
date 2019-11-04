@@ -29,10 +29,10 @@ touchpad_widget = wibox.layout {
 }
 
 local function get_value()
-    local fd = io.popen('synclient -l | grep TapButton1')
+    local fd = io.popen('xinput --list-props 12 | grep -i "tapping enabled (" | awk \'{ print $5 }\'')
     local status = fd:read('*all')
     fd:close()
-    local value = tonumber(string.match(status, '= (%d)'))
+    local value = tonumber(status)
     return value
 end
 
@@ -47,13 +47,13 @@ end
 touchpad_widget:buttons(awful.util.table.join(
     awful.button({}, 1, function()
         if get_value() == 0 then
-            awful.util.spawn('synclient TapButton1=1')
+            awful.util.spawn('xinput --set-prop 12 321 1')
         else
-            awful.util.spawn('synclient TapButton1=0')
+            awful.util.spawn('xinput --set-prop 12 321 0')
         end
         update_value()
     end)
 ))
 
-awful.util.spawn('synclient TapButton1=0')
+awful.util.spawn('xinput --set-prop 12 321 0')
 update_value()
