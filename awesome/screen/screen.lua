@@ -31,9 +31,13 @@ screen_widget = wibox.layout {
 local function get_bright()
     os.execute("sleep .2")
     local fd = io.popen("xbacklight -get")
-    local percent = tonumber(fd:read("*all"))
+    local value = fd:read("*all")
+    value = tonumber(value)
     fd:close()
-    percent = string.format("%.0f", percent)
+    if value == nil then
+	    return "0"
+    end
+    percent = string.format("%.0f", value)
     return percent
 end
 

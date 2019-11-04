@@ -9,6 +9,8 @@ local naughty       = require("naughty")
 local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
+awful.util.spawn("setxkbmap -layout es")
+
 home = os.getenv("HOME")
 
 require("awful.autofocus")
