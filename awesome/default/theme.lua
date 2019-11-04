@@ -9,7 +9,7 @@ local themes_path           = gfs.get_configuration_dir()
 
 local theme                 = {}
 
-theme.font                  = "Droid Sans Mono Regular 10"
+theme.font                  = "Verdana Bold 10"
 
 theme.bg_normal             = "#000000"
 theme.bg_focus              = "#546e7a"
@@ -58,7 +58,7 @@ theme.awesome_icon          = theme_assets.awesome_icon(
 )
 
 -- theme.tasklist_disable_icon = true
-theme.tasklist_font         = "Droid Sans Mono Regular 8"
+theme.tasklist_font         = "Verdana 10"
 
 local taglist_square_size   = dpi(4)
 theme.taglist_squares_sel   = theme_assets.taglist_squares_sel(
