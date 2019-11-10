@@ -1,3 +1,2 @@
 rofi.modi: drun,run,window
-/* rofi.theme: Paper */
-rofi.theme: fancy
+rofi.theme: gruvbox-dark
