@@ -6,6 +6,28 @@ local beautiful = require("beautiful")
 
 local text = wibox.widget.textbox()
 
+local function set_brightness(value)
+    awful.util.spawn("xbacklight -set " .. value)
+end
+
+local menu_theme = {
+    width = 200,
+    border_width = 3,
+    border_color = '#D50000',
+    font = 'Verdana Bold 10'
+}
+
+local menu = awful.menu({
+    items = {
+        { "Brightness to 15%", function() set_brightness('15') end },
+        { "Brightness to 30%", function() set_brightness('30') end },
+        { "Brightness to 50%", function() set_brightness('50') end },
+        { "Brightness to 75%", function() set_brightness('75') end },
+        { "Brightness to 100%", function() set_brightness('100') end },
+    },
+    theme = menu_theme,
+})
+
 screen_widget = wibox.layout {
     layout = wibox.layout.fixed.horizontal,
     {
@@ -66,8 +88,9 @@ update_screen()
 screen_widget:buttons(awful.util.table.join(
 
     awful.button({ }, 1, function ()
-        brightness_toggle()
-        update_screen()
+        menu:show()
+        -- brightness_toggle()
+        -- update_screen()
     end),
 
     awful.button({ }, 5, function ()
