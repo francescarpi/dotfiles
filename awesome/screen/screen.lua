@@ -11,7 +11,8 @@ local function set_brightness(value)
 end
 
 local menu_theme = {
-    width = 200,
+    height = 30,
+    width = 220,
     border_width = 3,
     border_color = '#D50000',
     font = 'Verdana Bold 10'
