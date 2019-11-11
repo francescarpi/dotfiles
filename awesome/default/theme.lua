@@ -90,11 +90,11 @@ theme.tasklist_font         = "Verdana 8"
 local taglist_square_size   = dpi(4)
 theme.taglist_squares_sel   = theme_assets.taglist_squares_sel(
     taglist_square_size,
-    theme.fg_normal
+    "#FFFFFF"
 )
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size,
-    theme.fg_normal
+    "#FFFFFF"
 )
 
 -- Naughty
