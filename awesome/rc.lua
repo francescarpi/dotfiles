@@ -184,6 +184,21 @@ local tasklist_buttons = gears.table.join(
 )
 
 --------------------------------------------------------------------------------
+-- Wallpaper
+--------------------------------------------------------------------------------
+local function set_wallpaper(s)
+    if beautiful.wallpaper then
+        local wallpaper = beautiful.wallpaper
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
+    end
+end
+screen.connect_signal("property::geometry", set_wallpaper)
+
+
+--------------------------------------------------------------------------------
 -- Number of tags
 --------------------------------------------------------------------------------
 local ntags = 5
@@ -194,6 +209,7 @@ for i=1, ntags do tags[i] = i end
 -- Events for each screen
 --------------------------------------------------------------------------------
 awful.screen.connect_for_each_screen(function(s)
+    set_wallpaper(s)    
     awful.tag(tags, s, awful.layout.layouts[1])
     s.mypromptbox   = awful.widget.prompt()
     s.mylayoutbox   = awful.widget.layoutbox(s)
@@ -630,6 +646,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.util.spawn("nm-applet")
 awful.util.spawn("blueman-applet")
 awful.util.spawn("flameshot")
-awful.util.spawn("nitrogen --restore")
+awful.util.spawn("compton")
 awful.util.spawn("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
