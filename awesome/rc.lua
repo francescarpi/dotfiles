@@ -45,7 +45,7 @@ end
 --------------------------------------------------------------------------------
 -- Visual theme
 --------------------------------------------------------------------------------
-beautiful.init(awful.util.get_configuration_dir() .. "default/theme.lua")
+beautiful.init(awful.util.get_configuration_dir() .. "theme/theme.lua")
 
 --------------------------------------------------------------------------------
 -- Loading widgets here for get beautiful cfg
@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mylayoutbox   = awful.widget.layoutbox(s)
     s.mytaglist     = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
     s.mytasklist    = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-    s.mywibox       = awful.wibar({ position = "top", screen = s, opacity = .7 })
+    s.mywibox       = awful.wibar({ position = "top", screen = s, opacity = .9 })
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         {
