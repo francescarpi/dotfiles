@@ -94,6 +94,12 @@ end
 --------------------------------------------------------------------------------
 -- Main menu
 --------------------------------------------------------------------------------
+local mymainmenu_theme = {
+    height = 30,
+    width = 200,
+    font = 'Verdana Bold 10'
+}
+
 myawesomemenu = {
     { "restart", awesome.restart },
     { "quit", function() awesome.quit() end}
@@ -106,10 +112,11 @@ systemmenu = {
 
 mymainmenu = awful.menu({
     items = {
-        { "awesome", myawesomemenu, beautiful.awesome_icon },
+        { "awesome", myawesomemenu },
         { "system", systemmenu },
         { "open terminal", terminal }
-    }
+    },
+    theme = mymainmenu_theme
 })
 
 --------------------------------------------------------------------------------
