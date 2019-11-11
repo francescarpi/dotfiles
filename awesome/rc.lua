@@ -73,7 +73,6 @@ awful.layout.layouts = {
     awful.layout.suit.max,
     awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.max.fullscreen,
 }
 
 --------------------------------------------------------------------------------
@@ -140,7 +139,23 @@ local taglist_buttons = gears.table.join(
         end
     end),
     awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end),
+    -- Middle button
+    awful.button({ }, 2,
+        function(t)
+            awful.prompt.run {
+                prompt = "Name for tag " .. t.index .. ": ",
+                textbox = mouse.screen.mypromptbox.widget,
+                exe_callback = function(input)
+                    if input == "" then
+                        t.name = t.index
+                    else
+                        t.name = t.index .. ": " .. input:upper()
+                    end
+                end
+            }
+        end
+    )
 )
 
 --------------------------------------------------------------------------------
