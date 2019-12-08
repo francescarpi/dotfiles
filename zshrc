@@ -106,3 +106,12 @@ export PIPENV_VENV_IN_PROJECT=$HOME/.virtualenvs
 
 # Aliases
 alias git_master_to_pre='git checkout master; git pull -p; git checkout pre; git reset --hard origin/master; git push --force; git checkout master'
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
+if [[ $(ps --no-header -p $PPID -o comm) =~ tilix ]]; then
+    for wid in $(xdotool search --pid $PPID); do
+        xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
+fi
