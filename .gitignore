@@ -1,3 +1,4 @@
 vifminfo
 *.pyc
 __pycache__
+packer_compiled.lua
