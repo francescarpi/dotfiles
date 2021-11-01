@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Cleaning previous symlinks
+rm $HOME/.tmux.conf
+rm $HOME/.zshrc
+rm $HOME/.ideavimrc
+rm -Rf $HOME/.config/lvim
+rm -Rf $HOME/.config/zsh
+
 # Symlinks
 stow -t $HOME */
 
