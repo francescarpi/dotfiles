@@ -125,7 +125,6 @@ lvim.lang.python.linters = {
 lvim.plugins = {
     {"folke/tokyonight.nvim"},
     {"lifepillar/vim-gruvbox8"},
-    {"folke/tokyonight.nvim"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
