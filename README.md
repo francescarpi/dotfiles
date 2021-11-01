@@ -1,5 +1,7 @@
 # My personal dotfiles
 
+These are my `dotfiled` used on a Mac OS.
+
 ## Installing
 
 You will need `git`, GNU `stow` and `brew`.
