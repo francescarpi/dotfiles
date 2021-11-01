@@ -4,7 +4,7 @@ These are my `dotfiled` used on a Mac OS.
 
 ## Installing
 
-You will need `git`, GNU `stow` and `brew`.
+You will need `git` and GNU `stow`.
 
 Clone into your `$HOME` directory or wherever you want.
 
