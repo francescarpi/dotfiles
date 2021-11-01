@@ -1,12 +1,10 @@
 #!/bin/bash
 
 # Symlinks
-stow -v */
+stow -t $HOME */
 
 # Installing required zsh modules
-cd $HOME/.config/zsh
-
-git submodule update --init --recursive "modules/z"
-git submodule update --init --recursive "modules/zsh-completions"
-git submodule update --init --recursive "modules/zsh-autosuggestions"
+git submodule update --init --recursive "zsh/.config/zsh/modules/z"
+git submodule update --init --recursive "zsh/.config/zsh/modules/zsh-completions"
+git submodule update --init --recursive "zsh/.config/zsh/modules/zsh-autosuggestions"
 

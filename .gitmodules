@@ -1,0 +1,9 @@
+[submodule "zsh/.config/zsh/modules/z"]
+	path = zsh/.config/zsh/modules/z
+	url = https://github.com/rupa/z.git
+[submodule "zsh/.config/zsh/modules/zsh-completions"]
+	path = zsh/.config/zsh/modules/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/.config/zsh/modules/zsh-autosuggestions"]
+	path = zsh/.config/zsh/modules/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
