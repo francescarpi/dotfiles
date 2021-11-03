@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "gruvbox8_hard"
+lvim.colorscheme = "gruvbox8_soft"
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -124,8 +124,9 @@ lvim.lang.python.linters = {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"folke/tokyonight.nvim"},
-    {"lifepillar/vim-gruvbox8"},
+  {"folke/tokyonight.nvim"},
+  {"lifepillar/vim-gruvbox8"},
+  {"doums/darcula"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
