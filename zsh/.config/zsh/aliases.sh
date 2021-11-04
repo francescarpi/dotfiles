@@ -8,6 +8,7 @@ prsql() { psql --username apsl --host localhost --dbname $1 -f $2 }
 # System
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias clean_pycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
+alias current_week='date +%U'
 
 # GPG
 # https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/
