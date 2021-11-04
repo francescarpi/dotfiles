@@ -12,14 +12,7 @@ function cdd() {
 
 workon() {
     CURRENT_FOLDER=`basename "$PWD"`
-
-    if [ -d "$HOME/virtualenvs" ]; then
-        VIRTUALENV="$HOME/virtualenvs"
-    fi
-
-    if [ -d "$HOME/.virtualenvs" ]; then
-        VIRTUALENV="$HOME/.virtualenvs"
-    fi
+    VIRTUALENV="$HOME/.virtualenvs"
 
     if [ $CURRENT_FOLDER = 'src' ]
     then
