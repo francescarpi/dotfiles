@@ -111,10 +111,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- set a formatter if you want to override the default lsp one (if it exists)
 lvim.lang.python.formatters = {
-  -- {
-  --   exe = "black",
-  --   filetypes = { "python" },
-  -- }
+  {
+    exe = "isort",
+    filetypes = { "python" },
+  }
 }
 -- set an additional linter
 lvim.lang.python.linters = {
