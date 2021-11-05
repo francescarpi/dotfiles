@@ -12,7 +12,6 @@ function cdd() {
 
 workon() {
     CURRENT_FOLDER=`basename "$PWD"`
-    VIRTUALENV="$HOME/.virtualenvs"
 
     if [ $CURRENT_FOLDER = 'src' ]
     then
@@ -23,7 +22,7 @@ workon() {
         PROJECT=`basename "$PWD"`
     fi
 
-    source $VIRTUALENV/$PROJECT/bin/activate
+    source $WORKON_HOME/$PROJECT/bin/activate
 }
 
 git_prune_branches() {
