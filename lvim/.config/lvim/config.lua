@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "gruvbox8_soft"
+lvim.colorscheme = "gruvbox"
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -62,8 +62,8 @@ lvim.builtin.terminal.active = true
 -- Nvim tree settings
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
-lvim.builtin.nvimtree.respect_buf_cwd = 0
-lvim.builtin.nvimtree.quit_on_open = 1
+-- lvim.builtin.nvimtree.respect_buf_cwd = 0
+-- lvim.builtin.nvimtree.quit_on_open = 1
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -130,6 +130,7 @@ lvim.plugins = {
   {"folke/tokyonight.nvim"},
   {"lifepillar/vim-gruvbox8"},
   {"doums/darcula"},
+  {"morhetz/gruvbox"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
