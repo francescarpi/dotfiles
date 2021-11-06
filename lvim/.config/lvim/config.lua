@@ -110,14 +110,17 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- end
 
 -- set a formatter if you want to override the default lsp one (if it exists)
-lvim.lang.python.formatters = {
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
   {
     exe = "isort",
     filetypes = { "python" },
   }
 }
+
 -- set an additional linter
-lvim.lang.python.linters = {
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
   {
     exe = "flake8",
     filetypes = { "python" },
