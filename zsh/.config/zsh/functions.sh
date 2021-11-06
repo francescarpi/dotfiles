@@ -6,23 +6,14 @@ function j() {
   _z "$1"
 }
 
-function cdd() {
-  cd "$(ls -d -- */ | fzf)" || echo "Invalid directory"
-}
-
 workon() {
-    CURRENT_FOLDER=`basename "$PWD"`
-
-    if [ $CURRENT_FOLDER = 'src' ]
-    then
-        cd ..
-        PROJECT=`basename "$PWD"`
-        cd src
-    else
-        PROJECT=`basename "$PWD"`
-    fi
-
-    source $WORKON_HOME/$PROJECT/bin/activate
+  # Enable the python virtual environment according project name
+  PROJECT_NAME=`basename "$PWD"`
+  if [ $PROJECT_NAME = 'src' ]
+  then
+    PROJECT_NAME=$(basename "$(dirname $PWD)")
+  fi
+  source $WORKON_HOME/$PROJECT_NAME/bin/activate
 }
 
 git_prune_branches() {
