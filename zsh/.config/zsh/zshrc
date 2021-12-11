@@ -25,7 +25,11 @@ source $HOME/.config/zsh/modules/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Completions
 # brew install git bash-completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-autoload -Uz compinit && compinit -i
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # History suggestion
 if [ -d "/usr/local/share/zsh-history-substring-search" ]; then
