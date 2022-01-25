@@ -3,4 +3,5 @@ vifminfo
 __pycache__
 packer_compiled.lua
 .idea
+zshrc.zwc
 

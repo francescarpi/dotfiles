@@ -28,21 +28,13 @@ fi
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
 
-# ZPlug. Requires install plugin
-# brew install zplug
-export ZPLUG_HOME=$(brew --prefix)/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "zsh-users/zsh-autosuggestions"
-zplug "MichaelAquilina/zsh-you-should-use"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-syntax-highlighting"
-
-if ! zplug check; then
-    zplug install
-fi
-
-zplug load
+# Antigen
+source $(brew --prefix)/opt/antigen/share/antigen/antigen.zsh
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle MichaelAquilina/zsh-you-should-use
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
 
 # Tmux fix
 bindkey -e
