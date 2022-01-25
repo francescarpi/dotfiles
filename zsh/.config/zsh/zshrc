@@ -14,35 +14,21 @@ source $HOME/.config/zsh/functions.sh
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
 
-# Async mode for autocompletion
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-ZSH_HIGHLIGHT_MAXLENGTH=300
-ZSH_DISABLE_COMPFIX=true
+# ZPlug. Requires install plugin
+# brew install zplug
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Suggestion
-source $HOME/.config/zsh/modules/zsh-autosuggestions/zsh-autosuggestions.zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "MichaelAquilina/zsh-you-should-use"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting"
 
-# Completions
-# brew install git bash-completion
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
-
-# History suggestion
-if [ -d "/usr/local/share/zsh-history-substring-search" ]; then
-    source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-else
-    source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+if ! zplug check; then
+    zplug install
 fi
 
-if [ -d "/usr/local/share/zsh-syntax-highlighting" ]; then
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+zplug load
 
 # Tmux fix
 bindkey -e
