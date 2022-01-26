@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Homebrew
+eval $(brew shellenv)
+
 # Bootstrap
 source $HOME/.config/zsh/exports.sh
 source $HOME/.config/zsh/aliases.sh
@@ -13,9 +16,6 @@ source $HOME/.config/zsh/functions.sh
 # Nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Homebrew
-eval $(brew shellenv)
 
 # Google cloud
 if [ -d "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" ]
