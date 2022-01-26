@@ -15,13 +15,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Homebrew
-eval $($(brew --prefix)/bin/brew shellenv)
+eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 
 # Google cloud
-if [ -d "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" ]
+if [ -d "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" ]
 then
-    source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-    source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc  
+    source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+    source $HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc  
 fi
 
 # ZSH Ops
@@ -29,7 +29,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
 
 # Antigen
-source $(brew --prefix)/opt/antigen/share/antigen/antigen.zsh
+source $HOMEBREW_PREFIX/opt/antigen/share/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-history-substring-search
@@ -40,6 +40,6 @@ antigen apply
 bindkey -e
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $HOMEBREW_PREFIX/opt/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
