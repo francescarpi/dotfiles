@@ -34,12 +34,13 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme romkatv/powerlevel10k
 antigen apply
 
 # Tmux fix
 bindkey -e
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source $HOMEBREW_PREFIX/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.antigen/bundles/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
