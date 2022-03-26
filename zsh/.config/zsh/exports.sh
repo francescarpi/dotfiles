@@ -8,6 +8,7 @@ export path=(
   "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/"
   "/opt/homebrew/bin"
   "$HOME/.local/bin/"
+  "/opt/homebrew/Cellar/openjdk/17.0.2/bin/"
 )
 export EDITOR=lvim
 export LANG=es_ES.UTF-8
@@ -15,4 +16,5 @@ export LC_CTYPE=es_ES.UTF-8
 export LC_ALL=es_ES.UTF-8
 export WORKON_HOME="$HOME/.virtualenvs"
 export HOMEBREW_PREFIX=$(brew --prefix)
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk/17.0.2/
 
