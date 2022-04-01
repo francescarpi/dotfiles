@@ -16,5 +16,5 @@ export LC_CTYPE=es_ES.UTF-8
 export LC_ALL=es_ES.UTF-8
 export WORKON_HOME="$HOME/.virtualenvs"
 export HOMEBREW_PREFIX=$(brew --prefix)
-export JAVA_HOME=/opt/homebrew/Cellar/openjdk/17.0.2/
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk/18/
 
