@@ -9,6 +9,7 @@ export path=(
   "/opt/homebrew/bin"
   "$HOME/.local/bin/"
   "/opt/homebrew/Cellar/openjdk/17.0.2/bin/"
+  "$HOME/.nvm"
 )
 export EDITOR=lvim
 export LANG=es_ES.UTF-8
