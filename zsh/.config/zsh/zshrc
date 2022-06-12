@@ -31,7 +31,6 @@ setopt HIST_FCNTL_LOCK
 # Antigen
 source $HOMEBREW_PREFIX/opt/antigen/share/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme romkatv/powerlevel10k
