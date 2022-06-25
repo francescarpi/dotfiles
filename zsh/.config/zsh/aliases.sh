@@ -1,4 +1,4 @@
-alias ls="gls --color -G"
+alias ls="ls --color -G"
 alias ll="ls -lah"
 
 # Postgres
