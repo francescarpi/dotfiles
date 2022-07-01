@@ -1,17 +1,25 @@
 workon() {
-  # Firstly, we check if there are the folder .venv
+  # .venv fodler in current directory
   if [ -d ".venv" ]
   then
     source .venv/bin/activate
-  else
-    # Enable the python virtual environment according project name
-    PROJECT_NAME=`basename "$PWD"`
-    if [ $PROJECT_NAME = 'src' ]
-    then
-      PROJECT_NAME=$(basename "$(dirname $PWD)")
-    fi
-    source $WORKON_HOME/$PROJECT_NAME/bin/activate
+    return 0
   fi
+
+  # .venv are into the parent
+  if [ -d "../.venv" ]
+  then
+    source ../.venv/bin/activate
+    return 0
+  fi
+
+  # venvs places at the WORKON_HOME
+  PROJECT_NAME=`basename "$PWD"`
+  if [ $PROJECT_NAME = 'src' ]
+  then
+    PROJECT_NAME=$(basename "$(dirname $PWD)")
+  fi
+  source $WORKON_HOME/$PROJECT_NAME/bin/activate
 }
 
 git_prune_branches() {
