@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tanvirtin/monokai.nvim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " theme
