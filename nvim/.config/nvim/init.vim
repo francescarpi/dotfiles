@@ -36,7 +36,7 @@ let g:coc_global_extensions = ['coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-pyri
 set ignorecase
 
 " leader key
-let mapleader="\<Space>"
+let mapleader=","
 
 " utf-8 byte sequence
 set encoding=utf-8
