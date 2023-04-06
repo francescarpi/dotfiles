@@ -30,7 +30,7 @@ set wildignore+=.venv/*
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 " coc
-let g:coc_global_extensions = ['coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-pyright', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-eslint', 'coc-pairs', 'coc-vetur', 'coc-pyright', 'coc-tsserver', 'coc-git']
 
 " search
 set ignorecase
