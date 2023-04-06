@@ -2,7 +2,8 @@
 "
 " Install vim-plug
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"
+" brew install the_silver_searcher
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -101,11 +102,19 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
-
 " Add (Neo)Vim's native statusline support
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" fzf maps
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>ft :BTags<CR>
+nnoremap <leader>fta :Tags<CR>
+nnoremap <leader>fs :Ag<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>fft :Filetypes<CR>
+
+" coc maps
+nnoremap <leader>cc :CocCommand<CR>
