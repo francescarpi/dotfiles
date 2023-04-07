@@ -11,6 +11,7 @@ Plug 'tanvirtin/monokai.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 call plug#end()
 
 " theme
@@ -129,3 +130,6 @@ nnoremap <leader>fft :Filetypes<CR>
 
 " coc maps
 nnoremap <leader>cc :CocCommand<CR>
+
+" chadtree
+nnoremap <leader>v <cmd>CHADopen<cr>
