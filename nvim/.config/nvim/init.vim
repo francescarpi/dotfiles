@@ -3,6 +3,7 @@
 " Install vim-plug
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " brew install the_silver_searcher
+" brew install  universal-ctags
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-commentary'
@@ -12,7 +13,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 call plug#end()
+
 
 " theme
 syntax on
@@ -133,3 +137,6 @@ nnoremap <leader>cc :CocCommand<CR>
 
 " chadtree
 nnoremap <leader>v <cmd>CHADopen<cr>
+
+" autostart coq
+let g:coq_settings = { 'auto_start': v:true }
