@@ -87,13 +87,17 @@ augroup end
 let g:lightline = {
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste'],
-	\             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+	\             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ],
+    \   'right': [ [ ],
+    \              [ 'lineinfo' ],
+    \              [ 'filetype', 'percent'] ]
 	\ },
 	\ 'component_function': {
 	\   'cocstatus': 'coc#status',
     \   'gitbranch': 'gitbranch#name'
 	\ },
 	\ }
+set noshowmode
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " fzf maps
@@ -108,6 +112,7 @@ nnoremap <leader>fft :Filetypes<CR>
 " coc maps
 nnoremap <leader>cc :CocCommand<CR>
 nnoremap <leader>cl :CocList<CR>
+nnoremap <leader>ct :CocList outline<CR>
 
 " chadtree
 nnoremap <leader>v <cmd>CHADopen<cr>
@@ -120,3 +125,8 @@ let g:coq_settings = { 'auto_start': v:true }
 
  " color column
  set colorcolumn=120
+
+ " undo
+set undofile
+set history=700
+set undodir=$HOME/.vimundo
