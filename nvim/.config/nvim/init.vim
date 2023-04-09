@@ -132,3 +132,7 @@ let g:coq_settings = { 'auto_start': v:true }
 set undofile
 set history=700
 set undodir=$HOME/.vimundo
+
+" buffers
+set hidden
+nnoremap <C-l> :b# <CR>
