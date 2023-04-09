@@ -112,3 +112,7 @@ nnoremap <leader>v <cmd>CHADopen<cr>
 
 " autostart coq
 let g:coq_settings = { 'auto_start': v:true }
+
+" change default register
+ set clipboard+=unnamedplus
+
