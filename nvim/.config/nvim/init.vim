@@ -119,7 +119,7 @@ nnoremap <leader>ct :CocList outline<CR>
 " chadtree
 nnoremap <leader>v <cmd>CHADopen<cr>
 
-" autostart coq
+" coq
 let g:coq_settings = { 'auto_start': v:true }
 
 " change default register
@@ -136,3 +136,4 @@ set undodir=$HOME/.vimundo
 " buffers
 set hidden
 nnoremap <C-l> :b# <CR>
+
