@@ -17,6 +17,7 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'itchyny/vim-gitbranch'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " theme
@@ -85,6 +86,7 @@ augroup end
 
 " statusline
 let g:lightline = {
+    \ 'colorscheme': 'powerline',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste'],
 	\             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ],
