@@ -16,6 +16,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
 " theme
@@ -86,10 +87,11 @@ augroup end
 let g:lightline = {
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste'],
-	\             [ 'cocstatus', 'readonly', 'filename', 'git', 'modified' ] ]
+	\             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ]
 	\ },
 	\ 'component_function': {
-	\   'cocstatus': 'coc#status'
+	\   'cocstatus': 'coc#status',
+    \   'gitbranch': 'gitbranch#name'
 	\ },
 	\ }
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
@@ -105,6 +107,7 @@ nnoremap <leader>fft :Filetypes<CR>
 
 " coc maps
 nnoremap <leader>cc :CocCommand<CR>
+nnoremap <leader>cl :CocList<CR>
 
 " chadtree
 nnoremap <leader>v <cmd>CHADopen<cr>
