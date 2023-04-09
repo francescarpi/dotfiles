@@ -3,6 +3,7 @@
 " Install vim-plug
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " brew install the_silver_searcher
+" brew uninstall ctags
 " brew install  universal-ctags
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -16,7 +17,6 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 call plug#end()
-
 
 " theme
 syntax on
@@ -115,3 +115,5 @@ let g:coq_settings = { 'auto_start': v:true }
 " change default register
  set clipboard+=unnamedplus
 
+ " color column
+ set colorcolumn=120
