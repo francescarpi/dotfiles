@@ -201,10 +201,10 @@ vim.keymap.set("n", "<leader>fh", ":History<CR>")
 vim.keymap.set("n", "<leader>fft", ":Filetypes<CR>")
 
 -- search
-vim.keymap.set("n", "<F3>", ":noh<CR>")
+vim.keymap.set("n", "<F3>", ":noh<CR>", { silent = true })
 
 -- back to previous buffer
-vim.keymap.set("n", "<C-l>", ":b#<CR>")
+vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
 
 -- Server specific LSP keymaps
 -- Called by the `on_attach` in the lspconfig setup
