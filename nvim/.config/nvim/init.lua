@@ -274,7 +274,7 @@ vim.g.coq_settings = {
   keymap = {
     jump_to_mark = "", -- Prevent clash with split jumping
     eval_snips = "<leader>j",
-    manual_complete = "<leader>m",
+    -- manual_complete = "<leader>m",
   },
 }
 local coq = require("coq")
