@@ -228,8 +228,6 @@ local lsp_servers = {
   jsonls = {},
   tailwindcss = {},
   tsserver = {},
-  terraformls = {},
-  tflint = {},
   sumneko_lua = { Lua = { diagnostics = { globals = { "vim" } } } },
   yamlls = {},
   volar = {},
