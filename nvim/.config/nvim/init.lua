@@ -182,6 +182,9 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal spell",
 })
 
+-- leader timeout
+vim.opt.updatetime = 100
+
 -- -----------------------------------------------------------------------------------------------
 -- Keymap settings
 -- -----------------------------------------------------------------------------------------------
@@ -271,6 +274,7 @@ vim.g.coq_settings = {
   keymap = {
     jump_to_mark = "", -- Prevent clash with split jumping
     eval_snips = "<leader>j",
+    manual_complete = "<leader>m",
   },
 }
 local coq = require("coq")
