@@ -203,6 +203,9 @@ vim.keymap.set("n", "<leader>fft", ":Filetypes<CR>")
 -- search
 vim.keymap.set("n", "<F3>", ":noh<CR>")
 
+-- back to previous buffer
+vim.keymap.set("n", "<C-l>", ":b#<CR>")
+
 -- Server specific LSP keymaps
 -- Called by the `on_attach` in the lspconfig setup
 local server_maps = function(bufopts)
