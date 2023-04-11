@@ -65,6 +65,9 @@ require("packer").startup(function(use)
   -- surround
   use({ "tpope/vim-surround", commit = "3d188ed" })
 
+  -- autopairs
+  use({ "windwp/nvim-autopairs", commit = "7470af8" })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
@@ -121,7 +124,8 @@ require("neogit").setup({
 
 require("gitsigns").setup({ current_line_blame = true })
 
-require('fzf-lua').setup({})
+require('fzf-lua').setup()
+require("nvim-autopairs").setup()
 
 -- -----------------------------------------------------------------------------------------------
 -- General configuration
