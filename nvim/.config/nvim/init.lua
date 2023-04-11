@@ -53,8 +53,7 @@ require("packer").startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter-context", commit = "cacee48" })
 
   -- FZF
-  use({ "junegunn/fzf", run = ":call fzf#install()", tag = "0.35.1" })
-  use({ "junegunn/fzf.vim", commit = "0f03107" })
+  use({ 'ibhagwan/fzf-lua' })
 
   -- Neogit
   use({ "sindrets/diffview.nvim", commit = "18d88c8" })
@@ -119,7 +118,10 @@ require("neogit").setup({
     diffview = true,
   },
 })
+
 require("gitsigns").setup({ current_line_blame = true })
+
+require('fzf-lua').setup({})
 
 -- -----------------------------------------------------------------------------------------------
 -- General configuration
@@ -195,19 +197,21 @@ vim.g.mapleader = ","
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>")
 
 -- fzf
-vim.keymap.set("n", "<leader>ff", ":GFiles<CR>")
-vim.keymap.set("n", "<leader>ft", ":BTags<CR>")
-vim.keymap.set("n", "<leader>fta", ":Tags<CR>")
-vim.keymap.set("n", "<leader>fs", ":Ag<CR>")
-vim.keymap.set("n", "<leader>fb", ":Buffers<CR>")
-vim.keymap.set("n", "<leader>fh", ":History<CR>")
-vim.keymap.set("n", "<leader>fft", ":Filetypes<CR>")
+ vim.keymap.set("n", "<leader>ff","<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>ft","<cmd>lua require('fzf-lua').btags()<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>fta","<cmd>lua require('fzf-lua').tags()<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>fs","<cmd>lua require('fzf-lua').grep()<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>fb","<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>fd","<cmd>lua require('fzf-lua').diagnostics_document()<CR>", { silent = true })
 
 -- search
-vim.keymap.set("n", "<F3>", ":noh<CR>", { silent = true })
+vim.keymap.set("n", "<esc>", ":noh<CR>", { silent = true })
 
 -- back to previous buffer
 vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
+
+-- open neogit
+vim.keymap.set("n", "<leader>g", ":Neogit<CR>")
 
 -- Server specific LSP keymaps
 -- Called by the `on_attach` in the lspconfig setup
@@ -259,13 +263,14 @@ require("mason-null-ls").setup({
     "jq",
     "isort",
     "black",
-    -- "mypy",
     "prettierd",
   },
   automatic_installation = true,
   automatic_setup = true,
 })
-require("null-ls").setup()
+local null_ls = require("null-ls")
+null_ls.setup()
+null_ls.builtins.diagnostics.flake8.with({ extra_args = {"--max-line-length", "120" } })
 require("mason-null-ls").setup_handlers()
 
 -- COQ autocomplete needed to be set up here
@@ -274,7 +279,6 @@ vim.g.coq_settings = {
   keymap = {
     jump_to_mark = "", -- Prevent clash with split jumping
     eval_snips = "<leader>j",
-    -- manual_complete = "<leader>m",
   },
 }
 local coq = require("coq")
