@@ -49,8 +49,8 @@ require("packer").startup(function(use)
   use({ "jay-babu/mason-null-ls.nvim", commit = "1fcf055" })
 
   -- TreeSitter
-  use({ "nvim-treesitter/nvim-treesitter", commit = "3e31620" })
-  use({ "nvim-treesitter/nvim-treesitter-context", commit = "cacee48" })
+  use({ "nvim-treesitter/nvim-treesitter", commit = "e9fb90d" })
+  use({ "nvim-treesitter/nvim-treesitter-context", commit = "38203f5" })
 
   -- FZF
   use({ 'ibhagwan/fzf-lua' })
