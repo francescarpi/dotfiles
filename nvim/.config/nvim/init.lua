@@ -215,7 +215,7 @@ vim.keymap.set("n", "<esc>", ":noh<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
 
 -- open neogit
-vim.keymap.set("n", "<leader>g", ":Neogit<CR>")
+vim.keymap.set("n", "<leader>git", ":Neogit<CR>")
 
 -- Server specific LSP keymaps
 -- Called by the `on_attach` in the lspconfig setup
