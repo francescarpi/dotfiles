@@ -53,7 +53,7 @@ require("packer").startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter-context", commit = "38203f5" })
 
   -- FZF
-  use({ 'ibhagwan/fzf-lua' })
+  use({ "ibhagwan/fzf-lua", commit = "061a4df" })
 
   -- Neogit
   use({ "sindrets/diffview.nvim", commit = "18d88c8" })
@@ -115,6 +115,7 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
 })
+
 require("neogit").setup({
   -- disable_signs = true,
   integrations = {
@@ -125,6 +126,7 @@ require("neogit").setup({
 require("gitsigns").setup({ current_line_blame = true })
 
 require('fzf-lua').setup()
+
 require("nvim-autopairs").setup()
 
 -- -----------------------------------------------------------------------------------------------
@@ -180,7 +182,6 @@ vim.opt.listchars = {
   trail = "·",
 }
 vim.opt.list = true
--- vim.fn.matchadd("error", [[\s\+$]])
 
 -- Spell check certain file types
 vim.api.nvim_create_autocmd("FileType", {
