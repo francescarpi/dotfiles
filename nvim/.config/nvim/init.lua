@@ -264,13 +264,18 @@ require("mason-null-ls").setup({
     "isort",
     "black",
     "prettierd",
+    "flake8",
   },
   automatic_installation = true,
   automatic_setup = true,
 })
+
 local null_ls = require("null-ls")
-null_ls.setup()
-null_ls.builtins.diagnostics.flake8.with({ extra_args = {"--max-line-length", "120" } })
+local sources = {
+  null_ls.builtins.diagnostics.flake8.with({ extra_args = {"--max-line-length", "120" } })
+}
+
+null_ls.setup({ sources = sources })
 require("mason-null-ls").setup_handlers()
 
 -- COQ autocomplete needed to be set up here
