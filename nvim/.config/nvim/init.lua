@@ -141,7 +141,7 @@ vim.opt.clipboard = "unnamed"
 
 -- Display settings
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+vim.opt.colorcolumn = "120"
 vim.cmd("colorscheme monokai_pro")
 
 -- Title

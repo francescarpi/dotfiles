@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
 -- This table will hold the configuration.
 local config = {}
@@ -19,14 +20,39 @@ config.send_composed_key_when_left_alt_is_pressed = true
 
 config.keys = {
   {
-    key = '/',
-    mods = 'CTRL|SHIFT',
+    key = 'i',
+    mods = 'CMD|SHIFT',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
-    key = '_',
-    mods = 'CTRL|SHIFT',
+    key = 'u',
+    mods = 'CMD|SHIFT',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'z',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.TogglePaneZoomState,
+  },
+  {
+    key = 'h',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'l',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'k',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'j',
+    mods = 'CMD|SHIFT',
+    action = act.ActivatePaneDirection 'Down',
   },
 }
 
