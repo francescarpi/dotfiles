@@ -57,7 +57,7 @@ require("packer").startup(function(use)
 
   -- Neogit
   use({ "sindrets/diffview.nvim", commit = "18d88c8" })
-  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", commit = "84cf7ef" })
+  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", commit = "039ff32" })
 
   -- gitsigns
   use({ "lewis6991/gitsigns.nvim", tag = "v0.6" })
