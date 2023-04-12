@@ -21,12 +21,12 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.keys = {
   {
     key = 'i',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
     key = 'u',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
@@ -36,24 +36,26 @@ config.keys = {
   },
   {
     key = 'h',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = act.ActivatePaneDirection 'Left',
   },
   {
     key = 'l',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = act.ActivatePaneDirection 'Right',
   },
   {
     key = 'k',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = act.ActivatePaneDirection 'Up',
   },
   {
     key = 'j',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = act.ActivatePaneDirection 'Down',
   },
+  { key = 'LeftArrow', mods = 'CMD', action = act.ActivateTabRelative(-1) },
+  { key = 'RightArrow', mods = 'CMD', action = act.ActivateTabRelative(1) },
 }
 
 -- and finally, return the configuration to wezterm
