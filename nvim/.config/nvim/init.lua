@@ -117,7 +117,7 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("neogit").setup({
-  -- disable_signs = true,
+  disable_commit_confirmation = true,
   integrations = {
     diffview = true,
   },
