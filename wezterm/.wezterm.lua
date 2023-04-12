@@ -31,7 +31,7 @@ config.keys = {
   },
   {
     key = 'z',
-    mods = 'CMD|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.TogglePaneZoomState,
   },
   {
