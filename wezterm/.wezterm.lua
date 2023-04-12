@@ -12,7 +12,7 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.color_scheme = 'Monokai Pro (Gogh)'
+-- config.color_scheme = 'Monokai Pro (Gogh)'
 config.font = wezterm.font 'FiraCode Nerd Font'
 config.font_size = 16
 config.send_composed_key_when_right_alt_is_pressed = true
