@@ -218,6 +218,10 @@ vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
 -- open neogit
 vim.keymap.set("n", "<leader>git", ":Neogit<CR>")
 
+-- diagnostic
+ vim.keymap.set("n", "<leader>dd","<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>de","<cmd>lua vim.diagnostic.enable(0)<CR>", { silent = true })
+
 -- Server specific LSP keymaps
 -- Called by the `on_attach` in the lspconfig setup
 local server_maps = function(bufopts)
