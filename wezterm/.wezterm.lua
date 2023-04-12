@@ -17,6 +17,7 @@ config.font = wezterm.font 'FiraCode Nerd Font'
 config.font_size = 16
 config.send_composed_key_when_right_alt_is_pressed = true
 config.send_composed_key_when_left_alt_is_pressed = true
+config.hide_tab_bar_if_only_one_tab = true
 
 config.keys = {
   { key = 'i', mods = 'CMD', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
