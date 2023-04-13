@@ -28,7 +28,7 @@ require("packer").startup(function(use)
   use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.4" })
 
   -- Commenting tool
-  use({ "numToStr/Comment.nvim", commit = "7bb563f" })
+  use({ "numToStr/Comment.nvim", commit = "a89339f" })
 
   -- Status line at the bottom
   use({ "nvim-lualine/lualine.nvim", commit = "32a7382" })
