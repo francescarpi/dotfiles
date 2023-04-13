@@ -37,8 +37,8 @@ require("packer").startup(function(use)
   use({ "nvim-tree/nvim-tree.lua", commit = "b601b5a" })
 
   -- Coq
-  use({ "ms-jpq/coq_nvim", branch = "coq", commit = "6ca8641" })
-  use({ "ms-jpq/coq.artifacts", branch = "artifacts", commit = "9d90bbf" })
+  use({ "ms-jpq/coq_nvim", branch = "coq", commit = "4c764a0" })
+  use({ "ms-jpq/coq.artifacts", branch = "artifacts", commit = "be72c7a" })
 
   -- LSP (The rest is configured in lua/lsp.lua)
   use({ "nvim-lua/plenary.nvim", commit = "bb44479" }) -- used by stuff below
