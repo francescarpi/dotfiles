@@ -34,7 +34,7 @@ require("packer").startup(function(use)
   use({ "nvim-lualine/lualine.nvim", commit = "84ffb80" })
 
   -- File browser
-  use({ "nvim-tree/nvim-tree.lua", commit = "bac962c" })
+  use({ "nvim-tree/nvim-tree.lua", commit = "b601b5a" })
 
   -- Coq
   use({ "ms-jpq/coq_nvim", branch = "coq", commit = "6ca8641" })
