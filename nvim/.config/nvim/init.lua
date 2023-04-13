@@ -25,7 +25,7 @@ require("packer").startup(function(use)
   use({ "kyazdani42/nvim-web-devicons" })
 
   -- Pretty indentation lines
-  use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.2" })
+  use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.4" })
 
   -- Commenting tool
   use({ "numToStr/Comment.nvim", commit = "7bb563f" })
