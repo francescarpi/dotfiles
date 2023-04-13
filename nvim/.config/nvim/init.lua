@@ -208,6 +208,7 @@ vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>")
  vim.keymap.set("n", "<leader>fs","<cmd>lua require('fzf-lua').grep()<CR>", { silent = true })
  vim.keymap.set("n", "<leader>fb","<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
  vim.keymap.set("n", "<leader>fd","<cmd>lua require('fzf-lua').diagnostics_document()<CR>", { silent = true })
+ vim.keymap.set("n", "<leader>fgb","<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
 
 -- search
 vim.keymap.set("n", "<esc>", ":noh<CR>", { silent = true })
@@ -284,6 +285,9 @@ require("mason-null-ls").setup_handlers()
 -- COQ autocomplete needed to be set up here
 vim.g.coq_settings = {
   auto_start = "shut-up",
+  completion = {
+    always = false
+  },
   keymap = {
     jump_to_mark = "", -- Prevent clash with split jumping
     eval_snips = "<leader>j",
