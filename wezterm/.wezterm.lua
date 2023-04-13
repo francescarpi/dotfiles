@@ -33,7 +33,7 @@ config.keys = {
   { key = 'j', mods = 'CMD',action = act.ActivatePaneDirection 'Down' },
   { key = 'LeftArrow', mods = 'CMD', action = act.ActivateTabRelative(-1) },
   { key = 'RightArrow', mods = 'CMD', action = act.ActivateTabRelative(1) },
-  { key = 'o', mods = 'CMD',action = act.ActivateLastTab },
+  { key = 'ñ', mods = 'CMD',action = act.ActivateLastTab },
 }
 
 -- and finally, return the configuration to wezterm
