@@ -56,8 +56,8 @@ require("packer").startup(function(use)
   use({ "ibhagwan/fzf-lua", commit = "061a4df" })
 
   -- Neogit
-  use({ "sindrets/diffview.nvim", commit = "18d88c8" })
-  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", commit = "039ff32" })
+  use({ "sindrets/diffview.nvim", commit = "63720aa" })
+  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", commit = "69a6ca7" })
 
   -- gitsigns
   use({ "lewis6991/gitsigns.nvim", tag = "v0.6" })
