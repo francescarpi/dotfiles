@@ -31,7 +31,7 @@ require("packer").startup(function(use)
   use({ "numToStr/Comment.nvim", commit = "a89339f" })
 
   -- Status line at the bottom
-  use({ "nvim-lualine/lualine.nvim", commit = "32a7382" })
+  use({ "nvim-lualine/lualine.nvim", commit = "84ffb80" })
 
   -- File browser
   use({ "nvim-tree/nvim-tree.lua", commit = "bac962c" })
