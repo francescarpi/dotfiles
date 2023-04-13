@@ -185,7 +185,7 @@ vim.opt.list = true
 
 -- Spell check certain file types
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "latex", "tex", "md", "markdown" },
+  pattern = { "markdown" },
   command = "setlocal spell",
 })
 
