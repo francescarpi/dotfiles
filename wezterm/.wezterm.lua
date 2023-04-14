@@ -24,16 +24,16 @@ config.inactive_pane_hsb = {
 }
 
 config.keys = {
-  { key = 'i', mods = 'CMD', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-  { key = 'u', mods = 'CMD', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = 'z', mods = 'CMD', action = wezterm.action.TogglePaneZoomState },
-  { key = 'h', mods = 'CMD', action = act.ActivatePaneDirection 'Left' },
-  { key = 'l', mods = 'CMD', action = act.ActivatePaneDirection 'Right' },
-  { key = 'k', mods = 'CMD', action = act.ActivatePaneDirection 'Up' },
-  { key = 'j', mods = 'CMD',action = act.ActivatePaneDirection 'Down' },
-  { key = 'p', mods = 'CMD', action = act.ActivateTabRelative(-1) },
-  { key = 'n', mods = 'CMD', action = act.ActivateTabRelative(1) },
-  { key = 'ñ', mods = 'CMD',action = act.ActivateLastTab },
+  { key = 'i',  mods = 'CMD', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = 'u',  mods = 'CMD', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = 'z',  mods = 'CMD', action = wezterm.action.TogglePaneZoomState },
+  { key = 'h',  mods = 'CMD', action = act.ActivatePaneDirection 'Left' },
+  { key = 'l',  mods = 'CMD', action = act.ActivatePaneDirection 'Right' },
+  { key = 'k',  mods = 'CMD', action = act.ActivatePaneDirection 'Up' },
+  { key = 'j',  mods = 'CMD', action = act.ActivatePaneDirection 'Down' },
+  { key = 'p',  mods = 'CMD', action = act.ActivateTabRelative(-1) },
+  { key = 'n',  mods = 'CMD', action = act.ActivateTabRelative(1) },
+  { key = 'ñ', mods = 'CMD', action = act.ActivateLastTab },
 }
 
 -- and finally, return the configuration to wezterm

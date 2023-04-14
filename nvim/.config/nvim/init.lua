@@ -153,7 +153,7 @@ vim.opt.colorcolumn = "120"
 vim.cmd("colorscheme monokai_pro")
 
 -- Title
-vim.opt.title = true -- set the title of window to the value of the titlestring
+vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
 -- Persist undo
@@ -202,13 +202,13 @@ vim.g.mapleader = ","
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>")
 
 -- fzf
- vim.keymap.set("n", "<leader>ff","<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
- vim.keymap.set("n", "<leader>ft","<cmd>lua require('fzf-lua').btags()<CR>", { silent = true })
- vim.keymap.set("n", "<leader>fta","<cmd>lua require('fzf-lua').tags()<CR>", { silent = true })
- vim.keymap.set("n", "<leader>fs","<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
- vim.keymap.set("n", "<leader>fb","<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
- vim.keymap.set("n", "<leader>fd","<cmd>lua require('fzf-lua').diagnostics_document()<CR>", { silent = true })
- vim.keymap.set("n", "<leader>fgb","<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ft", "<cmd>lua require('fzf-lua').btags()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fta", "<cmd>lua require('fzf-lua').tags()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fs", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fd", "<cmd>lua require('fzf-lua').diagnostics_document()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fgb", "<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
 
 -- search
 vim.keymap.set("n", "<esc>", ":noh<CR>", { silent = true })
@@ -220,8 +220,8 @@ vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
 vim.keymap.set("n", "<leader>git", ":Neogit<CR>")
 
 -- diagnostic
- vim.keymap.set("n", "<leader>dd","<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true })
- vim.keymap.set("n", "<leader>de","<cmd>lua vim.diagnostic.enable(0)<CR>", { silent = true })
+vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true })
+vim.keymap.set("n", "<leader>de", "<cmd>lua vim.diagnostic.enable(0)<CR>", { silent = true })
 
 -- Server specific LSP keymaps
 -- Called by the `on_attach` in the lspconfig setup
@@ -243,7 +243,7 @@ end
 -- List of LSP servers to install with Mason and activate in LspConfig
 local lsp_servers = {
   pyright = {},
-  ruff_lsp = {  settings = { args = { "--line-length", "120" }, organizeImports = true, fixAll = true } } ,
+  ruff_lsp = { settings = { args = { "--line-length", "120" }, organizeImports = true, fixAll = true } },
   eslint = {},
   jsonls = {},
   tailwindcss = {},
@@ -309,4 +309,3 @@ for lsp, settings in pairs(lsp_servers) do
     init_options = settings,
   }))
 end
-
