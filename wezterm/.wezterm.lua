@@ -31,8 +31,8 @@ config.keys = {
   { key = 'l', mods = 'CMD', action = act.ActivatePaneDirection 'Right' },
   { key = 'k', mods = 'CMD', action = act.ActivatePaneDirection 'Up' },
   { key = 'j', mods = 'CMD',action = act.ActivatePaneDirection 'Down' },
-  { key = 'LeftArrow', mods = 'CMD', action = act.ActivateTabRelative(-1) },
-  { key = 'RightArrow', mods = 'CMD', action = act.ActivateTabRelative(1) },
+  { key = 'p', mods = 'CMD', action = act.ActivateTabRelative(-1) },
+  { key = 'n', mods = 'CMD', action = act.ActivateTabRelative(1) },
   { key = 'ñ', mods = 'CMD',action = act.ActivateLastTab },
 }
 
