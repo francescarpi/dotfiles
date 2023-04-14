@@ -19,10 +19,10 @@ require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- themes
-  use("tanvirtin/monokai.nvim")
+  use({ "tanvirtin/monokai.nvim", commit = "b8bd44d" })
 
   -- Used by LuaLine and nvim-tree
-  use({ "kyazdani42/nvim-web-devicons" })
+  use({ "kyazdani42/nvim-web-devicons", commit = "4ec26d6" })
 
   -- Pretty indentation lines
   use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.4" })
@@ -41,19 +41,19 @@ require("packer").startup(function(use)
   use({ "ms-jpq/coq.artifacts", branch = "artifacts", commit = "be72c7a" })
 
   -- LSP (The rest is configured in lua/lsp.lua)
-  use({ "nvim-lua/plenary.nvim", commit = "bb44479" }) -- used by stuff below
-  use({ "williamboman/mason.nvim", commit = "dac1093" })
-  use({ "williamboman/mason-lspconfig.nvim", commit = "aa25b41" })
-  use({ "neovim/nvim-lspconfig", commit = "e69978a" })
-  use({ "jose-elias-alvarez/null-ls.nvim", commit = "d09d7d8" })
-  use({ "jay-babu/mason-null-ls.nvim", commit = "1fcf055" })
+  use({ "nvim-lua/plenary.nvim", commit = "9ac3e95" }) -- used by stuff below
+  use({ "williamboman/mason.nvim", commit = "6845ccf" })
+  use({ "williamboman/mason-lspconfig.nvim", commit = "b81c50c" })
+  use({ "neovim/nvim-lspconfig", commit = "e52efca" })
+  use({ "jose-elias-alvarez/null-ls.nvim", commit = "f8ffcd7" })
+  use({ "jay-babu/mason-null-ls.nvim", commit = "04fc509" })
 
   -- TreeSitter
   use({ "nvim-treesitter/nvim-treesitter", commit = "f499a71" })
   use({ "nvim-treesitter/nvim-treesitter-context", commit = "0d730df" })
 
   -- FZF
-  use({ "ibhagwan/fzf-lua", commit = "061a4df" })
+  use({ "ibhagwan/fzf-lua", commit = "08f57e9" })
 
   -- Neogit
   use({ "sindrets/diffview.nvim", commit = "63720aa" })
@@ -248,7 +248,7 @@ local lsp_servers = {
   jsonls = {},
   tailwindcss = {},
   tsserver = {},
-  sumneko_lua = { Lua = { diagnostics = { globals = { "vim" } } } },
+  lua_ls = { Lua = { diagnostics = { globals = { "vim" } } } },
   yamlls = {},
   volar = {},
 }
@@ -280,7 +280,7 @@ require("mason-null-ls").setup({
 })
 
 require("null-ls").setup()
-require("mason-null-ls").setup_handlers()
+require("mason-null-ls").setup()
 
 -- COQ autocomplete needed to be set up here
 vim.g.coq_settings = {
