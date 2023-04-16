@@ -34,6 +34,10 @@ config.keys = {
   { key = 'p',  mods = 'CMD', action = act.ActivateTabRelative(-1) },
   { key = 'n',  mods = 'CMD', action = act.ActivateTabRelative(1) },
   { key = 'ñ', mods = 'CMD', action = act.ActivateLastTab },
+  { key = 'k', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Up', 5 } },
+  { key = 'j', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Down', 5 } },
+  { key = 'l', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Right', 5 } },
+  { key = 'h', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Left', 5 } },
 }
 
 -- and finally, return the configuration to wezterm
