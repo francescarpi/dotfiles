@@ -1,6 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 local act = wezterm.action
+local mux = wezterm.mux
 
 -- This table will hold the configuration.
 local config = {}
@@ -39,6 +40,11 @@ config.keys = {
   { key = 'l', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Right', 5 } },
   { key = 'h', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Left', 5 } },
 }
+
+wezterm.on('gui-startup', function()
+ local tab, pane, window = mux.spawn_window({})
+ window:gui_window():maximize()
+end)
 
 -- and finally, return the configuration to wezterm
 return config
