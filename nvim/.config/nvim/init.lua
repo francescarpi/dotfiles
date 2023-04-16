@@ -79,11 +79,18 @@ end)
 -- Plugin config
 -- -----------------------------------------------------------------------------------------------
 -- Configure some of the simpler plugins
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  hijack_cursor = false
+})
 
 require("Comment").setup()
 
 require("lualine").setup({
+  options = {
+    disabled_filetypes = {
+      statusline = { 'NvimTree' }
+    }
+  },
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
