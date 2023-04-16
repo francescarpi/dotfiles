@@ -19,54 +19,54 @@ require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- themes
-  use({ "tanvirtin/monokai.nvim", commit = "b8bd44d" })
+  use({ "tanvirtin/monokai.nvim" })
 
   -- Used by LuaLine and nvim-tree
-  use({ "kyazdani42/nvim-web-devicons", commit = "4ec26d6" })
+  use({ "kyazdani42/nvim-web-devicons" })
 
   -- Pretty indentation lines
-  use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.4" })
+  use({ "lukas-reineke/indent-blankline.nvim" })
 
   -- Commenting tool
-  use({ "numToStr/Comment.nvim", commit = "a89339f" })
+  use({ "numToStr/Comment.nvim" })
 
   -- Status line at the bottom
-  use({ "nvim-lualine/lualine.nvim", commit = "84ffb80" })
+  use({ "nvim-lualine/lualine.nvim" })
 
   -- File browser
-  use({ "nvim-tree/nvim-tree.lua", commit = "b601b5a" })
+  use({ "nvim-tree/nvim-tree.lua" })
 
   -- Coq
-  use({ "ms-jpq/coq_nvim", branch = "coq", commit = "4c764a0" })
-  use({ "ms-jpq/coq.artifacts", branch = "artifacts", commit = "be72c7a" })
+  use({ "ms-jpq/coq_nvim", branch = "coq" })
+  use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
 
   -- LSP (The rest is configured in lua/lsp.lua)
-  use({ "nvim-lua/plenary.nvim", commit = "9ac3e95" }) -- used by stuff below
-  use({ "williamboman/mason.nvim", commit = "6845ccf" })
-  use({ "williamboman/mason-lspconfig.nvim", commit = "b81c50c" })
-  use({ "neovim/nvim-lspconfig", commit = "e52efca" })
-  use({ "jose-elias-alvarez/null-ls.nvim", commit = "f8ffcd7" })
-  use({ "jay-babu/mason-null-ls.nvim", commit = "04fc509" })
+  use({ "nvim-lua/plenary.nvim" }) -- used by stuff below
+  use({ "williamboman/mason.nvim" })
+  use({ "williamboman/mason-lspconfig.nvim" })
+  use({ "neovim/nvim-lspconfig" })
+  use({ "jose-elias-alvarez/null-ls.nvim" })
+  use({ "jay-babu/mason-null-ls.nvim" })
 
   -- TreeSitter
-  use({ "nvim-treesitter/nvim-treesitter", commit = "f499a71" })
-  use({ "nvim-treesitter/nvim-treesitter-context", commit = "0d730df" })
+  use({ "nvim-treesitter/nvim-treesitter" })
+  use({ "nvim-treesitter/nvim-treesitter-context" })
 
   -- FZF
-  use({ "ibhagwan/fzf-lua", commit = "08f57e9" })
+  use({ "ibhagwan/fzf-lua" })
 
   -- Neogit
-  use({ "sindrets/diffview.nvim", commit = "63720aa" })
-  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", commit = "69a6ca7" })
+  use({ "sindrets/diffview.nvim" })
+  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
   -- gitsigns
-  use({ "lewis6991/gitsigns.nvim", tag = "v0.6" })
+  use({ "lewis6991/gitsigns.nvim" })
 
   -- surround
-  use({ "tpope/vim-surround", commit = "3d188ed" })
+  use({ "tpope/vim-surround" })
 
   -- autopairs
-  use({ "windwp/nvim-autopairs", commit = "7470af8" })
+  use({ "windwp/nvim-autopairs" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -196,7 +196,7 @@ vim.opt.updatetime = 100
 -- Keymap settings
 -- -----------------------------------------------------------------------------------------------
 -- Change leader key and use space for :
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- nvim-tree
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>")
