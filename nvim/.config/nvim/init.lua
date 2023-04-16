@@ -140,7 +140,6 @@ require("nvim-autopairs").setup()
 -- General configuration
 -- -----------------------------------------------------------------------------------------------
 -- Basic settings
-vim.opt.hlsearch = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
@@ -152,7 +151,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Use system clipboard
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 
 -- Display settings
 vim.opt.cursorline = true
@@ -177,6 +176,12 @@ vim.opt.autoindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.gdefault = true
+vim.opt.hlsearch = false
+
+-- Decrease update time
+vim.o.updatetime = 100
+vim.o.timeout = true
+vim.o.timeoutlen = 300
 
 -- open new split panes to right and below (as you probably expect)
 vim.opt.splitright = true
@@ -196,9 +201,6 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal spell",
 })
 
--- leader timeout
-vim.opt.updatetime = 100
-
 -- -----------------------------------------------------------------------------------------------
 -- Keymap settings
 -- -----------------------------------------------------------------------------------------------
@@ -216,9 +218,6 @@ vim.keymap.set("n", "<leader>fs", "<cmd>lua require('fzf-lua').live_grep()<CR>",
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fd", "<cmd>lua require('fzf-lua').diagnostics_document()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fgb", "<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
-
--- search
-vim.keymap.set("n", "<esc>", ":noh<CR>", { silent = true })
 
 -- back to previous buffer
 vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
