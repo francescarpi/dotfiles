@@ -62,7 +62,10 @@ require('lazy').setup({
   {
     "nvim-tree/nvim-tree.lua",
     opts = {
-      hijack_cursor = false
+      hijack_cursor = false,
+      update_focused_file = {
+        enable = true
+      }
     }
   },
 

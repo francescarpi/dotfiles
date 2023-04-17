@@ -4,4 +4,5 @@ __pycache__
 packer_compiled.lua
 .idea
 zshrc.zwc
+.luarc.json
 
