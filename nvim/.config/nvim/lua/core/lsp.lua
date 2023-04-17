@@ -47,13 +47,12 @@ require("mason-null-ls").setup({
 })
 
 -- register keymap for each server and configure them
-local coq = require("coq")
 for lsp, settings in pairs(lsp_servers) do
-  require("lspconfig")[lsp].setup(coq.lsp_ensure_capabilities({
+  require("lspconfig")[lsp].setup({
     on_attach = function(_, buffer)
       server_maps({ buffer = buffer })
     end,
     settings = settings,
     init_options = settings,
-  }))
+  })
 end
