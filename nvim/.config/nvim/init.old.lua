@@ -20,29 +20,29 @@ end
 local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function(use)
-  use("wbthomason/packer.nvim")
+  -- use("wbthomason/packer.nvim")
 
   -- themes
-  use({ "tanvirtin/monokai.nvim" })
+  -- use({ "tanvirtin/monokai.nvim" })
 
   -- Used by LuaLine and nvim-tree
-  use({ "kyazdani42/nvim-web-devicons" })
+  -- use({ "kyazdani42/nvim-web-devicons" })
 
   -- Pretty indentation lines
-  use({ "lukas-reineke/indent-blankline.nvim" })
+  -- use({ "lukas-reineke/indent-blankline.nvim" })
 
   -- Commenting tool
-  use({ "numToStr/Comment.nvim" })
+  -- use({ "numToStr/Comment.nvim" })
 
   -- Status line at the bottom
-  use({ "nvim-lualine/lualine.nvim" })
+  -- use({ "nvim-lualine/lualine.nvim" })
 
   -- File browser
-  use({ "nvim-tree/nvim-tree.lua" })
+  -- use({ "nvim-tree/nvim-tree.lua" })
 
   -- Coq
-  use({ "ms-jpq/coq_nvim", branch = "coq" })
-  use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
+  -- use({ "ms-jpq/coq_nvim", branch = "coq" })
+  -- use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
 
   -- LSP (The rest is configured in lua/lsp.lua)
   use({ "nvim-lua/plenary.nvim" }) -- used by stuff below
@@ -57,20 +57,20 @@ require("packer").startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter-context" })
 
   -- FZF
-  use({ "ibhagwan/fzf-lua" })
+  -- use({ "ibhagwan/fzf-lua" })
 
   -- Neogit
-  use({ "sindrets/diffview.nvim" })
-  use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+  -- use({ "sindrets/diffview.nvim" })
+  -- use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
   -- gitsigns
-  use({ "lewis6991/gitsigns.nvim" })
+  -- use({ "lewis6991/gitsigns.nvim" })
 
   -- surround
-  use({ "tpope/vim-surround" })
+  -- use({ "tpope/vim-surround" })
 
   -- autopairs
-  use({ "windwp/nvim-autopairs" })
+  -- use({ "windwp/nvim-autopairs" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
