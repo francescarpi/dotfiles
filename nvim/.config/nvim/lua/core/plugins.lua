@@ -122,10 +122,10 @@ require('lazy').setup({
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "williamboman/mason.nvim", config = true },
+      { "williamboman/mason.nvim",         config = true },
       "williamboman/mason-lspconfig.nvim",
-      { "j-hui/fidget.nvim",       opts = {} }, -- Useful status updates for LSP
-      "folke/neodev.nvim",                -- Additional lua configuration, makes nvim stuff amazing!
+      { "j-hui/fidget.nvim",               opts = {} }, -- Useful status updates for LSP
+      { "folke/neodev.nvim",               opts = {} }, -- Additional lua configuration, makes nvim stuff amazing!
       { "jose-elias-alvarez/null-ls.nvim", opts = {} },
       "jay-babu/mason-null-ls.nvim",
     }
