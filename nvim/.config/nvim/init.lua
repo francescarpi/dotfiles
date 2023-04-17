@@ -5,7 +5,7 @@
 -- Leader key must be at the beginning
 vim.g.mapleader = " "
 
--- Automatically install Packer if it isn't installed
+-- Automatically install Packer if it 't installed
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -304,7 +304,7 @@ vim.g.coq_settings = {
 local coq = require("coq")
 
 -- The null-ls stuff is activated automatically up above
--- by `setup_handlers()`, but the LSP servers need to be
+-- by `setup()`, but the LSP servers need to be
 -- manually set up here. Each one is setup() and COQ is
 -- activated for them at the same time.
 for lsp, settings in pairs(lsp_servers) do
