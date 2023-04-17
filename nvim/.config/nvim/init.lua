@@ -3,7 +3,7 @@
 -- -----------------------------------------------------------------------------------------------
 
 -- Leader key must be at the beginning
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- Automatically install Packer if it 't installed
 local ensure_packer = function()
