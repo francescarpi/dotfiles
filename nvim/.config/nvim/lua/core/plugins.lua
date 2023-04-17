@@ -30,13 +30,13 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  {"kyazdani42/nvim-web-devicons"},
+  { "kyazdani42/nvim-web-devicons" },
 
   -- ------------------------------------------------------------------------------------------
-  {"lukas-reineke/indent-blankline.nvim", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", opts = {} },
 
   -- ------------------------------------------------------------------------------------------
-  {"numToStr/Comment.nvim", opts = {} },
+  { "numToStr/Comment.nvim",               opts = {} },
 
   -- ------------------------------------------------------------------------------------------
   {
@@ -45,15 +45,15 @@ require('lazy').setup({
       options = {
         disabled_filetypes = {
           statusline = { 'NvimTree' }
-      }
-    },
-    sections = {
-      lualine_a = { "mode" },
-      lualine_b = { "branch", "diff", "diagnostics" },
-      lualine_c = { { "filename", path = 1 } },
-      lualine_x = { 'filetype' },
-      lualine_y = { "progress" },
-      lualine_z = { "location" },
+        }
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { { "filename", path = 1 } },
+        lualine_x = { 'filetype' },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
     }
   },
@@ -67,7 +67,7 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  { "ms-jpq/coq.artifacts", branch = "artifacts"  },
+  { "ms-jpq/coq.artifacts",   branch = "artifacts" },
   {
     "ms-jpq/coq_nvim",
     config = function()
@@ -82,17 +82,16 @@ require('lazy').setup({
           pre_select = true
         },
       }
-      vim.cmd([[COQnow]])
     end,
     build = ":COQdeps",
     branch = "coq"
   },
 
   -- ------------------------------------------------------------------------------------------
-  {"ibhagwan/fzf-lua", opts = {} },
+  { "ibhagwan/fzf-lua",       opts = {} },
 
   -- ------------------------------------------------------------------------------------------
-  {"sindrets/diffview.nvim", opts = {} },
+  { "sindrets/diffview.nvim", opts = {} },
   {
     "TimUntersberger/neogit",
     opts = {
@@ -105,13 +104,38 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  {"lewis6991/gitsigns.nvim", opts = {} },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true
+    }
+  },
 
   -- ------------------------------------------------------------------------------------------
-  {"tpope/vim-surround" },
+  { "tpope/vim-surround" },
 
   -- ------------------------------------------------------------------------------------------
-  {"windwp/nvim-autopairs", opts = {} },
+  { "windwp/nvim-autopairs", opts = {} },
+
+  -- ------------------------------------------------------------------------------------------
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      { 'williamboman/mason.nvim', config = true },
+      'williamboman/mason-lspconfig.nvim',
+      { 'j-hui/fidget.nvim',       opts = {} }, -- Useful status updates for LSP
+      'folke/neodev.nvim',                -- Additional lua configuration, makes nvim stuff amazing!
+    }
+  },
+
+  -- ------------------------------------------------------------------------------------------
+  {
+    -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ":TSUpdate",
+  },
 
 })
-
