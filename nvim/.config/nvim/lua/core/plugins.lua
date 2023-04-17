@@ -82,7 +82,7 @@ require('lazy').setup({
           pre_select = true
         },
       }
-      vim.cmd([[COQnow]])
+      vim.cmd([[COQnow --shut-up]])
     end,
     build = ":COQdeps",
     branch = "coq"
