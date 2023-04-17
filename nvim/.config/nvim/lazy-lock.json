@@ -1,5 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "a89339ffbee677ab0521a483b6dac7e2e67c907e" },
+  "coq.artifacts": { "branch": "artifacts", "commit": "551ee8e34fe4d24252ee0c20f51357b78a52d3c7" },
+  "coq_nvim": { "branch": "coq", "commit": "d9eaa12329b4f48a5e6c29ed6a0b9217ebf67f23" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
   "lazy.nvim": { "branch": "main", "commit": "eddee830ede0f95ced9802ca9abd3f8f662e5cc5" },
   "lualine.nvim": { "branch": "master", "commit": "84ffb80e452d95e2c46fa29a98ea11a240f7843e" },

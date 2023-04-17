@@ -8,5 +8,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require("lua.plugins")
-require("lua.options")
+require("core.plugins")
+require("core.options")
+require("core.keymaps")

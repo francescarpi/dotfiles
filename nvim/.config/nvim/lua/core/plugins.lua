@@ -25,7 +25,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme monokai_pro]])
+      vim.cmd.colorscheme 'monokai_pro'
     end,
   },
 
@@ -39,7 +39,9 @@ require('lazy').setup({
   {"numToStr/Comment.nvim", opts = {} },
 
   -- ------------------------------------------------------------------------------------------
-  {"nvim-lualine/lualine.nvim", opts = {
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
       options = {
         disabled_filetypes = {
           statusline = { 'NvimTree' }
@@ -57,11 +59,34 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  {"nvim-tree/nvim-tree.lua", opts = {
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
       hijack_cursor = false
     }
   },
 
-})
+  -- ------------------------------------------------------------------------------------------
+  { "ms-jpq/coq.artifacts", branch = "artifacts"  },
+  {
+    "ms-jpq/coq_nvim",
+    config = function()
+      vim.g.coq_settings = {
+        auto_start = "shut-up",
+        completion = {
+          always = false
+        },
+        keymap = {
+          jump_to_mark = "", -- Prevent clash with split jumping
+          eval_snips = "<leader>j",
+          pre_select = true
+        },
+      }
+      vim.cmd([[COQnow]])
+    end,
+    build = ":COQdeps",
+    branch = "coq"
+  },
 
+})
 
