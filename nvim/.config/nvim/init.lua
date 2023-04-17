@@ -1,6 +1,10 @@
 -- -- -----------------------------------------------------------------------------------------------
 -- Plugin installation
 -- -----------------------------------------------------------------------------------------------
+
+-- Leader key must be at the beginning
+vim.g.mapleader = " "
+
 -- Automatically install Packer if it isn't installed
 local ensure_packer = function()
   local fn = vim.fn
@@ -204,9 +208,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- -----------------------------------------------------------------------------------------------
 -- Keymap settings
 -- -----------------------------------------------------------------------------------------------
--- Change leader key and use space for :
-vim.g.mapleader = " "
-
 -- nvim-tree
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>")
 
