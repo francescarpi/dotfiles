@@ -34,6 +34,18 @@ require("mason-lspconfig").setup({
   automatic_installation = true,
 })
 
+require("mason-null-ls").setup({
+  ensure_installed = {
+    "stylua",
+    "jq",
+    "isort",
+    "black",
+    "prettierd",
+  },
+  automatic_installation = true,
+  automatic_setup = true,
+})
+
 -- register keymap for each server and configure them
 local coq = require("coq")
 for lsp, settings in pairs(lsp_servers) do

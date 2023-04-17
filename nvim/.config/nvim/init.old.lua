@@ -49,8 +49,8 @@ require("packer").startup(function(use)
   -- use({ "williamboman/mason.nvim" })
   -- use({ "williamboman/mason-lspconfig.nvim" })
   -- use({ "neovim/nvim-lspconfig" })
-  use({ "jose-elias-alvarez/null-ls.nvim" })
-  use({ "jay-babu/mason-null-ls.nvim" })
+  -- use({ "jose-elias-alvarez/null-ls.nvim" })
+  -- use({ "jay-babu/mason-null-ls.nvim" })
 
   -- TreeSitter
   -- use({ "nvim-treesitter/nvim-treesitter" })
@@ -286,8 +286,8 @@ require("mason-null-ls").setup({
   automatic_setup = true,
 })
 
-require("null-ls").setup()
-require("mason-null-ls").setup()
+-- require("null-ls").setup()
+-- require("mason-null-ls").setup()
 
 -- COQ autocomplete needed to be set up here
 -- vim.g.coq_settings = {
