@@ -93,7 +93,16 @@ require('lazy').setup({
 
   -- ------------------------------------------------------------------------------------------
   {"sindrets/diffview.nvim", opts = {} },
-  {"TimUntersberger/neogit", opts = {}, dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "TimUntersberger/neogit",
+    opts = {
+      disable_commit_confirmation = true,
+      integrations = {
+        diffview = true,
+      },
+    },
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 
   -- ------------------------------------------------------------------------------------------
   {"lewis6991/gitsigns.nvim", opts = {} },
