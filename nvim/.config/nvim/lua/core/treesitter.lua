@@ -16,6 +16,7 @@ require("nvim-treesitter.configs").setup({
     "html",
     "vim",
     "vue",
+    "scss",
   },
   sync_install = false,
   auto_install = true,
