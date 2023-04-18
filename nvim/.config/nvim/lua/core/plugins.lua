@@ -144,4 +144,6 @@ require('lazy').setup({
     build = ":TSUpdate",
   },
 
+  -- ------------------------------------------------------------------------------------------
+  { "ThePrimeagen/harpoon", opts = {}, dependencies = { "nvim-lua/plenary.nvim" } },
 })
