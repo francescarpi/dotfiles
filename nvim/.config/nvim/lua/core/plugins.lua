@@ -92,9 +92,6 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  { "ibhagwan/fzf-lua",       opts = {} },
-
-  -- ------------------------------------------------------------------------------------------
   { "sindrets/diffview.nvim", opts = {} },
   {
     "TimUntersberger/neogit",
@@ -148,5 +145,13 @@ require('lazy').setup({
   { "ThePrimeagen/harpoon", opts = {}, dependencies = { "nvim-lua/plenary.nvim" } },
 
   -- ------------------------------------------------------------------------------------------
-  { "nvim-telescope/telescope.nvim", opts = {}, dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        file_ignore_patterns = { ".git", "node_modules", ".venv"}
+      }
+    },
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 })

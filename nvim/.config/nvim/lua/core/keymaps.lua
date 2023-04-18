@@ -5,17 +5,8 @@
 -- Nvim-Tree
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>", { silent = true })
 
--- fzf
--- vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>ft", "<cmd>lua require('fzf-lua').btags()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>fta", "<cmd>lua require('fzf-lua').tags()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>fs", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>fd", "<cmd>lua require('fzf-lua').diagnostics_document()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>fgb", "<cmd>lua require('fzf-lua').git_branches()<CR>", { silent = true })
-
 -- telescope
-vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files{}<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files{hidden = true}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ft", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fs", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers{}<CR>", { silent = true })
