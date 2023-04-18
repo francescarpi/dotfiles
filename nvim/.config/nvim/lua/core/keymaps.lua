@@ -25,3 +25,7 @@ vim.keymap.set("n", "<leader>de", "<cmd>lua vim.diagnostic.enable(0)<CR>", { sil
 vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>hd", "<cmd>lua require('harpoon.mark').rm_file()<CR>", { silent = true })
+
+-- page up/down
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
