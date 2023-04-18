@@ -146,4 +146,7 @@ require('lazy').setup({
 
   -- ------------------------------------------------------------------------------------------
   { "ThePrimeagen/harpoon", opts = {}, dependencies = { "nvim-lua/plenary.nvim" } },
+
+  -- ------------------------------------------------------------------------------------------
+  { "nvim-telescope/telescope.nvim", opts = {}, dependencies = { "nvim-lua/plenary.nvim" } },
 })
