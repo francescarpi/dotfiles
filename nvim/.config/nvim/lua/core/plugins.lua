@@ -97,6 +97,7 @@ require('lazy').setup({
     "TimUntersberger/neogit",
     opts = {
       disable_commit_confirmation = true,
+      console_timeout = 1000,
       integrations = {
         diffview = true,
       },
