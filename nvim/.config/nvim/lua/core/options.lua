@@ -6,7 +6,6 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
-vim.opt.spelllang = "en_gb"
 
 -- use nvim-tree instead
 vim.g.loaded_netrw = 1
@@ -58,8 +57,8 @@ vim.opt.listchars = {
 vim.opt.list = true
 
 -- Spell check certain file types
+vim.opt.spelllang = "en_gb"
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown" },
+  pattern = { "markdown", "NeogitCommitMessage" },
   command = "setlocal spell",
 })
-
