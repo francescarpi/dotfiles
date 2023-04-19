@@ -70,7 +70,7 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  { "ms-jpq/coq.artifacts",   branch = "artifacts" },
+  { "ms-jpq/coq.artifacts",  branch = "artifacts" },
   {
     "ms-jpq/coq_nvim",
     config = function()
@@ -149,7 +149,13 @@ require('lazy').setup({
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
-        file_ignore_patterns = { ".git", "node_modules", ".venv"}
+        file_ignore_patterns = { ".git", "node_modules", ".venv" },
+        mappings = {
+          i = {
+            ["<C-j>"] = "move_selection_next",
+            ["<C-k>"] = "move_selection_previous"
+          }
+        }
       }
     },
     dependencies = { "nvim-lua/plenary.nvim" }
