@@ -160,4 +160,7 @@ require('lazy').setup({
     },
     dependencies = { "nvim-lua/plenary.nvim" }
   },
+
+  -- ------------------------------------------------------------------------------------------
+  { "roobert/search-replace.nvim", opts = {} },
 })
