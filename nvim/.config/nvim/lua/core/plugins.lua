@@ -76,9 +76,6 @@ require('lazy').setup({
     config = function()
       vim.g.coq_settings = {
         auto_start = "shut-up",
-        completion = {
-          always = false
-        },
         keymap = {
           jump_to_mark = "", -- Prevent clash with split jumping
           eval_snips = "<leader>j",
