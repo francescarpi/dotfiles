@@ -18,6 +18,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.showmode = false
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "120"
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 8
 
 -- Title
 vim.opt.title = true                       -- set the title of window to the value of the titlestring
@@ -40,7 +42,7 @@ vim.opt.gdefault = true
 vim.opt.hlsearch = false
 
 -- Decrease update time
-vim.o.updatetime = 100
+vim.o.updatetime = 50
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
