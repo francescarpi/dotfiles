@@ -44,3 +44,6 @@ vim.keymap.set("n", "<leader>ro", ":SearchReplaceSingleBufferOpen<CR>", { silent
 -- Resize panels
 vim.keymap.set("n", "+", ":vertical res +10<CR>", { silent = true })
 vim.keymap.set("n", "-", ":vertical res -10<CR>", { silent = true })
+
+-- under tree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
