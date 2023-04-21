@@ -40,3 +40,7 @@ vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
 -- Search/Replacement
 vim.keymap.set("n", "<leader>ro", ":SearchReplaceSingleBufferOpen<CR>", { silent = true })
+
+-- Resize panels
+vim.keymap.set("n", "+", ":vertical res +10<CR>", { silent = true })
+vim.keymap.set("n", "-", ":vertical res -10<CR>", { silent = true })
