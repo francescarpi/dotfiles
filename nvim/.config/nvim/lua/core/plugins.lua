@@ -70,28 +70,6 @@ require('lazy').setup({
   },
 
   -- ------------------------------------------------------------------------------------------
-  { "ms-jpq/coq.artifacts",  branch = "artifacts" },
-  {
-    "ms-jpq/coq_nvim",
-    config = function()
-      vim.g.coq_settings = {
-        auto_start = "shut-up",
-        completion = {
-          always = false
-        },
-        keymap = {
-          jump_to_mark = "", -- Prevent clash with split jumping
-          eval_snips = "<leader>j",
-          pre_select = true
-        },
-      }
-      vim.cmd([[COQnow --shut-up]])
-    end,
-    build = ":COQdeps",
-    branch = "coq"
-  },
-
-  -- ------------------------------------------------------------------------------------------
   {
     "TimUntersberger/neogit",
     opts = {
@@ -166,5 +144,12 @@ require('lazy').setup({
 
   -- ------------------------------------------------------------------------------------------
   { "mbbill/undotree" },
+
+  -- ------------------------------------------------------------------------------------------
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "L3MON4D3/LuaSnip" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
 
 })
