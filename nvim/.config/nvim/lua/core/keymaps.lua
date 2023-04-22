@@ -11,6 +11,7 @@ vim.keymap.set("n", "<leader>ft", "<cmd>lua require'telescope.builtin'.current_b
 vim.keymap.set("n", "<leader>fs", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers{}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics{}<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}<CR>", { silent = true })
 
 -- back to previous buffer
 vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
