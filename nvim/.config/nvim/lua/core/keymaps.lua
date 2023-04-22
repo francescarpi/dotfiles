@@ -6,8 +6,18 @@
 vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>", { silent = true })
 
 -- telescope
-vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files{hidden = true}<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ft", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>", { silent = true })
+vim.keymap.set(
+  "n",
+  "<leader>ff",
+  "<cmd>lua require'telescope.builtin'.find_files{hidden = true}<CR>",
+  { silent = true }
+)
+vim.keymap.set(
+  "n",
+  "<leader>ft",
+  "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>",
+  { silent = true }
+)
 vim.keymap.set("n", "<leader>fs", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers{}<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics{}<CR>", { silent = true })
@@ -39,16 +49,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "n", "nzzzv", { silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
--- Search/Replacement
-vim.keymap.set("n", "<leader>ro", ":SearchReplaceSingleBufferOpen<CR>", { silent = true })
-
 -- Resize panels
-vim.keymap.set("n", "+", ":vertical res +10<CR>", { silent = true })
-vim.keymap.set("n", "-", ":vertical res -10<CR>", { silent = true })
+vim.keymap.set("n", "+", ":vertical res +10<CR>", { silent = true, desc = "Increase panel size" })
+vim.keymap.set("n", "-", ":vertical res -10<CR>", { silent = true, desc = "Decrease panel size" })
 
 -- under tree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undotree" })
 
 -- move blocks in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move visual block above" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move visual block below" })
