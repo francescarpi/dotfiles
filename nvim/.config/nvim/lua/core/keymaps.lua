@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}
 vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
 
 -- open neogit
-vim.keymap.set("n", "<leader>git", ":Neogit<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { silent = true, desc = "Toggle Neogit" })
 
 -- diagnostic
 vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true })
