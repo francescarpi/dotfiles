@@ -3,35 +3,65 @@
 -- -----------------------------------------------------------------------------------------------
 
 -- Nvim-Tree
-vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>", { silent = true, desc = "Toggle NvimTree" })
 
 -- telescope
 vim.keymap.set(
   "n",
   "<leader>ff",
   "<cmd>lua require'telescope.builtin'.find_files{hidden = true}<CR>",
-  { silent = true }
+  { silent = true, desc = "Telescope: files" }
 )
 vim.keymap.set(
   "n",
   "<leader>ft",
   "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>",
-  { silent = true }
+  { silent = true, desc = "Telescope: tags" }
 )
-vim.keymap.set("n", "<leader>fs", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers{}<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics{}<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}<CR>", { silent = true })
+vim.keymap.set(
+  "n",
+  "<leader>fs",
+  "<cmd>lua require'telescope.builtin'.live_grep{}<CR>",
+  { silent = true, desc = "Telescope: grep" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fb",
+  "<cmd>lua require'telescope.builtin'.buffers{}<CR>",
+  { silent = true, desc = "Telescope: buffers" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fd",
+  "<cmd>lua require'telescope.builtin'.diagnostics{}<CR>",
+  { silent = true, desc = "Telescope: diagnostics" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>fk",
+  "<cmd>lua require'telescope.builtin'.keymaps{}<CR>",
+  { silent = true, desc = "Telescope: keymaps" }
+)
 
 -- back to previous buffer
-vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true })
+vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true, desc = "Switch to last buffer" })
 
 -- open neogit
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { silent = true, desc = "Toggle Neogit" })
 
 -- diagnostic
-vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true })
-vim.keymap.set("n", "<leader>de", "<cmd>lua vim.diagnostic.enable(0)<CR>", { silent = true })
+vim.keymap.set(
+  "n",
+  "<leader>dd",
+  "<cmd>lua vim.diagnostic.disable(0)<CR>",
+  { silent = true, desc = "Disable diagnostics" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>de",
+  "<cmd>lua vim.diagnostic.enable(0)<CR>",
+  { silent = true, desc = "Enable diagnostics" }
+)
 
 -- harpoon
 vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", { silent = true })
