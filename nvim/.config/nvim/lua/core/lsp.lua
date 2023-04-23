@@ -48,11 +48,9 @@ require("mason-null-ls").setup({
   handlers = {
     flake8 = function()
       local null_ls = require("null-ls")
-      null_ls.register(
-			  null_ls.builtins.diagnostics.flake8
-			)
-    end
-  }
+      null_ls.register(null_ls.builtins.diagnostics.flake8)
+    end,
+  },
 })
 
 -- register keymap for each server and configure them
