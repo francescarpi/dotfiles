@@ -21,7 +21,7 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.hide_tab_bar_if_only_one_tab = true
 config.inactive_pane_hsb = {
   saturation = 0.1,
-  brightness = 0.1,
+  brightness = 0.5,
 }
 
 config.keys = {
