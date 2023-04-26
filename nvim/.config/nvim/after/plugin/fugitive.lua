@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>gg", ":G<CR>", { silent = true, desc = "Toggle Neogit" })
+vim.keymap.set("n", "<leader>gg", ":tab G<CR>", { silent = true, desc = "Toggle Neogit" })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "fugitive",
