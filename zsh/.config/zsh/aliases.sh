@@ -31,3 +31,5 @@ alias wsname="wezterm cli rename-workspace $1"
 
 # vim
 alias vim="nvim"
+alias lsplogs="tail -f $HOME/.local/state/nvim/lsp.log"
+alias masonlogs="tail -f $HOME/.local/state/nvim/mason.log"
