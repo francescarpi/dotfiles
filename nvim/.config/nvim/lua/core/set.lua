@@ -61,7 +61,7 @@ vim.opt.list = true
 -- Spell check certain file types
 vim.opt.spelllang = "en_gb"
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "NeogitCommitMessage" },
+  pattern = { "markdown", "NeogitCommitMessage", "gitcommit" },
   command = "setlocal spell",
 })
 
