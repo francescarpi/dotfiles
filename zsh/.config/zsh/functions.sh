@@ -37,3 +37,17 @@ git_prune_branches() {
   fi
 
 }
+
+clean_nvim_config() {
+  echo "Caution! This command will delete all nvim configuration."
+  echo -n "Continue (y/n)? "
+  read CONT
+
+  if [ "$CONT" = "y" ]; then
+    rm -Rf $HOME/.local/share/nvim
+    rm -Rf $HOME/.local/state/nvim
+    echo "Done!"
+  else
+    echo "Aborted!"
+  fi
+}
