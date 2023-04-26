@@ -1,3 +1,6 @@
+-- --------------------------------------------------------------------------------------------
+-- Lsp Zero
+-- --------------------------------------------------------------------------------------------
 local lsp = require('lsp-zero').preset('recommended')
 
 lsp.on_attach(function(client, bufnr)
@@ -25,3 +28,27 @@ require('lspconfig').ruff_lsp.setup({
 
 
 lsp.setup()
+
+-- --------------------------------------------------------------------------------------------
+-- Mason null ls
+-- --------------------------------------------------------------------------------------------
+require("mason-null-ls").setup({
+  ensure_installed = {
+    "stylua",
+    "jq",
+    "isort",
+    "black",
+    "prettierd",
+    "flake8",
+  },
+  automatic_installation = true,
+  automatic_setup = true,
+  handlers = {
+    flake8 = function()
+      local null_ls = require("null-ls")
+      null_ls.register(null_ls.builtins.diagnostics.flake8.with({
+        extra_args = {"--max-line-length", "120"}
+      }))
+    end,
+  },
+})
