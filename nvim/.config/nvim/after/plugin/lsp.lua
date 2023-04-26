@@ -7,6 +7,7 @@ lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({ buffer = bufnr })
 end)
 
+-- servers
 lsp.ensure_installed({
   'pyright',
   'ruff_lsp',
@@ -19,7 +20,10 @@ lsp.ensure_installed({
   'lua_ls',
 })
 
+-- lua_ls setup
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+-- ruff_lsp setup
 require('lspconfig').ruff_lsp.setup({
   init_options = {
     settings = { args = { "--line-length", "120" }, organizeImports = true, fixAll = true }
@@ -47,7 +51,7 @@ require("mason-null-ls").setup({
     flake8 = function()
       local null_ls = require("null-ls")
       null_ls.register(null_ls.builtins.diagnostics.flake8.with({
-        extra_args = {"--max-line-length", "120"}
+        extra_args = { "--max-line-length", "120" }
       }))
     end,
   },
