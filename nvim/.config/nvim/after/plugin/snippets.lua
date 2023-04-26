@@ -4,7 +4,7 @@ local t = ls.text_node
 local i = ls.insert_node
 
 ls.add_snippets("python", {
-  s("ipdb", t("import ipdb; ipdb.set_trace()")),
+  s({ trig = "ipdb", dscr = "Add the ipdb set_trace method" }, t("import ipdb; ipdb.set_trace()")),
 })
 
 ls.add_snippets("vue", {
