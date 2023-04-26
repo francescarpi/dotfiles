@@ -64,3 +64,4 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "NeogitCommitMessage" },
   command = "setlocal spell",
 })
+
