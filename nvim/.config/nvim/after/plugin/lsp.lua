@@ -18,6 +18,7 @@ lsp.ensure_installed({
   'yamlls',
   'volar',
   'lua_ls',
+  'cssls',
 })
 
 -- lua_ls setup
