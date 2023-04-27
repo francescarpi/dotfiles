@@ -5,6 +5,9 @@
 -- back to previous buffer
 vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true, desc = "Switch to last buffer" })
 
+-- delete current buffer
+vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Switch to last buffer" })
+
 -- diagnostic
 vim.keymap.set(
   "n",
