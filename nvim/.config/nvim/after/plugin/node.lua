@@ -1,5 +1,5 @@
 local home_dir = os.getenv("HOME")
-local node_version = "18.16.0"
+local node_version = "16.16.0"
 local node_bin = home_dir .. "/.nvm/versions/node/v" .. node_version .. "/bin"
 
 if not vim.loop.fs_stat(node_bin .. "/node") then
