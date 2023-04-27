@@ -33,3 +33,7 @@ alias wsname="wezterm cli rename-workspace $1"
 alias vim="nvim"
 alias lsplogs="tail -f $HOME/.local/state/nvim/lsp.log"
 alias masonlogs="tail -f $HOME/.local/state/nvim/mason.log"
+
+# python
+alias checkflake="flake8 src/ --max-line-length 120 --exclude auth_migrations,migrations,node_modules"
+alias checkblack="black src/ --check  --extend-exclude \"/(\.mypy_cache|migrations|\.pytest_cache)/\"  --target-version py39"
