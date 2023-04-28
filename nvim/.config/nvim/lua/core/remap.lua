@@ -35,3 +35,8 @@ vim.keymap.set("n", "-", ":vertical res -10<CR>", { silent = true, desc = "Decre
 -- move blocks in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move visual block above" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move visual block below" })
+
+
+-- move scroll
+vim.keymap.set("n", "<C-k>", "<C-y>", { silent = true, desc = "Move scroll up one line" })
+vim.keymap.set("n", "<C-j>", "<C-e>", { silent = true, desc = "Move scroll down one line" })
