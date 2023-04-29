@@ -19,6 +19,11 @@ require("nvim-treesitter.configs").setup({
     "scss",
     "css",
     "rust",
+    "dockerfile",
+    "htmldjango",
+    "ini",
+    "javascript",
+    "json",
   },
   sync_install = false,
   auto_install = true,
@@ -52,7 +57,7 @@ require("nvim-treesitter.configs").setup({
       -- mapping query_strings to modes.
       selection_modes = {
         ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
+        ['@function.outer'] = 'V',  -- linewise
         ['@class.outer'] = '<c-v>', -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is
@@ -65,6 +70,15 @@ require("nvim-treesitter.configs").setup({
       -- * selection_mode: eg 'v'
       -- and should return true of false
       include_surrounding_whitespace = true,
+    },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn", -- set to `false` to disable one of the mappings
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
     },
   },
 })
