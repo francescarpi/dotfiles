@@ -19,6 +19,7 @@ lsp.ensure_installed({
   'volar',
   'lua_ls',
   'cssls',
+  'rust_analyzer',
 })
 
 -- lua_ls setup

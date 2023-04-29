@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup({
     "vue",
     "scss",
     "css",
+    "rust",
   },
   sync_install = false,
   auto_install = true,
