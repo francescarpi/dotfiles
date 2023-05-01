@@ -47,6 +47,7 @@ require("mason-null-ls").setup({
     "black",
     "prettierd",
     "flake8",
+    "commitlint",
   },
   automatic_installation = true,
   automatic_setup = true,
