@@ -33,6 +33,17 @@ require('lspconfig').ruff_lsp.setup({
   }
 })
 
+-- pylsp
+-- require('lspconfig').pylsp.setup({
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         configurationSources = { "flake8" },
+--         flake8 = { enabled = false },
+--       }
+--     }
+--   }
+-- })
 
 lsp.setup()
 
@@ -46,7 +57,7 @@ require("mason-null-ls").setup({
     "isort",
     "black",
     "prettierd",
-    "flake8",
+    -- "flake8",
     "commitlint",
   },
   automatic_installation = true,
@@ -55,10 +66,11 @@ require("mason-null-ls").setup({
 
 local nls = require("null-ls")
 nls.setup({
+  debug = false,
   sources = {
-    nls.builtins.diagnostics.flake8.with({
-      extra_args = { "--max-line-length", "120" }
-    }),
+    -- nls.builtins.diagnostics.flake8.with({
+    --   extra_args = { "--max-line-length", "120" }
+    -- }),
     nls.builtins.formatting.black,
     nls.builtins.diagnostics.commitlint,
   }
