@@ -51,12 +51,13 @@ require("mason-null-ls").setup({
   },
   automatic_installation = true,
   automatic_setup = true,
-  handlers = {
-    flake8 = function()
-      local null_ls = require("null-ls")
-      null_ls.register(null_ls.builtins.diagnostics.flake8.with({
-        extra_args = { "--max-line-length", "120" }
-      }))
-    end,
-  },
+})
+
+local nls = require("null-ls")
+nls.setup({
+  sources = {
+    nls.builtins.diagnostics.flake8.with({
+      extra_args = { "--max-line-length", "120" }
+    })
+  }
 })
