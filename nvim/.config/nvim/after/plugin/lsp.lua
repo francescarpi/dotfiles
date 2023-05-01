@@ -58,6 +58,8 @@ nls.setup({
   sources = {
     nls.builtins.diagnostics.flake8.with({
       extra_args = { "--max-line-length", "120" }
-    })
+    }),
+    nls.builtins.formatting.black,
+    nls.builtins.diagnostics.commitlint,
   }
 })
