@@ -58,7 +58,6 @@ require("mason-null-ls").setup({
     "black",
     "prettierd",
     -- "flake8",
-    "commitlint",
   },
   automatic_installation = true,
   automatic_setup = true,
@@ -72,6 +71,5 @@ nls.setup({
     --   extra_args = { "--max-line-length", "120" }
     -- }),
     nls.builtins.formatting.black,
-    nls.builtins.diagnostics.commitlint,
   }
 })
