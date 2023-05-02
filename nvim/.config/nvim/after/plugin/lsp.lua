@@ -20,7 +20,6 @@ lsp.ensure_installed({
   'lua_ls',
   'cssls',
   'rust_analyzer',
-  'pylsp',
 })
 
 -- lua_ls setup
@@ -32,18 +31,6 @@ require('lspconfig').ruff_lsp.setup({
     settings = { args = { "--line-length", "120" }, organizeImports = true, fixAll = true }
   }
 })
-
--- pylsp
--- require('lspconfig').pylsp.setup({
---   settings = {
---     pylsp = {
---       plugins = {
---         configurationSources = { "flake8" },
---         flake8 = { enabled = false },
---       }
---     }
---   }
--- })
 
 lsp.setup()
 
@@ -57,7 +44,7 @@ require("mason-null-ls").setup({
     "isort",
     "black",
     "prettierd",
-    -- "flake8",
+    "flake8",
   },
   automatic_installation = true,
   automatic_setup = true,
@@ -67,9 +54,9 @@ local nls = require("null-ls")
 nls.setup({
   debug = false,
   sources = {
-    -- nls.builtins.diagnostics.flake8.with({
-    --   extra_args = { "--max-line-length", "120" }
-    -- }),
+    nls.builtins.diagnostics.flake8.with({
+      extra_args = { "--max-line-length", "120" }
+    }),
     nls.builtins.formatting.black,
   }
 })
