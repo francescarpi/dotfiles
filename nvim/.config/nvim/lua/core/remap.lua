@@ -9,18 +9,8 @@ vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true, desc = "Switch to last 
 vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Switch to last buffer" })
 
 -- diagnostic
-vim.keymap.set(
-  "n",
-  "<leader>dd",
-  "<cmd>lua vim.diagnostic.disable(0)<CR>",
-  { silent = true, desc = "Disable diagnostics" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>de",
-  "<cmd>lua vim.diagnostic.enable(0)<CR>",
-  { silent = true, desc = "Enable diagnostics" }
-)
+vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true, desc = "Diagnostics: Disable" })
+vim.keymap.set("n", "<leader>de", "<cmd>lua vim.diagnostic.enable(0)<CR>", { silent = true, desc = "Diagnostics: Enable" })
 
 -- page up/down
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
