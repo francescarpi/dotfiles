@@ -1,6 +1,13 @@
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { ".git", "node_modules", ".venv" },
+    file_ignore_patterns = {
+      ".git",
+      "node_modules",
+      ".venv",
+      "img",
+      "fonts",
+      "images",
+    },
     mappings = {
       i = {
         ["<C-j>"] = "move_selection_next",

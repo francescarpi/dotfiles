@@ -1,7 +1,14 @@
 local fzf = require('fzf-lua')
 
 fzf.setup {
-  file_ignore_patterns = { ".git", "node_modules", ".venv" },
+  file_ignore_patterns = {
+    ".git",
+    "node_modules",
+    ".venv",
+    "img",
+    "fonts",
+    "images",
+  },
 }
 
 vim.keymap.set("n", "<leader>df", fzf.files, { silent = true, desc = "Fzf: files" })
@@ -10,4 +17,3 @@ vim.keymap.set("n", "<leader>ds", fzf.live_grep, { silent = true, desc = "Fzf: l
 vim.keymap.set("n", "<leader>db", fzf.buffers, { silent = true, desc = "Fzf: buffers" })
 vim.keymap.set("n", "<leader>dg", fzf.diagnostics_document, { silent = true, desc = "Fzf: Diagnostics" })
 vim.keymap.set("n", "<leader>dk", fzf.keymaps, { silent = true, desc = "Fzf: Keymaps" })
-
