@@ -10,6 +10,7 @@ export path=(
   "$HOME/.local/bin/"
   "/opt/homebrew/Cellar/openjdk/17.0.2/bin/"
   "$HOME/.nvm"
+  "$HOME/.cargo/bin"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
