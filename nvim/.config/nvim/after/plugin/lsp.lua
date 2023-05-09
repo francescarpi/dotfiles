@@ -23,7 +23,7 @@ lsp.ensure_installed({
 })
 
 -- lua_ls setup
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+-- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 -- ruff_lsp setup
 require('lspconfig').ruff_lsp.setup({
