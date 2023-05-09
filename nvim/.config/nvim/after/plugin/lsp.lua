@@ -46,7 +46,7 @@ require("mason-null-ls").setup({
     "prettierd",
     "flake8",
   },
-  automatic_installation = true,
+  automatic_installation = false,
   automatic_setup = true,
 })
 
