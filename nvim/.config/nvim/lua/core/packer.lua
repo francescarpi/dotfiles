@@ -41,9 +41,6 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
 
   -- --------------------------------------------------------------------------------------------
-  use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' }}
-
-  -- --------------------------------------------------------------------------------------------
   use 'lewis6991/gitsigns.nvim'
 
   -- --------------------------------------------------------------------------------------------
@@ -103,6 +100,9 @@ return require('packer').startup(function(use)
 
   -- --------------------------------------------------------------------------------------------
   use 'ibhagwan/fzf-lua'
+
+  -- --------------------------------------------------------------------------------------------
+  use 'dstein64/vim-startuptime'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
