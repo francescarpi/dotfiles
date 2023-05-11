@@ -3,9 +3,9 @@
 -- -----------------------------------------------------------------------------------------------
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     'tanvirtin/monokai.nvim',
     config = function()
       vim.cmd.colorscheme("monokai_pro")
-	  end
+    end
   }
 
   -- --------------------------------------------------------------------------------------------
@@ -59,33 +59,33 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
 
   -- --------------------------------------------------------------------------------------------
-	use {
-	  'nvim-treesitter/nvim-treesitter',
+  use {
+    'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     requires = 'nvim-treesitter/nvim-treesitter-textobjects'
   }
-  
+
   -- --------------------------------------------------------------------------------------------
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
+      { 'neovim/nvim-lspconfig' },
       {
         'williamboman/mason.nvim',
         run = function()
           pcall(vim.cmd, 'MasonUpdate')
         end,
       },
-      {'williamboman/mason-lspconfig.nvim'},
-      {'jose-elias-alvarez/null-ls.nvim'},
-      {'jay-babu/mason-null-ls.nvim'},
+      { 'williamboman/mason-lspconfig.nvim' },
+      { 'jose-elias-alvarez/null-ls.nvim' },
+      { 'jay-babu/mason-null-ls.nvim' },
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'L3MON4D3/LuaSnip'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
@@ -103,6 +103,12 @@ return require('packer').startup(function(use)
 
   -- --------------------------------------------------------------------------------------------
   use 'dstein64/vim-startuptime'
+
+  -- --------------------------------------------------------------------------------------------
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
