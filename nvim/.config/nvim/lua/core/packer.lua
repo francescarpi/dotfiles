@@ -105,10 +105,7 @@ return require('packer').startup(function(use)
   use 'dstein64/vim-startuptime'
 
   -- --------------------------------------------------------------------------------------------
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-  }
+  use 'justinmk/vim-sneak'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
