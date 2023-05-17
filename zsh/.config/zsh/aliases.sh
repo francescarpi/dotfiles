@@ -26,8 +26,7 @@ alias gpg_encrypt="gpg --encrypt --sign $3 -r $1 $2"
 alias cdvirtualenv="cd $VIRTUAL_ENV"
 
 # Wezterm
-alias tabname="wezterm cli set-tab-title $1"
-alias wsname="wezterm cli rename-workspace $1"
+alias tn="wezterm cli set-tab-title $1"
 
 # vim
 alias vim="nvim"
