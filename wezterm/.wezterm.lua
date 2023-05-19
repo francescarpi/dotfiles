@@ -41,10 +41,14 @@ config.keys = {
   { key = 'h', mods = 'CMD|SHIFT', action = act.AdjustPaneSize { 'Left', 5 } },
 }
 
-wezterm.on('gui-startup', function()
- local tab, pane, window = mux.spawn_window({})
- window:gui_window():maximize()
-end)
+for i = 1, 8 do
+  -- CTRL+ALT + number to move to that position
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'CTRL|ALT',
+    action = wezterm.action.MoveTab(i - 1),
+  })
+end
 
 -- and finally, return the configuration to wezterm
 return config
