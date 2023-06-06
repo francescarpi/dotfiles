@@ -30,6 +30,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
 
 # Antigen
+# Actualitzar: antigen update
+# Ajuda: antigen help
 source $HOMEBREW_PREFIX/opt/antigen/share/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
