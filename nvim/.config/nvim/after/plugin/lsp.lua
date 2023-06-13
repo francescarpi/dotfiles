@@ -20,6 +20,7 @@ lsp.ensure_installed({
   'lua_ls',
   'cssls',
   'rust_analyzer',
+  'angularls',
 })
 
 -- lua_ls setup
