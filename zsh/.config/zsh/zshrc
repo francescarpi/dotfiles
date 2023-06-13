@@ -46,3 +46,6 @@ bindkey -e
 source $HOME/.antigen/bundles/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
+
+# Angular CLI
+source <(ng completion script)
