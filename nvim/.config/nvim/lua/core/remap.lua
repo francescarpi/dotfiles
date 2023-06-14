@@ -19,14 +19,19 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 -- vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
 -- Resize panels
-vim.keymap.set("n", "+", ":vertical res +10<CR>", { silent = true, desc = "Increase panel size" })
-vim.keymap.set("n", "-", ":vertical res -10<CR>", { silent = true, desc = "Decrease panel size" })
+vim.keymap.set("n", "+", ":vertical res +1<CR>", { silent = true, desc = "Increase panel size (V)" })
+vim.keymap.set("n", "-", ":vertical res -1<CR>", { silent = true, desc = "Decrease panel size (V)" })
+vim.keymap.set("n", "*", ":horizontal res +1<CR>", { silent = true, desc = "Increase panel size (H)" })
+vim.keymap.set("n", "_", ":horizontal res -1<CR>", { silent = true, desc = "Decrease panel size (H)" })
 
 -- move blocks in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move visual block above" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move visual block below" })
 
-
 -- move scroll
 vim.keymap.set("n", "<C-k>", "<C-y>", { silent = true, desc = "Move scroll up one line" })
 vim.keymap.set("n", "<C-j>", "<C-e>", { silent = true, desc = "Move scroll down one line" })
+
+-- save
+vim.keymap.set("i", "<C-s>", "<esc>:w<CR>", { desc = "Save current buffer" })
+vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current buffer" })
