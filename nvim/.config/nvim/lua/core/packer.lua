@@ -18,14 +18,6 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- --------------------------------------------------------------------------------------------
-  use {
-    'tanvirtin/monokai.nvim',
-    config = function()
-      vim.cmd.colorscheme("monokai_pro")
-    end
-  }
-
-  -- --------------------------------------------------------------------------------------------
   use 'nvim-tree/nvim-web-devicons'
 
   -- --------------------------------------------------------------------------------------------
@@ -33,6 +25,9 @@ return require('packer').startup(function(use)
 
   -- --------------------------------------------------------------------------------------------
   use 'numToStr/Comment.nvim'
+
+  -- --------------------------------------------------------------------------------------------
+  use 'tanvirtin/monokai.nvim'
 
   -- --------------------------------------------------------------------------------------------
   use 'nvim-lualine/lualine.nvim'
@@ -112,6 +107,9 @@ return require('packer').startup(function(use)
 
   -- --------------------------------------------------------------------------------------------
   use 'stevearc/oil.nvim'
+
+  -- --------------------------------------------------------------------------------------------
+  use 'crispgm/nvim-tabline'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
