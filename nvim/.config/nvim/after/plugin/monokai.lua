@@ -1,12 +1,6 @@
 local monokai = require('monokai')
 
-monokai.setup {
-  custom_hlgroups = {
-    TabLineSel = {
-      fg = monokai.pro.yellow
-    }
-  }
-}
+monokai.setup {}
 
 require('lualine').setup {
   options = {

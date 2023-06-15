@@ -109,7 +109,7 @@ return require('packer').startup(function(use)
   use 'stevearc/oil.nvim'
 
   -- --------------------------------------------------------------------------------------------
-  use 'crispgm/nvim-tabline'
+  use 'kdheepak/tabline.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
