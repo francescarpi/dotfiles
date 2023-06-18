@@ -40,6 +40,8 @@ antigen bundle jeffreytse/zsh-vi-mode
 antigen theme romkatv/powerlevel10k
 antigen apply
 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 # Tmux fix
 bindkey -e
 
