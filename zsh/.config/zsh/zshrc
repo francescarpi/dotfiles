@@ -9,6 +9,7 @@ fi
 source $HOME/.config/zsh/exports.sh
 source $HOME/.config/zsh/aliases.sh
 source $HOME/.config/zsh/functions.sh
+source $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
 # Homebrew
 eval $(brew shellenv)
