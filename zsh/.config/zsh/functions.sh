@@ -51,3 +51,5 @@ clean_nvim_config() {
     echo "Aborted!"
   fi
 }
+
+cx() { cd "$@" && l; }
