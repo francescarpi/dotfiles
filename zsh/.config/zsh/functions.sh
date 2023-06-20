@@ -1,4 +1,5 @@
 workon() {
+
   # .venv fodler in current directory
   if [ -d ".venv" ]
   then
@@ -10,6 +11,13 @@ workon() {
   if [ -d "../.venv" ]
   then
     source ../.venv/bin/activate
+    return 0
+  fi
+
+  # venv fodler in current directory
+  if [ -d "venv" ]
+  then
+    source venv/bin/activate
     return 0
   fi
 
@@ -51,3 +59,5 @@ clean_nvim_config() {
     echo "Aborted!"
   fi
 }
+
+cx() { cd "$@" && l; }
