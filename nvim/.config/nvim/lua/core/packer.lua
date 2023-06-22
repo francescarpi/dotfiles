@@ -88,10 +88,7 @@ return require('packer').startup(function(use)
   }
 
   -- --------------------------------------------------------------------------------------------
-  use 'tpope/vim-fugitive'
-
-  -- --------------------------------------------------------------------------------------------
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
 
   -- --------------------------------------------------------------------------------------------
   use 'preservim/tagbar'
