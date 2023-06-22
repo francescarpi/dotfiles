@@ -11,4 +11,5 @@ vim.g.maplocalleader = ' '
 require("core.packer")
 require("core.set")
 require("core.remap")
+require("core.tabline")
 

@@ -2,6 +2,8 @@ local monokai = require('monokai')
 
 monokai.setup {}
 
+vim.cmd("highlight TabLineSel guibg=" .. monokai.pro.pink)
+
 require('lualine').setup {
   options = {
     disabled_filetypes = {
