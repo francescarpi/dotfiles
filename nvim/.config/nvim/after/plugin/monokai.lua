@@ -2,7 +2,7 @@ local monokai = require('monokai')
 
 monokai.setup {}
 
-vim.cmd("highlight TabLineSel guibg=" .. monokai.pro.pink)
+vim.cmd("highlight TabLineSel guibg=#ffaf26 guifg=#000000")
 
 require('lualine').setup {
   options = {

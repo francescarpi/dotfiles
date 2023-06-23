@@ -3,7 +3,11 @@ vim.api.nvim_exec([[
     let buflist = tabpagebuflist(a:n)
     let winnr = tabpagewinnr(a:n)
     let buff_name = bufname(buflist[winnr - 1])
-    return fnamemodify(buff_name, ':t')
+    let file_name = fnamemodify(buff_name, ':t')
+    if file_name == ''
+      let file_name = 'NO NAME'
+    endif
+    return '[' .. a:n .. '] ' .. file_name
   endfunction
 
   function MyTabLine()
@@ -16,10 +20,11 @@ vim.api.nvim_exec([[
       else
         let s ..= '%#TabLine#'
       endif
+
       " set the tab page number (for mouse clicks)
       let s ..= '%' .. (i + 1) .. 'T'
       " the label is made by MyTabLabel()
-      let s ..= ' [' .. (i+1) .. '] %{MyTabLabel(' .. (i + 1) .. ')} '
+      let s ..= ' %{MyTabLabel(' .. (i + 1) .. ')} '
     endfor
 
     " after the last tab fill with TabLineFill and reset tab page nr
