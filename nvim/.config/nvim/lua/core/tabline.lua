@@ -31,7 +31,7 @@ vim.api.nvim_exec([[
     let s ..= '%#TabLineFill#%T'
     " right-align the label to close the current tab page
     if tabpagenr('$') > 1
-      let s ..= '%=%#TabLine#%999X[X]'
+      let s ..= '%=%#TabLine#%'
     endif
 
     return s
