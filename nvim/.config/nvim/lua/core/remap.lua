@@ -3,10 +3,13 @@
 -- -----------------------------------------------------------------------------------------------
 
 -- back to previous buffer
-vim.keymap.set("n", "<C-l>", ":b#<CR>", { silent = true, desc = "Switch to last buffer" })
+vim.keymap.set("n", "<C-m>", ":b#<CR>", { silent = true, desc = "Switch to last buffer" })
 
 -- delete current buffer
-vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Switch to last buffer" })
+vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Close current buffer" })
+
+-- close panel
+vim.keymap.set("n", "<leader>c", ":clo<CR>", { silent = true, desc = "Close current panel" })
 
 -- diagnostic
 vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true, desc = "Diagnostics: Disable" })
@@ -36,3 +39,7 @@ vim.keymap.set("n", "<C-j>", "<C-e>", { silent = true, desc = "Move scroll down 
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>", { desc = "Save current buffer" })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current buffer" })
 
+vim.keymap.set("n", "<C-h>", ":tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
+vim.keymap.set("n", "<C-l>", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
+vim.keymap.set("i", "<C-h>", "<esc>:tabprevious<CR>gi", { silent = true, desc = "Go to previous tab" })
+vim.keymap.set("i", "<C-l>", "<esc>:tabnext<CR>gi", { silent = true, desc = "Go to next tab" })
