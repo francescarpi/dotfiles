@@ -1,7 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 local act = wezterm.action
-local mux = wezterm.mux
 
 -- This table will hold the configuration.
 local config = {}
@@ -15,7 +14,7 @@ end
 -- This is where you actually apply your config choices
 -- config.color_scheme = 'Monokai Pro (Gogh)'
 config.font = wezterm.font 'FiraCode Nerd Font'
-config.font_size = 16
+config.font_size = 14
 config.send_composed_key_when_right_alt_is_pressed = true
 config.send_composed_key_when_left_alt_is_pressed = true
 config.hide_tab_bar_if_only_one_tab = true
