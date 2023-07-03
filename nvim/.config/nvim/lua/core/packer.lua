@@ -88,7 +88,7 @@ return require('packer').startup(function(use)
   }
 
   -- --------------------------------------------------------------------------------------------
-  use { 'TimUntersberger/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
+  use { 'NeogitOrg/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
 
   -- --------------------------------------------------------------------------------------------
   use 'preservim/tagbar'
