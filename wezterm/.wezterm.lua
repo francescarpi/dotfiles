@@ -58,7 +58,6 @@ config.window_padding = {
   bottom = 3,
 }
 
--- config.window_background_opacity = 0.9
+config.window_background_opacity = 0.999 -- this fix stage manager laggy
 
--- and finally, return the configuration to wezterm
 return config
