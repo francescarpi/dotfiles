@@ -1,8 +1,8 @@
-local monokai = require('monokai')
+-- vim.cmd [[colorscheme monokai]]
+-- vim.cmd("highlight TabLineSel guibg=#ffaf26 guifg=#000000")
 
-monokai.setup {}
-
-vim.cmd("highlight TabLineSel guibg=#ffaf26 guifg=#000000")
+vim.cmd [[colorscheme dracula]]
+vim.cmd("highlight TabLineSel guibg=#bd93f9 guifg=#000000")
 
 require('lualine').setup {
   options = {
