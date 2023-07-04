@@ -59,5 +59,6 @@ config.window_padding = {
 }
 
 config.window_background_opacity = 0.999 -- this fix stage manager laggy
+config.window_decorations = "TITLE|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 
 return config
