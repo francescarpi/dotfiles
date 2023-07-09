@@ -97,7 +97,7 @@ return require('packer').startup(function(use)
   use 'preservim/tagbar'
 
   -- --------------------------------------------------------------------------------------------
-  use 'justinmk/vim-sneak'
+  use 'easymotion/vim-easymotion'
 
   -- --------------------------------------------------------------------------------------------
   use 'stevearc/oil.nvim'
