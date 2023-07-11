@@ -1,0 +1,12 @@
+window:
+  opacity: 0.999
+  startup_mode: Maximized
+  decorations: buttonless
+  padding:
+    x: 10
+    y: 10
+
+font:
+  size: 14.0
+  normal:
+    family: "FiraCode Nerd Font"
