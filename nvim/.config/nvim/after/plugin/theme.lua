@@ -1,8 +1,7 @@
+local monokai = require('monokai')
+
 vim.cmd [[colorscheme monokai]]
 vim.cmd("highlight TabLineSel guibg=#ffaf26 guifg=#000000")
-
--- vim.cmd [[colorscheme dracula]]
--- vim.cmd("highlight TabLineSel guibg=#bd93f9 guifg=#000000")
 
 require('lualine').setup {
   options = {
@@ -20,3 +19,7 @@ require('lualine').setup {
   },
 }
 
+-- Neogit
+vim.cmd("hi def NeogitDiffAddHighlight guibg=" .. monokai.classic.base0 .. " guifg=" .. monokai.classic.green)
+vim.cmd("hi def NeogitDiffDeleteHighlight guibg=" .. monokai.classic.base0 .. " guifg=" .. monokai.classic.red)
+vim.cmd("hi def NeogitDiffContextHighlight guibg=" .. monokai.classic.base0 .. " guifg=#b2b2b2")
