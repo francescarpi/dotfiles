@@ -27,9 +27,6 @@ return require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
 
   -- --------------------------------------------------------------------------------------------
-  use 'tanvirtin/monokai.nvim'
-
-  -- --------------------------------------------------------------------------------------------
   use 'nvim-lualine/lualine.nvim'
 
   -- --------------------------------------------------------------------------------------------
@@ -101,6 +98,9 @@ return require('packer').startup(function(use)
 
   -- --------------------------------------------------------------------------------------------
   use 'mattn/emmet-vim'
+
+  -- --------------------------------------------------------------------------------------------
+  use 'tanvirtin/monokai.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
