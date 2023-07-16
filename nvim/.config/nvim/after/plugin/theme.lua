@@ -4,7 +4,7 @@ vim.cmd [[colorscheme monokai]]
 
 ------------------------------------------------------------------------------
 -- Neogit
-vim.api.nvim_set_hl(0, "NeogitStagedchanges", { fg = monokai.classic.aqua, bg = monokai.classic.base0 })        -- Unstaged changes
+vim.api.nvim_set_hl(0, "NeogitStagedchanges", { fg = monokai.classic.aqua, bg = monokai.classic.base0 })          -- Unstaged changes
 vim.api.nvim_set_hl(0, "NeogitUnstagedchanges", { fg = monokai.classic.aqua, bg = monokai.classic.base0 })        -- Unstaged changes
 vim.api.nvim_set_hl(0, "NeogitRecentCommits", { fg = monokai.classic.aqua, bg = monokai.classic.base0 })          -- Recent commits
 vim.api.nvim_set_hl(0, "NeogitBranch", { fg = monokai.classic.yellow, bg = monokai.classic.base0 })               -- Head branch
