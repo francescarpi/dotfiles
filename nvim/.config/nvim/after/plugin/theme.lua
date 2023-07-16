@@ -1,113 +1,13 @@
-local monokai = require('monokai')
+require("catppuccin").setup({
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = true,
+    neogit = true,
+  }
+})
 
-vim.cmd [[colorscheme monokai]]
+vim.cmd.colorscheme "catppuccin-mocha"
 
-------------------------------------------------------------------------------
--- Neogit
-local palette = {
-  red = monokai.classic.red,
-  white = monokai.classic.white,
-  orange = monokai.classic.orange,
-  yellow = monokai.classic.yellow,
-  green = monokai.classic.green,
-  cyan = monokai.classic.aqua,
-  blue = monokai.classic.aqua,
-  purple = monokai.classic.purple,
-  grey = monokai.classic.grey,
-  bg0 = monokai.classic.base0,
-  md_purple = monokai.classic.purple,
-  bg1 = monokai.classic.base1,
-  bg2 = monokai.classic.base2,
-  line_green = monokai.classic.base0,
-  line_red = monokai.classic.base0,
-  bg_purple = monokai.classic.purple,
-}
-
-local neogit_hl = {
-  NeogitGraphRed = { fg = palette.red },
-  NeogitGraphWhite = { fg = palette.white },
-  NeogitGraphOrange = { fg = palette.orange },
-  NeogitGraphYellow = { fg = palette.yellow },
-  NeogitGraphGreen = { fg = palette.green },
-  NeogitGraphCyan = { fg = palette.cyan },
-  NeogitGraphBlue = { fg = palette.blue },
-  NeogitGraphPurple = { fg = palette.purple },
-  NeogitGraphGray = { fg = palette.grey },
-
-  NeogitGraphBoldRed = { fg = palette.red, bold = true },
-  NeogitGraphBoldWhite = { fg = palette.white, bold = true },
-  NeogitGraphBoldOrange = { fg = palette.orange, bold = true },
-  NeogitGraphBoldYellow = { fg = palette.yellow, bold = true },
-  NeogitGraphBoldGreen = { fg = palette.green, bold = true },
-  NeogitGraphBoldCyan = { fg = palette.cyan, bold = true },
-  NeogitGraphBoldBlue = { fg = palette.blue, bold = true },
-  NeogitGraphBoldPurple = { fg = palette.purple, bold = true },
-  NeogitGraphBoldGray = { fg = palette.grey, bold = true },
-
-  NeogitHunkHeader = { fg = palette.bg0, bg = palette.grey, bold = true },
-  NeogitHunkHeaderHighlight = { fg = palette.bg0, bg = palette.md_purple, bold = true },
-  NeogitDiffContext = { bg = palette.bg1 },
-  NeogitDiffContextHighlight = { bg = palette.bg2 },
-  NeogitDiffAdd = { bg = palette.line_green, fg = palette.bg_green },
-  NeogitDiffAddHighlight = { bg = palette.line_green, fg = palette.green },
-  NeogitDiffDelete = { bg = palette.line_red, fg = palette.bg_red },
-  NeogitDiffDeleteHighlight = { bg = palette.line_red, fg = palette.red },
-  NeogitPopupSectionTitle = { fg = palette.green, italic = true },
-  NeogitPopupBranchName = { fg = palette.yellow },
-  NeogitPopupBold = { bold = true },
-  NeogitPopupSwitchKey = { fg = palette.purple },
-  NeogitPopupSwitchEnabled = { fg = palette.pink },
-  NeogitPopupSwitchDisabled = { fg = palette.base6, italic = true },
-  NeogitPopupOptionKey = { fg = palette.purple },
-  NeogitPopupOptionEnabled = { fg = palette.pink },
-  NeogitPopupOptionDisabled = { fg = palette.base6, italic = true },
-  NeogitPopupConfigKey = { fg = palette.purple },
-  NeogitPopupConfigEnabled = { fg = palette.pink },
-  NeogitPopupConfigDisabled = { fg = palette.base6, italic = true },
-  NeogitPopupActionKey = { fg = palette.purple },
-  NeogitPopupActionDisabled = { fg = palette.base6, italic = true },
-  NeogitFilePath = { fg = palette.blue, italic = true },
-  NeogitCommitViewHeader = { bg = palette.bg_cyan, fg = palette.bg0 },
-  NeogitDiffHeader = { bg = palette.bg3, fg = palette.blue, bold = true },
-  NeogitDiffHeaderHighlight = { bg = palette.bg3, fg = palette.orange, bold = true },
-  NeogitNotificationInfo = { fg = palette.white, },
-  NeogitNotificationWarning = { fg = palette.yellow },
-  NeogitNotificationError = { fg = palette.red },
-  NeogitCommandText = { fg = palette.base6, italic = true },
-  NeogitCommandTime = { fg = palette.base6, italic = true },
-  NeogitCommandCodeNormal = { fg = palette.yellow },
-  NeogitCommandCodeError = { fg = palette.red },
-  NeogitBranch = { fg = palette.orange, bold = true },
-  NeogitRemote = { fg = palette.green, bold = true },
-  NeogitUnmergedInto = { fg = palette.green, italic = true },
-  NeogitUnpulledFrom = { fg = palette.green, italic = true },
-  NeogitObjectId = { fg = palette.base6, italic = true },
-  NeogitStash = { fg = palette.base6, italic = true },
-  NeogitRebaseDone = { fg = palette.base6, italic = true },
-  NeogitCursorLine = { bg = palette.bg1 },
-  NeogitFold = {},
-  NeogitChangeModified = { fg = palette.bg_blue, bold = true, italic = true },
-  NeogitChangeAdded = { fg = palette.bg_green, bold = true, italic = true },
-  NeogitChangeDeleted = { fg = palette.bg_red, bold = true, italic = true },
-  NeogitChangeRenamed = { fg = palette.bg_purple, bold = true, italic = true },
-  NeogitChangeUpdated = { fg = palette.bg_orange, bold = true, italic = true },
-  NeogitChangeCopied = { fg = palette.bg_cyan, bold = true, italic = true },
-  NeogitChangeBothModified = { fg = palette.bg_yellow, bold = true, italic = true },
-  NeogitChangeNewFile = { fg = palette.bg_green, bold = true, italic = true },
-  NeogitUntrackedfiles = { fg = palette.bg_purple, bold = true },
-  NeogitUnstagedchanges = { fg = palette.bg_purple, bold = true },
-  NeogitUnmergedchanges = { fg = palette.bg_purple, bold = true },
-  NeogitUnpulledchanges = { fg = palette.bg_purple, bold = true },
-  NeogitRecentcommits = { fg = palette.bg_purple, bold = true },
-  NeogitStagedchanges = { fg = palette.bg_purple, bold = true },
-  NeogitStashes = { fg = palette.bg_purple, bold = true },
-  NeogitRebasing = { fg = palette.bg_purple, bold = true },
-}
-
-for group, hl in pairs(neogit_hl) do
-  vim.api.nvim_set_hl(0, group, { fg = hl.fg, bg = hl.bg, bold = hl.bold, italic = hl.italic })
-end
-
-------------------------------------------------------------------------------
--- tabs
-vim.cmd("highlight TabLineSel guibg=#ffaf26 guifg=#000000")
