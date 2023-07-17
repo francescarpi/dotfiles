@@ -1,33 +1,12 @@
 workon() {
-
-  # .venv fodler in current directory
-  if [ -d ".venv" ]
-  then
-    source .venv/bin/activate
-    return 0
-  fi
-
-  # .venv are into the parent
-  if [ -d "../.venv" ]
-  then
-    source ../.venv/bin/activate
-    return 0
-  fi
-
-  # venv fodler in current directory
-  if [ -d "venv" ]
-  then
-    source venv/bin/activate
-    return 0
-  fi
-
-  # venvs places at the WORKON_HOME
-  PROJECT_NAME=`basename "$PWD"`
-  if [ $PROJECT_NAME = 'src' ]
-  then
-    PROJECT_NAME=$(basename "$(dirname $PWD)")
-  fi
-  source $WORKON_HOME/$PROJECT_NAME/bin/activate
+  folders=(".venv" "../.venv" "venv" ".env")
+  for folder in ${folders[@]}; do
+    if [ -d "$folder" ]
+    then
+      source "${folder}/bin/activate"
+      return 0
+    fi
+  done
 }
 
 git_prune_branches() {
