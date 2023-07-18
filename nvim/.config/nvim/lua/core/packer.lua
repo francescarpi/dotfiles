@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
   }
 
   -- --------------------------------------------------------------------------------------------
-  use { 'NeogitOrg/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim' } }
+  use { 'NeogitOrg/neogit', requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim', 'rcarriga/nvim-notify' } }
 
   -- --------------------------------------------------------------------------------------------
   use 'preservim/tagbar'
@@ -104,9 +104,6 @@ return require('packer').startup(function(use)
 
   -- --------------------------------------------------------------------------------------------
   use "norcalli/nvim-colorizer.lua"
-
-  -- --------------------------------------------------------------------------------------------
-  use "rcarriga/nvim-notify"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
