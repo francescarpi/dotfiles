@@ -100,10 +100,16 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
 
   -- --------------------------------------------------------------------------------------------
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- --------------------------------------------------------------------------------------------
-  use "norcalli/nvim-colorizer.lua"
+  use { 'tanvirtin/monokai.nvim' }
+
+  -- --------------------------------------------------------------------------------------------
+  use 'norcalli/nvim-colorizer.lua'
+
+  -- --------------------------------------------------------------------------------------------
+  use 'tpope/vim-fugitive'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
