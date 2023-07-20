@@ -1,7 +1,5 @@
 alias ls="ls --color -G"
-alias ll="ls -lah"
-alias l="exa -l --icons --git -a"
-alias lt="exa --tree --level=2 --long --icons --git"
+alias l="ls -lah"
 
 # Postgres
 alias psql="PGPASSWORD=postgres psql -h localhost -U postgres"
