@@ -34,3 +34,4 @@ vim.keymap.set("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers{}
 vim.keymap.set("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics{}<CR>", { silent = true, desc = "Telescope: diagnostics" })
 vim.keymap.set("n", "<leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}<CR>", { silent = true, desc = "Telescope: keymaps" })
 vim.keymap.set("n", "<leader>fg", "<cmd>lua require'telescope.builtin'.git_status{}<CR>", { silent = true, desc = "Telescope: git_status" })
+vim.keymap.set("n", "<leader>fm", "<cmd>lua require'telescope.builtin'.marks{}<CR>", { silent = true, desc = "Telescope: marks" })
