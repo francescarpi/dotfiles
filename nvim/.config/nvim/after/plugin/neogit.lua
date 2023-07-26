@@ -2,9 +2,9 @@ local neogit = require('neogit')
 
 neogit.setup {
   disable_commit_confirmation = true,
-  disable_hint = true,
   integrations = {
-    diffview = true
+    diffview = true,
+    telescope = true
   }
 }
 
