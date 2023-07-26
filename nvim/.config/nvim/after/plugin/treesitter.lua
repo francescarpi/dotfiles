@@ -24,6 +24,7 @@ require("nvim-treesitter.configs").setup({
     "ini",
     "javascript",
     "json",
+    "tsx",
   },
   sync_install = false,
   auto_install = true,
