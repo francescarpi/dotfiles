@@ -42,7 +42,14 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
 
   -- --------------------------------------------------------------------------------------------
-  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'BurntSushi/ripgrep',
+      'nvim-telescope/telescope-live-grep-args.nvim',
+    }
+  }
 
   -- --------------------------------------------------------------------------------------------
   use 'mbbill/undotree'
