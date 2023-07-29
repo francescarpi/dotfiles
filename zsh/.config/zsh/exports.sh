@@ -21,3 +21,4 @@ export WORKON_HOME="$HOME/.virtualenvs"
 export HOMEBREW_PREFIX=$(brew --prefix)
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk/18/
 export KUBECTX_IGNORE_FZF=1
+export ANTIDOTE_HOME=~/.cache/antidote
