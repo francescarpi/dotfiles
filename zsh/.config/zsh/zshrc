@@ -18,9 +18,6 @@ else
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-# Z
-source $HOMEBREW_PREFIX/etc/profile.d/z.sh
-
 # Nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -43,8 +40,6 @@ setopt HIST_FCNTL_LOCK
 source $HOMEBREW_PREFIX/Cellar/antidote/1.9.0/share/antidote/antidote.zsh
 antidote load $HOME/.config/zsh/plugins.txt
 
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
 # Tmux fix
 bindkey -e
 
@@ -52,6 +47,7 @@ bindkey -e
 [[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
 # Completion
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 autoload -U compinit && compinit -i
 bindkey "^I" complete-word
 
