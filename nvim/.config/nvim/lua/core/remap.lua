@@ -39,7 +39,7 @@ vim.keymap.set("n", "<C-j>", "<C-e>", { silent = true, desc = "Move scroll down 
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>", { desc = "Save current buffer" })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current buffer" })
 
-vim.keymap.set("n", "<C-h>", ":tabprevious<CR>", { silent = true, desc = "Go to previous tab" })
-vim.keymap.set("n", "<C-l>", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
-vim.keymap.set("i", "<C-h>", "<esc>:tabprevious<CR>gi", { silent = true, desc = "Go to previous tab" })
-vim.keymap.set("i", "<C-l>", "<esc>:tabnext<CR>gi", { silent = true, desc = "Go to next tab" })
+vim.keymap.set("n", "<leader>h", ":tabprevious<CR>", { silent = false, desc = "Go to previous tab" })
+vim.keymap.set("n", "<leader>l", ":tabnext<CR>", { silent = true, desc = "Go to next tab" })
+vim.keymap.set("i", "<leader>h", "<esc>:tabprevious<CR>gi", { silent = true, desc = "Go to previous tab" })
+vim.keymap.set("i", "<leader>l", "<esc>:tabnext<CR>gi", { silent = true, desc = "Go to next tab" })
