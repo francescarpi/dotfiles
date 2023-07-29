@@ -37,16 +37,10 @@ fi
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
 
-# Antigen
-# Actualitzar: antigen update
-# Ajuda: antigen help
-source $HOMEBREW_PREFIX/opt/antigen/share/antigen/antigen.zsh
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen theme romkatv/powerlevel10k
-antigen apply
+# Antidote
+# brew install antidote
+source $HOMEBREW_PREFIX/Cellar/antidote/1.9.0/share/antidote/antidote.zsh
+antidote load $HOME/.dotfiles/zsh/.config/zsh/plugins.txt
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -54,8 +48,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey -e
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source $HOME/.antigen/bundles/romkatv/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
+[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
 
 # Completion
 autoload -U compinit && compinit -i
