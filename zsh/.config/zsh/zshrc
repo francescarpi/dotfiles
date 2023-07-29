@@ -38,9 +38,10 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
 
 # Antidote
+# https://getantidote.github.io/
 # brew install antidote
 source $HOMEBREW_PREFIX/Cellar/antidote/1.9.0/share/antidote/antidote.zsh
-antidote load $HOME/.dotfiles/zsh/.config/zsh/plugins.txt
+antidote load $HOME/.config/zsh/plugins.txt
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -48,7 +49,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 bindkey -e
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+[[ ! -f $HOME/.config/zsh/p10k.zsh ]] || source $HOME/.config/zsh/p10k.zsh
 
 # Completion
 autoload -U compinit && compinit -i
