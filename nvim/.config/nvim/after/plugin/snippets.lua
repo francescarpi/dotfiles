@@ -10,3 +10,7 @@ ls.add_snippets("python", {
 ls.add_snippets("vue", {
   s("log", { t("console.log("), i(1), t(");") }),
 })
+
+ls.add_snippets("all", {
+  s("º", t("->")),
+})
