@@ -13,4 +13,5 @@ ls.add_snippets("vue", {
 
 ls.add_snippets("all", {
   s("º", t("->")),
+  s("ºº", t("=>")),
 })
