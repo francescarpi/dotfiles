@@ -18,7 +18,6 @@ require('telescope').setup {
   pickers = {
     find_files = {
       theme = "dropdown",
-      -- previewer = false,
       layout_config = {
         width = 0.9,
       }
@@ -32,7 +31,6 @@ require('telescope').setup {
 
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files{hidden = true}<CR>", { silent = true, desc = "Telescope: files" })
 vim.keymap.set("n", "<leader>ft", "<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>", { silent = true, desc = "Telescope: tags" })
--- vim.keymap.set("n", "<leader>fs", "<cmd>lua require'telescope.builtin'.live_grep{}<CR>", { silent = true, desc = "Telescope: grep" })
 vim.keymap.set("n", "<leader>fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { silent = true, desc = "Telescope: grep" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers{}<CR>", { silent = true, desc = "Telescope: buffers" })
 vim.keymap.set("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.diagnostics{}<CR>", { silent = true, desc = "Telescope: diagnostics" })
