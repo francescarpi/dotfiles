@@ -1,4 +1,5 @@
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
   function MyTabLabel(n)
     let buflist = tabpagebuflist(a:n)
     let winnr = tabpagewinnr(a:n)
@@ -36,10 +37,13 @@ vim.api.nvim_exec([[
 
     return s
   endfunction
-]], true)
+]],
+	true
+)
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
   autocmd BufEnter * setlocal tabline=%!MyTabLine()
-]], true)
-
-
+]],
+	true
+)

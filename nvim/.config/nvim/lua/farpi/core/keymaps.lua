@@ -12,8 +12,18 @@ vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Close 
 vim.keymap.set("n", "<leader>c", ":clo<CR>", { silent = true, desc = "Close current panel" })
 
 -- diagnostic
-vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.disable(0)<CR>", { silent = true, desc = "Diagnostics: Disable" })
-vim.keymap.set("n", "<leader>de", "<cmd>lua vim.diagnostic.enable(0)<CR>", { silent = true, desc = "Diagnostics: Enable" })
+vim.keymap.set(
+	"n",
+	"<leader>dd",
+	"<cmd>lua vim.diagnostic.disable(0)<CR>",
+	{ silent = true, desc = "Diagnostics: Disable" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>de",
+	"<cmd>lua vim.diagnostic.enable(0)<CR>",
+	{ silent = true, desc = "Diagnostics: Enable" }
+)
 
 -- page up/down
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
@@ -38,4 +48,3 @@ vim.keymap.set("n", "<C-j>", "<C-e>", { silent = true, desc = "Move scroll down 
 -- save
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>", { desc = "Save current buffer" })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current buffer" })
-

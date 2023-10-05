@@ -22,7 +22,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 
 -- Title
-vim.opt.title = true                       -- set the title of window to the value of the titlestring
+vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
 -- Persist undo
@@ -52,16 +52,15 @@ vim.opt.splitbelow = true
 
 -- Highlight trailing characters
 vim.opt.listchars = {
-  -- eol = "↲",
-  tab = "▸ ",
-  trail = "·",
+	-- eol = "↲",
+	tab = "▸ ",
+	trail = "·",
 }
 vim.opt.list = true
 
 -- Spell check certain file types
 vim.opt.spelllang = "en_gb"
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "NeogitCommitMessage", "gitcommit" },
-  command = "setlocal spell",
+	pattern = { "markdown", "NeogitCommitMessage", "gitcommit" },
+	command = "setlocal spell",
 })
-
