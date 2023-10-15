@@ -64,3 +64,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown", "NeogitCommitMessage", "gitcommit" },
 	command = "setlocal spell",
 })
+
+-- fold
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldenable = false
+
