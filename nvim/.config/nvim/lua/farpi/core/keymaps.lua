@@ -28,8 +28,6 @@ vim.keymap.set(
 -- page up/down
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
--- vim.keymap.set("n", "n", "nzzzv", { silent = true })
--- vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
 -- Resize panels
 vim.keymap.set("n", "<A-right>", ":vertical res +5<CR>", { silent = true, desc = "Increase panel size (V)" })
