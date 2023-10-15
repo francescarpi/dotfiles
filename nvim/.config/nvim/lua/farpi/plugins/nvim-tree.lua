@@ -9,9 +9,6 @@ return {
 			filters = {
 				dotfiles = true,
 			},
-			view = {
-				width = 55,
-			},
 		})
 
 		vim.keymap.set("n", "<leader>v", ":NvimTreeToggle<CR>", { silent = true, desc = "Nvimtree: Toggle" })
