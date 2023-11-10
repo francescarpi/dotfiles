@@ -9,6 +9,12 @@ return {
 		)
 		vim.keymap.set(
 			"n",
+			"<leader>hs",
+			"<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+			{ silent = true, desc = "Harpoon: Toggle quick menu" }
+		)
+		vim.keymap.set(
+			"n",
 			"<leader>h1",
 			"<cmd>lua require('harpoon.ui').nav_file(1)<cr>",
 			{ silent = true, desc = "Harpoon: Goto file 1" }
