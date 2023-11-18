@@ -15,25 +15,25 @@ return {
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>h1",
+			"<leader>1",
 			"<cmd>lua require('harpoon.ui').nav_file(1)<cr>",
 			{ silent = true, desc = "Harpoon: Goto file 1" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>h2",
+			"<leader>2",
 			"<cmd>lua require('harpoon.ui').nav_file(2)<cr>",
 			{ silent = true, desc = "Harpoon: Goto file 2" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>h3",
+			"<leader>3",
 			"<cmd>lua require('harpoon.ui').nav_file(3)<cr>",
 			{ silent = true, desc = "Harpoon: Goto file 3" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>h4",
+			"<leader>4",
 			"<cmd>lua require('harpoon.ui').nav_file(4)<cr>",
 			{ silent = true, desc = "Harpoon: Goto file 4" }
 		)
