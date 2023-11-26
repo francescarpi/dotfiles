@@ -37,6 +37,12 @@ return {
 			"<cmd>lua require('harpoon.ui').nav_file(4)<cr>",
 			{ silent = true, desc = "Harpoon: Goto file 4" }
 		)
+		vim.keymap.set(
+			"n",
+			"<leader>5",
+			"<cmd>lua require('harpoon.ui').nav_file(5)<cr>",
+			{ silent = true, desc = "Harpoon: Goto file 5" }
+		)
 
 		require("telescope").load_extension("harpoon")
 		vim.keymap.set(
