@@ -9,7 +9,7 @@ return {
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>hh",
+			"<leader><tab>",
 			"<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
 			{ silent = true, desc = "Harpoon: Toggle quick menu" }
 		)
