@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ import = "farpi.plugins" },
-	{ import = "farpi.plugins.lsp" },
 }, {
 	install = {},
 	checker = {
