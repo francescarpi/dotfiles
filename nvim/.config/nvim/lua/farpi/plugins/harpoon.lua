@@ -3,7 +3,7 @@ return {
 	config = function()
 		vim.keymap.set(
 			"n",
-			"<leader>ha",
+			"<leader>a",
 			"<cmd>lua require('harpoon.mark').add_file()<cr>",
 			{ silent = true, desc = "Harpoon: Add file" }
 		)
