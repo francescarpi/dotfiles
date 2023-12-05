@@ -15,6 +15,8 @@ return {
 					"img",
 					"fonts",
 					"images",
+          ".mypy_cache",
+          "__pycache__",
 				},
 				mappings = {
 					i = {
