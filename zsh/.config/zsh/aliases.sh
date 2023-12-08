@@ -38,3 +38,6 @@ alias masonlogs="tail -f $HOME/.local/state/nvim/mason.log"
 alias flakecheck="flake8 src/ --max-line-length 120 --exclude auth_migrations,migrations,node_modules,.venv"
 alias blackcheck="black src/ --check  --extend-exclude \"/(\.mypy_cache|migrations|\.pytest_cache)/\"  --target-version py39"
 alias blackapply="black src/ --extend-exclude \"/(\.mypy_cache|migrations|\.pytest_cache)/\"  --target-version py39"
+
+# docker
+alias d="docker-compose $1"
