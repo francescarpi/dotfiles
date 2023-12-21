@@ -41,3 +41,4 @@ alias blackapply="black src/ --extend-exclude \"/(\.mypy_cache|migrations|\.pyte
 
 # docker
 alias d="docker-compose $1"
+alias dps='docker ps --format "{{.ID}}\t{{.Names}}"'
