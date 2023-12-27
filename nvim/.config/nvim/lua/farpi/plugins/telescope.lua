@@ -2,7 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"BurntSushi/ripgrep",
+		"BurntSushi/ripgrep",  -- brew install rg
 		"nvim-telescope/telescope-live-grep-args.nvim",
 	},
 	config = function()
