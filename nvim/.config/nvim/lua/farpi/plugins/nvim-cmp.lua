@@ -52,10 +52,7 @@ return {
       enabled = function ()
         local disabled_filetypes= { "NeogitCommitMessage" }
         local filetype = vim.bo.filetype
-        if vim.tbl_contains(disabled_filetypes, filetype) then
-          return false
-        end
-        return true
+        return not vim.tbl_contains(disabled_filetypes, filetype)
       end
 		})
 	end,
