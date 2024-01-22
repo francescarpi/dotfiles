@@ -3,6 +3,6 @@ return {
 	priority = 1000,
 	config = function()
 		vim.cmd.colorscheme("monokai")
-		vim.cmd("highlight TabLineSel guibg=#ffaf26 guifg=#000000")
+    vim.cmd("hi CursorLine guibg=#4d5154")
 	end,
 }
