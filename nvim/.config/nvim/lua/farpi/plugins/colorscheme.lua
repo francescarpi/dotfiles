@@ -7,6 +7,9 @@ return {
 				TabLineSel = {
 					bg = "#ff0000",
 				},
+        CursorLineNr = {
+          fg = "#ff0000"
+        }
 			},
 		})
 	end,
