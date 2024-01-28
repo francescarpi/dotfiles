@@ -1,6 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 local act = wezterm.action
+local mux = wezterm.mux
 
 -- This table will hold the configuration.
 local config = {}
@@ -61,5 +62,11 @@ config.window_padding = {
 config.window_background_opacity = 0.999 -- this fix stage manager laggy
 -- config.window_decorations = "TITLE|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 config.window_decorations = "NONE|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
+
+-- fix fullscreen on osx
+wezterm.on("gui-startup", function(cmd)
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
 
 return config
