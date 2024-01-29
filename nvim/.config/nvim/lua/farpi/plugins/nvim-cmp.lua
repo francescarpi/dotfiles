@@ -50,7 +50,7 @@ return {
 				}),
 			},
       enabled = function ()
-        local disabled_filetypes= { "NeogitCommitMessage" }
+        local disabled_filetypes= { "NeogitCommitMessage", "gitcommit" }
         local filetype = vim.bo.filetype
         return not vim.tbl_contains(disabled_filetypes, filetype)
       end
