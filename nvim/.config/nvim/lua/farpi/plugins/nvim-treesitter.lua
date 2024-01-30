@@ -32,6 +32,7 @@ return {
 				"javascript",
 				"json",
 				"tsx",
+        "markdown",
 			},
 			sync_install = false,
 			auto_install = true,

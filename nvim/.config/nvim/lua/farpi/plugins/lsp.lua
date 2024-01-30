@@ -71,6 +71,7 @@ return {
           "volar",
           "rust_analyzer",
           "angularls",
+          "marksman",
         },
         handlers = {
           lsp_zero.default_setup,
