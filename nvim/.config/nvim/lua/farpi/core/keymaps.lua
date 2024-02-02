@@ -46,3 +46,5 @@ vim.keymap.set("n", "<C-j>", "<C-e>", { silent = true, desc = "Move scroll down 
 -- save
 vim.keymap.set("i", "<C-s>", "<esc>:w<CR>", { desc = "Save current buffer" })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current buffer" })
+
+vim.keymap.set("n", "<C-.>", ":b#<CR>", { desc = "Switch to last editted buffer" })
