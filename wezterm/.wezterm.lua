@@ -73,9 +73,9 @@ wezterm.on("ActivatePaneDirection-down", function(window, pane)
 end)
 
 config.keys = {
-  { key = "i", mods = "CMD",       action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-  { key = "u", mods = "CMD",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-  { key = "z", mods = "CMD",       action = wezterm.action.TogglePaneZoomState },
+  { key = "i", mods = "CTRL",       action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  { key = "i", mods = "CTRL|SHIFT",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+  { key = "z", mods = "CTRL",       action = wezterm.action.TogglePaneZoomState },
   { key = "p", mods = "CMD",       action = act.ActivateTabRelative(-1) },
   { key = "n", mods = "CMD",       action = act.ActivateTabRelative(1) },
   { key = "ñ", mods = "CMD",       action = act.ActivateLastTab },
