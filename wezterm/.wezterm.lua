@@ -40,17 +40,12 @@ config.colors = {
 }
 
 local function isViProcess(pane)
-  -- get_foreground_process_name On Linux, macOS and Windows,
-  -- the process can be queried to determine this path. Other operating systems
-  -- (notably, FreeBSD and other unix systems) are not currently supported
   return pane:get_foreground_process_name():find("n?vim") ~= nil
-  -- return pane:get_title():find("n?vim") ~= nil
 end
 
 local function conditionalActivatePane(window, pane, pane_direction, vim_direction)
   if isViProcess(pane) then
     window:perform_action(
-    -- This should match the keybinds you set in Neovim.
       act.SendKey({ key = vim_direction, mods = "CTRL" }),
       pane
     )
@@ -73,9 +68,9 @@ wezterm.on("ActivatePaneDirection-down", function(window, pane)
 end)
 
 config.keys = {
-  { key = "i", mods = "CTRL",       action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-  { key = "i", mods = "CTRL|SHIFT",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-  { key = "z", mods = "CTRL",       action = wezterm.action.TogglePaneZoomState },
+  { key = "i", mods = "CMD",       action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  { key = "i", mods = "CMD|SHIFT",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+  { key = "z", mods = "CMD",       action = wezterm.action.TogglePaneZoomState },
   { key = "p", mods = "CMD",       action = act.ActivateTabRelative(-1) },
   { key = "n", mods = "CMD",       action = act.ActivateTabRelative(1) },
   { key = "ñ", mods = "CMD",       action = act.ActivateLastTab },
@@ -84,10 +79,10 @@ config.keys = {
   { key = "l", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
   { key = "h", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
 
-  { key = "h", mods = "CTRL",      action = act.EmitEvent("ActivatePaneDirection-left") },
-  { key = "j", mods = "CTRL",      action = act.EmitEvent("ActivatePaneDirection-down") },
-  { key = "k", mods = "CTRL",      action = act.EmitEvent("ActivatePaneDirection-up") },
-  { key = "l", mods = "CTRL",      action = act.EmitEvent("ActivatePaneDirection-right") },
+  { key = "h", mods = "CMD",      action = act.EmitEvent("ActivatePaneDirection-left") },
+  { key = "j", mods = "CMD",      action = act.EmitEvent("ActivatePaneDirection-down") },
+  { key = "k", mods = "CMD",      action = act.EmitEvent("ActivatePaneDirection-up") },
+  { key = "l", mods = "CMD",      action = act.EmitEvent("ActivatePaneDirection-right") },
 }
 
 for i = 1, 8 do
