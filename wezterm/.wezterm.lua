@@ -61,23 +61,25 @@ end
 wezterm.on("ActivatePaneDirection-right", function(window, pane)
 	conditionalActivatePane(window, pane, "Right", "l")
 end)
+
 wezterm.on("ActivatePaneDirection-left", function(window, pane)
 	conditionalActivatePane(window, pane, "Left", "h")
 end)
+
 wezterm.on("ActivatePaneDirection-up", function(window, pane)
 	conditionalActivatePane(window, pane, "Up", "k")
 end)
+
 wezterm.on("ActivatePaneDirection-down", function(window, pane)
 	conditionalActivatePane(window, pane, "Down", "j")
 end)
 
 config.keys = {
-	{ key = "i", mods = "CMD", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "i", mods = "CMD|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "z", mods = "CMD", action = wezterm.action.TogglePaneZoomState },
+	{ key = "i", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "i", mods = "CMD|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "z", mods = "CMD", action = act.TogglePaneZoomState },
 	{ key = "p", mods = "CMD", action = act.ActivateTabRelative(-1) },
 	{ key = "n", mods = "CMD", action = act.ActivateTabRelative(1) },
-	{ key = "ñ", mods = "CMD", action = act.ActivateLastTab },
 	{ key = "k", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
 	{ key = "j", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
 	{ key = "l", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
@@ -93,7 +95,32 @@ for i = 1, 8 do
 	table.insert(config.keys, {
 		key = tostring(i),
 		mods = "CTRL|ALT",
-		action = wezterm.action.MoveTab(i - 1),
+		action = act.MoveTab(i - 1),
+	})
+
+	-- CMD + number => goto tab
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = "CMD",
+		action = wezterm.action_callback(function(window, pane)
+			local active_tab_index = nil
+      local next_tab_index = i - 1
+
+			local active_tab = window:active_tab()
+			for index, tab in ipairs(window:mux_window():tabs()) do
+				if tab:tab_id() == active_tab:tab_id() then
+					active_tab_index = index - 1
+					break
+				end
+			end
+
+      if active_tab_index == next_tab_index then
+			  window:perform_action(act.ActivateLastTab, pane)
+      else
+			  window:perform_action(act.ActivateTab(next_tab_index), pane)
+      end
+
+		end),
 	})
 end
 
