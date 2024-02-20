@@ -58,22 +58,6 @@ local function conditionalActivatePane(window, pane, pane_direction, vim_directi
 	end
 end
 
-wezterm.on("ActivatePaneDirection-right", function(window, pane)
-	conditionalActivatePane(window, pane, "Right", "l")
-end)
-
-wezterm.on("ActivatePaneDirection-left", function(window, pane)
-	conditionalActivatePane(window, pane, "Left", "h")
-end)
-
-wezterm.on("ActivatePaneDirection-up", function(window, pane)
-	conditionalActivatePane(window, pane, "Up", "k")
-end)
-
-wezterm.on("ActivatePaneDirection-down", function(window, pane)
-	conditionalActivatePane(window, pane, "Down", "j")
-end)
-
 config.keys = {
 	{ key = "i", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "i", mods = "CMD|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
@@ -84,10 +68,34 @@ config.keys = {
 	{ key = "j", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
 	{ key = "l", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 	{ key = "h", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "h", mods = "CMD", action = act.EmitEvent("ActivatePaneDirection-left") },
-	{ key = "j", mods = "CMD", action = act.EmitEvent("ActivatePaneDirection-down") },
-	{ key = "k", mods = "CMD", action = act.EmitEvent("ActivatePaneDirection-up") },
-	{ key = "l", mods = "CMD", action = act.EmitEvent("ActivatePaneDirection-right") },
+	{
+		key = "h",
+		mods = "CMD",
+		action = wezterm.action_callback(function(window, pane)
+			conditionalActivatePane(window, pane, "Left", "h")
+		end),
+	},
+	{
+		key = "j",
+		mods = "CMD",
+		action = wezterm.action_callback(function(window, pane)
+			conditionalActivatePane(window, pane, "Down", "j")
+		end),
+	},
+	{
+		key = "k",
+		mods = "CMD",
+		action = wezterm.action_callback(function(window, pane)
+			conditionalActivatePane(window, pane, "Up", "k")
+		end),
+	},
+	{
+		key = "l",
+		mods = "CMD",
+		action = wezterm.action_callback(function(window, pane)
+			conditionalActivatePane(window, pane, "Right", "l")
+		end),
+	},
 }
 
 for i = 1, 8 do
@@ -104,7 +112,7 @@ for i = 1, 8 do
 		mods = "CMD",
 		action = wezterm.action_callback(function(window, pane)
 			local active_tab_index = nil
-      local next_tab_index = i - 1
+			local next_tab_index = i - 1
 
 			local active_tab = window:active_tab()
 			for index, tab in ipairs(window:mux_window():tabs()) do
@@ -114,12 +122,11 @@ for i = 1, 8 do
 				end
 			end
 
-      if active_tab_index == next_tab_index then
-			  window:perform_action(act.ActivateLastTab, pane)
-      else
-			  window:perform_action(act.ActivateTab(next_tab_index), pane)
-      end
-
+			if active_tab_index == next_tab_index then
+				window:perform_action(act.ActivateLastTab, pane)
+			else
+				window:perform_action(act.ActivateTab(next_tab_index), pane)
+			end
 		end),
 	})
 end
