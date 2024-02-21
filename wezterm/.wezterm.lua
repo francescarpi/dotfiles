@@ -1,18 +1,12 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
 local act = wezterm.action
 local mux = wezterm.mux
 
--- This table will hold the configuration.
 local config = {}
-
--- In newer versions of wezterm, use the config_builder which will
--- help provide clearer error messages
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
--- This is where you actually apply your config choices
 config.color_scheme = "Monokai Pro (Gogh)"
 config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 16
@@ -96,6 +90,18 @@ config.keys = {
 			conditionalActivatePane(window, pane, "Right", "l")
 		end),
 	},
+	{
+		key = "n",
+		mods = "CMD|SHIFT",
+		action = act.PromptInputLine({
+			description = "Enter new name for tab:",
+			action = wezterm.action_callback(function(window, _, line)
+				if line and string.len(line) > 0 then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 }
 
 for i = 1, 8 do
@@ -133,7 +139,7 @@ end
 
 -- fix fullscreen on osx
 wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = mux.spawn_window(cmd or {})
+	local _, _, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
 end)
 
