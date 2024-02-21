@@ -11,9 +11,6 @@ alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias clean_pycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 alias current_week='date +%U'
 
-# Wezterm
-alias tn="wezterm cli set-tab-title $1"
-
 # vim
 alias vim="nvim"
 alias lsplogs="tail -f $HOME/.local/state/nvim/lsp.log"
