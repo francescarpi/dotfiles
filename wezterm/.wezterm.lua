@@ -62,6 +62,7 @@ config.keys = {
 	{ key = "j", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
 	{ key = "l", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 	{ key = "h", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "a", mods = "CMD", action = act.ActivateLastTab},
 	{
 		key = "h",
 		mods = "CMD",
