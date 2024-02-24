@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local mux = wezterm.mux
+local is_maximized = false
 
 local config = {}
 if wezterm.config_builder then
@@ -62,7 +62,7 @@ config.keys = {
 	{ key = "j", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
 	{ key = "l", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 	{ key = "h", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "a", mods = "CMD", action = act.ActivateLastTab},
+	{ key = "a", mods = "CMD", action = act.ActivateLastTab },
 	{
 		key = "h",
 		mods = "CMD",
@@ -89,6 +89,18 @@ config.keys = {
 		mods = "CMD",
 		action = wezterm.action_callback(function(window, pane)
 			conditionalActivatePane(window, pane, "Right", "l")
+		end),
+	},
+  {
+		key = "m",
+		mods = "CMD|SHIFT",
+		action = wezterm.action_callback(function(window, pane)
+      if is_maximized then
+        window:restore()
+      else
+        window:maximize()
+      end
+      is_maximized = not is_maximized
 		end),
 	},
 	{
@@ -137,11 +149,5 @@ for i = 1, 8 do
 		end),
 	})
 end
-
--- fix fullscreen on osx
-wezterm.on("gui-startup", function(cmd)
-	local _, _, window = mux.spawn_window(cmd or {})
-	window:gui_window():maximize()
-end)
 
 return config
