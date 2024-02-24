@@ -91,16 +91,29 @@ config.keys = {
 			conditionalActivatePane(window, pane, "Right", "l")
 		end),
 	},
-  {
+	{
 		key = "m",
 		mods = "CMD|SHIFT",
-		action = wezterm.action_callback(function(window, pane)
-      if is_maximized then
-        window:restore()
-      else
-        window:maximize()
-      end
-      is_maximized = not is_maximized
+		action = wezterm.action_callback(function(window, _)
+			if is_maximized then
+				window:restore()
+			else
+				window:maximize()
+			end
+			is_maximized = not is_maximized
+		end),
+	},
+	{
+		key = "b",
+		mods = "CMD|SHIFT",
+		action = wezterm.action_callback(function(window, _)
+			local overrides = window:get_config_overrides() or {}
+			if overrides.window_decorations and string.find(overrides.window_decorations, "TITLE") then
+				overrides.window_decorations = "NONE|RESIZE"
+			else
+				overrides.window_decorations = "TITLE|RESIZE"
+			end
+			window:set_config_overrides(overrides)
 		end),
 	},
 	{
