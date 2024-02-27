@@ -111,14 +111,14 @@ return {
           formatting.stylua,
           formatting.isort,
           formatting.black,
-          diagnostics.flake8.with({
-            extra_args = { "--max-line-length", "120" },
-          }),
-          diagnostics.eslint_d.with({
-            condition = function(utils)
-              return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
-            end,
-          }),
+          -- diagnostics.flake8.with({
+          --   extra_args = { "--max-line-length", "120" },
+          -- }),
+          -- diagnostics.eslint_d.with({
+          --   condition = function(utils)
+          --     return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
+          --   end,
+          -- }),
         },
       })
     end,
