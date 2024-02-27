@@ -6,10 +6,9 @@ return {
   config = function()
     require("Navigator").setup({})
 
-    map("n", "<C-h>", "<CMD>NavigatorLeft<CR>")
-    map("n", "<C-l>", "<CMD>NavigatorRight<CR>")
-    map("n", "<C-k>", "<CMD>NavigatorUp<CR>")
-    map("n", "<C-j>", "<CMD>NavigatorDown<CR>")
-    map("n", "<C-p>", "<CMD>NavigatorPrevious<CR>")
+    map("n", "<C-S-h>", "<CMD>NavigatorLeft<CR>")
+    map("n", "<C-S-l>", "<CMD>NavigatorRight<CR>")
+    map("n", "<C-S-k>", "<CMD>NavigatorUp<CR>")
+    map("n", "<C-S-j>", "<CMD>NavigatorDown<CR>")
   end,
 }
