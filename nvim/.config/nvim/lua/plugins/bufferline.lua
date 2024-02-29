@@ -2,8 +2,8 @@ return {
   "akinsho/bufferline.nvim",
   opts = {
     highlights = {
-      indicator_selected = {
-        bg = "#ff0000",
+      buffer_selected = {
+        underline = true,
       },
     },
   },
