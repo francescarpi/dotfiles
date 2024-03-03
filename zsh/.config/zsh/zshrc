@@ -32,8 +32,15 @@ setopt HIST_FCNTL_LOCK
 # Antidote
 # https://getantidote.github.io/
 # brew install antidote
-source $HOMEBREW_PREFIX/Cellar/antidote/1.9.5/share/antidote/antidote.zsh
-antidote load $HOME/.config/zsh/plugins.txt
+ANTIDOTE_VERSION=1.9.5
+ANTIDOTE_SCRIPT=$HOMEBREW_PREFIX/Cellar/antidote/${ANTIDOTE_VERSION}/share/antidote/antidote.zsh
+if [[ -r $ANTIDOTE_SCRIPT ]]; then
+  source $ANTIDOTE_SCRIPT
+  antidote load $HOME/.config/zsh/plugins.txt
+else
+  echo "Antidote ${ANTIDOTE_VERSION} not present."
+  echo "Consider running brew upgrade."
+fi
 
 # Tmux fix
 bindkey -e
