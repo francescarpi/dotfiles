@@ -32,7 +32,7 @@ setopt HIST_FCNTL_LOCK
 # Antidote
 # https://getantidote.github.io/
 # brew install antidote
-source $HOMEBREW_PREFIX/Cellar/antidote/1.9.4/share/antidote/antidote.zsh
+source $HOMEBREW_PREFIX/Cellar/antidote/1.9.5/share/antidote/antidote.zsh
 antidote load $HOME/.config/zsh/plugins.txt
 
 # Tmux fix
