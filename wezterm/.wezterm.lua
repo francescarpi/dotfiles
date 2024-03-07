@@ -63,7 +63,7 @@ config.keys = {
 	{ key = "l", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 	{ key = "h", mods = "CMD|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
 	{ key = "a", mods = "CMD", action = act.ActivateLastTab },
-	{ key = "o", mods = "CMD", action = act.PaneSelect },
+	{ key = "o", mods = "CMD", action = act.PaneSelect({ alphabet = "1234567890" }) },
 	{
 		key = "h",
 		mods = "CMD",
