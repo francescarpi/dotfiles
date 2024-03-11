@@ -3,7 +3,12 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        volar = {},
+        volar = {
+          filetypes = {
+            "typescript",
+            "vue",
+          },
+        },
       },
     },
   },
