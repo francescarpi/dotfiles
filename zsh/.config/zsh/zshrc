@@ -59,4 +59,4 @@ bindkey "^I" complete-word
 eval "$(zoxide init zsh)"
 
 # bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
