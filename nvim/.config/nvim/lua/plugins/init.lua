@@ -24,4 +24,11 @@ return {
 			vim.keymap.set({ "n", "t" }, "<C-S-j>", "<CMD>NavigatorDown<CR>")
 		end,
 	},
+
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "lspconfig"
+    end,
+  },
 }
