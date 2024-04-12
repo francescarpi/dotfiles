@@ -13,7 +13,7 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { silent = true, desc = "Harpoon: Toggle quick menu" })
 
-    map("n", "<leader>a", function()
+    map("n", "<C-a>", function()
       harpoon:list():add()
     end, { silent = true, desc = "Harpoon: Add file" })
 
@@ -26,7 +26,7 @@ return {
     end, { silent = true, desc = "Harpoon: Jump to next" })
 
     for i = 1, 5, 1 do
-      map("n", "<leader>" .. i, function()
+      map("n", "<C-" .. i .. ">", function()
         harpoon:list():select(i)
       end, { silent = true, desc = "Harpoon: Jump to file with index " .. i })
     end
