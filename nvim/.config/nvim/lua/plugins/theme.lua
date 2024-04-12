@@ -1,13 +1,14 @@
 return {
   -- add monokai
   {
-    "tanvirtin/monokai.nvim",
+    -- "tanvirtin/monokai.nvim",
+    "folke/tokyonight.nvim",
   },
   -- configure LazyVim to load monokai
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "monokai",
+      colorscheme = "tokyonight-storm",
     },
   },
 }
