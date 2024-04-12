@@ -17,11 +17,11 @@ return {
       harpoon:list():add()
     end, { silent = true, desc = "Harpoon: Add file" })
 
-    map("n", "<C-i>", function()
+    map("n", "<C-S-I>", function()
       harpoon:list():prev()
     end, { silent = true, desc = "Harpoon: Jump to previous" })
 
-    map("n", "<C-o>", function()
+    map("n", "<C-S-O>", function()
       harpoon:list():next()
     end, { silent = true, desc = "Harpoon: Jump to next" })
 
