@@ -7,4 +7,5 @@ zshrc.zwc
 .luarc.json
 zsh/.config/zsh/plugins.zsh
 lazy-lock.json
+.tmp*
 
