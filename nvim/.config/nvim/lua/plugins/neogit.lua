@@ -11,5 +11,12 @@ return {
     "nvim-telescope/telescope.nvim", -- optional
     "ibhagwan/fzf-lua",              -- optional
   },
-  config = true
+  config = function()
+    local neogit = require('neogit')
+    neogit.setup {}
+
+    map("n", "<leader>g", function()
+      neogit.open()
+    end, { silent = true, desc = "Neogit: open" })
+  end
 }
