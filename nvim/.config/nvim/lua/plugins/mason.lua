@@ -7,7 +7,6 @@ return {
       "mypy",
       "codelldb",
       "cpptools",
-      "gitui",
     },
   },
 }
