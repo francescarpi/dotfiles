@@ -5,6 +5,8 @@ return {
       "isort",
       "ruff",
       "mypy",
+      "codelldb",
+      "cpptools",
     },
   },
 }
