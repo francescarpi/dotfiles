@@ -7,3 +7,4 @@ local map = Util.safe_keymap_set
 
 map("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Delete current buffer" })
+map("i", "jj", "<esc>", { desc = "jj to escape" })
