@@ -7,6 +7,8 @@ return {
       "mypy",
       "codelldb",
       "cpptools",
+      "prettier",
+      "eslint-lsp"
     },
   },
 }
