@@ -8,7 +8,8 @@ return {
       "codelldb",
       "cpptools",
       "prettier",
-      "eslint-lsp"
+      "eslint-lsp",
+      "grammarly-languageserver"
     },
   },
 }
