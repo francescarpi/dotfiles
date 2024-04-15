@@ -13,7 +13,7 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { silent = true, desc = "Harpoon: Toggle quick menu" })
 
-    map("n", "<C-a>", function()
+    map("n", "<leader>a", function()
       harpoon:list():add()
     end, { silent = true, desc = "Harpoon: Add file" })
 
