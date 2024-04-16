@@ -1,0 +1,5 @@
+-- Configuration inspired on kickstart (https://github.com/nvim-lua/kickstart.nvim)
+require("core.options")
+require("core.keymaps")
+require("core.autocommands")
+require("core.lazy")
