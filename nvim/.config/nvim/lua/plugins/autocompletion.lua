@@ -103,4 +103,7 @@ return {
       })
     end,
   },
+
+  -- copilot
+  { "github/copilot.vim" },
 }
