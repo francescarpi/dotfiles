@@ -14,3 +14,9 @@ vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" }
 
 -- Delete current buffer
 vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Delete current buffer" })
+
+-- Save file
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Quit all
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
