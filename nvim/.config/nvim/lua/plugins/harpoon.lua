@@ -11,6 +11,7 @@ return {
     end, { silent = true, desc = "Harpoon: Toggle quick menu" })
 
     vim.keymap.set("n", "<leader>a", function()
+      print("File added to Harpoon list")
       harpoon:list():add()
     end, { silent = true, desc = "Harpoon: Add file" })
 
@@ -27,5 +28,18 @@ return {
         harpoon:list():select(i)
       end, { silent = true, desc = "Harpoon: Jump to file with index " .. i })
     end
+
+    vim.keymap.set("n", "<C-h>", function()
+      harpoon:list():select(1)
+    end)
+    vim.keymap.set("n", "<C-l>", function()
+      harpoon:list():select(2)
+    end)
+    vim.keymap.set("n", "<C-n>", function()
+      harpoon:list():select(3)
+    end)
+    vim.keymap.set("n", "<C-p>", function()
+      harpoon:list():select(4)
+    end)
   end,
 }
