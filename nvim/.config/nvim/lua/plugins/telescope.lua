@@ -40,6 +40,13 @@ return {
             },
           },
         },
+        defaults = {
+          mappings = {
+            i = {
+              ["<esc>"] = actions.close,
+            },
+          },
+        },
       })
 
       -- Enable Telescope extensions if they are installed
