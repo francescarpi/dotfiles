@@ -24,10 +24,20 @@ return {
       { "nvim-tree/nvim-web-devicons", enabled = true },
     },
     config = function()
+      local actions = require("telescope.actions")
       require("telescope").setup({
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown(),
+          },
+        },
+        pickers = {
+          buffers = {
+            mappings = {
+              i = {
+                ["<c-d>"] = actions.delete_buffer,
+              },
+            },
           },
         },
       })
