@@ -158,6 +158,9 @@ return {
         "cpptools",
         "prettier",
         "eslint-lsp",
+        "gopls",
+        "goimports",
+        "gofumpt",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
