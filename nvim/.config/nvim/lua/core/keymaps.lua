@@ -13,8 +13,8 @@ vim.keymap.set("n", "<leader>qf", vim.diagnostic.setloclist, { desc = "Open diag
 vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" })
 
 -- Delete current buffer
-vim.keymap.set("n", "<leader>k", ":bdelete<CR>", { silent = true, desc = "Delete current buffer" })
-vim.keymap.set("n", "<leader>q", ":q<CR>", { silent = true, desc = "Quit from current window" })
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true, desc = "Delete current buffer" })
+vim.keymap.set("n", "<leader>bq", ":q<CR>", { silent = true, desc = "Quit from current window" })
 
 -- Save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
