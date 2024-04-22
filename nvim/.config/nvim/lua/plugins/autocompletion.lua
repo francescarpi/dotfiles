@@ -96,14 +96,33 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         }),
         sources = {
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "path" },
+          { name = "copilot", group_index = 1 },
+          { name = "nvim_lsp", group_index = 2 },
+          { name = "luasnip", group_index = 3 },
+          { name = "path", group_index = 3 },
         },
       })
     end,
   },
 
   -- copilot
-  { "github/copilot.vim" },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = "zbirenbaum/copilot.lua",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
 }
