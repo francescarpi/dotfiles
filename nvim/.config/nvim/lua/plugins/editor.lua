@@ -78,6 +78,15 @@ return {
         return "%2l:%-2v"
       end
 
+      local original_section_filename = statusline.section_filename
+      statusline.section_filename = function(args)
+        local format = "off"
+        if vim.g.format_on_save then
+          format = "on"
+        end
+        return "format: " .. format .. " | " .. original_section_filename(args)
+      end
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
