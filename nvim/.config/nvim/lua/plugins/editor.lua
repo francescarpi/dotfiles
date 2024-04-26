@@ -83,7 +83,7 @@ return {
         if vim.g.format_on_save then
           format = "on"
         end
-        return "format: " .. format .. " | %t"
+        return "format: " .. format .. " | %t%m"
       end
 
       -- ... and there is more!
