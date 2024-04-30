@@ -1,3 +1,17 @@
+vim.g.diagnostic_enabled = true
+
+vim.api.nvim_create_user_command("ToggleDiagnostics", function()
+  vim.g.diagnostic_enabled = not vim.g.diagnostic_enabled
+  if vim.g.diagnostic_enabled then
+    vim.diagnostic.enable()
+  else
+    vim.diagnostic.disable()
+  end
+  print("Diagnostic set to: " .. tostring(vim.g.diagnostic_enabled))
+end, {
+  desc = "Toggle diagnostics",
+})
+
 return {
   { -- LSP Configuration & Plugins
     "neovim/nvim-lspconfig",

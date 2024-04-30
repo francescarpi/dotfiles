@@ -8,6 +8,7 @@ vim.keymap.set("i", "jj", "<esc>", { desc = "Exit to normal mode" })
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>x", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>qf", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>td", ":ToggleDiagnostics<CR>", { desc = "Toggle diagnostic", silent = true })
 
 -- Switch faster between buffers
 vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" })
