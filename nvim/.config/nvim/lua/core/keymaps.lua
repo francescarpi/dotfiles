@@ -10,6 +10,9 @@ vim.keymap.set("n", "<leader>x", vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set("n", "<leader>qf", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>td", ":ToggleDiagnostics<CR>", { desc = "Toggle diagnostic", silent = true })
 
+-- Format keys
+vim.keymap.set("n", "<leader>tf", ":ToggleFormatOnSave<CR>", { desc = "Toggle format", silent = true })
+
 -- Switch faster between buffers
 vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" })
 
