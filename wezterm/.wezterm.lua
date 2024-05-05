@@ -129,6 +129,11 @@ config.keys = {
 			end),
 		}),
 	},
+	{
+		key = " ",
+		mods = "CMD|SHIFT",
+		action = act.RotatePanes("CounterClockwise"),
+	},
 }
 
 for i = 1, 8 do
