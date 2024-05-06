@@ -8,4 +8,4 @@ zshrc.zwc
 zsh/.config/zsh/plugins.zsh
 lazy-lock.json
 .tmp*
-
+embeddings
