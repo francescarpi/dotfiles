@@ -104,4 +104,12 @@ return {
       vim.keymap.set("n", "<leader>e", "<CMD>Neotree toggle reveal<CR>", { desc = "Neotree toggle" })
     end,
   },
+
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      vim.keymap.set({ "n", "x", "o" }, "f", "<Plug>(leap-forward)")
+      vim.keymap.set({ "n", "x", "o" }, "F", "<Plug>(leap-backward)")
+    end,
+  },
 }
