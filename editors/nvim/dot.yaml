@@ -1,0 +1,5 @@
+linux|darwin:
+  links:
+    init.lua: ~/.config/nvim/init.lua
+    lua: ~/.config/nvim/lua
+    stylua.toml: ~/.config/nvim/stylua.toml

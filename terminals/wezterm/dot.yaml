@@ -1,0 +1,3 @@
+linux|darwin:
+  links:
+    config.lua: ~/.wezterm.lua

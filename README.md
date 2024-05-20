@@ -1,24 +1,13 @@
-# My personal dotfiles
+# Personal dotfiles
 
-These are my `dotfiled`, used on a Mac OS.
+## Requirements
 
-## Installation
+* [rotz](https://volllly.github.io/rotz/)
 
-You need `git` and GNU `stow`.
-
-Clone the code into your `$HOME` directory or wherever you want.
-
-Run `stow` tool to create symlinks.
+## Usage
 
 ```
-stow -t $HOME */
+cd $HOME
+rotz clone git@github.com:francescarpi/dotfiles.git
+rotz link
 ```
-
-It generates all symlinks to your home (the '/' ignores the README).
-
-Or if you just select what you want:
-
-```
-stow zsh
-```
-

@@ -1,0 +1,4 @@
+linux|darwin:
+  links:
+    zshrc: ~/.zshrc
+    config: ~/.config/zsh
