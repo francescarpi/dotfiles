@@ -1,6 +1,0 @@
-[[language]]
-name = "python"
-roots = ["pyproject.toml"]
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
-config = {} 
-# file-types = ["py"]

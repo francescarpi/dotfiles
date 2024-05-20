@@ -1,8 +1,0 @@
-install.sh
-
-\.git
-\.gitignore
-
-^/README.*
-^/LICENSE.*
-
