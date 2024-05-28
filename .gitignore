@@ -5,7 +5,7 @@ packer_compiled.lua
 .idea
 zshrc.zwc
 .luarc.json
-zsh/.config/zsh/plugins.zsh
+shell/zsh/config/plugins.zsh
 lazy-lock.json
 .tmp*
 embeddings
