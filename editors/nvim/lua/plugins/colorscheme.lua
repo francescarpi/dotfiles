@@ -16,12 +16,20 @@ return {
   --     vim.cmd([[colorscheme rose-pine]])
   --   end,
   -- },
+  -- {
+  --   "catppuccin/nvim",
+  --   priority = 1000,
+  --   opvs = {},
+  --   config = function()
+  --     vim.cmd([[colorscheme catppuccin-mocha]])
+  --   end,
+  -- },
   {
-    "catppuccin/nvim",
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
     opts = {},
     config = function()
-      vim.cmd([[colorscheme catppuccin-mocha]])
+      vim.cmd([[colorscheme gruvbox]])
     end,
   },
 }
