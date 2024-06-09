@@ -7,15 +7,15 @@ return {
   --     vim.cmd([[colorscheme tokyonight]])
   --   end,
   -- },
-  -- {
-  --   "rose-pine/neovim",
-  --   name = "rose-pine",
-  --   priority = 1000,
-  --   opts = {},
-  --   config = function()
-  --     vim.cmd([[colorscheme rose-pine]])
-  --   end,
-  -- },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd([[colorscheme rose-pine]])
+    end,
+  },
   -- {
   --   "catppuccin/nvim",
   --   priority = 1000,
@@ -24,12 +24,12 @@ return {
   --     vim.cmd([[colorscheme catppuccin-mocha]])
   --   end,
   -- },
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    opts = {},
-    config = function()
-      vim.cmd([[colorscheme gruvbox]])
-    end,
-  },
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   priority = 1000,
+  --   opts = {},
+  --   config = function()
+  --     vim.cmd([[colorscheme gruvbox]])
+  --   end,
+  -- },
 }
