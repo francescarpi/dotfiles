@@ -7,7 +7,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "rose-pine"
+-- config.color_scheme = "rose-pine"
 config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 16
 config.send_composed_key_when_right_alt_is_pressed = true
