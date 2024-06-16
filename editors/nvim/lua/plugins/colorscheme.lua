@@ -32,4 +32,12 @@ return {
   --     vim.cmd([[colorscheme gruvbox]])
   --   end,
   -- },
+  {
+    "dasupradyumna/midnight.nvim",
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd([[colorscheme midnight]])
+    end,
+  },
 }
