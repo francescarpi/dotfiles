@@ -121,7 +121,11 @@ config.keys = {
 		key = "n",
 		mods = "CMD|SHIFT",
 		action = act.PromptInputLine({
-			description = "Enter new name for tab:",
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Green" } },
+				{ Text = "Enter new name for tab:" },
+			}),
 			action = wezterm.action_callback(function(window, _, line)
 				if line and string.len(line) > 0 then
 					window:active_tab():set_title(line)
