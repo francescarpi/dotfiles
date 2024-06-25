@@ -4,6 +4,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highl
 
 -- Exit to normal mode
 vim.keymap.set("i", "jj", "<esc>", { desc = "Exit to normal mode" })
+vim.keymap.set("i", "JJ", "<esc>", { desc = "Exit to normal mode" })
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit from terminal mode to normal" })
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { desc = "Exit from terminal mode to normal" })
 
