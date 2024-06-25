@@ -18,8 +18,8 @@ config.use_fancy_tab_bar = false
 config.window_background_opacity = 0.999 -- this fix stage manager laggy
 config.window_decorations = "NONE|RESIZE"
 config.inactive_pane_hsb = {
-	saturation = 0.1,
-	brightness = 0.5,
+	-- saturation = 0.1,
+	brightness = 0.3,
 }
 config.colors = {
 	tab_bar = {
