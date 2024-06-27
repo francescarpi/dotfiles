@@ -18,8 +18,7 @@ config.use_fancy_tab_bar = false
 config.window_background_opacity = 0.999 -- this fix stage manager laggy
 config.window_decorations = "NONE|RESIZE"
 config.inactive_pane_hsb = {
-	-- saturation = 0.1,
-	-- brightness = 0.3,
+	brightness = 0.5,
 }
 config.colors = {
 	tab_bar = {
@@ -34,10 +33,10 @@ config.colors = {
 	},
 }
 config.window_padding = {
-	left = 3,
-	right = 3,
-	top = 3,
-	bottom = 3,
+	-- left = 3,
+	-- right = 3,
+	-- top = 3,
+	-- bottom = 3,
 }
 
 local function isViProcess(pane)
