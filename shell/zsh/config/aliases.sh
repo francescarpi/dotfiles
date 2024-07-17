@@ -22,7 +22,7 @@ alias blackcheck="black src/ --check  --extend-exclude \"/(\.mypy_cache|migratio
 alias blackapply="black src/ --extend-exclude \"/(\.mypy_cache|migrations|\.pytest_cache)/\"  --target-version py39"
 
 # docker
-alias d="docker-compose $1"
+alias d="docker compose $1"
 alias dps='docker ps --format "{{.ID}}\t{{.Names}}"'
 alias kubectl='kubecolor'
 ds() {
