@@ -32,7 +32,7 @@ setopt HIST_FCNTL_LOCK
 # Antidote
 # https://getantidote.github.io/
 # brew install antidote
-ANTIDOTE_VERSION=1.9.6
+ANTIDOTE_VERSION=1.9.7
 ANTIDOTE_SCRIPT=$HOMEBREW_PREFIX/Cellar/antidote/${ANTIDOTE_VERSION}/share/antidote/antidote.zsh
 if [[ -r $ANTIDOTE_SCRIPT ]]; then
   source $ANTIDOTE_SCRIPT
