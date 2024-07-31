@@ -24,3 +24,4 @@ export JAVA_HOME=/opt/homebrew/Cellar/openjdk/18/
 export KUBECTX_IGNORE_FZF=1
 export ANTIDOTE_HOME=~/.cache/antidote
 export BUN_INSTALL="$HOME/.bun"
+export BUILDKIT_PROGRESS=plain
