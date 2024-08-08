@@ -49,3 +49,6 @@ eval "$(zoxide init zsh)"
 # atuin: shell history tool
 # bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# starship
+eval "$(starship init zsh)"
