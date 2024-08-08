@@ -53,9 +53,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 autoload -U compinit && compinit -i
 bindkey "^I" complete-word
 
-# bun completions
-[ -s $HOME/.bun/_bun ] && source $HOME/.bun/_bun
-
+# zoxide: cd replacement using "z"
 eval "$(zoxide init zsh)"
 
 # bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
