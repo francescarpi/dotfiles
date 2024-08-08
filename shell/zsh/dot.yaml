@@ -2,3 +2,4 @@ linux|darwin:
   links:
     zshrc: ~/.zshrc
     config: ~/.config/zsh
+    starship.toml: ~/.config/starship.toml
