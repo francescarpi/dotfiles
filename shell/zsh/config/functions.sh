@@ -39,8 +39,6 @@ clean_nvim_config() {
   fi
 }
 
-cx() { cd "$@" && l; }
-
 nvm() {
   export NVM_DIR="$HOME/.nvm"
   unset -f nvm
