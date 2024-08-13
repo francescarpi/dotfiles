@@ -44,11 +44,17 @@ autoload -U compinit && compinit -i
 bindkey "^I" complete-word
 
 # zoxide: cd replacement using "z"
+# brew install zoxide
 eval "$(zoxide init zsh)"
 
 # atuin: shell history tool
 # bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# fnm: node version manager
+# brew install fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 # starship
+# brew install starship
 eval "$(starship init zsh)"

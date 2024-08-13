@@ -9,7 +9,6 @@ export path=(
   "/opt/homebrew/bin"
   "$HOME/.local/bin/"
   "/opt/homebrew/Cellar/openjdk/17.0.2/bin/"
-  "$HOME/.nvm"
   "$HOME/.cargo/bin"
   "/usr/local/opt/llvm/bin"
   "$HOME/.bun/bin"
