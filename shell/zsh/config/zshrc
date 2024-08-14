@@ -54,6 +54,7 @@ eval "$(atuin init zsh --disable-up-arrow)"
 # fnm: node version manager
 # brew install fnm
 eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm completions --shell zsh)"
 
 # starship
 # brew install starship
