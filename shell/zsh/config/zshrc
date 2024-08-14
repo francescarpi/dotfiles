@@ -25,15 +25,21 @@ setopt HIST_FCNTL_LOCK
 # antidote: zsh plugin manager
 # https://getantidote.github.io/
 # brew install antidote
+#
+# source $ANTIDOTE_SCRIPT
+# antidote bundle < $HOME/.config/zsh/plugins.txt > $HOME/.dotfiles/shell/zsh/config/plugins.zsh
 ANTIDOTE_VERSION=1.9.7
 ANTIDOTE_SCRIPT=$HOMEBREW_PREFIX/Cellar/antidote/${ANTIDOTE_VERSION}/share/antidote/antidote.zsh
-if [[ -r $ANTIDOTE_SCRIPT ]]; then
-  source $ANTIDOTE_SCRIPT
-  antidote load $HOME/.config/zsh/plugins.txt
-else
-  echo "Antidote ${ANTIDOTE_VERSION} not present."
-  echo "Consider running brew upgrade."
+ANTIDOTE_PLUGINS=$HOME/.config/zsh/plugins
+if [[ ! ${ANTIDOTE_PLUGINS}.zsh -nt ${ANTIDOTE_PLUGINS}.txt ]]; then
+  (
+    echo "Plugins need to be updated. Updating..."
+    source $ANTIDOTE_SCRIPT
+    antidote bundle < ${ANTIDOTE_PLUGINS}.txt > ${ANTIDOTE_PLUGINS}.zsh
+    echo "Updated successfully"
+  )
 fi
+source ${ANTIDOTE_PLUGINS}.zsh
 
 # fix for tmux
 bindkey -e
