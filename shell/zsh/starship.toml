@@ -20,3 +20,5 @@ disabled = true
 [docker_context]
 disabled = true
 
+[directory]
+truncate_to_repo = false
