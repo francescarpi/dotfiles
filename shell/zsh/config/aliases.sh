@@ -1,5 +1,6 @@
 alias ls="ls --color -G"
 alias ll="ls -lah"
+alias cd="z"
 
 # Postgres
 alias psql="PGPASSWORD=postgres psql -h localhost -U postgres"
