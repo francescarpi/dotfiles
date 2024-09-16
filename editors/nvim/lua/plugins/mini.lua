@@ -44,7 +44,6 @@ return {
     --  Check out: https://github.com/echasnovski/mini.nvim
 
     require("mini.indentscope").setup()
-    require("mini.tabline").setup()
     require("mini.ai").setup()
   end,
 }
