@@ -46,5 +46,18 @@ return {
     require("mini.indentscope").setup()
     require("mini.ai").setup()
     require("mini.files").setup()
+
+    vim.keymap.set("n", "<leader>e", function()
+      local buf_name = vim.api.nvim_buf_get_name(0)
+      local val = vim.fn.filereadable(buf_name)
+      local MiniFiles = require("mini.files")
+      if val == 1 then
+        MiniFiles.open(buf_name)
+        MiniFiles.reveal_cwd()
+      else
+        MiniFiles.open()
+        MiniFiles.reveal_cwd()
+      end
+    end, { desc = "Toggle mini files", silent = true })
   end,
 }
