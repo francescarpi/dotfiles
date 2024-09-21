@@ -58,4 +58,4 @@ vim.keymap.set("n", ",st", function()
 end)
 
 -- Open mini file
-vim.keymap.set("n", "<leader>w", ":lua MiniFiles.open()<CR>", { desc = "Toggle mini files", silent = true })
+vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>", { desc = "Toggle mini files", silent = true })
