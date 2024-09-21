@@ -56,3 +56,6 @@ vim.keymap.set("n", ",st", function()
   vim.wo.winfixheight = true
   vim.cmd.term()
 end)
+
+-- Open mini file
+vim.keymap.set("n", "<leader>w", ":lua MiniFiles.open()<CR>", { desc = "Toggle mini files", silent = true })
