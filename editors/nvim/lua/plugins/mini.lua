@@ -45,6 +45,9 @@ return {
 
     require("mini.indentscope").setup()
     require("mini.ai").setup()
+    require("mini.comment").setup()
+    require("mini.cursorword").setup()
+    require("mini.pairs").setup()
     require("mini.files").setup({
       mappings = {
         go_in_plus = "<CR>",
