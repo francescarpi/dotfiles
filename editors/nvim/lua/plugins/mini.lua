@@ -47,6 +47,11 @@ return {
     require("mini.ai").setup()
     require("mini.files").setup()
 
+    vim.keymap.set("n", "<leader>E", function()
+      local MiniFiles = require("mini.files")
+      MiniFiles.open()
+    end, { desc = "Toggle mini files at buffer path", silent = true })
+
     vim.keymap.set("n", "<leader>e", function()
       local buf_name = vim.api.nvim_buf_get_name(0)
       local val = vim.fn.filereadable(buf_name)
