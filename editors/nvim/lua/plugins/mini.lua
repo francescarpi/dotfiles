@@ -71,5 +71,15 @@ return {
         MiniFiles.reveal_cwd()
       end
     end, { desc = "Toggle mini files", silent = true })
+
+    local hipatterns = require("mini.hipatterns")
+    require("mini.hipatterns").setup({
+      highlighters = {
+        todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+        fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+        note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    })
   end,
 }
