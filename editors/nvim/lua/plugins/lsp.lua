@@ -176,6 +176,7 @@ return {
         "goimports",
         "gofumpt",
         "tailwindcss-language-server",
+        "json-lsp",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
