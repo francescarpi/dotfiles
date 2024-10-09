@@ -1,10 +1,19 @@
 return {
+  -- {
+  --   "dasupradyumna/midnight.nvim",
+  --   priority = 1000,
+  --   opts = {},
+  --   config = function()
+  --     vim.cmd([[colorscheme midnight]])
+  --     vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
+  --   end,
+  -- },
   {
-    "dasupradyumna/midnight.nvim",
+    "folke/tokyonight.nvim",
     priority = 1000,
     opts = {},
     config = function()
-      vim.cmd([[colorscheme midnight]])
+      vim.cmd([[colorscheme tokyonight]])
       vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
     end,
   },
