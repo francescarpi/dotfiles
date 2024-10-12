@@ -6,7 +6,7 @@ return {
 
     harpoon:setup()
 
-    vim.keymap.set("n", "<leader>h", function()
+    vim.keymap.set("n", "<leader>q", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { silent = true, desc = "Harpoon: Toggle quick menu" })
 
@@ -15,31 +15,17 @@ return {
       harpoon:list():add()
     end, { silent = true, desc = "Harpoon: Add file" })
 
-    vim.keymap.set("n", "<C-S-I>", function()
-      harpoon:list():prev()
-    end, { silent = true, desc = "Harpoon: Jump to previous" })
-
-    vim.keymap.set("n", "<C-S-O>", function()
-      harpoon:list():next()
-    end, { silent = true, desc = "Harpoon: Jump to next" })
-
-    for i = 1, 5, 1 do
-      vim.keymap.set("n", "<C-" .. i .. ">", function()
-        harpoon:list():select(i)
-      end, { silent = true, desc = "Harpoon: Jump to file with index " .. i })
-    end
-
     vim.keymap.set("n", "<C-h>", function()
       harpoon:list():select(1)
-    end)
+    end, { silent = true, desc = "Harpoon: File 1" })
     vim.keymap.set("n", "<C-l>", function()
       harpoon:list():select(2)
-    end)
+    end, { silent = true, desc = "Harpoon: File 2" })
     vim.keymap.set("n", "<C-n>", function()
       harpoon:list():select(3)
-    end)
+    end, { silent = true, desc = "Harpoon: File 3" })
     vim.keymap.set("n", "<C-p>", function()
       harpoon:list():select(4)
-    end)
+    end, { silent = true, desc = "Harpoon: File 4" })
   end,
 }
