@@ -1,0 +1,5 @@
+linux|darwin:
+  links:
+    preferences.json: ~/.logseq/preferences.json
+    settings: ~/.logseq/settings/
+    plugins: ~/.logseq/plugins/

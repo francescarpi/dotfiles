@@ -1,0 +1,27 @@
+{
+  "theme": {
+    "name": "Woz Theme",
+    "url": "assets:///Users/farpi/.logseq/plugins/logseq-woz-theme/dist/custom.css",
+    "description": "logseq theme",
+    "pid": "logseq-woz-theme"
+  },
+  "themes": {
+    "mode": "dark",
+    "light": {
+      "name": "Catppuccin Latte",
+      "url": "assets:///Users/farpi/.logseq/plugins/logseq-catppuccin/ctp-latte.css",
+      "description": "Catppuccin Latte",
+      "mode": "light",
+      "pid": "logseq-catppuccin"
+    },
+    "dark": {
+      "name": "Catppuccin Mocha",
+      "url": "assets:///Users/farpi/.logseq/plugins/logseq-catppuccin/ctp-mocha.css",
+      "description": "Catppuccin Mocha",
+      "mode": "dark",
+      "pid": "logseq-catppuccin",
+      "selected": true
+    }
+  },
+  "externals": []
+}
