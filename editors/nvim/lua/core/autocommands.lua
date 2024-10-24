@@ -27,6 +27,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function()
-    vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<C-w><Enter>", { noremap = true })
+    vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<C-w><Enter><C-w>T", { noremap = true })
   end,
 })
