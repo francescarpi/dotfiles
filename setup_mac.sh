@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=$(find . -type f -name "setup.sh" -perm -u=x)
+files=$(find ./mac -type f -name "setup.sh" -perm -u=x)
 
 for file in $files; do
 (
