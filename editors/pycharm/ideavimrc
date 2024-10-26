@@ -1,8 +1,0 @@
-set commentary
-set surround
-set multiple-cursors
-set visualbell
-set relativenumber
-set number
-set clipboard+=unnamed
-

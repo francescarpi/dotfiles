@@ -1,3 +1,0 @@
-linux|darwin:
-  links:
-    settings.json: ~/.config/zed/settings.json

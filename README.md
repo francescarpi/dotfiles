@@ -1,21 +1,17 @@
 # Personal dotfiles
 
-## Requirements
-
-* [rotz](https://volllly.github.io/rotz/)
-
 ## Usage
 
-Clone repo and link files:
+Clone repo:
 
 ```
 cd $HOME
-rotz clone git@github.com:francescarpi/dotfiles.git
-rotz link
+git clone git@github.com:francescarpi/dotfiles.git .dotfiles
+cd .dotfiles
 ```
 
-Sync changes:
+Run script according your requirements. For instance:
 
 ```
-rotz sync
+./setup_mac.sh
 ```

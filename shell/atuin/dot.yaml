@@ -1,3 +1,0 @@
-linux|darwin:
-  links:
-    config.toml: ~/.config/atuin/config.toml
