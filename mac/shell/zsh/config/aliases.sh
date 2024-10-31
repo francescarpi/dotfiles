@@ -1,5 +1,5 @@
-alias ls="ls --color -G"
-alias ll="ls -lah"
+alias ls="eza --icons"
+alias ll="eza --icons -la"
 alias cd="z"
 
 # Postgres
