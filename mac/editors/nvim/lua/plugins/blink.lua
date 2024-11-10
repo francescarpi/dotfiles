@@ -9,11 +9,6 @@ return {
     },
     nerd_font_variant = "mono",
     accept = { auto_brackets = { enabled = true } },
-    sources = {
-      completion = {
-        enabled_providers = { "lsp", "path", "snippets", "buffer", "copilot" },
-      },
-    },
   },
   opts_extend = { "sources.completion.enabled_providers" },
 }
