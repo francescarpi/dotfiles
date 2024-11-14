@@ -58,6 +58,10 @@ vim.keymap.set("n", ",st", function()
 end)
 
 -- Grep
-vim.keymap.set("n", "<Leader>gg", ":copen | :silent :grep ")
+vim.keymap.set("n", "<leader>gg", ":copen | :silent :grep ")
 vim.keymap.set("n", "[q", ":cprev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
+
+-- copen/close
+vim.keymap.set("n", "<leader>co", ":copen<cr>", { silent = true })
+vim.keymap.set("n", "<leader>cc", ":cclose<cr>", { silent = true })
