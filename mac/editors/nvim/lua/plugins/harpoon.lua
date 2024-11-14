@@ -3,10 +3,9 @@ return {
   branch = "harpoon2",
   config = function()
     local harpoon = require("harpoon")
-
     harpoon:setup()
 
-    vim.keymap.set("n", "<leader>q", function()
+    vim.keymap.set("n", "<leader>m", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { silent = true, desc = "Harpoon: Toggle quick menu" })
 
@@ -27,5 +26,12 @@ return {
     vim.keymap.set("n", "<C-p>", function()
       harpoon:list():select(4)
     end, { silent = true, desc = "Harpoon: File 4" })
+
+    vim.keymap.set("n", "]r", function()
+      harpoon:list():next()
+    end, { silent = true })
+    vim.keymap.set("n", "[r", function()
+      harpoon:list():prev()
+    end, { silent = true })
   end,
 }

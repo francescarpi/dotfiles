@@ -59,3 +59,7 @@ vim.opt.expandtab = true
 
 -- default colorscheme
 vim.cmd("colorscheme lunaperche")
+
+-- grep
+vim.opt.grepprg = "rg --vimgrep -uu"
+vim.opt.grepformat = "%f:%l:%c:%m"

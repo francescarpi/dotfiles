@@ -23,9 +23,6 @@ vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" }
 -- Delete current buffer
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true, desc = "Delete current buffer" })
 vim.keymap.set("n", "<leader>bq", ":q<CR>", { silent = true, desc = "Quit from current window" })
-vim.keymap.set("n", "<leader>co", ":BufferLineCloseOthers<CR>", { silent = true, desc = "Close other buffers" })
-vim.keymap.set("n", "<leader>cl", ":BufferLineCloseLeft<CR>", { silent = true, desc = "Close left buffers" })
-vim.keymap.set("n", "<leader>cr", ":BufferLineCloseRight<CR>", { silent = true, desc = "Close right buffers" })
 
 -- Save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
@@ -59,3 +56,8 @@ vim.keymap.set("n", ",st", function()
   vim.wo.winfixheight = true
   vim.cmd.term()
 end)
+
+-- Grep
+vim.keymap.set("n", "<Leader>gg", ":copen | :silent :grep ")
+vim.keymap.set("n", "[q", ":cprev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
