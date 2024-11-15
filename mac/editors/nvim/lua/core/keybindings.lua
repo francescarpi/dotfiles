@@ -31,12 +31,12 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- Move lines
-vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-vim.keymap.set("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-vim.keymap.set("i", "<C-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-vim.keymap.set("i", "<C-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+vim.keymap.set("n", "<leader>j", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+vim.keymap.set("n", "<leader>k", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+vim.keymap.set("i", "<leader>j", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+vim.keymap.set("i", "<leader>k", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+vim.keymap.set("v", "<leader>j", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+vim.keymap.set("v", "<leader>k", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Move between buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
