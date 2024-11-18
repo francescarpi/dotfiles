@@ -27,12 +27,8 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- Move lines
-vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
-
--- Move between buffers
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move Down", silent = true })
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move Up", silent = true })
 
 --Adjust scroll on page up/down or next search result
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
