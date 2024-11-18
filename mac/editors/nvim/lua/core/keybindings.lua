@@ -3,11 +3,7 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Exit to normal mode
-vim.keymap.set("i", "jj", "<esc>", { desc = "Exit to normal mode" })
-vim.keymap.set("i", "kk", "<esc>", { desc = "Exit to normal mode" })
-vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit from terminal mode to normal" })
-vim.keymap.set("t", "kk", "<C-\\><C-n>", { desc = "Exit from terminal mode to normal" })
-vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { desc = "Exit from terminal mode to normal" })
+vim.keymap.set("i", "<C-c>", "<esc>", { desc = "Exit to normal mode" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>x", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
@@ -31,16 +27,8 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- Move lines
-vim.keymap.set("n", "<leader>j", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-vim.keymap.set("n", "<leader>k", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-vim.keymap.set("i", "<leader>j", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-vim.keymap.set("i", "<leader>k", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-vim.keymap.set("v", "<leader>j", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-vim.keymap.set("v", "<leader>k", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
-
--- Move between buffers
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move Down", silent = true })
+vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move Up", silent = true })
 
 --Adjust scroll on page up/down or next search result
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -57,11 +45,8 @@ vim.keymap.set("n", ",st", function()
   vim.cmd.term()
 end)
 
--- Grep
-vim.keymap.set("n", "<leader>gg", ":copen | :silent :grep ")
+-- Quickfix
 vim.keymap.set("n", "[q", ":cprev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
-
--- copen/close
 vim.keymap.set("n", "<leader>co", ":copen<cr>", { silent = true })
 vim.keymap.set("n", "<leader>cc", ":cclose<cr>", { silent = true })
