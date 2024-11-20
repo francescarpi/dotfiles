@@ -8,6 +8,7 @@ export path=(
   "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/"
   "/opt/homebrew/bin"
   "$HOME/.local/bin/"
+  "$HOME/.bin/"
   "/opt/homebrew/Cellar/openjdk/17.0.2/bin/"
   "$HOME/.cargo/bin"
   "/usr/local/opt/llvm/bin"
