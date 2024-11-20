@@ -20,7 +20,3 @@ bindings = [
   { mods="Command" , key="h", command={program="sh", args=["-c", "$HOME/.dotfiles/mac/shell/tmux/tmux-vim-select-pane -L"]} },
   { mods="Command" , key="l", command={program="sh", args=["-c", "$HOME/.dotfiles/mac/shell/tmux/tmux-vim-select-pane -R"]} }
 ]
-
-[terminal.shell]
-program = "/bin/zsh"
-args = ["--login"]
