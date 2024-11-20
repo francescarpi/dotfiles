@@ -1,0 +1,7 @@
+install
+
+\.git
+\.gitignore
+
+^/README.*
+

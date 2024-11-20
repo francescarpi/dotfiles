@@ -10,8 +10,8 @@ git clone git@github.com:francescarpi/dotfiles.git .dotfiles
 cd .dotfiles
 ```
 
-Run script according your requirements. For instance:
+Run the installation script
 
 ```
-./setup_mac.sh
+./install
 ```
