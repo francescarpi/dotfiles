@@ -1,0 +1,22 @@
+#!/bin/bash
+
+LOCAL_NAME=$(git config user.name)
+LOCAL_EMAIL=$(git config user.email)
+
+GLOBAL_NAME=$(git config --global user.name)
+GLOBAL_EMAIL=$(git config --global user.email)
+
+echo "⚠️  Please, check if user and email for the commit are correct"
+echo "  Local:   $LOCAL_NAME <$LOCAL_EMAIL>"
+echo "  Global:  $GLOBAL_NAME <$GLOBAL_EMAIL>"
+
+exec < /dev/tty
+
+read -p "¿Do you want to continue? (y/n): " choice
+
+case "$choice" in
+    y|Y ) echo "Nice!";;
+    n|N ) echo "Aborted"; exit 1;;
+    * ) echo "Aborted"; exit 1;;
+esac
+
