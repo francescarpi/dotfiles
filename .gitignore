@@ -9,3 +9,6 @@ shell/zsh/config/plugins.zsh
 lazy-lock.json
 .tmp*
 embeddings
+logseq/.logseq/config/
+logseq/.logseq/git/
+logseq/.logseq/graphs/
