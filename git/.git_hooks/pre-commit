@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "CESC"
+
+exit 1
