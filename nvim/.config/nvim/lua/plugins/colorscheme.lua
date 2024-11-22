@@ -1,3 +1,12 @@
+function apply_color(color)
+  vim.cmd.colorscheme(color)
+
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+  vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
+end
+
 return {
   -- {
   --   "catppuccin/nvim",
@@ -5,16 +14,20 @@ return {
   --   priority = 1000,
   --   opts = {},
   --   config = function()
-  --     vim.cmd([[colorscheme catppuccin-mocha]])
-  --     vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
+  --     apply_color("catppuccin-mocha")
   --   end,
   -- },
   {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
-      vim.cmd([[colorscheme rose-pine]])
-      vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
+      require("rose-pine").setup({
+        disable_background = true,
+        styles = {
+          italic = false,
+        },
+      })
+      apply_color("rose-pine-moon")
     end,
   },
 }
