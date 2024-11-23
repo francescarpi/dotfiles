@@ -6,7 +6,9 @@ LOCAL_EMAIL=$(git config user.email)
 GLOBAL_NAME=$(git config --global user.name)
 GLOBAL_EMAIL=$(git config --global user.email)
 
-if [ -f $(git rev-parse --show-toplevel)/.git/.name_and_email_approved ]; then
+PERMANENTLY_APPROVED=$(git rev-parse --show-toplevel)/.git/.name_and_email_approved
+
+if [ -f $PERMANENTLY_APPROVED ]; then
     exit 0
 fi
 
@@ -20,7 +22,7 @@ read -p "¿Do you want to continue? (y/n): " choice
 
 case "$choice" in
     y|Y )
-        touch $(git rev-parse --show-toplevel)/.git/.name_and_email_approved
+        touch $PERMANENTLY_APPROVED
         echo "Nice!"
         ;;
     n|N ) echo "Aborted"; exit 1;;
