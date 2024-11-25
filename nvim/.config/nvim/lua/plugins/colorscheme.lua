@@ -1,22 +1,18 @@
 local function apply_color(color)
   vim.cmd.colorscheme(color)
-
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
   vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
 end
 
 return {
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  --   opts = {},
-  --   config = function()
-  --     apply_color("catppuccin-mocha")
-  --   end,
-  -- },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {},
+    config = function()
+      apply_color("catppuccin-mocha")
+    end,
+  },
   {
     "rose-pine/neovim",
     name = "rose-pine",
@@ -27,7 +23,7 @@ return {
           italic = false,
         },
       })
-      apply_color("rose-pine-moon")
+      -- apply_color("rose-pine-moon")
     end,
   },
 }
