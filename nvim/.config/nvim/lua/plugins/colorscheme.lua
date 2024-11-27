@@ -18,6 +18,14 @@ return {
     name = "rose-pine",
     config = function()
       require("rose-pine").setup({
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          treesitter = true,
+          harpoon = true,
+          neogit = true,
+          copilot_vim = true,
+        },
         disable_background = true,
         styles = {
           italic = false,
