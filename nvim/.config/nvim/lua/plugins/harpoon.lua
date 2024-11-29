@@ -23,15 +23,15 @@ return {
       harpoon:list():select(1)
     end, { silent = true, desc = "Harpoon: File 1" })
 
-    vim.keymap.set("n", "<S-j>", function()
+    vim.keymap.set("n", "<S-l>", function()
       harpoon:list():select(2)
     end, { silent = true, desc = "Harpoon: File 2" })
 
-    vim.keymap.set("n", "<S-k>", function()
+    vim.keymap.set("n", "<S-j>", function()
       harpoon:list():select(3)
     end, { silent = true, desc = "Harpoon: File 3" })
 
-    vim.keymap.set("n", "<S-l>", function()
+    vim.keymap.set("n", "<S-k>", function()
       harpoon:list():select(4)
     end, { silent = true, desc = "Harpoon: File 4" })
 
