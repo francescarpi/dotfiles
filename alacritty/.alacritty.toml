@@ -17,7 +17,10 @@ bindings = [
   { mods="Command" , key="j", command={program="sh", args=["-c", "$HOME/.bin/tmux-vim-select-pane -D"]} },
   { mods="Command" , key="k", command={program="sh", args=["-c", "$HOME/.bin/tmux-vim-select-pane -U"]} },
   { mods="Command" , key="h", command={program="sh", args=["-c", "$HOME/.bin/tmux-vim-select-pane -L"]} },
-  { mods="Command" , key="l", command={program="sh", args=["-c", "$HOME/.bin/tmux-vim-select-pane -R"]} }
+  { mods="Command" , key="l", command={program="sh", args=["-c", "$HOME/.bin/tmux-vim-select-pane -R"]} },
+  { mods="Control|Shift" , key="m", action="ToggleMaximized" },
+  { mods="Control|Shift" , key="i", action="IncreaseFontSize" },
+  { mods="Control|Shift" , key="d", action="DecreaseFontSize" }
 ]
 
 [general]
