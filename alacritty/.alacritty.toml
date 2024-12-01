@@ -27,3 +27,6 @@ bindings = [
 import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
+
+[terminal.shell]
+program = "/opt/homebrew/bin/nu"
