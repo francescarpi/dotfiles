@@ -29,4 +29,4 @@ import = [
 ]
 
 [terminal.shell]
-program = "/opt/homebrew/bin/nu"
+program = "/bin/zsh"
