@@ -10,6 +10,17 @@ return {
     priority = 1000,
     opts = {},
     config = function()
+      require("catppuccin").setup({
+        show_end_of_buffer = true,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          treesitter = true,
+          harpoon = true,
+          neogit = true,
+          copilot_vim = true,
+        },
+      })
       apply_color("catppuccin-mocha")
     end,
   },
