@@ -13,6 +13,8 @@ export path=(
   "$HOME/.cargo/bin"
   "/usr/local/opt/llvm/bin"
   "$HOME/.bun/bin"
+  "/opt/podman/bin"
+  "/usr/local/go/bin"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
