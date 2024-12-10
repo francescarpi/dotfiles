@@ -15,6 +15,7 @@ export path=(
   "$HOME/.bun/bin"
   "/opt/podman/bin"
   "/usr/local/go/bin"
+  "/opt/homebrew/opt/libpq/bin/"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
