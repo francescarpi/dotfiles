@@ -38,3 +38,9 @@ clean_nvim_config() {
     echo "Aborted!"
   fi
 }
+
+genuuid() {
+  uuidgen | awk '{print tolower($0)}' | tr -d '\n' | pbcopy
+  echo "UUID copied to clipboard"
+}
+
