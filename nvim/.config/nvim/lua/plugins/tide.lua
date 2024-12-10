@@ -1,5 +1,6 @@
 return {
-  "jackMort/tide.nvim",
+  -- "jackMort/tide.nvim",
+  dir = "/Users/farpi/dev/tide.nvim",
   opts = {
     animation_duration = 100,
     animation_fps = 60,
