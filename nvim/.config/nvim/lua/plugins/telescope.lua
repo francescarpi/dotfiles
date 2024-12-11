@@ -1,3 +1,17 @@
+local register_key_bindings = function()
+  local builtin = require("telescope.builtin")
+  local multigrep = require("plugins.telescope_plugins.multigrep")
+
+  vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Search Keymaps", silent = true })
+  vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search Files", silent = true })
+  vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume last search", silent = true })
+  vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Search Diagnostics", silent = true })
+  vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers", silent = true })
+  vim.keymap.set("n", "<leader>fg", function()
+    multigrep.setup()
+  end, { desc = "Grep allowing filter by file", silent = true })
+end
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -10,7 +24,6 @@ return {
     config = function()
       local actions = require("telescope.actions")
       local telescope = require("telescope")
-      local builtin = require("telescope.builtin")
 
       telescope.setup({
         pickers = {
@@ -34,13 +47,7 @@ return {
         },
       })
 
-      vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[S]earch [K]eymaps", silent = true })
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles", silent = true })
-      vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume last search", silent = true })
-      vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Search Diagnostics", silent = true })
-      vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers", silent = true })
-
-      require("plugins.telescope_plugins.multigrep").setup()
+      register_key_bindings()
     end,
   },
 }
