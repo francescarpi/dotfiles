@@ -50,8 +50,8 @@ local live_multigrep = function(opts)
     :find()
 end
 
-M.setup = function()
-  vim.keymap.set("n", "<leader>fg", live_multigrep)
+M.setup = function(opts)
+  live_multigrep(opts)
 end
 
 return M
