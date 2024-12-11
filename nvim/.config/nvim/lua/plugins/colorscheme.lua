@@ -18,7 +18,6 @@ return {
           gitsigns = true,
           treesitter = true,
           harpoon = true,
-          neogit = true,
           copilot_vim = true,
         },
       })
@@ -35,7 +34,6 @@ return {
           gitsigns = true,
           treesitter = true,
           harpoon = true,
-          neogit = true,
           copilot_vim = true,
         },
         disable_background = true,
