@@ -1,30 +1,30 @@
-local pickers = require("telescope.pickers")
+local conf = require("telescope.config").values
 local finders = require("telescope.finders")
 local make_entry = require("telescope.make_entry")
-local conf = require("telescope.config").values
+local pickers = require("telescope.pickers")
 
-local M = {}
-
-local live_multigrep = function(opts)
+return function(opts)
   opts = opts or {}
-  opts.cwd = opts.cwd or vim.uv.cwd()
+  opts.cwd = opts.cwd and vim.fn.expand(opts.cwd) or vim.loop.cwd()
+  opts.pattern = opts.pattern or "%s"
 
-  local finder = finders.new_async_job({
+  local custom_grep = finders.new_async_job({
     command_generator = function(prompt)
       if not prompt or prompt == "" then
         return nil
       end
 
-      local pieces = vim.split(prompt, "  ")
+      local prompt_split = vim.split(prompt, "  ")
+
       local args = { "rg" }
-      if pieces[1] then
+      if prompt_split[1] then
         table.insert(args, "-e")
-        table.insert(args, pieces[1])
+        table.insert(args, prompt_split[1])
       end
 
-      if pieces[2] then
+      if prompt_split[2] then
         table.insert(args, "-g")
-        table.insert(args, pieces[2])
+        table.insert(args, string.format(opts.pattern, prompt_split[2]))
       end
 
       return vim
@@ -35,23 +35,17 @@ local live_multigrep = function(opts)
         :flatten()
         :totable()
     end,
-    entry_marker = make_entry.gen_from_vimgrep(opts),
+    entry_maker = make_entry.gen_from_vimgrep(opts),
     cwd = opts.cwd,
   })
 
   pickers
     .new(opts, {
-      dbounce = 100,
-      prompt_title = "Multi Grep",
-      finder = finder,
+      debounce = 100,
+      prompt_title = "Live Grep",
+      finder = custom_grep,
       previewer = conf.grep_previewer(opts),
       sorter = require("telescope.sorters").empty(),
     })
     :find()
 end
-
-M.setup = function(opts)
-  live_multigrep(opts)
-end
-
-return M
