@@ -3,7 +3,7 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Exit to normal mode
-vim.keymap.set("i", "<C-c>", "<esc>", { desc = "Exit to normal mode" })
+vim.keymap.set("i", "<C-c>", "<esc>", { desc = "Exit to normal mode", silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>x", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true, desc = "Delet
 vim.keymap.set("n", "<leader>bq", ":q<CR>", { silent = true, desc = "Quit from current window" })
 
 -- Save file
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File", silent = true })
 
 -- Quit all
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
