@@ -26,12 +26,11 @@ return {
     },
     config = function()
       local actions = require("telescope.actions")
-      local telescope = require("telescope")
-
-      telescope.setup({
+      require("telescope").setup({
         pickers = {
           find_files = {
             hidden = true,
+            theme = "ivy",
           },
           buffers = {
             mappings = {

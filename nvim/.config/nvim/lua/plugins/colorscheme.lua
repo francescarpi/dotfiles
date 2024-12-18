@@ -14,11 +14,9 @@ return {
         show_end_of_buffer = true,
         transparent_background = true,
         integrations = {
-          cmp = true,
           gitsigns = true,
           treesitter = true,
           harpoon = true,
-          copilot_vim = true,
         },
       })
       apply_color("catppuccin-mocha")
@@ -30,11 +28,9 @@ return {
     config = function()
       require("rose-pine").setup({
         integrations = {
-          cmp = true,
           gitsigns = true,
           treesitter = true,
           harpoon = true,
-          copilot_vim = true,
         },
         disable_background = true,
         styles = {
