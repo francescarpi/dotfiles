@@ -5,9 +5,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highl
 -- Exit to normal mode
 vim.keymap.set("i", "<C-c>", "<esc>", { desc = "Exit to normal mode", silent = true })
 
--- Format keys
-vim.keymap.set("n", "<leader>tf", ":ToggleFormatOnSave<CR>", { desc = "Toggle format", silent = true })
-
 -- Switch faster between buffers
 vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" })
 
