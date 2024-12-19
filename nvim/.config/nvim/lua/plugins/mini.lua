@@ -17,15 +17,6 @@ return {
       return "%2l:%-2v"
     end
 
-    ---@diagnostic disable-next-line: duplicate-set-field
-    statusline.section_filename = function()
-      local format = "off"
-      if vim.g.format_on_save then
-        format = "on"
-      end
-      return "format: " .. format .. " | %t%m"
-    end
-
     -- Mini files
     require("mini.files").setup({
       mappings = {
