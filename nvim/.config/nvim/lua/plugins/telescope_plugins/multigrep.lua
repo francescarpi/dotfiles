@@ -2,9 +2,10 @@ local conf = require("telescope.config").values
 local finders = require("telescope.finders")
 local make_entry = require("telescope.make_entry")
 local pickers = require("telescope.pickers")
+local themes = require("telescope.themes")
 
 return function(opts)
-  opts = opts or {}
+  opts = opts or themes.get_ivy({})
   opts.cwd = opts.cwd and vim.fn.expand(opts.cwd) or vim.loop.cwd()
   opts.pattern = opts.pattern or "%s"
 
@@ -30,7 +31,14 @@ return function(opts)
       return vim
         .iter({
           args,
-          { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
+          {
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+          },
         })
         :flatten()
         :totable()

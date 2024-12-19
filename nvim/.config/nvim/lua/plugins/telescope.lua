@@ -33,6 +33,7 @@ return {
             theme = "ivy",
           },
           buffers = {
+            theme = "ivy",
             mappings = {
               i = {
                 ["<c-d>"] = actions.delete_buffer,
