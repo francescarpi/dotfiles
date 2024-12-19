@@ -16,6 +16,14 @@ return {
       harpoon:list():add()
     end, { silent = true, desc = "Harpoon: Append file" })
 
+    vim.keymap.set("n", "<S-h>", function()
+      harpoon:list():prev()
+    end, { silent = true, desc = "Harpoon: Previous file" })
+
+    vim.keymap.set("n", "<S-l>", function()
+      harpoon:list():next()
+    end, { silent = true, desc = "Harpoon: Next file" })
+
     for i = 1, #selection_chars do
       local char = selection_chars:sub(i, i)
       vim.keymap.set("n", ";" .. char, function()
