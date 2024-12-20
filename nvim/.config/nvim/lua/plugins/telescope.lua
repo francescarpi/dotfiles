@@ -30,10 +30,8 @@ return {
         pickers = {
           find_files = {
             hidden = true,
-            theme = "ivy",
           },
           buffers = {
-            theme = "ivy",
             mappings = {
               i = {
                 ["<c-d>"] = actions.delete_buffer,
