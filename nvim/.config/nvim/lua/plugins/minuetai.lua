@@ -17,18 +17,6 @@ return {
               stream = true,
             },
           },
-          virtualtext = {
-            auto_trigger_ft = {
-              "lua",
-            },
-            keymap = {
-              accept = "<A-A>",
-              accept_line = "<A-a>",
-              prev = "<A-[>",
-              next = "<A-]>",
-              dismiss = "<A-e>",
-            },
-          },
         })
       end,
     },

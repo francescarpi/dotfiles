@@ -10,6 +10,16 @@ return {
         nerd_font_variant = "mono",
       },
       signature = { enabled = true },
+      sources = {
+        default = { "lsp", "path", "buffer", "snippets", "minuet" },
+        providers = {
+          minuet = {
+            name = "minuet",
+            module = "minuet.blink",
+            score_offset = 8,
+          },
+        },
+      },
     },
   },
 }
