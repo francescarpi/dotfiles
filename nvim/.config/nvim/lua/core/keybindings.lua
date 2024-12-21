@@ -46,3 +46,8 @@ vim.keymap.set("n", "[q", ":cprev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>co", ":copen<cr>", { silent = true })
 vim.keymap.set("n", "<leader>cc", ":cclose<cr>", { silent = true })
+
+-- Lua
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
