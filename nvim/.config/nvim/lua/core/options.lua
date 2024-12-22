@@ -24,6 +24,7 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.hlsearch = true
 
 -- Keep signcolumn on by default (at the left)
 vim.opt.signcolumn = "yes"
@@ -56,10 +57,3 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
--- default colorscheme
-vim.cmd("colorscheme lunaperche")
-
--- grep
-vim.opt.grepprg = "rg --vimgrep -uu"
-vim.opt.grepformat = "%f:%l:%c:%m"
