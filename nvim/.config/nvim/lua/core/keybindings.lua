@@ -1,53 +1,42 @@
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+local map = function(modes, keys, func, desc)
+  vim.keymap.set(modes, keys, func, { desc = desc, silent = true })
+end
 
--- Exit to normal mode
-vim.keymap.set("i", "<C-c>", "<esc>", { desc = "Exit to normal mode", silent = true })
+local map_n = function(keys, func, desc)
+  map("n", keys, func, desc)
+end
 
--- Switch faster between buffers
-vim.keymap.set("n", "<C-m>", "<cmd>e #<cr>", { desc = "Switch to other buffer" })
+local map_i = function(keys, func, desc)
+  map("i", keys, func, desc)
+end
 
--- Delete current buffer
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true, desc = "Delete current buffer" })
-vim.keymap.set("n", "<leader>bq", ":q<CR>", { silent = true, desc = "Quit from current window" })
+local map_v = function(keys, func, desc)
+  map("v", keys, func, desc)
+end
 
--- Save file
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File", silent = true })
+local map_all = function(keys, func, desc)
+  map({ "i", "x", "n", "s" }, keys, func, desc)
+end
 
--- Quit all
-vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
-
--- Move lines
-vim.keymap.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
-vim.keymap.set("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
-vim.keymap.set("i", "<C-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-vim.keymap.set("i", "<C-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
-
---Adjust scroll on page up/down or next search result
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
--- Open a terminal at the bottom of the screen with a fixed height.
-vim.keymap.set("n", ",st", function()
-  vim.cmd.new()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 12)
-  vim.wo.winfixheight = true
-  vim.cmd.term()
-end)
-
--- Quickfix
-vim.keymap.set("n", "[q", ":cprev<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>co", ":copen<cr>", { silent = true })
-vim.keymap.set("n", "<leader>cc", ":cclose<cr>", { silent = true })
-
--- Lua
-vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
-vim.keymap.set("n", "<space>x", ":.lua<CR>")
-vim.keymap.set("v", "<space>x", ":lua<CR>")
+map_n("<Esc>", "<cmd>nohlsearch<CR>", "Clear search highlight")
+map_i("<C-c>", "<esc>", "Exit to normal mode")
+map_n("<C-m>", "<cmd>e #<cr>", "Switch to other buffer")
+map_n("<leader>bd", ":bdelete<CR>", "Delete current buffer")
+map_all("<C-s>", "<cmd>w<cr><esc>", "Save file")
+map_n("<C-j>", "<cmd>m .+1<cr>==", "Line: Move Down")
+map_n("<C-k>", "<cmd>m .-2<cr>==", "Line: Move Up")
+map_i("<C-j>", "<esc><cmd>m .+1<cr>==gi", "Line: Move Down")
+map_i("<C-k>", "<esc><cmd>m .-2<cr>==gi", "Line: Move Up")
+map_v("<C-j>", ":m '>+1<cr>gv=gv", "Line: Move Down")
+map_v("<C-k>", ":m '<-2<cr>gv=gv", "Line: Move Up")
+map_n("<C-d>", "<C-d>zz", "Page down and center scroll")
+map_n("<C-u>", "<C-u>zz", "Page up and center scroll")
+map_n("n", "nzzzv", "Search next and center scroll")
+map_n("N", "Nzzzv", "Search previous and center scroll")
+map_n("[q", ":cprev<CR>", "Quickfix: Previous result")
+map_n("]q", ":cnext<CR>", "Quickfix: Next result")
+map_n("<leader>co", ":copen<cr>", "Quickfix: Open")
+map_n("<leader>cc", ":cclose<cr>", "Quickfix: Close")
+map_n("<space><space>x", "<cmd>source %<CR>", "Lua: Execute file")
+map_n("<space>x", ":.lua<CR>", "Lua: Execute line")
+map_v("<space>x", ":lua<CR>", "Lua: Execute selection")
