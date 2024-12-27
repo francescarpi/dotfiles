@@ -6,6 +6,7 @@ local lsps = {
           disable = { "missing-fields", "incomplete-signature-doc" },
           unusedLocalExclude = { "_*" },
         },
+        runtime = { version = "LuaJIT" },
       },
     },
   },
