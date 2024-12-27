@@ -13,6 +13,7 @@ local register_key_bindings = function()
   vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Search Diagnostics", silent = true })
   vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers", silent = true })
   vim.keymap.set("n", "<leader>fg", multigrep, { desc = "Grep allowing filter by file", silent = true })
+  vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags", silent = true })
 end
 
 return {
