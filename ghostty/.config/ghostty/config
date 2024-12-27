@@ -1,0 +1,16 @@
+font-family = "FiraCode Nerd Font Mono Reg"
+font-size = 16
+
+theme = "catppuccin-mocha"
+
+keybind = super+l=goto_split:right
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+
+keybind = super+shift+h=resize_split:left,20
+keybind = super+shift+l=resize_split:right,20
+keybind = super+shift+j=resize_split:down,20
+keybind = super+shift+k=resize_split:up,20
+
+keybind = super+z=toggle_split_zoom
