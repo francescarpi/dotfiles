@@ -14,6 +14,10 @@ local map_v = function(keys, func, desc)
   map("v", keys, func, desc)
 end
 
+local map_x = function(keys, func, desc)
+  map("x", keys, func, desc)
+end
+
 local map_all = function(keys, func, desc)
   map({ "i", "x", "n", "s" }, keys, func, desc)
 end
@@ -40,3 +44,4 @@ map_n("<leader>cc", ":cclose<cr>", "Quickfix: Close")
 map_n("<space><space>x", "<cmd>source %<CR>", "Lua: Execute file")
 map_n("<space>x", ":.lua<CR>", "Lua: Execute line")
 map_v("<space>x", ":lua<CR>", "Lua: Execute selection")
+map_x("<leader>p", [["_dP]], "Paste delete selected and paste")
