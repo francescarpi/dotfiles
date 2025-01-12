@@ -4,12 +4,7 @@ source $HOME/.config/zsh/aliases.sh
 source $HOME/.config/zsh/functions.sh
 
 # homebrew (brew) installation depends on the architecture
-if [ "$(arch)" = "arm64" ];
-then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # google cloud configuration and auto-completion
 if [ -d "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" ]
