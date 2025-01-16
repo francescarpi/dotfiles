@@ -14,6 +14,9 @@ local register_key_bindings = function()
   vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers", silent = true })
   vim.keymap.set("n", "<leader>fg", multigrep, { desc = "Grep allowing filter by file", silent = true })
   vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags", silent = true })
+  vim.keymap.set("n", "<leader>fj", function()
+    multigrep({ cwd = "$HOME/.journal" })
+  end, { desc = "Grep within the the journal folder", silent = true })
 end
 
 return {

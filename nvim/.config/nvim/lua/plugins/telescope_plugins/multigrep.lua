@@ -27,20 +27,18 @@ return function(opts)
         table.insert(args, string.format(opts.pattern, prompt_split[2]))
       end
 
-      return vim
-        .iter({
-          args,
-          {
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case",
-          },
-        })
-        :flatten()
-        :totable()
+      table.insert(args, "--color=never")
+      table.insert(args, "--no-heading")
+      table.insert(args, "--with-filename")
+      table.insert(args, "--line-number")
+      table.insert(args, "--column")
+      table.insert(args, "--smart-case")
+
+      vim.print(opts)
+
+      local command = vim.iter({ args }):flatten():totable()
+      vim.print(vim.inspect(command))
+      return command
     end,
     entry_maker = make_entry.gen_from_vimgrep(opts),
     cwd = opts.cwd,
