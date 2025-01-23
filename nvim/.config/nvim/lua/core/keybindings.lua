@@ -25,8 +25,6 @@ end
 map_n("<Esc>", "<cmd>nohlsearch<CR>", "Clear search highlight")
 map_i("<C-c>", "<esc>", "Exit to normal mode")
 map_i("jj", "<esc>", "Exit to normal mode")
-map_n("<C-m>", "<cmd>e #<cr>", "Switch to other buffer")
-map_n("<leader>q", ":bdelete<CR>", "Delete current buffer")
 map_all("<C-s>", "<cmd>w<cr><esc>", "Save file")
 map_n("<C-j>", "<cmd>m .+1<cr>==", "Line: Move Down")
 map_n("<C-k>", "<cmd>m .-2<cr>==", "Line: Move Up")
