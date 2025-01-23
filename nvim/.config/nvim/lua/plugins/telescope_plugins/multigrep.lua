@@ -34,10 +34,7 @@ return function(opts)
       table.insert(args, "--column")
       table.insert(args, "--smart-case")
 
-      vim.print(opts)
-
       local command = vim.iter({ args }):flatten():totable()
-      vim.print(vim.inspect(command))
       return command
     end,
     entry_maker = make_entry.gen_from_vimgrep(opts),
