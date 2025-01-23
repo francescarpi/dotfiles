@@ -7,7 +7,7 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
-      enabled = false,
+      file_types = { "Avante" },
       anti_conceal = {
         enabled = true,
         -- Which elements to always show, ignoring anti conceal behavior. Values can either be booleans
