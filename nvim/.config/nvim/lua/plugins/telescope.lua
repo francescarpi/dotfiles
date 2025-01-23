@@ -17,6 +17,9 @@ local register_key_bindings = function()
   vim.keymap.set("n", "<leader>fj", function()
     multigrep({ cwd = "$HOME/.journal" })
   end, { desc = "Grep within the the journal folder", silent = true })
+  vim.keymap.set("n", "<leader>fw", function()
+    builtin.find_files({ cwd = "$HOME/.dotfiles" })
+  end, { desc = "Find files within .dotfiles folder", silent = true })
 end
 
 return {
