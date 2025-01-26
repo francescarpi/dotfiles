@@ -7,7 +7,6 @@ background-opacity = 0.95
 background-blur-radius = 20
 
 cursor-style = block
-cursor-style-blink = false
 shell-integration-features = no-cursor
 
 window-padding-x = 10
