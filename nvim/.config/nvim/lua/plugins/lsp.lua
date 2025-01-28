@@ -80,10 +80,10 @@ return {
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-      require("mason").setup()
-      require("mason-tool-installer").setup({ ensure_installed = combine_to_install() })
+      require("mason").setup() -- package manager to easily install and manage lsp, linters, formaters, etc.
+      require("mason-tool-installer").setup({ ensure_installed = combine_to_install() }) -- install/update ensure_installed automatically
 
-      require("mason-lspconfig").setup({
+      require("mason-lspconfig").setup({ -- only to manage lsps. ensure install them automatically and instantiate
         ensure_installed = lsps,
         automatic_installation = true,
         handlers = {
