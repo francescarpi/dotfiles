@@ -26,3 +26,6 @@ keybind = super+shift+j=resize_split:down,20
 keybind = super+shift+k=resize_split:up,20
 
 keybind = super+z=toggle_split_zoom
+
+keybind = super+right=next_tab
+keybind = super+left=previous_tab
