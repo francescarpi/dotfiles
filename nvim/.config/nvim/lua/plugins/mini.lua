@@ -9,6 +9,7 @@ return {
     require("mini.cursorword").setup()
     require("mini.statusline").setup({ use_icons = true })
     require("mini.pairs").setup()
+    require("mini.jump2d").setup()
 
     -- Mini files
     require("mini.files").setup({
