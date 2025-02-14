@@ -7,6 +7,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits, for example.
+vim.opt.mouse = ""
 vim.opt.mouse = "a"
 
 -- don't show the mode, since it's already in the status line
@@ -54,10 +55,10 @@ vim.opt.guicursor = "a:blinkon100"
 vim.opt.scrolloff = 0
 
 -- Set tabs and spaces
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Wrap lines
-vim.opt.wrap = false
+-- vim.opt.wrap = false
