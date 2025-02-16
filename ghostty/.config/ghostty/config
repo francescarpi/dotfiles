@@ -15,8 +15,8 @@ window-padding-balance = true
 
 quit-after-last-window-closed = true
 
-keybind = super+l=goto_split:right
-keybind = super+h=goto_split:left
+keybind = super+l=goto_split:next
+keybind = super+h=goto_split:previous
 keybind = super+j=goto_split:bottom
 keybind = super+k=goto_split:top
 
