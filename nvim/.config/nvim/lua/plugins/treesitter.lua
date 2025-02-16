@@ -2,6 +2,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     opts = {
       ensure_installed = {
         "bash",
@@ -23,6 +26,30 @@ return {
         additional_vim_regex_highlighting = { "ruby" },
       },
       indent = { enable = true, disable = { "ruby" } },
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = {
+            ["]m"] = "@function.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+          },
+        },
+        select = {
+          enable = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+          },
+        },
+      },
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
