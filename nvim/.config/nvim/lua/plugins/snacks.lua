@@ -1,3 +1,5 @@
+local HOME = vim.loop.os_getenv("HOME")
+
 return {
   {
     "folke/snacks.nvim",
@@ -8,6 +10,7 @@ return {
       bigfile = { enabled = true },
       explorer = { enabled = true },
       indent = { enabled = true },
+      image = { enabled = true },
       input = { enabled = true },
       picker = {
         enabled = true,
@@ -56,11 +59,25 @@ return {
         desc = "Grep",
       },
       {
+        "<leader>fr",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "Resume",
+      },
+      {
         "<leader><leader>",
         function()
           Snacks.picker.buffers()
         end,
         desc = "Buffers",
+      },
+      {
+        "<leader>fj",
+        function()
+          Snacks.picker.grep({ cwd = HOME .. "/.journal" })
+        end,
+        desc = "Grep in journal folder",
       },
       {
         "<leader>g",
