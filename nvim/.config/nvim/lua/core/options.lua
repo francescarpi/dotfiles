@@ -52,7 +52,7 @@ vim.opt.cursorline = true
 vim.opt.guicursor = "a:blinkon100"
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 0
+vim.opt.scrolloff = 10
 
 -- Set tabs and spaces
 vim.opt.tabstop = 2
