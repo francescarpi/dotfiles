@@ -11,14 +11,8 @@ return {
       },
       signature = { enabled = true },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "markdown" },
-        providers = {
-          markdown = {
-            name = "RenderMarkdown",
-            module = "render-markdown.integ.blink",
-            fallbacks = { "lsp" },
-          },
-        },
+        default = { "lsp", "path", "snippets", "buffer" },
+        providers = {},
       },
     },
   },
