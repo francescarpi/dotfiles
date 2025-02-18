@@ -2,6 +2,7 @@ local HOME = vim.loop.os_getenv("HOME")
 
 return {
   {
+
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -12,6 +13,7 @@ return {
       indent = { enabled = true },
       image = { enabled = true },
       input = { enabled = true },
+      terminal = { enabled = true },
       picker = {
         enabled = true,
         layout = "ivy",
@@ -35,12 +37,13 @@ return {
       statuscolumn = { enabled = true },
       words = { enabled = true },
       lazygit = { enabled = true },
+      scroll = { enabled = true },
     },
     keys = {
       {
         "<leader>e",
         function()
-          Snacks.explorer()
+          Snacks.explorer({ auto_close = true })
         end,
         desc = "File Explorer",
       },
@@ -85,6 +88,13 @@ return {
           Snacks.lazygit()
         end,
         desc = "Lazygit",
+      },
+      {
+        "<leader>t",
+        function()
+          Snacks.terminal()
+        end,
+        desc = "Terminal",
       },
     },
   },
