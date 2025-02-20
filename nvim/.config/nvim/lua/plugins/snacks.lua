@@ -9,14 +9,13 @@ return {
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
-      explorer = { enabled = true },
       indent = { enabled = true },
       image = { enabled = true },
       input = { enabled = true },
       terminal = { enabled = true },
       picker = {
         enabled = true,
-        layout = "ivy",
+        layout = "ivy_split",
         win = {
           input = {
             keys = {
@@ -36,17 +35,20 @@ return {
       scope = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
-      lazygit = { enabled = true },
-      scroll = { enabled = true },
+      lazygit = {
+        enabled = true,
+        win = {
+          style = {
+            position = "float",
+            col = 0,
+            row = 0,
+            width = 0,
+            height = 0,
+          },
+        },
+      },
     },
     keys = {
-      {
-        "<leader>e",
-        function()
-          Snacks.explorer({ auto_close = true })
-        end,
-        desc = "File Explorer",
-      },
       {
         "<leader>ff",
         function()
