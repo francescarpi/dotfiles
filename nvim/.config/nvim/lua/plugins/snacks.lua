@@ -39,11 +39,7 @@ return {
         enabled = true,
         win = {
           style = {
-            position = "float",
-            col = 0,
-            row = 0,
-            width = 0,
-            height = 0,
+            border = "rounded",
           },
         },
       },
