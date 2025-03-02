@@ -1,0 +1,8 @@
+{
+  "sleep": {
+    "prefix": "sleep",
+    "body": [
+      "await new Promise((r) => setTimeout(r, $1))"
+    ]
+  }
+}
