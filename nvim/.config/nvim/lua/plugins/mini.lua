@@ -2,6 +2,8 @@ return {
   "echasnovski/mini.nvim",
   config = function()
     require("mini.surround").setup()
+    require("mini.git").setup()
+    require("mini.diff").setup()
     require("mini.comment").setup()
     require("mini.cursorword").setup()
     require("mini.statusline").setup({ use_icons = true })
