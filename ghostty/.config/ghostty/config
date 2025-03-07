@@ -2,7 +2,7 @@ font-family = "FiraCode Nerd Font Mono Med"
 font-size = 16
 
 theme = "catppuccin-mocha"
-macos-icon = retro
+# macos-icon = retro
 
 background-opacity = 0.95
 background-blur-radius = 20
