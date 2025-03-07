@@ -10,5 +10,11 @@
     "body": [
       "**WIP**"
     ]
+  },
+  "link": {
+    "prefix": "link",
+    "body": [
+      "[${1:text}](${2:link})"
+    ]
   }
 }
