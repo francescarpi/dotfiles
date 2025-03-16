@@ -6,13 +6,19 @@ theme = "catppuccin-mocha"
 
 background-opacity = 0.95
 background-blur-radius = 20
+split-divider-color = #ffec9b
 
 cursor-style = block
+# cursor-color = #ffcc31
+# cursor-text = #000000
+cursor-invert-fg-bg = true
 shell-integration-features = no-cursor
 
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
+maximize = true
+window-save-state = always
 
 quit-after-last-window-closed = true
 
