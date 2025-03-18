@@ -11,7 +11,7 @@ local lsps = {
     },
   },
   cssls = {},
-  pyright = {},
+  jedi_language_server = {},
   rust_analyzer = {},
   html = {},
   ["eslint-lsp"] = {},
@@ -19,16 +19,12 @@ local lsps = {
   ["json-lsp"] = {},
 }
 
-local linters = {
-  "mypy",
-}
+local linters = {}
 
 local formatters = {
   "stylua",
-  "isort",
   "ruff",
   "prettier",
-  "black",
 }
 
 local combine_to_install = function()
