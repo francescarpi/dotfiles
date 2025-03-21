@@ -23,7 +23,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff" },
+        python = { "ruff_format" },
         javascript = { "prettierd", "prettier" },
         typescript = { "prettierd", "prettier" },
         typescriptreact = { "prettierd", "prettier" },
