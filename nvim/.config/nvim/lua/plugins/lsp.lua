@@ -96,6 +96,12 @@ return {
         },
       })
 
+      vim.diagnostic.config({
+        virtual_lines = {
+          current_line = true,
+        },
+      })
+
       register_keys()
     end,
   },
