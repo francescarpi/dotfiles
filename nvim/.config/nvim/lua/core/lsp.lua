@@ -1,9 +1,18 @@
+-- Attention. Mason (williamboman/mason.nvim) is required to install
+-- lsp servers.
+local path = require("mason-core.path")
+
+---@param cmd string
+local cmd = function(cmd)
+  return path.concat({ vim.fn.stdpath("data"), "mason", "bin", cmd })
+end
+
 ----------------------------------------------------------------------------
 -- LSP Servers
 ----------------------------------------------------------------------------
 local servers = {
   lua = {
-    cmd = { "lua-language-server" }, -- brew install lua-language-server
+    cmd = { cmd("lua-language-server") },
     filetypes = { "lua" },
     settings = {
       Lua = {
@@ -20,15 +29,15 @@ local servers = {
     },
   },
   python = {
-    cmd = { "jedi-language-server" }, -- installed manually at $HOME/.lspservers/.venv/bin/jedi-language-server
+    cmd = { cmd("jedi-language-server") },
     filetypes = { "python" },
   },
   python_ruff = {
-    cmd = { "ruff", "server" }, -- brew install ruff
+    cmd = { cmd("ruff"), "server" },
     filetypes = { "python" },
   },
   typescript = {
-    cmd = { "typescript-language-server", "--stdio" }, -- brew install typescript-language-server
+    cmd = { cmd("typescript-language-server"), "--stdio" },
     filetypes = { "typescriptreact", "typescript", "javascript" },
   },
 }
@@ -71,7 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       snacks.picker.lsp_definitions()
     end, "Goto Definition")
 
-    keymap("<c-l>", vim.lsp.buf.hover, "Documentation")
+    keymap("<leader>l", vim.lsp.buf.hover, "Documentation")
 
     keymap("<leader>x", vim.diagnostic.open_float, "Show diagnostic")
   end,
