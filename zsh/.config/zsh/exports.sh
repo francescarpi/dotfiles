@@ -16,6 +16,7 @@ export path=(
   "/opt/podman/bin"
   "/usr/local/go/bin"
   "/opt/homebrew/opt/libpq/bin/"
+  "$HOME/.lspservers/.venv/bin/"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
