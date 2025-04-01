@@ -40,6 +40,10 @@ local servers = {
     cmd = { cmd("typescript-language-server"), "--stdio" },
     filetypes = { "typescriptreact", "typescript", "javascript" },
   },
+  json = {
+    cmd = { cmd("vscode-json-language-server"), "--stdio" },
+    filetypes = { "json" },
+  },
 }
 
 for name, config in pairs(servers) do
