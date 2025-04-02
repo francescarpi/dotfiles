@@ -22,22 +22,4 @@ return {
       apply_color("catppuccin-mocha")
     end,
   },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function()
-      require("rose-pine").setup({
-        integrations = {
-          gitsigns = true,
-          treesitter = true,
-          harpoon = true,
-        },
-        disable_background = true,
-        styles = {
-          italic = false,
-        },
-      })
-      -- apply_color("rose-pine-moon")
-    end,
-  },
 }
