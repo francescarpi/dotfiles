@@ -8,12 +8,29 @@ local cmd = function(cmd)
 end
 
 ----------------------------------------------------------------------------
+-- Common for all LSPs
+----------------------------------------------------------------------------
+vim.lsp.config("*", {
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+  single_file_support = true,
+})
+
+----------------------------------------------------------------------------
 -- LSP Servers
 ----------------------------------------------------------------------------
 local servers = {
   lua = {
     cmd = { cmd("lua-language-server") },
     filetypes = { "lua" },
+    root_markers = {
+      ".luarc.json",
+      ".luarc.jsonc",
+      ".luacheckrc",
+      ".stylua.toml",
+      "stylua.toml",
+      "selene.toml",
+      "selene.yml",
+    },
     settings = {
       Lua = {
         diagnostics = {
@@ -31,18 +48,42 @@ local servers = {
   python = {
     cmd = { cmd("jedi-language-server") },
     filetypes = { "python" },
+    root_markers = {
+      "pyproject.toml",
+      "setup.py",
+      "setup.cfg",
+      "requirements.txt",
+      "Pipfile",
+    },
   },
   python_ruff = {
     cmd = { cmd("ruff"), "server" },
     filetypes = { "python" },
+    root_markers = {
+      "pyproject.toml",
+      "ruff.toml",
+      ".ruff.toml",
+    },
   },
   typescript = {
     cmd = { cmd("typescript-language-server"), "--stdio" },
-    filetypes = { "typescriptreact", "typescript", "javascript" },
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+    root_markers = {
+      "tsconfig.json",
+      "jsconfig.json",
+      "package.json",
+    },
   },
   json = {
     cmd = { cmd("vscode-json-language-server"), "--stdio" },
-    filetypes = { "json" },
+    filetypes = { "json", "jsonc" },
   },
 }
 
@@ -64,12 +105,6 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", {}),
   callback = function(ev)
-    -- Completion
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
-    end
-
     -- Keymaps
     local snacks = require("snacks")
     local keymap = function(keys, func, desc, mode)
