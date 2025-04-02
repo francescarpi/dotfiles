@@ -72,8 +72,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Keymaps
     local snacks = require("snacks")
-    local keymap = function(keys, func, desc)
-      vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
+    local keymap = function(keys, func, desc, mode)
+      if mode == nil then
+        mode = "n"
+      end
+      vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
     end
 
     keymap("gO", function()
@@ -85,6 +88,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, "Goto Definition")
 
     keymap("<leader>l", vim.lsp.buf.hover, "Documentation")
+    keymap("<c-l>", vim.lsp.buf.signature_help, "Signature Help", "i")
 
     keymap("<leader>x", vim.diagnostic.open_float, "Show diagnostic")
   end,
