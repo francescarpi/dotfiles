@@ -85,6 +85,10 @@ local servers = {
     cmd = { cmd("vscode-json-language-server"), "--stdio" },
     filetypes = { "json", "jsonc" },
   },
+  go = {
+    cmd = { cmd("gopls") },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  },
 }
 
 for name, config in pairs(servers) do
