@@ -89,6 +89,13 @@ local servers = {
     cmd = { cmd("gopls") },
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
   },
+  dockerfile = {
+    cmd = { cmd("docker-langserver"), "--stdio" },
+    filetypes = { "dockerfile" },
+    root_markers = {
+      "Dockerfile",
+    },
+  },
 }
 
 for name, config in pairs(servers) do
