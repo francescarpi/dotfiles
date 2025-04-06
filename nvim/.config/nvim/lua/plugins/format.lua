@@ -1,3 +1,8 @@
+local formatters = {
+  json = { "jq" },
+  lua = { "stylua" },
+}
+
 return {
   {
     "stevearc/conform.nvim",
@@ -14,21 +19,11 @@ return {
     },
     opts = {
       notify_on_error = false,
-      format_on_save = function(bufnr)
-        local disable_filetypes = { c = true, cpp = true }
-        return {
-          timeout_ms = 500,
-          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-        }
+      formatters_by_ft = formatters,
+      init = function()
+        -- formatexpr is used by vim when formatting code blocks usigg gq
+        vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
       end,
-      formatters_by_ft = {
-        lua = { "stylua" },
-        python = { "ruff_format" },
-        javascript = { "prettierd", "prettier" },
-        typescript = { "prettierd", "prettier" },
-        typescriptreact = { "prettierd", "prettier" },
-        jsonc = { "prettier" },
-      },
     },
   },
 }
