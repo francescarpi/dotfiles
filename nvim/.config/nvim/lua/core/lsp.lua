@@ -109,6 +109,13 @@ local servers = {
       "svelte",
       "astro",
     },
+    root_dir = function(fname)
+      local p = vim.fn.fnamemodify(fname, ":h")
+      local results = vim.fs.find({ ".eslintrc", ".eslintrc.js", ".eslint.config.ts" }, { upward = true, path = p })
+      if #results > 0 then
+        return vim.fs.dirname(results[1])
+      end
+    end,
     settings = {
       validate = "on",
       packageManager = nil,

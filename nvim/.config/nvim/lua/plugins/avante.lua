@@ -20,7 +20,6 @@ return {
     },
     build = "make",
     dependencies = {
-      "stevearc/dressing.nvim",
       "MunifTanjim/nui.nvim",
       "zbirenbaum/copilot.lua",
       {

@@ -24,13 +24,6 @@ return {
           },
         },
       },
-      notifier = {
-        enabled = true,
-        top_down = false,
-        margin = {
-          bottom = 2,
-        },
-      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       statuscolumn = { enabled = true },

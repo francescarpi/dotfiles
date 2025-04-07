@@ -1,6 +1,7 @@
 local formatters = {
   json = { "jq" },
   lua = { "stylua" },
+  typescriptreact = { "prettier" },
 }
 
 return {
