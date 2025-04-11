@@ -1,7 +1,7 @@
-local utils = require("core.utils")
+local path = require("mason-core.path")
 
 return {
-  cmd = { utils.mason_bin("docker-langserver"), "--stdio" },
+  cmd = { path.bin_prefix("docker-langserver"), "--stdio" },
   filetypes = { "dockerfile" },
   root_markers = {
     "Dockerfile",

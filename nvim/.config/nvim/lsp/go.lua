@@ -1,6 +1,6 @@
-local utils = require("core.utils")
+local path = require("mason-core.path")
 
 return {
-  cmd = { utils.mason_bin("gopls") },
+  cmd = { path.bin_prefix("gopls") },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
 }

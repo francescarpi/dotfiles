@@ -1,7 +1,7 @@
-local utils = require("core.utils")
+local path = require("mason-core.path")
 
 return {
-  cmd = { utils.mason_bin("lua-language-server") },
+  cmd = { path.bin_prefix("lua-language-server") },
   filetypes = { "lua" },
   root_markers = {
     ".luarc.json",

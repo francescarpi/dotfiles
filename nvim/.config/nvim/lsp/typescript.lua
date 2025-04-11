@@ -1,7 +1,7 @@
-local utils = require("core.utils")
+local path = require("mason-core.path")
 
 return {
-  cmd = { utils.mason_bin("typescript-language-server"), "--stdio" },
+  cmd = { path.bin_prefix("typescript-language-server"), "--stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",

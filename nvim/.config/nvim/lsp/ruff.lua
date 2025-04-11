@@ -1,7 +1,7 @@
-local utils = require("core.utils")
+local path = require("mason-core.path")
 
 return {
-  cmd = { utils.mason_bin("ruff"), "server" },
+  cmd = { path.bin_prefix("ruff"), "server" },
   filetypes = { "python" },
   root_markers = {
     "pyproject.toml",

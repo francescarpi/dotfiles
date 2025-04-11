@@ -1,7 +1,7 @@
-local utils = require("core.utils")
+local path = require("mason-core.path")
 
 return {
-  cmd = { utils.mason_bin("vscode-css-language-server"), "--stdio" },
+  cmd = { path.bin_prefix("vscode-css-language-server"), "--stdio" },
   filetypes = { "css", "scss", "less" },
   init_options = { provideFormatter = true },
   single_file_support = true,
