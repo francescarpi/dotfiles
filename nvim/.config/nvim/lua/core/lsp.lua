@@ -11,15 +11,15 @@ vim.lsp.config("*", {
 -- Config files are in the `lsp` folder
 ----------------------------------------------------------------------------
 vim.lsp.enable({
+  "css",
+  "dockerfile",
+  "eslint",
+  "go",
+  "json",
   "luals",
   "python",
   "ruff",
   "typescript",
-  "json",
-  "go",
-  "dockerfile",
-  "eslint",
-  "css",
 })
 
 ----------------------------------------------------------------------------

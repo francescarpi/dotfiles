@@ -1,6 +1,9 @@
-local path = require("mason-core.path")
-
 return {
-  cmd = { path.bin_prefix("gopls") },
+  cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_markers = {
+    "go.mod",
+    "go.sum",
+    "main.go",
+  },
 }

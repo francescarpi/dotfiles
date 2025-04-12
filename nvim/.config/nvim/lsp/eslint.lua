@@ -1,7 +1,5 @@
-local path = require("mason-core.path")
-
 return {
-  cmd = { path.bin_prefix("vscode-eslint-language-server"), "--stdio" },
+  cmd = { "vscode-eslint-language-server", "--stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",

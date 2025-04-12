@@ -1,6 +1,8 @@
-local path = require("mason-core.path")
-
 return {
-  cmd = { path.bin_prefix("vscode-json-language-server"), "--stdio" },
+  cmd = { "vscode-json-language-server", "--stdio" },
   filetypes = { "json", "jsonc" },
+  root_markers = {
+    "package.json",
+    ".git",
+  },
 }

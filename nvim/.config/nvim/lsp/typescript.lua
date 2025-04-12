@@ -1,7 +1,5 @@
-local path = require("mason-core.path")
-
 return {
-  cmd = { path.bin_prefix("typescript-language-server"), "--stdio" },
+  cmd = { "typescript-language-server", "--stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",
