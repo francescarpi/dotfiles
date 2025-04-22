@@ -43,3 +43,18 @@ map_n("<space>x", ":.lua<CR>", "Lua: Execute line")
 map_v("<space>x", ":lua<CR>", "Lua: Execute selection")
 map_x("<leader>p", [["_dP]], "Paste delete selected and paste")
 map_x("<leader>d", [["_dd]], "Paste delete selected and paste")
+
+-- make j and k movements with multiple save to jumplist
+vim.keymap.set("n", "j", function()
+  if vim.v.count > 0 then
+    return "m'" .. vim.v.count .. "j"
+  end
+  return "j"
+end, { expr = true })
+
+vim.keymap.set("n", "k", function()
+  if vim.v.count > 0 then
+    return "m'" .. vim.v.count .. "k"
+  end
+  return "k"
+end, { expr = true })
