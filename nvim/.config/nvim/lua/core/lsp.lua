@@ -19,6 +19,7 @@ vim.lsp.enable({
   "luals",
   "python",
   "ruff",
+  "rust",
   "typescript",
 })
 
