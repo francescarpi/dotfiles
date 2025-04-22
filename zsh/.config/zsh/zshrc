@@ -20,7 +20,7 @@ setopt HIST_FCNTL_LOCK
 # antidote: zsh plugin manager
 # https://getantidote.github.io/
 # brew install antidote
-ANTIDOTE_VERSION=1.9.7
+ANTIDOTE_VERSION=1.9.8
 ANTIDOTE_SCRIPT=$HOMEBREW_PREFIX/Cellar/antidote/${ANTIDOTE_VERSION}/share/antidote/antidote.zsh
 ANTIDOTE_PLUGINS=$HOME/.config/zsh/plugins
 if [[ ! ${ANTIDOTE_PLUGINS}.zsh -nt ${ANTIDOTE_PLUGINS}.txt ]]; then
