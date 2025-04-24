@@ -41,7 +41,7 @@ return {
         opts = {
           file_types = { "markdown", "Avante", "telekasten" },
         },
-        ft = { "markdown", "Avante", "telekasten" },
+        ft = { "Avante" },
       },
     },
   },
