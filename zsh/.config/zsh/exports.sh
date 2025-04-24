@@ -18,7 +18,7 @@ export path=(
   "/opt/homebrew/opt/libpq/bin/"
   "$HOME/.lspservers/.venv/bin/"
   "$HOME/go/bin/"
-  "$HOME/dev/mytime/mytime"
+  "$HOME/dev/mytime/mytime/bin"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
