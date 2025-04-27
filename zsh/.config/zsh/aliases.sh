@@ -1,6 +1,7 @@
 alias ls="eza --icons"
 alias ll="eza --icons -la"
 alias cd="z"
+alias lg="lazygit"
 
 # Postgres
 alias psql="PGPASSWORD=postgres psql -h localhost -U postgres"

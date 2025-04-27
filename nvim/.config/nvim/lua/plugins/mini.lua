@@ -5,10 +5,7 @@ return {
     require("mini.git").setup()
     require("mini.diff").setup()
     require("mini.comment").setup()
-    require("mini.cursorword").setup()
     require("mini.statusline").setup({ use_icons = true })
-    -- require("mini.pairs").setup()
-    require("mini.jump2d").setup()
 
     -- Hipatterns
     local hipatterns = require("mini.hipatterns")

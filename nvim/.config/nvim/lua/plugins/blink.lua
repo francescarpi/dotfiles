@@ -12,6 +12,9 @@ return {
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
         providers = {},
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        },
       },
     },
   },

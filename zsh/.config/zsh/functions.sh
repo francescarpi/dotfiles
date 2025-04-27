@@ -52,3 +52,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+movtogif() {
+  ffmpeg -i $1 -pix_fmt rgb8 -r 10 output.gif && gifsicle -O3 output.gif -o output.gif
+}
