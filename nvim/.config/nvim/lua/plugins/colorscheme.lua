@@ -1,11 +1,7 @@
-local function apply_color(color)
-  vim.cmd.colorscheme(color)
-  vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = "#ffffff" })
-end
-
 return {
   {
     "catppuccin/nvim",
+    -- dir = "/Users/farpi/dev/neovim/nvim",
     name = "catppuccin",
     priority = 1000,
     opts = {},
@@ -17,9 +13,10 @@ return {
           gitsigns = true,
           treesitter = true,
           harpoon = true,
+          -- buffon = true,
         },
       })
-      apply_color("catppuccin-mocha")
+      vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
 }
