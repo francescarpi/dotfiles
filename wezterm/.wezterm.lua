@@ -18,9 +18,10 @@ config.use_fancy_tab_bar = false
 config.window_background_opacity = 0.999 -- this fix stage manager laggy
 config.window_decorations = "NONE|RESIZE"
 config.inactive_pane_hsb = {
-	-- brightness = 0.5,
+	brightness = 0.5,
 }
 config.colors = {
+  split = "#ffec9b",
 	tab_bar = {
 		active_tab = {
 			bg_color = "#fd971f",
@@ -31,12 +32,6 @@ config.colors = {
 			strikethrough = false,
 		},
 	},
-}
-config.window_padding = {
-	-- left = 3,
-	-- right = 3,
-	-- top = 3,
-	-- bottom = 3,
 }
 
 local function isViProcess(pane)
@@ -52,8 +47,8 @@ local function conditionalActivatePane(window, pane, pane_direction, vim_directi
 end
 
 config.keys = {
-	{ key = "i", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "i", mods = "CMD|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "d", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "d", mods = "CMD|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "z", mods = "CMD", action = act.TogglePaneZoomState },
 	{ key = "p", mods = "CMD", action = act.ActivateTabRelative(-1) },
 	{ key = "n", mods = "CMD", action = act.ActivateTabRelative(1) },
