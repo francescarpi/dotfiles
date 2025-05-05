@@ -40,6 +40,8 @@ end
 
 local function conditionalActivatePane(window, pane, pane_direction, vim_direction)
 	if isViProcess(pane) then
+    -- look vim navigator plugin
+    -- https://github.com/francescarpi/dotfiles/blob/master/nvim/.config/nvim/lua/plugins/navigator.lua
 		window:perform_action(act.SendKey({ mods = "CTRL|SHIFT", key = vim_direction }), pane)
 	else
 		window:perform_action(act.ActivatePaneDirection(pane_direction), pane)
