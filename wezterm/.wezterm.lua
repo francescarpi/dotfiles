@@ -74,7 +74,7 @@ config.keys = {
 		key = "j",
 		mods = "CMD",
 		action = wezterm.action_callback(function(window, pane)
-			conditionalActivatePane(window, pane, "Down", "j")
+      conditionalActivatePane(window, pane, "Down", "j")
 		end),
 	},
 	{
