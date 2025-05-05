@@ -11,15 +11,16 @@ local function active_pane(window, pane, pane_direction, vim_direction)
 	if is_vim(pane) then
 		-- look vim navigator plugin
 		-- https://github.com/francescarpi/dotfiles/blob/master/nvim/.config/nvim/lua/plugins/navigator.lua
-		window:perform_action(act.SendKey({ mods = "CTRL|SHIFT", key = vim_direction }), pane)
+		window:perform_action(wezterm.action.SendKey({ mods = "CTRL|SHIFT", key = vim_direction }), pane)
 	else
-		window:perform_action(act.ActivatePaneDirection(pane_direction), pane)
+		window:perform_action(wezterm.action.ActivatePaneDirection(pane_direction), pane)
 	end
 end
 
 M.setup = function(config)
 	config.send_composed_key_when_right_alt_is_pressed = true
 	config.send_composed_key_when_left_alt_is_pressed = true
+
 	config.keys = {
 		{ mods = "CMD", key = "d", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 		{ mods = "CMD|SHIFT", key = "d", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
@@ -140,6 +141,8 @@ M.setup = function(config)
 			end),
 		})
 	end
+
+  return config
 end
 
 return M
