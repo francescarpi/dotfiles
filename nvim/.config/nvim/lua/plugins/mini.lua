@@ -6,6 +6,7 @@ return {
     require("mini.diff").setup()
     require("mini.comment").setup()
     require("mini.statusline").setup({ use_icons = true })
+    require("mini.cursorword").setup()
 
     -- Hipatterns
     local hipatterns = require("mini.hipatterns")
