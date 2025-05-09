@@ -4,7 +4,7 @@ local M = {}
 
 M.setup = function(config)
 	config.color_scheme = "Catppuccin Mocha"
-	config.font = wezterm.font("FiraCode Nerd Font")
+	config.font = wezterm.font("FiraCode Nerd Font Mono Med")
 	config.font_size = 16
 
 	config.hide_tab_bar_if_only_one_tab = true
