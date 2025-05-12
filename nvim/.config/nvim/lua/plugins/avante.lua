@@ -18,8 +18,8 @@ return {
     opts = {
       provider = "copilot",
       windows = {
-        position = "bottom"
-      }
+        position = "bottom",
+      },
     },
     build = "make",
     dependencies = {
