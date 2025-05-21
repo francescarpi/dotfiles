@@ -28,9 +28,9 @@ vim.lsp.enable({
 ----------------------------------------------------------------------------
 -- Diagnostics
 ----------------------------------------------------------------------------
--- vim.diagnostic.config({
---   virtual_text = { current_line = true },
--- })
+vim.diagnostic.config({
+  virtual_text = { current_line = true },
+})
 
 ----------------------------------------------------------------------------
 -- LSP Attach
@@ -60,11 +60,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("<c-l>", vim.lsp.buf.signature_help, "Signature Help", "i")
 
     keymap("<leader>x", vim.diagnostic.open_float, "Show diagnostic")
-  end,
-})
-
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })
   end,
 })
