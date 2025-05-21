@@ -36,7 +36,7 @@ return {
       },
       {
         "<leader>ap",
-        mode = { "v" },
+        mode = { "n", "v" },
         "<cmd>CopilotChatPrompts<CR>",
         desc = "Open Copilot Chat Prompts",
       },
