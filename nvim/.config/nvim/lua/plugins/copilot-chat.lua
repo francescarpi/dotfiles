@@ -108,14 +108,14 @@ end
 local keys = {
   {
     "<leader>aa",
-    mode = { "n", "i", "v" },
     "<cmd>CopilotChatToggle<CR>",
+    mode = { "n", "v" },
     desc = "Toggle Copilot Chat",
   },
   {
     "<leader>ap",
-    mode = { "n", "v" },
     "<cmd>CopilotChatPrompts<CR>",
+    mode = { "n", "v" },
     desc = "Open Copilot Chat Prompts",
   },
 }
