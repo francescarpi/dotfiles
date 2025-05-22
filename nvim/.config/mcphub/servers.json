@@ -1,0 +1,12 @@
+{
+  "nativeMCPServers": [],
+  "mcpServers": {
+    "github.com/modelcontextprotocol/servers/tree/main/src/git": {
+      "args": [
+        "mcp-server-git"
+      ],
+      "disabled": false,
+      "command": "uvx"
+    }
+  }
+}
