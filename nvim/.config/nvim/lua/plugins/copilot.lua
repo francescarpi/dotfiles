@@ -105,6 +105,21 @@ local mcphub = function(chat)
   end)
 end
 
+local keys = {
+  {
+    "<leader>aa",
+    mode = { "n", "i", "v" },
+    "<cmd>CopilotChatToggle<CR>",
+    desc = "Toggle Copilot Chat",
+  },
+  {
+    "<leader>ap",
+    mode = { "n", "v" },
+    "<cmd>CopilotChatPrompts<CR>",
+    desc = "Open Copilot Chat Prompts",
+  },
+}
+
 return {
   {
     "github/copilot.vim",
@@ -129,25 +144,10 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
     cmd = "CopilotChat",
-    keys = {
-      {
-        "<leader>aa",
-        mode = { "n", "i", "v" },
-        "<cmd>CopilotChatToggle<CR>",
-        desc = "Toggle Copilot Chat",
-      },
-      {
-        "<leader>ap",
-        mode = { "n", "v" },
-        "<cmd>CopilotChatPrompts<CR>",
-        desc = "Open Copilot Chat Prompts",
-      },
-    },
+    keys = keys,
     opts = {
       prompts = prompts,
-      -- system_prompt = "",
       model = "gemini-2.5-pro",
-      -- auto_insert_mode = true,
     },
     config = function(_, opts)
       local chat = require("CopilotChat")
@@ -161,7 +161,12 @@ return {
       })
 
       chat.setup(opts)
-      mcphub(chat)
+
+      -- https://github.com/CopilotC-Nvim/CopilotChat.nvim/pull/1029/files
+      -- Uncomment this code when the PR is merged
+      if chat.config.functions ~= nil then
+        mcphub(chat)
+      end
     end,
   },
 }
