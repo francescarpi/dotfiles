@@ -1,6 +1,7 @@
 local prompts = {
-  TranslateEn = "Traduce este texto al ingles",
-  TranslateEs = "Traduce este texto al español",
+  TranslateEn = "Translate this text to English",
+  TranslateEs = "Translate this text to Spanish",
+  Commit = "#git prepare the commit message",
 }
 
 local mcphub = function(chat)
@@ -156,6 +157,14 @@ Regarding the format of the responses:
 - Lists have to go with hyphens instead of asterisks. For example:
   - item1
   - item2
+
+When asked to generate a commit message, it must follow the "conventional commits" rules. For example:
+- feat: add new feature
+- fix: fix a bug
+- refactor: refactor code
+
+Note: The commit title must be in lowercase.
+Also add a brief description of the commit.
 ]]
 
 return {
