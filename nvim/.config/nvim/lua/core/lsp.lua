@@ -1,3 +1,8 @@
+local M = {
+  files = {},
+  language_servers = {},
+}
+
 ----------------------------------------------------------------------------
 -- Common for all LSPs
 ----------------------------------------------------------------------------
@@ -6,24 +11,30 @@ vim.lsp.config("*", {
   single_file_support = true,
 })
 
+local servers = {
+  clang = "clangd",
+  css = "css-lsp",
+  dockerfile = "dockerfile-language-server",
+  eslint = "eslint-lsp",
+  go = "gopls",
+  json = "json-lsp",
+  luals = "lua-language-server",
+  python = "jedi-language-server",
+  ruff = "ruff",
+  rust = "rust-analyzer",
+  typescript = "typescript-language-server",
+}
+
+for file, lsp in pairs(servers) do
+  table.insert(M.files, file)
+  table.insert(M.language_servers, lsp)
+end
+
 ----------------------------------------------------------------------------
 -- LSP Servers
 -- Config files are in the `lsp` folder
 ----------------------------------------------------------------------------
-vim.lsp.enable({
-  -- "asm",
-  "clang",
-  "css",
-  "dockerfile",
-  "eslint",
-  "go",
-  "json",
-  "luals",
-  "python",
-  "ruff",
-  "rust",
-  "typescript",
-})
+vim.lsp.enable(M.files)
 
 ----------------------------------------------------------------------------
 -- Diagnostics
@@ -62,3 +73,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("<leader>x", vim.diagnostic.open_float, "Show diagnostic")
   end,
 })
+
+return M
