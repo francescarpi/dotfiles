@@ -171,6 +171,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
+    build = "make tiktoken",
     cmd = "CopilotChat",
     keys = keys,
     opts = {
