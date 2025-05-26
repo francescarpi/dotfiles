@@ -2,6 +2,6 @@
 
 set -e
 
-stow -t $HOME */
+/opt/homebrew/bin/stow -t $HOME */
 
 echo "Done!"
