@@ -14,6 +14,7 @@ vim.lsp.config("*", {
 local servers = {
   clang = "clangd",
   css = "css-lsp",
+  csharp = "csharp-language-server",
   dockerfile = "dockerfile-language-server",
   eslint = "eslint-lsp",
   go = "gopls",
