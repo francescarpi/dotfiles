@@ -34,6 +34,7 @@ packages=(
   antidote
   lazygit
   luarocks
+  dotnet
 )
 
 installed_packages=$($BREW_PATH list -1)
