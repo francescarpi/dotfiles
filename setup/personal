@@ -1,0 +1,57 @@
+#!/bin/sh
+
+BREW_PATH="/opt/homebrew/bin/brew"
+
+# Ask for user confirmation before starting
+read -p "This script will update Homebrew and install packages for PERSONAL. Are you sure you want to continue? (y/N): " confirm
+if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
+  echo "Operation cancelled by the user. Exiting."
+  exit 0
+fi
+
+# Update and upgrade Homebrew
+echo "Updating and upgrading Homebrew..."
+if ! $BREW_PATH update || ! $BREW_PATH upgrade; then
+  echo "Error updating or upgrading Homebrew. Exiting."
+  exit 1
+fi
+
+# Install Homebrew packages
+echo "Installing Homebrew packages..."
+packages=(
+  stow
+  eza
+  zoxide
+  neovim
+  wezterm
+  font-fira-code-nerd-font
+  python@3.13
+  node
+  starship
+  atuin
+  fnm
+  ripgrep
+  antidote
+  lazygit
+  luarocks
+)
+
+installed_packages=$($BREW_PATH list -1)
+
+for package in "${packages[@]}"; do
+  if echo "$installed_packages" | grep -Fxq "$package"; then
+    echo "$package is already installed."
+  else
+    echo "Installing $package..."
+    if ! $BREW_PATH install "$package"; then
+      echo "Error installing $package. Continuing with next package."
+    fi
+  fi
+done
+
+# Install global npm packages
+echo "Installing global npm packages..."
+if ! npm install -g mcp-hub@latest; then
+  echo "Error installing mcp-hub. Exiting."
+  exit 1
+fi
