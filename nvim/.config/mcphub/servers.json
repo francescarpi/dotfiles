@@ -1,12 +1,26 @@
 {
-  "nativeMCPServers": [],
+  "nativeMCPServers": [
+    
+  ],
   "mcpServers": {
     "github.com/modelcontextprotocol/servers/tree/main/src/git": {
+      "disabled": false,
       "args": [
         "mcp-server-git"
       ],
-      "disabled": false,
       "command": "uvx"
+    },
+    "weather": {
+      "disabled": false,
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli],requests",
+        "mcp",
+        "run",
+        "/Users/farpi/dev/mcp/mcp_python/main.py"
+      ],
+      "command": "uv"
     }
   }
 }
