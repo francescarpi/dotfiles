@@ -39,6 +39,7 @@ packages=(
   awscli
   redis
   ffmpeg
+  pnpm
 )
 
 installed_packages=$($BREW_PATH list -1)
