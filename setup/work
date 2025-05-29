@@ -40,6 +40,7 @@ packages=(
   redis
   ffmpeg
   pnpm
+  uv
 )
 
 installed_packages=$($BREW_PATH list -1)
