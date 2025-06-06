@@ -12,3 +12,5 @@ embeddings
 logseq/.logseq/config/
 logseq/.logseq/git/
 logseq/.logseq/graphs/
+qutebrowser/.qutebrowser/bookmarks
+qutebrowser/.qutebrowser/quickmarks
