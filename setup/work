@@ -41,6 +41,7 @@ packages=(
   ffmpeg
   pnpm
   uv
+  git-delta
 )
 
 installed_packages=$($BREW_PATH list -1)
