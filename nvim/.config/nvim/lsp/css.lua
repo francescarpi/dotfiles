@@ -4,7 +4,12 @@ return {
   init_options = { provideFormatter = true },
   single_file_support = true,
   settings = {
-    css = { validate = true },
+    css = {
+      validate = true,
+      lint = {
+        unknownAtRules = "ignore",
+      },
+    },
     scss = { validate = true },
     less = { validate = true },
   },

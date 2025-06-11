@@ -24,6 +24,7 @@ local servers = {
   ruff = "ruff",
   rust = "rust-analyzer",
   typescript = "typescript-language-server",
+  tailwindcss = "tailwindcss-language-server",
 }
 
 for file, lsp in pairs(servers) do
