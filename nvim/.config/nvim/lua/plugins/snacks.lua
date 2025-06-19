@@ -53,6 +53,13 @@ return {
         desc = "Grep",
       },
       {
+        "<leader>fG",
+        function()
+          Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") })
+        end,
+        desc = "Grep (from current folder file)",
+      },
+      {
         "<leader>fr",
         function()
           Snacks.picker.resume()
