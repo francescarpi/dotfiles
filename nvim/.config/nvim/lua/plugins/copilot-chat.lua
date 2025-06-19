@@ -176,7 +176,7 @@ return {
     keys = keys,
     opts = {
       prompts = prompts,
-      model = "gemini-2.5-pro",
+      -- model = "o4-mini",
       system_prompt = SYSTEM_PROMPT,
     },
     config = function(_, opts)
