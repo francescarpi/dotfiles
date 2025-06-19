@@ -4,8 +4,8 @@ return {
     dir = "~/dev/neovim/buffon.nvim",
     ---@type BuffonConfig
     opts = {
+      num_pages = 3,
       -- sort_buffers_by_loaded_status = true,
-      -- num_pages = 1,
       -- keybindings = {
       --   goto_next_buffer = "false",
       --   goto_previous_buffer = "false",
