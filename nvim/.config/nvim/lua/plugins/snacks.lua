@@ -53,6 +53,13 @@ return {
         desc = "Grep",
       },
       {
+        "<leader>fd",
+        function()
+          Snacks.picker.diagnostics()
+        end,
+        desc = "Diagnostics",
+      },
+      {
         "<leader>fG",
         function()
           Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") })
