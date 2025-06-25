@@ -48,14 +48,18 @@ return {
       {
         "<leader>fg",
         function()
-          Snacks.picker.grep()
+          Snacks.picker.grep({
+            ignore_dirs = { ".DEPRECATED", ".git", ".cache", ".vscode", "node_modules" },
+          })
         end,
         desc = "Grep",
       },
       {
         "<leader>fd",
         function()
-          Snacks.picker.diagnostics()
+          Snacks.picker.diagnostics({
+            ignore_dirs = { ".DEPRECATED", ".git", ".cache", ".vscode", "node_modules" },
+          })
         end,
         desc = "Diagnostics",
       },
