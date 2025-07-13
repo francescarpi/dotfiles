@@ -19,6 +19,7 @@ return {
         "javascript",
         "python",
         "rust",
+        "styled",
       },
       auto_install = true,
       highlight = {
