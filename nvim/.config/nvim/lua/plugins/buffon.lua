@@ -1,7 +1,7 @@
 return {
   {
-    -- "francescarpi/buffon.nvim",
-    dir = "~/dev/neovim/buffon.nvim",
+    "francescarpi/buffon.nvim",
+    -- dir = "~/dev/neovim/buffon.nvim",
     ---@type BuffonConfig
     opts = {
       num_pages = 2,

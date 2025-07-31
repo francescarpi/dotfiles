@@ -13,7 +13,7 @@ return {
           gitsigns = true,
           treesitter = true,
           harpoon = true,
-          -- buffon = true,
+          buffon = true,
         },
       })
       vim.cmd.colorscheme("catppuccin-mocha")
