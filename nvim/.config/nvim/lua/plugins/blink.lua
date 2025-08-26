@@ -2,6 +2,9 @@ return {
   {
     "saghen/blink.cmp",
     version = "v0.*",
+    dependencies = {
+      "Kaiser-Yang/blink-cmp-avante",
+    },
     opts = {
       keymap = { preset = "default" },
       completion = {
@@ -17,10 +20,18 @@ return {
       },
       signature = { enabled = true },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "avante", "lsp", "path", "snippets", "buffer" },
         per_filetype = {
           ["copilot-chat"] = {},
         },
+        providers = {
+          avante = {
+            module = 'blink-cmp-avante',
+            name = 'Avante',
+            opts = {
+            }
+          }
+        }
       },
     },
   },
