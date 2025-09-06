@@ -1,7 +1,6 @@
 return {
   "nvim-mini/mini.nvim",
   config = function()
-    require("mini.surround").setup()
     require("mini.git").setup()
     require("mini.diff").setup()
     require("mini.comment").setup()
