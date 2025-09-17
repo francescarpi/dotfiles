@@ -61,3 +61,8 @@ vim.keymap.set("n", "k", function()
   end
   return "k"
 end, { expr = true })
+
+vim.keymap.set("n", "<leader>cp", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+  print("Copied relative path: " .. vim.fn.expand("%"))
+end, { desc = "Copy relative file path" })
