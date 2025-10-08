@@ -16,6 +16,7 @@ return {
       picker = {
         enabled = true,
         layout = "ivy_split",
+        exclude = { ".DEPRECATED", ".git", ".cache", ".vscode", "node_modules", "package-lock.json", "pnpm-lock.yaml" },
         win = {
           input = {
             keys = {
@@ -48,18 +49,14 @@ return {
       {
         "<leader>fg",
         function()
-          Snacks.picker.grep({
-            ignore_dirs = { ".DEPRECATED", ".git", ".cache", ".vscode", "node_modules" },
-          })
+          Snacks.picker.grep()
         end,
         desc = "Grep",
       },
       {
         "<leader>fd",
         function()
-          Snacks.picker.diagnostics({
-            ignore_dirs = { ".DEPRECATED", ".git", ".cache", ".vscode", "node_modules" },
-          })
+          Snacks.picker.diagnostics()
         end,
         desc = "Diagnostics",
       },
