@@ -10,7 +10,6 @@
 
 [core]
     pager = delta
-    hooksPath = ~/.git_hooks
     excludesfile = /Users/farpi/.gitignore_global
 
 [interactive]
