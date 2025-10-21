@@ -4,5 +4,37 @@
     "body": [
       "await new Promise((r) => setTimeout(r, $1))"
     ]
+  },
+  "styled-import": {
+    "prefix": "import-styled",
+    "body": [
+      "import { styled, $1 } from '@mui/material'"
+    ]
+  },
+  "local-import": {
+    "prefix": "import-local",
+    "body": [
+      "import { $1 } from './$1'"
+    ]
+  },
+  "export-local": {
+    "prefix": "export-local",
+    "body": [
+      "export { $1 } from './$1'"
+    ]
+  },
+  "export-all": {
+    "prefix": "export-all",
+    "body": [
+      "export * from './$1'"
+    ]
+  },
+  "styled-wrapper": {
+    "prefix": "styled-wrapper",
+    "body": [
+      "import { styled, Box } from '@mui/material'",
+      "",
+      "export const Wrapper = styled(Box)`$1`"
+    ]
   }
 }

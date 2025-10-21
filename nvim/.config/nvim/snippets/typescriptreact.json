@@ -4,5 +4,23 @@
     "body": [
       "await new Promise((r) => setTimeout(r, $1))"
     ]
+  },
+  "import-styles": {
+    "prefix": "import-styles",
+    "body": [
+      "import * as S from './styles'"
+    ]
+  },
+  "import-mui": {
+    "prefix": "import-mui",
+    "body": [
+      "import { $1 } from '@mui/material'"
+    ]
+  },
+  "import-props": {
+    "prefix": "import-props",
+    "body": [
+      "import { type IProps } from './types'"
+    ]
   }
 }
