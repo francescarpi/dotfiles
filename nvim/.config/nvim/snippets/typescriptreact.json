@@ -22,5 +22,11 @@
     "body": [
       "import { type IProps } from './types'"
     ]
+  },
+  "disable-next-line": {
+    "prefix": "disable-next-line",
+    "body": [
+      "// eslint-disable-next-line @typescript-eslint/$1"
+    ]
   }
 }
