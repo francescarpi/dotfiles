@@ -20,6 +20,7 @@ return {
         "python",
         "rust",
         "styled",
+        "http",
       },
       auto_install = true,
       highlight = {
