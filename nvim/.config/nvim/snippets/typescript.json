@@ -36,5 +36,20 @@
       "",
       "export const Wrapper = styled(Box)`$1`"
     ]
+  },
+  "zustand-store": {
+    "prefix": "zustand-store",
+    "body": [
+      "export const use$1State = createSelectors(",
+      " create<IState>()(",
+      "   persist(",
+      "     (_set, _get) => ({",
+      "       foo: true,",
+      "     }),",
+      "     { name: '$2' },",
+      "   ),",
+      " ),",
+      ")"
+    ]
   }
 }
