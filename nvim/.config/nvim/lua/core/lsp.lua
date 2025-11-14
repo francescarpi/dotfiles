@@ -23,6 +23,7 @@ local servers = {
   python = "jedi-language-server",
   ruff = "ruff",
   rust = "rust-analyzer",
+  svelte = "svelte-language-server",
   typescript = "typescript-language-server",
   tailwindcss = "tailwindcss-language-server",
 }
