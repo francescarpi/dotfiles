@@ -5,31 +5,31 @@
       "await new Promise((r) => setTimeout(r, $1))"
     ]
   },
-  "styled-import": {
+  "sty-import": {
     "prefix": "import-styled",
     "body": [
       "import { styled, $1 } from '@mui/material'"
     ]
   },
-  "local-import": {
+  "loc-import": {
     "prefix": "import-local",
     "body": [
       "import { $1 } from './$1'"
     ]
   },
-  "export-local": {
+  "exp-local": {
     "prefix": "export-local",
     "body": [
       "export { $1 } from './$1'"
     ]
   },
-  "export-all": {
+  "exp-all": {
     "prefix": "export-all",
     "body": [
       "export * from './$1'"
     ]
   },
-  "styled-wrapper": {
+  "sty-wrapper": {
     "prefix": "styled-wrapper",
     "body": [
       "import { styled, Box } from '@mui/material'",
