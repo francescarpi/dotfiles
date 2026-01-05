@@ -12,7 +12,7 @@ return {
       indent = { enabled = true },
       image = { enabled = true },
       input = { enabled = true },
-      terminal = { enabled = true },
+      terminal = { enabled = true, cwd = vim.fn.expand("%:p:h") },
       picker = {
         enabled = true,
         layout = "ivy_split",
@@ -98,7 +98,21 @@ return {
       {
         "<leader>t",
         function()
-          Snacks.terminal()
+          local cwd = vim.fn.expand("%:p:h")
+          if cwd == "" then
+            cwd = vim.fn.getcwd()
+          end
+
+          Snacks.terminal("zsh", {
+            cwd = cwd,
+            win = {
+              relative = "editor",
+              width = 0.8,
+              height = 0.7,
+              border = "rounded",
+              padding = { 4, 1, 1, 1 }, -- Top, right, bottom, left padding
+            },
+          })
         end,
         desc = "Terminal",
       },
