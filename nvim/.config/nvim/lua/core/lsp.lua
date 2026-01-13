@@ -11,7 +11,13 @@ vim.lsp.config("*", {
   single_file_support = true,
 })
 
+
+-- How to add a new language server:
+-- 1. Go to https://github.com/neovim/nvim-lspconfig and find within the "lsp" folder the server you want to add
+-- 2. Add your lsp file config in nvim/lsp folder
+
 local servers = {
+  astro = "astro-language-server",
   clang = "clangd",
   css = "css-lsp",
   csharp = "csharp-language-server",
