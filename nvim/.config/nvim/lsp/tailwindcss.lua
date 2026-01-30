@@ -1,6 +1,6 @@
 return {
   cmd = { "tailwindcss-language-server", "--stdio" },
-  filetypes = { "typescriptreact", "css" },
+  filetypes = { "typescriptreact", "css", "astro" },
   single_file_support = true,
   root_markers = {
     "tsconfig.json",
