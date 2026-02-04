@@ -68,7 +68,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
     end
 
-    keymap("gO", function()
+    keymap("<c-a>", function()
       snacks.picker.lsp_symbols()
     end, "Document Symbols")
 
