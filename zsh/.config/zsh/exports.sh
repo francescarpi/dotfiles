@@ -36,3 +36,4 @@ if [ -f "$HOME/.ai.sh" ]; then
   source $HOME/.ai.sh
 fi
 
+export PATH="$PATH:$HOME/.lmstudio/bin"
