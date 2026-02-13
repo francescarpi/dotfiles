@@ -10,26 +10,26 @@ return {
       -- add any opts here
       -- this file can contain specific instructions for your project
       instructions_file = "avante.md",
-      provider = "openai",
+      provider = "lmstudio",
       providers = {
-        -- lmstudio = {
-        --   __inherited_from = "ollama",
-        --   endpoint = "http://127.0.0.1:1234/api/v1",
-        --   model = "google/gemma-3-4b",
-        -- },
         openai = {
           endpoint = "http://127.0.0.1:1234/v1",
           model = "google/gemma-3-4b",
-          api_key_name = "lmstudio_api_key",
+          -- api_key_name = "lmstudio_api_key",
           extra_request_body = {
             max_tokens = 4096,
           },
         },
-        -- ollama = {
-        --   model = "google/gemma-3-4b",
-        --   endpoint = "http://127.0.0.1:1234",
-        --   -- is_env_set = require("avante.providers.ollama").check_endpoint_alive,
-        -- },
+        ollama = {
+          model = "google/gemma-3-4b",
+          endpoint = "http://127.0.0.1:1234",
+        },
+        lmstudio = {
+          __inherited_from = "openai",
+          endpoint = "http://localhost:1234/v1",
+          model = "google/gemma-3-12b:2",
+          api_key_name = "LM_API_KEY",
+        },
       },
     },
     dependencies = {
