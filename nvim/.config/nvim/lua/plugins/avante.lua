@@ -12,18 +12,18 @@ return {
       -- this file can contain specific instructions for your project
       -- instructions_file = "avante.md",
       -- provider = "copilot",
-      provider = "deepseek",
+      provider = "qianwen",
       providers = {
-        deepseek = {
+        qianwen = {
           __inherited_from = "openai",
-          api_key_name = "DEEPSEEK_API_KEY",
+          api_key_name = "LMSTUDIO_API_KEY",
           endpoint = "http://127.0.0.1:1234/v1",
-          model = "deepseek/deepseek-r1-0528-qwen3-8b",
+          model = "qwen/qwen3-coder-30b",
           disable_tools = true,
-          extra_request_body = {
-            temperature = 0,
-            -- max_tokens = 4096,
-          }
+          -- extra_request_body = {
+          --   temperature = 1,
+          --   -- max_tokens = 4096,
+          -- },
         },
       },
     },
@@ -32,12 +32,12 @@ return {
       "MunifTanjim/nui.nvim",
       {
         -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
+        "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
         },
         ft = { "markdown", "Avante" },
       },
     },
-  }
+  },
 }
