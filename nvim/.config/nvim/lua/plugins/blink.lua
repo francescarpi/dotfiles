@@ -3,16 +3,16 @@ return {
     "saghen/blink.cmp",
     version = "v0.*",
     dependencies = {
-      "Kaiser-Yang/blink-cmp-avante",
+      -- "Kaiser-Yang/blink-cmp-avante",
     },
     opts = {
       keymap = { preset = "default" },
       completion = {
         accept = {
           auto_brackets = {
-            enabled = false
-          }
-        }
+            enabled = false,
+          },
+        },
       },
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -20,18 +20,18 @@ return {
       },
       signature = { enabled = true },
       sources = {
-        default = { "avante", "lsp", "path", "snippets", "buffer" },
+        -- default = { "avante", "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets", "buffer" },
         per_filetype = {
-          ["copilot-chat"] = {},
+          -- ["copilot-chat"] = {},
         },
         providers = {
-          avante = {
-            module = 'blink-cmp-avante',
-            name = 'Avante',
-            opts = {
-            }
-          }
-        }
+          -- avante = {
+          --   module = "blink-cmp-avante",
+          --   name = "Avante",
+          --   opts = {},
+          -- },
+        },
       },
     },
   },
