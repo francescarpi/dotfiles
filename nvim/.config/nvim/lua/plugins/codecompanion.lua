@@ -27,7 +27,12 @@ return {
     },
     opts = {
       interactions = {
-        chat = { adapter = "lmstudio" },
+        chat = {
+          adapter = "lmstudio",
+          opts = {
+            completion_provider = "blink",
+          },
+        },
         inline = {
           adapter = "lmstudio",
         },
