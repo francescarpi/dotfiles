@@ -1,7 +1,7 @@
 font-family = "FiraCode Nerd Font Mono Med"
 font-size = 16
 
-# theme = "catppuccin-mocha"
+theme = "Catppuccin Mocha"
 # macos-icon = retro
 
 background-opacity = 0.95
