@@ -2,22 +2,25 @@ font-family = "FiraCode Nerd Font Mono Med"
 font-size = 16
 
 theme = "Catppuccin Mocha"
-# macos-icon = retro
-# macos-titlebar-style = transparent
+macos-icon = xray
+macos-titlebar-style = tabs
+
+mouse-hide-while-typing = true
 
 background-opacity = 0.95
 background-blur-radius = 20
 split-divider-color = #ffec9b
 
 cursor-style = block
-# cursor-color = #ffcc31
-# cursor-text = #000000
+cursor-color = #ffcc31
+cursor-text = #000000
 cursor-invert-fg-bg = true
 shell-integration-features = no-cursor
 
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
+window-decoration = true
 maximize = true
 window-save-state = always
 
@@ -40,4 +43,4 @@ keybind = super+p=previous_tab
 
 keybind = super+shift+b=prompt_surface_title
 
-# keybind = global:cmd+grave_accent=toggle_quick_terminal
+keybind = global:cmd+grave_accent=toggle_quick_terminal
