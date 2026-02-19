@@ -1,3 +1,6 @@
+local adapter = "copilot"
+-- local adapter = "lmstudio"
+
 return {
   {
     "olimorris/codecompanion.nvim",
@@ -28,13 +31,13 @@ return {
     opts = {
       interactions = {
         chat = {
-          adapter = "lmstudio",
+          adapter = adapter,
           opts = {
             completion_provider = "blink",
           },
         },
         inline = {
-          adapter = "lmstudio",
+          adapter = adapter,
         },
       },
       adapters = {
