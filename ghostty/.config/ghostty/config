@@ -43,4 +43,4 @@ keybind = super+p=previous_tab
 
 keybind = super+shift+b=prompt_surface_title
 
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+# keybind = global:cmd+grave_accent=toggle_quick_terminal
