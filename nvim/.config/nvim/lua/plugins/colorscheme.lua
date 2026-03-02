@@ -1,14 +1,13 @@
 return {
   {
     "catppuccin/nvim",
-    -- dir = "/Users/farpi/dev/neovim/nvim",
     name = "catppuccin",
     priority = 1000,
     opts = {},
     config = function()
       require("catppuccin").setup({
         show_end_of_buffer = true,
-        transparent_background = true,
+        transparent_background = false,
         integrations = {
           gitsigns = true,
           treesitter = true,
