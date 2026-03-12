@@ -107,6 +107,21 @@ M.setup = function(config)
 			key = " ",
 			action = wezterm.action.RotatePanes("CounterClockwise"),
 		},
+		{
+			key = "t",
+			mods = "CMD",
+			-- https://github.com/wez/wezterm/issues/909
+			action = wezterm.action_callback(function(win, pane)
+				local mux_win = win:mux_window()
+				for _, item in ipairs(mux_win:tabs_with_info()) do
+					if item.is_active then
+						mux_win:spawn_tab({})
+						win:perform_action(wezterm.action.MoveTab(item.index + 1), pane)
+						return
+					end
+				end
+			end),
+		},
 	}
 
 	for i = 1, 8 do
@@ -142,7 +157,7 @@ M.setup = function(config)
 		})
 	end
 
-  return config
+	return config
 end
 
 return M
