@@ -21,6 +21,7 @@ require("lazy").setup({
   },
   checker = { enabled = false },
   rocks = {
-    hererocks = true
-  }
+    enabled = false,
+    hererocks = true,
+  },
 })
