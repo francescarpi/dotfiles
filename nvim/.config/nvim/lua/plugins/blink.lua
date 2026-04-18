@@ -4,6 +4,13 @@ return {
     version = "v0.*",
     opts = {
       keymap = { preset = "default" },
+      enabled = function()
+        local filetype = vim.bo.filetype
+        if filetype == "minifiles" then
+          return false
+        end
+        return true
+      end,
       completion = {
         accept = {
           auto_brackets = {
