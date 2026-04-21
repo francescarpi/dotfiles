@@ -10,7 +10,6 @@ return {
         transparent_background = false,
         integrations = {
           gitsigns = true,
-          treesitter = true,
           harpoon = true,
           buffon = true,
         },
