@@ -19,6 +19,7 @@ export path=(
   "$HOME/.lspservers/.venv/bin/"
   "$HOME/go/bin/"
   "$HOME/dev/mytime/mytime-go/bin"
+  "$HOME/.dotnet"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
