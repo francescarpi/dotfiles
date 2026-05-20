@@ -10,8 +10,8 @@
 
 [core]
   pager = delta
-  excludesfile = ~/.gitignore_global
-	hooksPath = ~/.config/git/hooks
+  excludesfile = ~/.gitcfg/gitignore.global
+	hooksPath = ~/.gitcfg/hooks
 
 [interactive]
   diffFilter = delta --color-only
@@ -30,6 +30,5 @@
 [diff]
   colorMoved = default
 
-; [commit]
-;     verbose = true
-;
+[include]
+  path = ~/.gitcfg/gitconfig.local
