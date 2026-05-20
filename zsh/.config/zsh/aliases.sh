@@ -3,11 +3,6 @@ alias ll="eza --icons -la"
 alias cd="z"
 alias lg="lazygit"
 
-# Postgres
-alias psql="PGPASSWORD=postgres psql -h localhost -U postgres"
-prdump() { pg_restore --username postgres --role apsl --no-owner --dbname $1 --host localhost $2 }
-prsql() { psql --username apsl --host localhost --dbname $1 -f $2 }
-
 # System
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias clean_pycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
