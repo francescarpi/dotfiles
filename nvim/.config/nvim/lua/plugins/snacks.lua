@@ -1,5 +1,3 @@
-local HOME = vim.loop.os_getenv("HOME")
-
 return {
   {
 
@@ -82,39 +80,11 @@ return {
         desc = "Buffers",
       },
       {
-        "<leader>fj",
-        function()
-          Snacks.picker.grep({ cwd = HOME .. "/.journal" })
-        end,
-        desc = "Grep in journal folder",
-      },
-      {
         "<leader>g",
         function()
           Snacks.lazygit()
         end,
         desc = "Lazygit",
-      },
-      {
-        "<leader>t",
-        function()
-          local cwd = vim.fn.expand("%:p:h")
-          if cwd == "" then
-            cwd = vim.fn.getcwd()
-          end
-
-          Snacks.terminal("zsh", {
-            cwd = cwd,
-            win = {
-              relative = "editor",
-              width = 0.8,
-              height = 0.7,
-              border = "rounded",
-              padding = { 4, 1, 1, 1 }, -- Top, right, bottom, left padding
-            },
-          })
-        end,
-        desc = "Terminal",
       },
     },
   },
