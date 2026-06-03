@@ -38,46 +38,11 @@ return {
     },
     keys = {
       {
-        "<leader>ff",
-        function()
-          Snacks.picker.files({ hidden = true })
-        end,
-        desc = "Find Files",
-      },
-      {
-        "<leader>fg",
-        function()
-          Snacks.picker.grep()
-        end,
-        desc = "Grep",
-      },
-      {
         "<leader>fd",
         function()
           Snacks.picker.diagnostics()
         end,
         desc = "Diagnostics",
-      },
-      {
-        "<leader>fG",
-        function()
-          Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") })
-        end,
-        desc = "Grep (from current folder file)",
-      },
-      {
-        "<leader>fr",
-        function()
-          Snacks.picker.resume()
-        end,
-        desc = "Resume",
-      },
-      {
-        "<leader><leader>",
-        function()
-          Snacks.picker.buffers()
-        end,
-        desc = "Buffers",
       },
       {
         "<leader>g",
