@@ -7,7 +7,7 @@ return {
     config = function()
       require("catppuccin").setup({
         show_end_of_buffer = true,
-        transparent_background = false,
+        transparent_background = true,
         integrations = {
           gitsigns = true,
           harpoon = true,
