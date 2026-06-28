@@ -23,7 +23,6 @@ local servers = {
   csharp = "csharp-language-server",
   dockerfile = "dockerfile-language-server",
   eslint = "eslint-lsp",
-  go = "gopls",
   json = "json-lsp",
   luals = "lua-language-server",
   python = "jedi-language-server",
