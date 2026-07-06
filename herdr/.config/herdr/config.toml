@@ -12,4 +12,4 @@ name = "terminal"
 auto_switch = false
 
 [keys]
-prefix = "ctrl+a"
+prefix = "ctrl+;"
