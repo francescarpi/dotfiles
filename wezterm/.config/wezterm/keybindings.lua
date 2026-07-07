@@ -39,7 +39,7 @@ local function resize_pane(window, pane, direction)
 			"--direction",
 			string.lower(direction),
 			"--amount",
-			"0.1",
+			".01",
 			"--current",
 		})
 	else
