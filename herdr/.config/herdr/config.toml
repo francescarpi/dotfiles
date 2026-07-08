@@ -1,3 +1,5 @@
+onboarding = false
+
 [ui.sound]
 enabled = false
 
@@ -6,7 +8,6 @@ delivery = "herdr"
 
 [ui]
 show_agent_labels_on_pane_borders = true
-onboarding = false
 
 [theme]
 name = "terminal"
