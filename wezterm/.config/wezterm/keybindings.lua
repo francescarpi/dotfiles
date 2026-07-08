@@ -1,87 +1,8 @@
 local wezterm = require("wezterm")
+local actions = require("actions")
 local is_maximized = false
-local herdr_bin = "/opt/homebrew/bin/herdr"
 
 local M = {}
-
-local function is_vim(pane)
-	return pane:get_foreground_process_name():find("n?vim") ~= nil
-end
-
-local function is_herdr(pane)
-	return pane:get_foreground_process_name():find("herdr") ~= nil
-end
-
-local function active_pane(window, pane, pane_direction, vim_direction)
-	if is_vim(pane) then
-		-- look vim navigator plugin
-		-- https://github.com/francescarpi/dotfiles/blob/master/nvim/.config/nvim/lua/plugins/navigator.lua
-		window:perform_action(wezterm.action.SendKey({ mods = "CTRL|SHIFT", key = vim_direction }), pane)
-	elseif is_herdr(pane) then
-		wezterm.background_child_process({
-			herdr_bin,
-			"pane",
-			"focus",
-			"--direction",
-			string.lower(pane_direction),
-			"--current",
-		})
-	else
-		window:perform_action(wezterm.action.ActivatePaneDirection(pane_direction), pane)
-	end
-end
-
-local function resize_pane(window, pane, direction)
-	if is_herdr(pane) then
-		wezterm.background_child_process({
-			herdr_bin,
-			"pane",
-			"resize",
-			"--direction",
-			string.lower(direction),
-			"--amount",
-			".01",
-			"--current",
-		})
-	else
-		window:perform_action(wezterm.action.AdjustPaneSize({ direction, 5 }), pane)
-	end
-end
-
-local function toggle_zoom(window, pane)
-	if is_herdr(pane) then
-		wezterm.background_child_process({
-			herdr_bin,
-			"pane",
-			"zoom",
-			"--toggle",
-			"--current",
-		})
-	else
-		window:perform_action(wezterm.action.TogglePaneZoomState, pane)
-	end
-end
-
-local function split_pane(window, pane, type)
-	if is_herdr(pane) then
-		wezterm.background_child_process({
-			herdr_bin,
-			"pane",
-			"split",
-			"--direction",
-			type,
-			"--current",
-			"--focus",
-		})
-	else
-		wezterm.log_info(type)
-		if type == "right" then
-			window:perform_action(wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }), pane)
-		elseif type == "down" then
-			window:perform_action(wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }), pane)
-		end
-	end
-end
 
 M.setup = function(config)
 	config.send_composed_key_when_right_alt_is_pressed = true
@@ -92,81 +13,93 @@ M.setup = function(config)
 			mods = "CMD",
 			key = "d",
 			action = wezterm.action_callback(function(window, pane)
-				split_pane(window, pane, "right")
+				actions.split_pane(window, pane, "right")
 			end),
 		},
 		{
 			mods = "CMD|SHIFT",
 			key = "d",
 			action = wezterm.action_callback(function(window, pane)
-				split_pane(window, pane, "down")
+				actions.split_pane(window, pane, "down")
 			end),
 		},
-		{ mods = "CMD", key = "p", action = wezterm.action.ActivateTabRelative(-1) },
-		{ mods = "CMD", key = "n", action = wezterm.action.ActivateTabRelative(1) },
+		{
+			mods = "CMD",
+			key = "p",
+			action = wezterm.action_callback(function(window, pane)
+				actions.activate_tab_or_session(window, pane, "previous")
+			end),
+		},
+		{
+			mods = "CMD",
+			key = "n",
+			action = wezterm.action_callback(function(window, pane)
+				actions.activate_tab_or_session(window, pane, "next")
+			end),
+		},
 		{ mods = "CMD", key = "a", action = wezterm.action.ActivateLastTab },
 		{ mods = "CMD", key = "o", action = wezterm.action.PaneSelect({ alphabet = "1234567890" }) },
 		{
 			mods = "CMD",
 			key = "z",
 			action = wezterm.action_callback(function(window, pane)
-				toggle_zoom(window, pane)
+				actions.toggle_zoom(window, pane)
 			end),
 		},
 		{
 			mods = "CMD|SHIFT",
 			key = "k",
 			action = wezterm.action_callback(function(window, pane)
-				resize_pane(window, pane, "Up")
+				actions.resize_pane(window, pane, "Up")
 			end),
 		},
 		{
 			mods = "CMD|SHIFT",
 			key = "j",
 			action = wezterm.action_callback(function(window, pane)
-				resize_pane(window, pane, "Down")
+				actions.resize_pane(window, pane, "Down")
 			end),
 		},
 		{
 			mods = "CMD|SHIFT",
 			key = "l",
 			action = wezterm.action_callback(function(window, pane)
-				resize_pane(window, pane, "Right")
+				actions.resize_pane(window, pane, "Right")
 			end),
 		},
 		{
 			mods = "CMD|SHIFT",
 			key = "h",
 			action = wezterm.action_callback(function(window, pane)
-				resize_pane(window, pane, "Left")
+				actions.resize_pane(window, pane, "Left")
 			end),
 		},
 		{
 			mods = "CMD",
 			key = "h",
 			action = wezterm.action_callback(function(window, pane)
-				active_pane(window, pane, "Left", "h")
+				actions.active_pane(window, pane, "Left", "h")
 			end),
 		},
 		{
 			mods = "CMD",
 			key = "j",
 			action = wezterm.action_callback(function(window, pane)
-				active_pane(window, pane, "Down", "j")
+				actions.active_pane(window, pane, "Down", "j")
 			end),
 		},
 		{
 			mods = "CMD",
 			key = "k",
 			action = wezterm.action_callback(function(window, pane)
-				active_pane(window, pane, "Up", "k")
+				actions.active_pane(window, pane, "Up", "k")
 			end),
 		},
 		{
 			mods = "CMD",
 			key = "l",
 			action = wezterm.action_callback(function(window, pane)
-				active_pane(window, pane, "Right", "l")
+				actions.active_pane(window, pane, "Right", "l")
 			end),
 		},
 		{
