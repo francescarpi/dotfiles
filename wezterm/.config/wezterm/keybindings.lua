@@ -184,22 +184,7 @@ M.setup = function(config)
       mods = "CMD",
       key = tostring(i),
       action = wezterm.action_callback(function(window, pane)
-        local active_tab_index = nil
-        local next_tab_index = i - 1
-
-        local active_tab = window:active_tab()
-        for index, tab in ipairs(window:mux_window():tabs()) do
-          if tab:tab_id() == active_tab:tab_id() then
-            active_tab_index = index - 1
-            break
-          end
-        end
-
-        if active_tab_index == next_tab_index then
-          window:perform_action(wezterm.action.ActivateLastTab, pane)
-        else
-          window:perform_action(wezterm.action.ActivateTab(next_tab_index), pane)
-        end
+        actions.activate_tab_by_index(window, pane, i)
       end),
     })
   end

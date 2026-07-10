@@ -84,6 +84,15 @@ M.tabs = function(workspace_id)
   return data.result.tabs
 end
 
+M.activate_tab_by_id = function(tab_id)
+  wezterm.background_child_process({
+    herdr_bin,
+    "tab",
+    "focus",
+    tab_id,
+  })
+end
+
 M.activate_tab = function(direction)
   local workspace = M.current_workspace()
   if not workspace then
@@ -173,6 +182,26 @@ M.activate_workspace = function(direction)
     "focus",
     target.workspace_id,
   })
+end
+
+M.get_tab_by_index = function(index)
+  local workspace = M.current_workspace()
+  if not workspace then
+    return nil
+  end
+
+  local tabs = M.tabs(workspace.workspace_id)
+  if not tabs then
+    return nil
+  end
+
+  for idx, item in ipairs(tabs) do
+    if idx == index then
+      return item
+    end
+  end
+
+  return nil
 end
 
 return M

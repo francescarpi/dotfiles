@@ -56,6 +56,32 @@ M.activate_tab = function(window, pane, direction)
   end
 end
 
+M.activate_tab_by_index = function(window, pane, index)
+  if utils.is_herdr(pane) then
+    local tab = herdr.get_tab_by_index(index)
+    if tab then
+      herdr.activate_tab_by_id(tab.tab_id)
+    end
+  else
+    local active_tab_index = nil
+    local next_tab_index = index - 1
+
+    local active_tab = window:active_tab()
+    for index, tab in ipairs(window:mux_window():tabs()) do
+      if tab:tab_id() == active_tab:tab_id() then
+        active_tab_index = index - 1
+        break
+      end
+    end
+
+    if active_tab_index == next_tab_index then
+      window:perform_action(wezterm.action.ActivateLastTab, pane)
+    else
+      window:perform_action(wezterm.action.ActivateTab(next_tab_index), pane)
+    end
+  end
+end
+
 M.new_tab = function(window, pane)
   if utils.is_herdr(pane) then
     herdr.new_tab()
