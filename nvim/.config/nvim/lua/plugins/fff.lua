@@ -1,9 +1,5 @@
 return {
   'dmtrKovalenko/fff.nvim',
-  build = function()
-    -- downloads a prebuilt binary or falls back to cargo build
-    require("fff.download").download_or_build_binary()
-  end,
   -- for nixos:
   -- build = "nix run .#release",
   opts = {
@@ -12,7 +8,13 @@ return {
       show_scores = true,
     },
   },
-  lazy = false, -- the plugin lazy-initialises itself
+  lazy = true,
+  event = "VeryLazy",
+  build = function()
+    -- downloads a prebuilt binary or falls back to cargo build
+    -- run manually with :Lazy build fff.nvim
+    require("fff.download").download_or_build_binary()
+  end,
   keys = {
     { "ff", function() require('fff').find_files() end, desc = 'FFFind files' },
     { "fg", function() require('fff').live_grep() end,  desc = 'LiFFFe grep' },

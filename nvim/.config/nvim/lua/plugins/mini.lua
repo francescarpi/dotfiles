@@ -1,5 +1,6 @@
 return {
   "nvim-mini/mini.nvim",
+  lazy = false,
   config = function()
     require("mini.git").setup()
     require("mini.diff").setup()
@@ -8,14 +9,15 @@ return {
     require("mini.cursorword").setup()
 
     -- Hipatterns
-    local hipatterns = require("mini.hipatterns")
     require("mini.hipatterns").setup({
       highlighters = {
         todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
         fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
         note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-        hex_color = hipatterns.gen_highlighter.hex_color(),
       },
+      stop = function(buf_id)
+        return vim.api.nvim_buf_line_count(buf_id) > 1000
+      end,
     })
 
     -- Mini files

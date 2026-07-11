@@ -29,10 +29,10 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 
 -- Keep signcolumn on by default (at the left)
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "auto"
 
 -- Decrease update time
-vim.opt.updatetime = 50
+vim.opt.updatetime = 150
 
 -- Decrease mapped sequence wait time
 vim.opt.timeoutlen = 300

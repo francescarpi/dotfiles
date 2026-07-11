@@ -3,11 +3,12 @@ return {
 
     "folke/snacks.nvim",
     priority = 1000,
-    lazy = false,
+    lazy = true,
+    event = "VeryLazy",
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
-      indent = { enabled = true },
+      indent = { enabled = false },
       image = { enabled = true },
       input = { enabled = true },
       terminal = { enabled = true, cwd = vim.fn.expand("%:p:h") },
@@ -24,7 +25,7 @@ return {
         },
       },
       quickfile = { enabled = true },
-      scope = { enabled = true },
+      scope = { enabled = false },
       statuscolumn = { enabled = true },
       words = { enabled = false },
       lazygit = {

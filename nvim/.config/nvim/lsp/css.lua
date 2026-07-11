@@ -14,7 +14,7 @@ return {
     less = { validate = true },
   },
   root_markers = {
-    "pacjage.json",
+    "package.json",
     ".git",
   },
 }
