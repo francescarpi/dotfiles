@@ -1,6 +1,7 @@
 return {
   {
     "github/copilot.vim",
+    lazy = false,
     opts = {},
     dependencies = {},
     config = function()

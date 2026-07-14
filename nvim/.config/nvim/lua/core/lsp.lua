@@ -33,16 +33,51 @@ local servers = {
   tailwindcss = "tailwindcss-language-server",
 }
 
-for file, lsp in pairs(servers) do
-  table.insert(M.files, file)
-  table.insert(M.language_servers, lsp)
+for name, _ in pairs(servers) do
+  table.insert(M.files, name)
+  table.insert(M.language_servers, name)
 end
 
 ----------------------------------------------------------------------------
--- LSP Servers
--- Config files are in the `lsp` folder
+-- LSP Servers dispatch by filetype
+-- Only enable the relevant servers when a buffer with that filetype is opened
 ----------------------------------------------------------------------------
+
+-- filetype -> list of servers to enable for that filetype
+local ft_servers = {
+  astro = { "astro", "eslint", "tailwindcss" },
+  c = { "clang" },
+  cs = { "csharp" },
+  css = { "css" },
+  scss = { "css" },
+  less = { "css" },
+  dockerfile = { "dockerfile" },
+  javascript = { "typescript", "eslint" },
+  javascriptreact = { "typescript", "eslint" },
+  ["javascript.jsx"] = { "typescript", "eslint" },
+  typescript = { "typescript", "eslint" },
+  typescriptreact = { "typescript", "eslint", "tailwindcss" },
+  ["typescript.tsx"] = { "typescript", "eslint", "tailwindcss" },
+  vue = { "eslint" },
+  svelte = { "svelte", "eslint" },
+  json = { "json" },
+  jsonc = { "json" },
+  lua = { "luals" },
+  python = { "ruff", "python" },
+  rust = { "rust" },
+}
+
 vim.lsp.enable(M.files)
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("lsp-ft-dispatch", { clear = true }),
+  callback = function(args)
+    local servers_to_enable = ft_servers[args.match]
+    if servers_to_enable then
+      vim.lsp.enable(servers_to_enable)
+    end
+  end,
+})
 
 ----------------------------------------------------------------------------
 -- Diagnostics

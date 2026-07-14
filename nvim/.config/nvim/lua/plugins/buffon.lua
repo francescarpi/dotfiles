@@ -1,6 +1,7 @@
 return {
   {
     "francescarpi/buffon.nvim",
+    lazy = false,
     -- dir = "~/dev/cesc/buffon.nvim",
     ---@type BuffonConfig
     opts = {
