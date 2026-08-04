@@ -20,6 +20,7 @@ export path=(
   "$HOME/go/bin/"
   "$HOME/dev/mytime/mytime-go/bin"
   "$HOME/.dotnet"
+  "$HOME/.dotnet/tools"
 )
 export EDITOR=nvim
 export LANG=es_ES.UTF-8
@@ -30,6 +31,7 @@ export HOMEBREW_PREFIX=$(brew --prefix)
 export JAVA_HOME=/opt/homebrew/Cellar/openjdk/18/
 export KUBECTX_IGNORE_FZF=1
 export ANTIDOTE_HOME=~/.cache/antidote
+export DOTNET_ROOT="$HOME/.dotnet"
 
 if [ -f "$HOME/.ai.sh" ]; then
   # source it
