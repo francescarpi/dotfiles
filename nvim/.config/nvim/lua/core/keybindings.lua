@@ -66,3 +66,11 @@ vim.keymap.set("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
   print("Copied relative path: " .. vim.fn.expand("%"))
 end, { desc = "Copy relative file path" })
+
+map_i("<C-y>", function()
+  if vim.fn.pumvisible() == 1 then
+    vim.api.nvim_select_popupmenu_item(0, true, true, {})
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-y>", true, false, true), "n", false)
+  end
+end, "Completion: Accept first item (or insert ^Y)")
