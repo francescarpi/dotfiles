@@ -61,5 +61,9 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
--- Wrap lines
--- vim.opt.wrap = false
+-- Autocompletion/Suggestions
+vim.o.autocomplete = true
+vim.opt.complete:append("o")
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.o.pumheight = 5
+vim.o.pumborder = "rounded"

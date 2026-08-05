@@ -6,11 +6,6 @@ local M = {
 ----------------------------------------------------------------------------
 -- Common for all LSPs
 ----------------------------------------------------------------------------
-vim.lsp.config("*", {
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
-  single_file_support = true,
-})
-
 -- How to add a new language server:
 -- 1. Go to https://github.com/neovim/nvim-lspconfig and find within the "lsp" folder the server you want to add
 -- 2. Add your lsp file config in nvim/lsp folder
@@ -93,27 +88,28 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", {}),
   callback = function(ev)
-    -- Keymaps
-    local snacks = require("snacks")
-    local keymap = function(keys, func, desc, mode)
-      if mode == nil then
-        mode = "n"
-      end
-      vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
+    -- Attach LSP completions
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
 
-    keymap("gl", function()
+    -- Register keybindings
+    local snacks = require("snacks")
+
+    vim.keymap.set("n", "gl", function()
       snacks.picker.lsp_symbols()
-    end, "Document Symbols")
+    end, { buffer = ev.buf, desc = "LSP: Document symbols" })
 
-    keymap("gd", function()
+    vim.keymap.set("n", "gd", function()
       snacks.picker.lsp_definitions()
-    end, "Goto Definition")
+    end, { buffer = ev.buf, desc = "LSP: Goto definition" })
 
-    keymap("<leader>l", vim.lsp.buf.hover, "Documentation")
-    keymap("<c-l>", vim.lsp.buf.signature_help, "Signature Help", "i")
+    vim.keymap.set("n", "<leader>l", vim.lsp.buf.hover, { buffer = ev.buf, desc = "LSP: Documentation" })
 
-    keymap("<leader>x", vim.diagnostic.open_float, "Show diagnostic")
+    vim.keymap.set("i", "<c-l>", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "LSP: Signature help" })
+
+    vim.keymap.set("n", "<leader>x", vim.diagnostic.open_float, { buffer = ev.buf, desc = "LSP: Show diagnostic" })
   end,
 })
 
