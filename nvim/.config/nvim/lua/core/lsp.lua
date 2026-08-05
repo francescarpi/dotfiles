@@ -1,94 +1,106 @@
-local M = {
-  files = {},
-  language_servers = {},
-}
-
-----------------------------------------------------------------------------
--- Common for all LSPs
-----------------------------------------------------------------------------
--- How to add a new language server:
--- 1. Go to https://github.com/neovim/nvim-lspconfig and find within the "lsp" folder the server you want to add
--- 2. Add your lsp file config in nvim/lsp folder
-
+-- -------------------------------------------------------
+-- LSP Servers List
+-- -------------------------------------------------------
 local servers = {
-  astro = "astro-language-server",
-  clang = "clangd",
-  css = "css-lsp",
-  csharp = "csharp-language-server",
-  dockerfile = "dockerfile-language-server",
-  eslint = "eslint-lsp",
-  json = "json-lsp",
-  luals = "lua-language-server",
-  python = "jedi-language-server",
-  ruff = "ruff",
-  rust = "rust-analyzer",
-  svelte = "svelte-language-server",
-  typescript = "typescript-language-server",
-  tailwindcss = "tailwindcss-language-server",
-  roslyn = "roslyn-language-server",
+  lua_ls = {
+    mason = "lua-language-server",
+    settings = {
+      Lua = {
+        diagnostics = {
+          disable = {
+            "missing-fields",
+            "incomplete-signature-doc",
+            "undefined-global",
+          },
+          unusedLocalExclude = { "_*" },
+        },
+        runtime = { version = "LuaJIT" },
+      },
+    },
+  },
+  astro = {
+    mason = "astro-language-server",
+  },
+  cssls = {
+    mason = "css-lsp",
+    settings = {
+      css = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore",
+        },
+      },
+      scss = { validate = true },
+      less = { validate = true },
+    },
+  },
+  ts_ls = {
+    mason = "typescript-language-server",
+  },
+  tailwindcss = {
+    mason = "tailwindcss-language-server",
+    settings = {
+      tailwindCSS = {
+        validate = true,
+        lint = {
+          cssConflict = "warning",
+          invalidApply = "error",
+          invalidScreen = "error",
+          invalidVariant = "error",
+          invalidConfigPath = "error",
+          invalidTailwindDirective = "error",
+          recommendedVariantOrder = "warning",
+        },
+        classAttributes = {
+          "class",
+          "className",
+          "class:list",
+          "classList",
+          "ngClass",
+        },
+        includeLanguages = {
+          eelixir = "html-eex",
+          eruby = "erb",
+          templ = "html",
+          htmlangular = "html",
+        },
+      },
+    },
+  },
+  roslyn_ls = {
+    mason = "roslyn-language-server",
+  },
 }
 
-for name, _ in pairs(servers) do
-  table.insert(M.files, name)
-  table.insert(M.language_servers, name)
+-- -------------------------------------------------------
+-- LSP Module Configuration
+-- -------------------------------------------------------
+local M = {
+  mason = {},
+  lsp = {},
+}
+
+for name, data in pairs(servers) do
+  table.insert(M.lsp, name)
+  table.insert(M.mason, data.mason)
+
+  if data.settings ~= nil then
+    vim.lsp.config(name, {
+      settings = data.settings,
+    })
+  end
 end
 
-----------------------------------------------------------------------------
--- LSP Servers dispatch by filetype
--- Only enable the relevant servers when a buffer with that filetype is opened
-----------------------------------------------------------------------------
+vim.lsp.enable(M.lsp)
 
--- filetype -> list of servers to enable for that filetype
-local ft_servers = {
-  astro = { "astro", "eslint", "tailwindcss" },
-  c = { "clang" },
-  cs = { "csharp" },
-  css = { "css" },
-  scss = { "css" },
-  less = { "css" },
-  dockerfile = { "dockerfile" },
-  javascript = { "typescript", "eslint" },
-  javascriptreact = { "typescript", "eslint" },
-  ["javascript.jsx"] = { "typescript", "eslint" },
-  typescript = { "typescript", "eslint" },
-  typescriptreact = { "typescript", "eslint", "tailwindcss" },
-  ["typescript.tsx"] = { "typescript", "eslint", "tailwindcss" },
-  vue = { "eslint" },
-  svelte = { "svelte", "eslint" },
-  json = { "json" },
-  jsonc = { "json" },
-  lua = { "luals" },
-  python = { "ruff", "python" },
-  rust = { "rust" },
-}
-
-vim.lsp.enable(M.files)
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("lsp-ft-dispatch", { clear = true }),
-  callback = function(args)
-    local servers_to_enable = ft_servers[args.match]
-    if servers_to_enable then
-      vim.lsp.enable(servers_to_enable)
-    end
-  end,
-})
-
-----------------------------------------------------------------------------
--- Diagnostics
-----------------------------------------------------------------------------
 vim.diagnostic.config({
   virtual_text = { current_line = true },
 })
 
-----------------------------------------------------------------------------
--- LSP Attach
--- This is where we set up the keymaps for LSP
-----------------------------------------------------------------------------
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", {}),
   callback = function(ev)
-    -- Attach LSP completions
+    -- Enables completion if it's allowed by the LSP
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     if client:supports_method("textDocument/completion") then
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
