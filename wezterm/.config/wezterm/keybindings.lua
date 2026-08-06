@@ -25,28 +25,28 @@ M.setup = function(config)
 		},
 		{
 			mods = "CMD",
-			key = "[",
+			key = "p",
 			action = wezterm.action_callback(function(window, pane)
 				actions.activate_tab(window, pane, "previous")
 			end),
 		},
 		{
 			mods = "CMD",
-			key = "]",
+			key = "n",
 			action = wezterm.action_callback(function(window, pane)
 				actions.activate_tab(window, pane, "next")
 			end),
 		},
 		{
-			mods = "CMD|OPT",
-			key = "]",
+			mods = "CMD|SHIFT",
+			key = "p",
 			action = wezterm.action_callback(function(_, pane)
 				actions.activate_workspace(pane, "previous")
 			end),
 		},
 		{
-			mods = "CMD|OPT",
-			key = "[",
+			mods = "CMD|SHIFT",
+			key = "n",
 			action = wezterm.action_callback(function(_, pane)
 				actions.activate_workspace(pane, "next")
 			end),

@@ -73,9 +73,9 @@ M.activate_tab_by_index = function(window, pane, index)
 		local next_tab_index = index - 1
 
 		local active_tab = window:active_tab()
-		for index, tab in ipairs(window:mux_window():tabs()) do
+		for idx, tab in ipairs(window:mux_window():tabs()) do
 			if tab:tab_id() == active_tab:tab_id() then
-				active_tab_index = index - 1
+				active_tab_index = idx - 1
 				break
 			end
 		end
