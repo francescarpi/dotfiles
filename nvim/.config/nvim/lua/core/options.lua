@@ -67,3 +67,12 @@ vim.opt.complete:append("o")
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.o.pumheight = 5
 vim.o.pumborder = "rounded"
+
+-- Read automatically changes out of nvim
+vim.o.autoread = true
+
+-- Back to last window
+vim.o.laststatus = 3
+
+-- Avoid multiple lines for commands
+vim.o.cmdheight = 0
