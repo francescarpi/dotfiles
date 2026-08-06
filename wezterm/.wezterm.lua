@@ -19,6 +19,4 @@ sessions.apply_to_config(config, {
 	git_branch_warn = true,
 })
 
-wezterm.log_info(config)
-
 return config
