@@ -70,6 +70,9 @@ local servers = {
   roslyn_ls = {
     mason = "roslyn-language-server",
   },
+  gopls = {
+    mason = "gopls",
+  },
 }
 
 -- -------------------------------------------------------
