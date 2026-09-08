@@ -1,0 +1,54 @@
+return {
+  {
+    "rcarriga/nvim-dap-ui",
+    lazy = false,
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    opts = {},
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = vim.fn.expand("~/.local/bin/netcoredbg"),
+        args = { "--interpreter=vscode" },
+      }
+
+      dap.configurations.cs = {
+        {
+          type = "coreclr",
+          name = "attach",
+          request = "attach",
+          processId = function()
+            return require("dap.utils").pick_process({})
+          end,
+        },
+      }
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+
+      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "DAP breakpoint" })
+      vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "DAP continue/start" })
+      vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "DAP step over" })
+      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP step into" })
+      vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "DAP repl" })
+      vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "DAP terminate" })
+
+      dapui.setup()
+    end,
+  },
+}
