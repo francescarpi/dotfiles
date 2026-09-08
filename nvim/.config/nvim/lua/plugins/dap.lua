@@ -10,6 +10,7 @@ return {
 
       dap.adapters.coreclr = {
         type = "executable",
+        -- requires compile sources: https://github.com/Samsung/netcoredbg
         command = vim.fn.expand("~/.local/bin/netcoredbg"),
         args = { "--interpreter=vscode" },
       }
