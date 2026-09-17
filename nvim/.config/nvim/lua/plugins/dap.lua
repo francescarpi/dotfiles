@@ -18,7 +18,7 @@ return {
       dap.configurations.cs = {
         {
           type = "coreclr",
-          name = "attach",
+          name = "Attach",
           request = "attach",
           processId = function()
             return require("dap.utils").pick_process({})
