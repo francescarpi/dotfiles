@@ -8,6 +8,10 @@ local formatters = {
   typescript = { "prettier" },
 }
 
+local format_on_save_excluded_filetypes = {
+  "cs",
+}
+
 local function find_in_ancestors(filename, startpath)
   local dir = uv.fs_realpath(startpath or vim.fn.getcwd())
   while dir do
@@ -17,7 +21,9 @@ local function find_in_ancestors(filename, startpath)
       return candidate
     end
     local parent = dir:match("(.+)/[^/]+$")
-    if parent == dir then break end
+    if parent == dir then
+      break
+    end
     dir = parent
   end
   return nil
@@ -25,7 +31,9 @@ end
 
 local function should_format(bufnr)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
-  if bufname == "" then return true end
+  if bufname == "" then
+    return true
+  end
 
   if find_in_ancestors(".noformat", bufname) then
     return false
@@ -52,6 +60,10 @@ return {
       notify_on_error = false,
       formatters_by_ft = formatters,
       format_on_save = function(bufnr)
+        if vim.tbl_contains(format_on_save_excluded_filetypes, vim.bo[bufnr].filetype) then
+          return nil
+        end
+
         if should_format(bufnr) then
           return { timeout_ms = 500, lsp_fallback = true }
         else
