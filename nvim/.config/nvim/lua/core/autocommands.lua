@@ -29,3 +29,24 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("treesitter-folds", { clear = true }),
+  callback = function(ev)
+    local ok, parser = pcall(vim.treesitter.get_parser, ev.buf)
+    if not ok or not parser then
+      vim.notify(
+        string.format(
+          "[treesitter-folds] parser not installed for '%s' — run :TSInstall %s",
+          vim.bo[ev.buf].filetype,
+          vim.bo[ev.buf].filetype
+        ),
+        vim.log.levels.WARN
+      )
+      return
+    end
+    vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0].foldmethod = "expr"
+    vim.wo[0].foldenable = false
+  end,
+})
