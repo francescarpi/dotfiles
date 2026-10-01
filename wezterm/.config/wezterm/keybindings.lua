@@ -41,15 +41,23 @@ M.setup = function(config)
 		{
 			mods = "CMD",
 			key = "p",
-			action = wezterm.action_callback(function(_, pane)
-				actions.activate_workspace(pane, "previous")
+			action = wezterm.action_callback(function(window, pane)
+				if utils.is_herdr(pane) then
+					actions.activate_workspace(pane, "previous")
+				else
+					actions.activate_tab(window, pane, "previous")
+				end
 			end),
 		},
 		{
 			mods = "CMD",
 			key = "n",
-			action = wezterm.action_callback(function(_, pane)
-				actions.activate_workspace(pane, "next")
+			action = wezterm.action_callback(function(window, pane)
+				if utils.is_herdr(pane) then
+					actions.activate_workspace(pane, "next")
+				else
+					actions.activate_tab(window, pane, "next")
+				end
 			end),
 		},
 		{
