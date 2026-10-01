@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local actions = require("actions")
+local utils = require("utils")
 local is_maximized = false
 
 local M = {}
@@ -24,28 +25,28 @@ M.setup = function(config)
 			end),
 		},
 		{
-			mods = "CMD",
+			mods = "CMD|SHIFT",
 			key = "p",
 			action = wezterm.action_callback(function(window, pane)
 				actions.activate_tab(window, pane, "previous")
 			end),
 		},
 		{
-			mods = "CMD",
+			mods = "CMD|SHIFT",
 			key = "n",
 			action = wezterm.action_callback(function(window, pane)
 				actions.activate_tab(window, pane, "next")
 			end),
 		},
 		{
-			mods = "CMD|SHIFT",
+			mods = "CMD",
 			key = "p",
 			action = wezterm.action_callback(function(_, pane)
 				actions.activate_workspace(pane, "previous")
 			end),
 		},
 		{
-			mods = "CMD|SHIFT",
+			mods = "CMD",
 			key = "n",
 			action = wezterm.action_callback(function(_, pane)
 				actions.activate_workspace(pane, "next")
@@ -186,16 +187,24 @@ M.setup = function(config)
 			mods = "CMD",
 			key = tostring(i),
 			action = wezterm.action_callback(function(window, pane)
-				actions.activate_tab_by_index(window, pane, i)
+				if utils.is_herdr(pane) then
+					actions.activate_workspace_by_index(pane, i)
+				else
+					actions.activate_tab_by_index(window, pane, i)
+				end
 			end),
 		})
 
 		-- CMD + OPT + number => goto workspace
 		table.insert(config.keys, {
-			mods = "CMD|OPT",
+			mods = "CMD|SHIFT",
 			key = tostring(i),
 			action = wezterm.action_callback(function(window, pane)
-				actions.activate_workspace_by_index(pane, i)
+				if utils.is_herdr(pane) then
+					actions.activate_tab_by_index(window, pane, i)
+				else
+					actions.activate_workspace_by_index(pane, i)
+				end
 			end),
 		})
 	end
