@@ -4,6 +4,8 @@
 
 [alias]
   st = status
+	wip = "!f() { if [ -z \"$(git status --porcelain)\" ]; then echo \"nothing to wip (clean tree)\"; return 0; fi; git add -A && git commit -m \"wip: WIP $(date +%Y-%m-%d\\ %H:%M:%S)\"; }; f"
+	wiplog = log --oneline --grep=\"^wip:\" -20
 
 [push]
   autoSetupRemote = true
