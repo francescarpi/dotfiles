@@ -9,7 +9,7 @@ export path=(
   "/opt/homebrew/bin"
   "$HOME/.local/bin/"
   "$HOME/.bin/"
-  "/opt/homebrew/Cellar/openjdk/17.0.2/bin/"
+  "/opt/homebrew/opt/openjdk/bin"
   "$HOME/.cargo/bin"
   "/usr/local/opt/llvm/bin"
   "$HOME/.bun/bin"
@@ -28,7 +28,7 @@ export LC_CTYPE=es_ES.UTF-8
 export LC_ALL=es_ES.UTF-8
 export WORKON_HOME="$HOME/.virtualenvs"
 export HOMEBREW_PREFIX=$(brew --prefix)
-export JAVA_HOME=/opt/homebrew/Cellar/openjdk/18/
+export JAVA_HOME=/opt/homebrew/opt/openjdk
 export KUBECTX_IGNORE_FZF=1
 export ANTIDOTE_HOME=~/.cache/antidote
 export DOTNET_ROOT="$HOME/.dotnet"
