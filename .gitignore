@@ -16,3 +16,4 @@ qutebrowser/.qutebrowser/bookmarks
 qutebrowser/.qutebrowser/quickmarks
 gitconfig.local
 .DS_Store
+vscode/Library
