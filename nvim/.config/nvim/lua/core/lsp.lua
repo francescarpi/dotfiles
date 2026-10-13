@@ -73,6 +73,16 @@ local servers = {
   gopls = {
     mason = "gopls",
   },
+  clangd = {
+    mason = "clangd",
+    cmd = {
+      "clangd",
+      "--query-driver="
+        .. vim.fn.expand("~") .. "/.platformio/packages/**,"
+        .. vim.fn.expand("~") .. "/.espressif/tools/**,"
+        .. "/opt/homebrew/bin/*,/usr/bin/*",
+    },
+  },
 }
 
 -- -------------------------------------------------------
@@ -87,10 +97,15 @@ for name, data in pairs(servers) do
   table.insert(M.lsp, name)
   table.insert(M.mason, data.mason)
 
-  if data.settings ~= nil then
-    vim.lsp.config(name, {
-      settings = data.settings,
-    })
+  local cfg = {}
+  for key, value in pairs(data) do
+    if key ~= "mason" then
+      cfg[key] = value
+    end
+  end
+
+  if next(cfg) ~= nil then
+    vim.lsp.config(name, cfg)
   end
 end
 
