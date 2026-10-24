@@ -10,7 +10,6 @@ return {
       bigfile = { enabled = true },
       indent = { enabled = false },
       image = { enabled = true },
-      input = { enabled = true },
       terminal = { enabled = true, cwd = vim.fn.expand("%:p:h") },
       picker = {
         enabled = true,
