@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local actions = require("actions")
 local utils = require("utils")
 local is_maximized = false
+local tuios = require("tuios")
 
 local M = {}
 
@@ -14,14 +15,22 @@ M.setup = function(config)
 			mods = "CMD",
 			key = "d",
 			action = wezterm.action_callback(function(window, pane)
-				actions.split_pane(window, pane, "right")
+				if utils.is_tuios(pane) then
+					tuios.split_vertical()
+				else
+					actions.split_pane(window, pane, "right")
+				end
 			end),
 		},
 		{
 			mods = "CMD|SHIFT",
 			key = "d",
 			action = wezterm.action_callback(function(window, pane)
-				actions.split_pane(window, pane, "down")
+				if utils.is_tuios(pane) then
+					tuios.split_horizontal()
+				else
+					actions.split_pane(window, pane, "down")
+				end
 			end),
 		},
 		{
