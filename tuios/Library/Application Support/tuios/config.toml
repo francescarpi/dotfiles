@@ -135,3 +135,6 @@ sections = "sessions:25,terminals,agents:34,git"
 [appearance.sidebar.right]
 width = 26
 enabled = true
+
+[spotlight]
+enabled = false
