@@ -138,3 +138,6 @@ enabled = true
 
 [spotlight]
 enabled = false
+
+[keybindings.global]
+command_palette = ["ctrl+d"]
