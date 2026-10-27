@@ -23,9 +23,11 @@ end
 M.activate_window = function(direction)
 	wezterm.background_child_process({
 		tuios_bin,
-		"focus-window",
+		"pane",
+		"focus",
 		"--direction",
 		direction,
+		"--current",
 	})
 end
 
