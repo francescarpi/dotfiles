@@ -122,8 +122,12 @@ daemon = true
 
 [appearance]
 nvim_navigation = true
-theme = ""
+theme = "catppuccin_mocha"
 motion = "full"
+dockbar_position = "top"
+show_clock = false
+show_cpu = true
+show_ram = true
 
 [appearance.sidebar]
 file_icons = true
@@ -141,3 +145,6 @@ enabled = false
 
 [keybindings.global]
 command_palette = ["ctrl+alt+p"]
+
+[agents]
+enabled = true
