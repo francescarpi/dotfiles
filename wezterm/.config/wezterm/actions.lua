@@ -22,6 +22,8 @@ end
 M.resize_pane = function(window, pane, direction)
 	if utils.is_herdr(pane) then
 		herdr.resize_pane(string.lower(direction))
+	elseif utils.is_tuios(pane) then
+		tuios.resize_pane(string.lower(direction))
 	else
 		window:perform_action(wezterm.action.AdjustPaneSize({ direction, 5 }), pane)
 	end

@@ -29,6 +29,19 @@ M.activate_window = function(direction)
 	})
 end
 
+M.resize_pane = function(direction)
+	wezterm.background_child_process({
+		tuios_bin,
+		"pane",
+		"resize",
+		"--direction",
+		direction,
+		"--amount",
+		".05",
+		"--current",
+	})
+end
+
 M.select_workspace = function(num, opts)
 	local allow_toggle = opts == nil or opts.allow_toggle ~= false
 	local current = M.get_current_workspace()
