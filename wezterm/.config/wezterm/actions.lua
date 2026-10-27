@@ -1,140 +1,258 @@
 local utils = require("utils")
 local wezterm = require("wezterm")
-local herdr = require("herdr")
+local backend = require("backend")
 local tuios = require("tuios")
 
 local M = {}
 
-M.active_pane = function(window, pane, pane_direction, vim_direction)
-	if utils.is_vim(pane) then
-		-- look vim navigator plugin
-		-- https://github.com/francescarpi/dotfiles/blob/master/nvim/.config/nvim/lua/plugins/navigator.lua
-		window:perform_action(wezterm.action.SendKey({ mods = "CTRL|SHIFT", key = vim_direction }), pane)
-	elseif utils.is_herdr(pane) then
-		herdr.activate_pane(string.lower(pane_direction))
-	elseif utils.is_tuios(pane) then
-		tuios.activate_window(string.lower(pane_direction))
-	else
-		window:perform_action(wezterm.action.ActivatePaneDirection(pane_direction), pane)
+local function activate_tab_action(window, index)
+	local next_tab_index = index - 1
+	local active_tab = window:active_tab()
+
+	for idx, tab in ipairs(window:mux_window():tabs()) do
+		if tab:tab_id() == active_tab:tab_id() then
+			if (idx - 1) == next_tab_index then
+				return wezterm.action.ActivateLastTab
+			end
+			break
+		end
 	end
+
+	return wezterm.action.ActivateTab(next_tab_index)
+end
+
+M.dispatch = {
+	active_pane = {
+		vim = function(_, _, direction, vim_direction)
+			return wezterm.action.SendKey({ mods = "CTRL|SHIFT", key = vim_direction })
+		end,
+		herdr = function(_, _, direction)
+			backend.pane_focus("herdr", string.lower(direction))
+		end,
+		tuios = function(_, _, direction)
+			backend.pane_focus("tuios", string.lower(direction))
+		end,
+		wezterm = function(_, _, direction)
+			return wezterm.action.ActivatePaneDirection(direction)
+		end,
+	},
+
+	resize_pane = {
+		herdr = function(_, _, direction)
+			backend.pane_resize("herdr", string.lower(direction))
+		end,
+		tuios = function(_, _, direction)
+			backend.pane_resize("tuios", string.lower(direction))
+		end,
+		wezterm = function(_, _, direction)
+			return wezterm.action.AdjustPaneSize({ direction, 5 })
+		end,
+	},
+
+	toggle_zoom = {
+		herdr = function()
+			backend.pane_zoom("herdr")
+		end,
+		tuios = function()
+			backend.pane_zoom("tuios")
+		end,
+		wezterm = function()
+			return wezterm.action.TogglePaneZoomState
+		end,
+	},
+
+	split_pane = {
+		herdr = function(_, _, type)
+			backend.pane_split("herdr", type)
+		end,
+		tuios = function(_, _, type)
+			tuios.split_window(type == "right" and "vertical" or "horizontal")
+		end,
+		wezterm = function(_, _, type)
+			if type == "right" then
+				return wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" })
+			end
+			return wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" })
+		end,
+	},
+
+	rotate_panes = {
+		herdr = function()
+			backend.pane_swap("herdr", "left")
+		end,
+		tuios = function()
+			tuios.rotate_layout()
+		end,
+		wezterm = function()
+			return wezterm.action.RotatePanes("CounterClockwise")
+		end,
+	},
+
+	activate_tab = {
+		herdr = function(_, _, direction)
+			backend.activate_tab("herdr", direction)
+		end,
+		tuios = function(_, _, direction)
+			tuios.switch_session_relative(direction)
+		end,
+		wezterm = function(_, _, direction)
+			if direction == "previous" then
+				return wezterm.action.ActivateTabRelative(-1)
+			end
+			return wezterm.action.ActivateTabRelative(1)
+		end,
+	},
+
+	activate_workspace = {
+		herdr = function(_, _, direction)
+			backend.activate_workspace("herdr", direction)
+		end,
+		tuios = function(_, _, direction)
+			tuios.activate_workspace(direction)
+		end,
+	},
+
+	activate_workspace_by_index = {
+		herdr = function(_, _, index)
+			backend.activate_workspace_by_index("herdr", index)
+		end,
+		tuios = function(_, _, index)
+			tuios.select_workspace(index)
+		end,
+	},
+
+	activate_tab_by_index = {
+		herdr = function(_, _, index)
+			local tab = backend.get_tab_by_index("herdr", index)
+			if tab then
+				backend.focus_tab_by_id("herdr", tab.tab_id)
+			end
+		end,
+		wezterm = function(window, _, index)
+			local next_tab_index = index - 1
+			local active_tab = window:active_tab()
+
+			for idx, tab in ipairs(window:mux_window():tabs()) do
+				if tab:tab_id() == active_tab:tab_id() then
+					if (idx - 1) == next_tab_index then
+						return wezterm.action.ActivateLastTab
+					end
+					break
+				end
+			end
+
+			return wezterm.action.ActivateTab(next_tab_index)
+		end,
+	},
+
+	new_tab = {
+		herdr = function()
+			backend.create_tab("herdr")
+		end,
+		wezterm = function(window)
+			local mux_win = window:mux_window()
+			for _, item in ipairs(mux_win:tabs_with_info()) do
+				if item.is_active then
+					mux_win:spawn_tab({})
+					window:perform_action(wezterm.action.MoveTab(item.index + 1))
+					return
+				end
+			end
+		end,
+	},
+
+	goto_workspace_or_tab = {
+		herdr = function(_, _, index)
+			backend.activate_workspace_by_index("herdr", index)
+		end,
+		tuios = function(_, _, index)
+			tuios.select_workspace(index)
+		end,
+		wezterm = function(window, _, index)
+			return activate_tab_action(window, index)
+		end,
+	},
+
+	goto_tab_or_workspace = {
+		herdr = function(_, _, index)
+			local tab = backend.get_tab_by_index("herdr", index)
+			if tab then
+				backend.focus_tab_by_id("herdr", tab.tab_id)
+			end
+		end,
+		tuios = function(_, _, index)
+			tuios.select_workspace(index)
+		end,
+		wezterm = function(window, _, index)
+			return activate_tab_action(window, index)
+		end,
+	},
+}
+
+M.resolve = function(name, window, pane, ...)
+	local target = M.dispatch[name]
+	if not target then
+		return
+	end
+
+	local backend_name = utils.backend_of(pane)
+	local handler = target[backend_name]
+	if not handler then
+		return
+	end
+
+	local action = handler(window, pane, ...)
+	if action then
+		window:perform_action(action, pane)
+	end
+end
+
+M.active_pane = function(window, pane, direction, vim_direction)
+	M.resolve("active_pane", window, pane, direction, vim_direction)
 end
 
 M.resize_pane = function(window, pane, direction)
-	if utils.is_herdr(pane) then
-		herdr.resize_pane(string.lower(direction))
-	elseif utils.is_tuios(pane) then
-		tuios.resize_pane(string.lower(direction))
-	else
-		window:perform_action(wezterm.action.AdjustPaneSize({ direction, 5 }), pane)
-	end
+	M.resolve("resize_pane", window, pane, direction)
 end
 
 M.toggle_zoom = function(window, pane)
-	if utils.is_herdr(pane) then
-		herdr.toggle_zoom_pane()
-	elseif utils.is_tuios(pane) then
-		tuios.toggle_zoom_pane()
-	else
-		window:perform_action(wezterm.action.TogglePaneZoomState, pane)
-	end
+	M.resolve("toggle_zoom", window, pane)
 end
 
 M.split_pane = function(window, pane, type)
-	if utils.is_herdr(pane) then
-		herdr.split_pane(type)
-	elseif utils.is_tuios(pane) then
-		if type == "right" then
-			tuios.split_vertical()
-		else
-			tuios.split_horizontal()
-		end
-	else
-		if type == "right" then
-			window:perform_action(wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }), pane)
-		elseif type == "down" then
-			window:perform_action(wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }), pane)
-		end
-	end
+	M.resolve("split_pane", window, pane, type)
+end
+
+M.rotate_panes = function(window, pane)
+	M.resolve("rotate_panes", window, pane)
 end
 
 M.activate_tab = function(window, pane, direction)
-	if utils.is_herdr(pane) then
-		herdr.activate_tab(direction)
-	elseif utils.is_tuios(pane) then
-		tuios.switch_session_relative(direction)
-	else
-		if direction == "previous" then
-			window:perform_action(wezterm.action.ActivateTabRelative(-1), pane)
-		elseif direction == "next" then
-			window:perform_action(wezterm.action.ActivateTabRelative(1), pane)
-		end
-	end
+	M.resolve("activate_tab", window, pane, direction)
 end
 
-M.activate_workspace_by_index = function(pane, index)
-	if utils.is_herdr(pane) then
-		herdr.activate_workspace_by_index(index)
-	elseif utils.is_tuios(pane) then
-		tuios.select_workspace(index)
-	end
+M.activate_workspace = function(window, pane, direction)
+	M.resolve("activate_workspace", window, pane, direction)
+end
+
+M.activate_workspace_by_index = function(window, pane, index)
+	M.resolve("activate_workspace_by_index", window, pane, index)
 end
 
 M.activate_tab_by_index = function(window, pane, index)
-	if utils.is_herdr(pane) then
-		local tab = herdr.get_tab_by_index(index)
-		if tab then
-			herdr.activate_tab_by_id(tab.tab_id)
-		end
-	else
-		local active_tab_index = nil
-		local next_tab_index = index - 1
+	M.resolve("activate_tab_by_index", window, pane, index)
+end
 
-		local active_tab = window:active_tab()
-		for idx, tab in ipairs(window:mux_window():tabs()) do
-			if tab:tab_id() == active_tab:tab_id() then
-				active_tab_index = idx - 1
-				break
-			end
-		end
+M.goto_workspace_or_tab = function(window, pane, index)
+	M.resolve("goto_workspace_or_tab", window, pane, index)
+end
 
-		if active_tab_index == next_tab_index then
-			window:perform_action(wezterm.action.ActivateLastTab, pane)
-		else
-			window:perform_action(wezterm.action.ActivateTab(next_tab_index), pane)
-		end
-	end
+M.goto_tab_or_workspace = function(window, pane, index)
+	M.resolve("goto_tab_or_workspace", window, pane, index)
 end
 
 M.new_tab = function(window, pane)
-	if utils.is_herdr(pane) then
-		herdr.new_tab()
-	else
-		-- https://github.com/wez/wezterm/issues/909
-		local mux_win = window:mux_window()
-		for _, item in ipairs(mux_win:tabs_with_info()) do
-			if item.is_active then
-				mux_win:spawn_tab({})
-				window:perform_action(wezterm.action.MoveTab(item.index + 1), pane)
-				return
-			end
-		end
-	end
-end
-
-M.activate_workspace = function(pane, direction)
-	if utils.is_herdr(pane) then
-		herdr.activate_workspace(direction)
-	elseif utils.is_tuios(pane) then
-		tuios.activate_workspace(direction)
-	end
-end
-
-M.rotate_panes = function(pane)
-	if utils.is_herdr(pane) then
-		wezterm.log_warn("rotate_panes: Not implemented on herdr")
-	else
-		wezterm.action.RotatePanes("CounterClockwise")
-	end
+	M.resolve("new_tab", window, pane)
 end
 
 return M

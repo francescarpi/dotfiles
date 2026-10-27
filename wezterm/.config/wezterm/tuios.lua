@@ -1,57 +1,85 @@
 local wezterm = require("wezterm")
+local backend = require("backend")
 
 local M = {}
+
 local tuios_bin = "/opt/homebrew/bin/tuios"
 local previous_workspace = nil
 
-M.split_horizontal = function()
-	wezterm.background_child_process({
-		tuios_bin,
-		"split-window",
-		"horizontal",
-	})
+M.query = function(args)
+	local cmd = { tuios_bin }
+	for _, arg in ipairs(args) do
+		table.insert(cmd, arg)
+	end
+
+	local _, stdout = wezterm.run_child_process(cmd)
+	if not stdout or stdout == "" then
+		return nil
+	end
+
+	local ok, data = pcall(wezterm.json_parse, stdout)
+	if not ok or not data then
+		return nil
+	end
+
+	return data
 end
 
-M.split_vertical = function()
-	wezterm.background_child_process({
-		tuios_bin,
-		"split-window",
-		"vertical",
-	})
+M.run = function(args)
+	local cmd = { tuios_bin }
+	for _, arg in ipairs(args) do
+		table.insert(cmd, arg)
+	end
+	wezterm.background_child_process(cmd)
 end
 
-M.activate_window = function(direction)
-	wezterm.background_child_process({
-		tuios_bin,
-		"pane",
-		"focus",
-		"--direction",
-		direction,
-		"--current",
-	})
+M.get_current_workspace = function()
+	local data = M.query({ "list-workspaces", "--json" })
+	if not data then
+		return nil
+	end
+
+	return data.current_workspace
 end
 
-M.resize_pane = function(direction)
-	wezterm.background_child_process({
-		tuios_bin,
-		"pane",
-		"resize",
-		"--direction",
-		direction,
-		"--amount",
-		".05",
-		"--current",
-	})
+M.get_focused_window = function()
+	local data = M.query({ "list-workspaces", "--json" })
+	if not data or not data.workspaces then
+		return nil
+	end
+
+	for _, workspace in ipairs(data.workspaces) do
+		if workspace.current and workspace.focused_window_id ~= "" then
+			return workspace.focused_window_id
+		end
+	end
+
+	return nil
 end
 
-M.toggle_zoom_pane = function()
-	wezterm.background_child_process({
-		tuios_bin,
-		"pane",
-		"zoom",
-		"--current",
-		"--toggle",
-	})
+M.split_window = function(direction)
+	local focused = M.get_focused_window()
+	local args = { "split-window", direction }
+	if focused then
+		table.insert(args, "-w")
+		table.insert(args, focused)
+	end
+
+	M.run(args)
+end
+
+M.rotate_layout = function()
+	local sessions = M.get_sessions()
+	if not sessions then
+		return
+	end
+
+	local current = M.get_current_session(sessions)
+	if not current then
+		return
+	end
+
+	M.run({ "call", "set-layout", '{"session":"' .. current .. '","rotate":true}' })
 end
 
 M.select_workspace = function(num, opts)
@@ -65,15 +93,14 @@ M.select_workspace = function(num, opts)
 
 	previous_workspace = current
 
-	wezterm.background_child_process({
-		tuios_bin,
-		"select-workspace",
-		tostring(target),
-	})
+	M.run({ "select-workspace", tostring(target) })
 end
 
 M.activate_workspace = function(direction)
 	local current = M.get_current_workspace()
+	if not current then
+		return
+	end
 
 	local next
 	if direction == "next" then
@@ -85,18 +112,22 @@ M.activate_workspace = function(direction)
 	M.select_workspace(next, { allow_toggle = false })
 end
 
+M.get_sessions = function()
+	return M.query({ "ls", "--json" })
+end
+
 M.get_clients = function()
-	local _, stdout = wezterm.run_child_process({ tuios_bin, "list-clients", "--json" })
-	if not stdout or stdout == "" then
-		return nil
+	return M.query({ "list-clients", "--json" })
+end
+
+M.get_current_session = function(sessions)
+	for _, session in ipairs(sessions) do
+		if session.attached then
+			return session.name
+		end
 	end
 
-	local ok, data = pcall(wezterm.json_parse, stdout)
-	if not ok or not data then
-		return nil
-	end
-
-	return data
+	return nil
 end
 
 M.switch_session = function(name)
@@ -109,38 +140,14 @@ M.switch_session = function(name)
 		end
 	end
 
-	local args = { tuios_bin, "switch-session" }
+	local args = { "switch-session" }
 	if client_id then
 		table.insert(args, "--client")
 		table.insert(args, client_id)
 	end
 	table.insert(args, name)
 
-	wezterm.background_child_process(args)
-end
-
-M.get_sessions = function()
-	local _, stdout = wezterm.run_child_process({ tuios_bin, "ls", "--json" })
-	if not stdout or stdout == "" then
-		return nil
-	end
-
-	local ok, data = pcall(wezterm.json_parse, stdout)
-	if not ok or not data then
-		return nil
-	end
-
-	return data
-end
-
-M.get_current_session = function(sessions)
-	for _, session in ipairs(sessions) do
-		if session.attached then
-			return session.name
-		end
-	end
-
-	return nil
+	M.run(args)
 end
 
 M.switch_session_relative = function(direction)
@@ -174,20 +181,6 @@ M.switch_session_relative = function(direction)
 	end
 
 	M.switch_session(sessions[target].name)
-end
-
-M.get_current_workspace = function()
-	local _, stdout = wezterm.run_child_process({ tuios_bin, "list-workspaces", "--json" })
-	if not stdout or stdout == "" then
-		return nil
-	end
-
-	local ok, data = pcall(wezterm.json_parse, stdout)
-	if not ok or not data then
-		return nil
-	end
-
-	return data.current_workspace
 end
 
 return M
