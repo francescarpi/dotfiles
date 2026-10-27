@@ -60,6 +60,8 @@ end
 M.activate_tab = function(window, pane, direction)
 	if utils.is_herdr(pane) then
 		herdr.activate_tab(direction)
+	elseif utils.is_tuios(pane) then
+		tuios.switch_session_relative(direction)
 	else
 		if direction == "previous" then
 			window:perform_action(wezterm.action.ActivateTabRelative(-1), pane)
