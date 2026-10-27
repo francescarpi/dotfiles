@@ -32,6 +32,8 @@ end
 M.toggle_zoom = function(window, pane)
 	if utils.is_herdr(pane) then
 		herdr.toggle_zoom_pane()
+	elseif utils.is_tuios(pane) then
+		tuios.toggle_zoom_pane()
 	else
 		window:perform_action(wezterm.action.TogglePaneZoomState, pane)
 	end

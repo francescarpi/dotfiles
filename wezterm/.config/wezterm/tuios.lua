@@ -42,6 +42,16 @@ M.resize_pane = function(direction)
 	})
 end
 
+M.toggle_zoom_pane = function()
+	wezterm.background_child_process({
+		tuios_bin,
+		"pane",
+		"zoom",
+		"--current",
+		"--toggle",
+	})
+end
+
 M.select_workspace = function(num, opts)
 	local allow_toggle = opts == nil or opts.allow_toggle ~= false
 	local current = M.get_current_workspace()
