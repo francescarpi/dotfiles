@@ -76,3 +76,6 @@ vim.o.laststatus = 3
 
 -- Avoid multiple lines for commands
 vim.o.cmdheight = 0
+
+-- No swap
+vim.opt.swapfile = false
