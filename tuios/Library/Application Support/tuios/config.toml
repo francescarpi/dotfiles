@@ -140,4 +140,4 @@ enabled = true
 enabled = false
 
 [keybindings.global]
-command_palette = ["ctrl+d"]
+command_palette = ["ctrl+alt+p"]
