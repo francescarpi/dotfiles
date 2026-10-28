@@ -40,3 +40,8 @@ if [ -f "$HOME/.ai.sh" ]; then
 fi
 
 export PATH="$PATH:$HOME/.lmstudio/bin"
+
+# ~/.zshrc, or ~/.bashrc
+if [ -n "$REX_BIN_DIR" ]; then
+    export PATH="$REX_BIN_DIR:$PATH"
+fi
