@@ -13,3 +13,5 @@ rex.bind("cmd+l", "pane.focus.right")
 rex.bind("cmd+h", "pane.focus.left")
 rex.bind("cmd+k", "pane.focus.up")
 rex.bind("cmd+j", "pane.focus.down")
+
+rex.bind("cmd+z", "pane.zoom")
