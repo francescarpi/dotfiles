@@ -33,15 +33,8 @@ export KUBECTX_IGNORE_FZF=1
 export ANTIDOTE_HOME=~/.cache/antidote
 export DOTNET_ROOT="$HOME/.dotnet"
 
-if [ -f "$HOME/.ai.sh" ]; then
-  # source it
-  # shellcheck disable=SC1090
-  source $HOME/.ai.sh
-fi
-
-export PATH="$PATH:$HOME/.lmstudio/bin"
-
 # ~/.zshrc, or ~/.bashrc
 if [ -n "$REX_BIN_DIR" ]; then
     export PATH="$REX_BIN_DIR:$PATH"
 fi
+
