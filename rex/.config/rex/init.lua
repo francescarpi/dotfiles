@@ -24,6 +24,8 @@ rex.bind("cmd+shift+p", "session.previous")
 
 rex.bind("cmd+enter", "client.palette.toggle")
 
+rex.bind("cmd+s", "session.switch")
+
 -- cmd+1..cmd+9 jump to a tab by number. Pressing the same number again while
 -- already on that tab goes back to the tab you came from.
 --
