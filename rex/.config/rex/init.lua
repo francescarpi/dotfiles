@@ -128,3 +128,47 @@ end
 -- cmd+a goes back to the previous tab. No index, so the action treats it as
 -- "previous tab".
 rex.bind("cmd+a", "tab_goto")
+
+rex.action({
+	name = "lazygit",
+	title = "Open floating window with LazyGit",
+	run = function(ctx, args)
+		local view, err = rex.session.view({ session_id = ctx.session_id })
+		if err ~= nil then
+			error(err, 0)
+		end
+
+		local focused_block_id
+		for _, window in ipairs(view.windows or {}) do
+			if window.window_id == view.active_window_id then
+				focused_block_id = window.focused_block_id
+				break
+			end
+		end
+
+		local cwd
+		if focused_block_id ~= nil then
+			local proc = rex.call("com.superlogical.terminal.process", {
+				session_id = ctx.session_id,
+				block_id = focused_block_id,
+			})
+			cwd = proc and proc.foreground and proc.foreground.cwd
+		end
+		local options = { command = { "lazygit" } }
+		if cwd ~= nil and cwd ~= "" then
+			options.cwd = cwd
+		end
+
+		rex.session.new_layer({
+			bounds = { 0.1, 0.1, 0.8, 0.8 },
+			focus = true,
+			layout = rex.layout.block({
+				flavor = "com.superlogical.terminal.shell",
+				label = "LazyGit",
+				options = options,
+			}),
+		})
+	end,
+})
+
+rex.bind("cmd+/", "lazygit")
