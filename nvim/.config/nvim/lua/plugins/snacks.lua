@@ -51,6 +51,27 @@ return {
         end,
         desc = "Lazygit",
       },
+      {
+        "ff",
+        function()
+          Snacks.picker.files({ hidden = true })
+        end,
+        desc = "Find Files",
+      },
+      {
+        "fg",
+        function()
+          Snacks.picker.grep({ hidden = true })
+        end,
+        desc = "Grep",
+      },
+      {
+        "fr",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "Resume",
+      },
     },
   },
 }
